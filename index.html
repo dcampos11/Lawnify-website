@@ -92,6 +92,21 @@
     </div>
 
   </div>
+  <!-- IntersectionObserver script to toggle .in-view -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const imgs = document.querySelectorAll('.feature-img');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
 
+      imgs.forEach(img => observer.observe(img));
+    });
+  </script>
 </body>
 </html>
