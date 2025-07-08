@@ -1,7 +1,246 @@
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #000;
+  color: #333;
+  line-height: 1.6;
+  padding: 0;
+  margin: 0;
+}
+
+
+.black-header {
+  background-color: #000;
+  color: white;
+  padding: calc(env(safe-area-inset-top, 0px) + 60px) 20px 50px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  max-width: 280px;
+  width: auto;
+  height: auto;
+  display: block;
+}
+
+.sub-tagline {
+  font-size: 20px;
+  color: white;
+  margin-top: 8px;
+}
+
+
+.carousel {
+  overflow: hidden;
+  background-color: #f7f7f7;
+  padding: 40px 0;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  animation: scroll 30s linear infinite;
+  width: max-content;
+}
+
+.carousel-item {
+  min-width: 300px;
+  height: 300px;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+
+.store-badge-section {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0 20px;
+}
+
+.app-store-badge {
+  height: 48px;
+}
+
+
+.about,
+.preview,
+.footer {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 20px;
+} */
+
+
+
+/* FEATURES: desktop = row of 3, each a column; mobile = stacked */
+/* .features {
+  max-width: 1000px;
+  margin: 60px auto;
+  display: flex;
+  flex-direction: row;
+  gap: 80px;
+  padding: 0 20px;
+  justify-content: center;
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  flex: 1;
+  min-width: 0;
+}
+
+.feature .text h3 {
+  font-size: 28px;
+  color: #2a9d8f;
+  margin-bottom: 10px;
+}
+
+.feature .text p {
+  font-size: 18px;
+  line-height: 1.5;
+  color: #333;
+}
+
+.feature-img {
+  width: 100%;
+  max-width: 400px;
+  filter:
+    drop-shadow(0px 12px 24px rgba(0, 0, 0, 0.3))
+    drop-shadow(0px 8px  16px rgba(0, 0, 0, 0.2));
+  border-radius: 0;
+} */
+/* FEATURES: desktop = row of 3, each a column; mobile = stacked */
+
+
+/* .features {
+  max-width: 1000px;
+  margin: 60px auto;
+  display: flex;
+  flex-direction: row;
+  gap: 80px;
+  padding: 0 20px;
+  justify-content: center;
+   overflow: visible;
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  flex: 1;
+  min-width: 0;
+   overflow: visible;
+}
+
+.feature .text h3 {
+  font-size: 28px;
+  color: #2a9d8f;
+  margin-bottom: 10px;
+}
+
+.feature .text p {
+  font-size: 18px;
+  line-height: 1.5;
+  color: #333;
+}
+
+
+.feature-img {
+  width: 100%;
+  max-width: 400px;
+
+  box-shadow:
+    drop-shadow(0px 12px 24px rgba(0, 0, 0, 0.3))
+    drop-shadow(0px 8px  16px rgba(0, 0, 0, 0.2));
+  border-radius: 0;
+
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+
+.feature-img.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 64px;
+  }
+  .hero p {
+    font-size: 24px;
+  }
+
+  .features {
+    flex-direction: column;
+  }
+  .feature {
+    margin-bottom: 40px;
+  }
+}
+
+
+.page-content {
+  background-color: #f7f7f7;
+}
+
+.legal {
+  background-color: #f7f7f7;
+  text-align: center;
+  font-size: 14px;
+  color: #888;
+  padding: 20px 10px;
+}
+ */
+
+/* Reset & globals */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+/* Make sure nothing clips our shadows */
+html,
+body,
+.page-content,
+.features,
+.feature {
+  overflow: visible !important;
 }
 
 body {
@@ -61,12 +300,8 @@ body {
 }
 
 @keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 /* Store badge */
@@ -80,7 +315,7 @@ body {
   height: 48px;
 }
 
-/* About / Preview / Footer sections */
+/* About / Preview / Footer */
 .about,
 .preview,
 .footer {
@@ -96,48 +331,7 @@ img {
   margin-top: 20px;
 }
 
-/* FEATURES: desktop = row of 3, each a column; mobile = stacked */
-/* .features {
-  max-width: 1000px;
-  margin: 60px auto;
-  display: flex;
-  flex-direction: row;
-  gap: 80px;
-  padding: 0 20px;
-  justify-content: center;
-}
-
-.feature {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 16px;
-  flex: 1;
-  min-width: 0;
-}
-
-.feature .text h3 {
-  font-size: 28px;
-  color: #2a9d8f;
-  margin-bottom: 10px;
-}
-
-.feature .text p {
-  font-size: 18px;
-  line-height: 1.5;
-  color: #333;
-}
-
-.feature-img {
-  width: 100%;
-  max-width: 400px;
-  filter:
-    drop-shadow(0px 12px 24px rgba(0, 0, 0, 0.3))
-    drop-shadow(0px 8px  16px rgba(0, 0, 0, 0.2));
-  border-radius: 0;
-} */
-/* FEATURES: desktop = row of 3, each a column; mobile = stacked */
+/* FEATURES: desktop = row of 3, mobile = stacked */
 .features {
   max-width: 1000px;
   margin: 60px auto;
@@ -146,7 +340,6 @@ img {
   gap: 80px;
   padding: 0 20px;
   justify-content: center;
-   overflow: visible;
 }
 
 .feature {
@@ -157,7 +350,8 @@ img {
   gap: 16px;
   flex: 1;
   min-width: 0;
-   overflow: visible;
+  /* make room for the drop-shadow under the phone */
+  padding-bottom: 32px;
 }
 
 .feature .text h3 {
@@ -172,36 +366,32 @@ img {
   color: #333;
 }
 
-/* fade-in initial state */
+/* fade-in with drop-shadow */
 .feature-img {
   width: 100%;
   max-width: 400px;
-/*   filter: */
-  box-shadow:
+  filter:
     drop-shadow(0px 12px 24px rgba(0, 0, 0, 0.3))
     drop-shadow(0px 8px  16px rgba(0, 0, 0, 0.2));
   border-radius: 0;
 
-  /* fade-in setup */
+  /* animation setup */
   opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out,
+              transform 0.6s ease-out;
+
+  /* keep GPU layer active so filter stays applied */
+  will-change: opacity, transform, filter;
 }
 
-/* when JS adds this class, the image will fade up into view */
 .feature-img.in-view {
   opacity: 1;
   transform: translateY(0);
 }
-/* Responsive */
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 64px;
-  }
-  .hero p {
-    font-size: 24px;
-  }
 
+/* Responsive adjustments */
+@media (max-width: 768px) {
   .features {
     flex-direction: column;
   }
