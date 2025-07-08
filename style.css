@@ -35,12 +35,19 @@ body {
 .cta-button {
   background-color: white;
   color: #5db94a;
-  padding: 12px 12px;
-  font-weight: bold;
-  font-size: 18px;
+  padding: 8px 20px;
+  font-size: 16px;
+  font-weight: normal;
   text-decoration: none;
-  border-radius: 16px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 999px; /* pill shape */
+  border: none;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
 }
 
 
