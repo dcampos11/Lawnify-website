@@ -5,28 +5,18 @@
   box-sizing: border-box;
 }
 
-/* body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f7f7f7;
-  color: #333;
-  line-height: 1.6;
-  padding: 0;
-  margin: 0;
-} */
 body {
   font-family: 'Segoe UI', sans-serif;
-  background-color: #000; /* black background for full-screen top */
+  background-color: #000; 
   color: #333;
   line-height: 1.6;
   padding: 0;
   margin: 0;
 }
 
-
 .black-header {
   background-color: #000;
   color: white;
-/*   padding: 60px 20px 50px; */
   padding: calc(env(safe-area-inset-top, 0px) + 60px) 20px 50px;
   text-align: center;
   display: flex;
