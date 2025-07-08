@@ -175,4 +175,7 @@ img {
     transform: translateX(-50%);
   }
 }
+.page-content {
+  background-color: #fff;
+}
 
