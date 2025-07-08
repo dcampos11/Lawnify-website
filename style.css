@@ -13,7 +13,7 @@ body {
   padding: 0;
   margin: 0;
 }
-
+/* 
 .black-header {
   background-color: #000;
   color: white;
@@ -22,7 +22,24 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 28px; /* controls space between logo and button */
+  gap: 28px;
+}
+
+.logo {
+  max-width: 280px;
+  width: auto;
+  height: auto;
+  display: block;
+} */
+.black-header {
+  background-color: #000;
+  color: white;
+  padding: 60px 20px 50px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
 }
 
 .logo {
@@ -32,9 +49,20 @@ body {
   display: block;
 }
 
+.sub-tagline {
+  font-size: 20px;
+  color: white;
+  margin-top: 8px;
+}
+
+.store-badge-section {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0 20px;
+}
+
 .app-store-badge {
   height: 48px;
-  margin-top: 12px;
 }
 
 .about,
