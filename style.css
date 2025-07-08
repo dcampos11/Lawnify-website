@@ -14,35 +14,24 @@ body {
   margin: 0;
 }
 
-/* 🔥 HERO HEADER */
-.hero {
-  position: relative;
-  text-align: center;
-  padding: 160px 20px 120px;
-  overflow: hidden;
+.black-header {
+  background-color: #000;
   color: white;
+  padding: 80px 20px 60px;
+  text-align: center;
 }
 
-.hero .gradient-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-
-  background: linear-gradient(135deg, #007b70, #5db94a, #45ab51);
-  
-  /* Fade bottom */
-  mask-image: linear-gradient(to top, white 0%, white 30%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to top, white 0%, white 30%, transparent 100%);
-}
-
-.hero h1 {
-  font-size: 48px;
-  margin-bottom: 10px;
-}
-
-.hero p {
-  font-size: 20px;
+.logo {
+  max-width: 200px;
+  width: auto;
+  height: auto;
   margin-bottom: 20px;
+}
+
+.tagline {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #ffffff;
 }
 
 .cta-button {
@@ -52,8 +41,9 @@ body {
   font-weight: bold;
   text-decoration: none;
   border-radius: 6px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 .about,
 .preview,
 .footer {
