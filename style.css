@@ -17,32 +17,32 @@ body {
 .black-header {
   background-color: #000;
   color: white;
-  padding: 80px 20px 60px;
+  padding: 60px 20px 50px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px; /* controls space between logo and button */
 }
 
 .logo {
-  max-width: 300px;
+  max-width: 280px;
   width: auto;
   height: auto;
-}
-
-.tagline {
-  font-size: 22px;
-  margin-top: 5px;
-  margin-bottom: 20px;
-  color: #ffffff;
+  display: block;
 }
 
 .cta-button {
   background-color: white;
   color: #5db94a;
-  padding: 12px 24px;
+  padding: 14px 30px;
   font-weight: bold;
+  font-size: 18px;
   text-decoration: none;
   border-radius: 16px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 
 .about,
 .preview,
