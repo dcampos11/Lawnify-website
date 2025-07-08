@@ -148,9 +148,9 @@ img {
 
   /* animation setup */
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s ease-out,
-              transform 0.8s ease-out;
+  transform: translateY(50px);
+  transition: opacity 1.5s ease-out,
+              transform 1.5s ease-out;
 
   /* keep GPU layer active so filter stays applied */
   will-change: opacity, transform, filter;
