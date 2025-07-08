@@ -122,7 +122,7 @@ img {
   flex: 1;
   min-width: 0;
   /* make room for the drop-shadow under the phone */
-  padding-bottom: 32px;
+  padding-bottom: 16px;
 }
 
 .feature .text h3 {
