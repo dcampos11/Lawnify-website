@@ -50,6 +50,10 @@ body {
   transform: scale(1.05);
 }
 
+.app-store-badge {
+  height: 48px;
+  margin-top: 12px;
+}
 
 .about,
 .preview,
