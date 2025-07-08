@@ -130,4 +130,35 @@ img {
     transform: none;
   }
 }
+.carousel {
+  overflow: hidden;
+  background-color: #f7f7f7;
+  padding: 40px 0;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  animation: scroll 30s linear infinite;
+  width: max-content;
+}
+
+.carousel-item {
+  min-width: 200px;
+  height: 120px;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  flex-shrink: 0;
+}
+
+/* Animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
 
