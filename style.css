@@ -1,11 +1,10 @@
-
+/* 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Make sure nothing clips our shadows */
 html,
 body,
 .page-content,
@@ -23,7 +22,7 @@ body {
   margin: 0;
 }
 
-/* Header */
+
 .black-header {
   background-color: #000;
   color: white;
@@ -48,7 +47,7 @@ body {
   margin-top: 8px;
 }
 
-/* Carousel */
+
 .carousel {
   overflow: hidden;
   background-color: #f7f7f7;
@@ -76,7 +75,7 @@ body {
   100% { transform: translateX(-50%); }
 }
 
-/* Store badge */
+
 .store-badge-section {
   display: flex;
   justify-content: center;
@@ -87,7 +86,6 @@ body {
   height: 48px;
 }
 
-/* About / Preview / Footer */
 .about,
 .preview,
 .footer {
@@ -103,7 +101,7 @@ img {
   margin-top: 20px;
 }
 
-/* FEATURES: desktop = row of 3, mobile = stacked */
+
 .features {
   max-width: 1000px;
   margin: 60px auto;
@@ -122,7 +120,6 @@ img {
   gap: 16px;
   flex: 1;
   min-width: 0;
-  /* make room for the drop-shadow under the phone */
   padding-bottom: 16px;
 }
 
@@ -138,7 +135,7 @@ img {
   color: #333;
 }
 
-/* fade-in with drop-shadow */
+
 .feature-img {
   width: 100%;
   max-width: 400px;
@@ -147,13 +144,12 @@ img {
     drop-shadow(0px 8px  16px rgba(0, 0, 0, 0.2));
   border-radius: 0;
 
-  /* animation setup */
+ 
   opacity: 0;
   transform: translateY(50px);
   transition: opacity 1.5s ease-out,
               transform 1.5s ease-out;
 
-  /* keep GPU layer active so filter stays applied */
   will-change: opacity, transform, filter;
 }
 
@@ -162,7 +158,7 @@ img {
   transform: translateY(0);
 }
 
-/* hover effect */
+
 .feature-img.in-view:hover {
   transform: translateY(-5px) scale(1.02);
   filter:
@@ -171,7 +167,7 @@ img {
 }
 
 
-/* Responsive adjustments */
+
 @media (max-width: 768px) {
   .features {
     flex-direction: column;
@@ -181,11 +177,188 @@ img {
   }
 }
 
-/* Page content & legal */
+
 .page-content {
   background-color: #f7f7f7;
 }
 
+.legal {
+  background-color: #f7f7f7;
+  text-align: center;
+  font-size: 14px;
+  color: #888;
+  padding: 20px 10px;
+}
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* Make sure nothing clips our shadows */
+html,
+body,
+.page-content,
+.features,
+.feature {
+  overflow: visible !important;
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #000;
+  color: #333;
+  line-height: 1.6;
+  padding: 0;
+  margin: 0;
+}
+/* Header */
+.black-header {
+  background-color: #000;
+  color: white;
+  padding: calc(env(safe-area-inset-top, 0px) + 60px) 20px 50px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.logo {
+  max-width: 280px;
+  width: auto;
+  height: auto;
+  display: block;
+}
+.sub-tagline {
+  font-size: 20px;
+  color: white;
+  margin-top: 8px;
+}
+/* Carousel */
+.carousel {
+  overflow: hidden;
+  background-color: #f7f7f7;
+  padding: 40px 0;
+}
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  animation: scroll 30s linear infinite;
+  width: max-content;
+}
+.carousel-item {
+  min-width: 300px;
+  height: 300px;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  overflow: hidden;
+  position: relative;
+}
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+/* Store badge */
+.store-badge-section {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0 20px;
+}
+.app-store-badge {
+  height: 48px;
+}
+/* About / Preview / Footer */
+.about,
+.preview,
+.footer {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 20px;
+}
+/* FEATURES: desktop = row of 3, mobile = stacked */
+.features {
+  max-width: 1000px;
+  margin: 60px auto;
+  display: flex;
+  flex-direction: row;
+  gap: 80px;
+  padding: 0 20px;
+  justify-content: center;
+}
+.feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  flex: 1;
+  min-width: 0;
+  /* make room for the drop-shadow under the phone */
+  padding-bottom: 16px;
+}
+.feature .text h3 {
+  font-size: 28px;
+  color: #2a9d8f;
+  margin-bottom: 10px;
+}
+.feature .text p {
+  font-size: 18px;
+  line-height: 1.5;
+  color: #333;
+}
+/* fade-in with drop-shadow */
+.feature-img {
+  width: 100%;
+  max-width: 400px;
+  filter:
+    drop-shadow(0px 12px 24px rgba(0, 0, 0, 0.3))
+    drop-shadow(0px 8px  16px rgba(0, 0, 0, 0.2));
+  border-radius: 0;
+  /* animation setup */
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1.5s ease-out,
+              transform 1.5s ease-out;
+  /* keep GPU layer active so filter stays applied */
+  will-change: opacity, transform, filter;
+}
+.feature-img.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* hover effect */
+.feature-img.in-view:hover {
+  transform: translateY(-5px) scale(1.02);
+  filter:
+    drop-shadow(0px 16px 32px rgba(0, 0, 0, 0.32))
+    drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.22));
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .features {
+    flex-direction: column;
+  }
+  .feature {
+    margin-bottom: 5px;
+  }
+}
+/* Page content & legal */
+.page-content {
+  background-color: #f7f7f7;
+}
 .legal {
   background-color: #f7f7f7;
   text-align: center;
