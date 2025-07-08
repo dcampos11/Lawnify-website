@@ -92,17 +92,40 @@ img {
   box-shadow: 0 10px 20px rgba(0,0,0,0.1);
   border-radius: 12px;
 } */
-.feature-img {
+
+
+
+/* .feature-img {
   width: 100%;
-  max-width: 400px;       /* matches your original constraint */
+  max-width: 400px;      
   flex: 1;
-  border-radius: 12px;    /* keeps that rounded corner look */
+  border-radius: 12px;   
   box-shadow: 
     0 8px 16px rgba(0, 0, 0, 0.2),
     0 4px 8px rgba(0, 0, 0, 0.1);
-  transform: none;        /* nuke any leftover translate/rotate */
-  margin: 0 auto;         /* center on small screens if needed */
+  transform: none;       
+  margin: 0 auto;         
 }
+
+ */
+
+.feature-img {
+  /* sizing */
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+
+  /* remove the old box-shadow & rounding */
+  box-shadow: none;
+  border-radius: 0;
+
+  /* add a shadow that follows your PNG’s alpha channel */
+  filter:
+    drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.2))
+    drop-shadow(0px 4px  8px rgba(0, 0, 0, 0.1));
+}
+
 
 /* .feature.reverse img {
   transform: translateX(40px);
