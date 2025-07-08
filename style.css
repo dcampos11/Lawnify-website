@@ -84,13 +84,24 @@ img {
   flex-direction: row-reverse;
 }
 
-.feature img {
+/* .feature img {
   width: 100%;
   max-width: 400px;
   flex: 1;
   transform: translateX(-40px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.1);
   border-radius: 12px;
+} */
+.feature-img {
+  width: 100%;
+  max-width: 400px;       /* matches your original constraint */
+  flex: 1;
+  border-radius: 12px;    /* keeps that rounded corner look */
+  box-shadow: 
+    0 8px 16px rgba(0, 0, 0, 0.2),
+    0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: none;        /* nuke any leftover translate/rotate */
+  margin: 0 auto;         /* center on small screens if needed */
 }
 
 .feature.reverse img {
