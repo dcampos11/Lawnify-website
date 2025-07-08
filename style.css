@@ -63,7 +63,6 @@ img {
   margin-top: 20px;
 }
 
-/* Features Section */
 .features {
   max-width: 1000px;
   margin: 60px auto;
@@ -84,52 +83,18 @@ img {
   flex-direction: row-reverse;
 }
 
-/* .feature img {
-  width: 100%;
-  max-width: 400px;
-  flex: 1;
-  transform: translateX(-40px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-  border-radius: 12px;
-} */
-
-
-
-/* .feature-img {
-  width: 100%;
-  max-width: 400px;      
-  flex: 1;
-  border-radius: 12px;   
-  box-shadow: 
-    0 8px 16px rgba(0, 0, 0, 0.2),
-    0 4px 8px rgba(0, 0, 0, 0.1);
-  transform: none;       
-  margin: 0 auto;         
-}
-
- */
 
 .feature-img {
-  /* sizing */
   display: block;
   width: 100%;
   max-width: 400px;
   margin: 0 auto;
-
-  /* remove the old box-shadow & rounding */
   box-shadow: none;
   border-radius: 0;
-
-  /* add a shadow that follows your PNG’s alpha channel */
   filter:
     drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.2))
     drop-shadow(0px 4px  8px rgba(0, 0, 0, 0.1));
 }
-
-
-/* .feature.reverse img {
-  transform: translateX(40px);
-} */
 
 .feature .text {
   flex: 1;
@@ -148,7 +113,6 @@ img {
   color: #333;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .hero h1 {
     font-size: 64px;
@@ -163,10 +127,6 @@ img {
     text-align: center;
   }
 
-/*   .feature img,
-  .feature.reverse img {
-    transform: none;
-  } */
 }
 .carousel {
   overflow: hidden;
@@ -190,7 +150,6 @@ img {
   flex-shrink: 0;
 }
 
-/* Animation */
 @keyframes scroll {
   0% {
     transform: translateX(0);
