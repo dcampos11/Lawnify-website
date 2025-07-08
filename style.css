@@ -57,7 +57,7 @@ body {
 .hero {
   position: relative;
   text-align: center;
-  padding: 100px 20px 60px;
+  padding: 140px 20px 100px;
   overflow: hidden;
   color: white;
 }
@@ -66,11 +66,10 @@ body {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(180deg, #007b70 100%, #5db94a 100%, #45ab51 100%);
-  mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
+  background: linear-gradient(180deg, #007b70 0%, #5db94a 100%);
+  mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
 }
-
 .hero h1 {
   font-size: 48px;
   margin-bottom: 10px;
