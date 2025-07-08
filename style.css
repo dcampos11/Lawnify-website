@@ -5,14 +5,23 @@
   box-sizing: border-box;
 }
 
-body {
+/* body {
   font-family: 'Segoe UI', sans-serif;
   background-color: #f7f7f7;
   color: #333;
   line-height: 1.6;
   padding: 0;
   margin: 0;
+} */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #000; /* black background for full-screen top */
+  color: #333;
+  line-height: 1.6;
+  padding: 0;
+  margin: 0;
 }
+
 
 .black-header {
   background-color: #000;
