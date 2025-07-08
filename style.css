@@ -97,7 +97,7 @@ img {
 }
 
 /* FEATURES: desktop = row of 3, each a column; mobile = stacked */
-.features {
+/* .features {
   max-width: 1000px;
   margin: 60px auto;
   display: flex;
@@ -136,8 +136,60 @@ img {
     drop-shadow(0px 12px 24px rgba(0, 0, 0, 0.3))
     drop-shadow(0px 8px  16px rgba(0, 0, 0, 0.2));
   border-radius: 0;
+} */
+/* FEATURES: desktop = row of 3, each a column; mobile = stacked */
+.features {
+  max-width: 1000px;
+  margin: 60px auto;
+  display: flex;
+  flex-direction: row;
+  gap: 80px;
+  padding: 0 20px;
+  justify-content: center;
 }
 
+.feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  flex: 1;
+  min-width: 0;
+}
+
+.feature .text h3 {
+  font-size: 28px;
+  color: #2a9d8f;
+  margin-bottom: 10px;
+}
+
+.feature .text p {
+  font-size: 18px;
+  line-height: 1.5;
+  color: #333;
+}
+
+/* fade-in initial state */
+.feature-img {
+  width: 100%;
+  max-width: 400px;
+  filter:
+    drop-shadow(0px 12px 24px rgba(0, 0, 0, 0.3))
+    drop-shadow(0px 8px  16px rgba(0, 0, 0, 0.2));
+  border-radius: 0;
+
+  /* fade-in setup */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* when JS adds this class, the image will fade up into view */
+.feature-img.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
 /* Responsive */
 @media (max-width: 768px) {
   .hero h1 {
