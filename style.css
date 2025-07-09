@@ -247,8 +247,8 @@ body {
   width: max-content;
 }
 .carousel-item {
-  width: 450px;
-  height: 250px;
+  width: 380px;
+  height: 200px;
   background-color: white;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
