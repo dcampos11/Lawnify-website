@@ -297,6 +297,7 @@ body {
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
   z-index: 2;
   line-height: 1.2;
+   justify-content: center;
 }
 /* Remove the old keyframes animation */
 /* @keyframes scroll {
