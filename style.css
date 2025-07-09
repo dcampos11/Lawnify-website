@@ -1,4 +1,6 @@
-/* * {
+/* 
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -18,7 +20,6 @@ body {
   line-height: 1.6;
   padding: 0;
   margin: 0;
-}
 
 .black-header {
   background-color: #000;
@@ -40,18 +41,19 @@ body {
   font-size: 20px;
   color: white;
   margin-top: 8px;
-} */
-/* 
+}
+
 .carousel {
   overflow: hidden;
   background-color: #f7f7f7;
   padding: 40px 0;
+  position: relative;
 }
 .carousel-track {
   display: flex;
   gap: 20px;
-  animation: scroll 30s linear infinite;
-  width: max-content; 
+  width: max-content;
+
 }
 .carousel-item {
   width: 380px;
@@ -70,10 +72,6 @@ body {
   display: block;
   margin: 0;
   object-position: center;
-}
-@keyframes scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
 }
 
 .store-badge-section {
@@ -177,7 +175,6 @@ img {
   padding: 20px 10px;
 }
  */
-
 
 
 * {
@@ -335,12 +332,32 @@ img {
   opacity: 1;
   transform: translateY(0);
 }
-/* hover effect */
-.feature-img.in-view:hover {
-  transform: translateY(-5px) scale(1.02);
-  filter:
-    drop-shadow(0px 16px 32px rgba(0, 0, 0, 0.32))
-    drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.22));
+/* hover effect for desktop only */
+@media (hover: hover) and (pointer: fine) {
+  .feature-img.in-view:hover {
+    transform: translateY(-5px) scale(1.02);
+    filter:
+      drop-shadow(0px 16px 32px rgba(0, 0, 0, 0.32))
+      drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.22));
+  }
+}
+
+/* shake animation for mobile tap */
+@keyframes shake {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  10% { transform: translateY(0) translateX(-3px); }
+  20% { transform: translateY(0) translateX(3px); }
+  30% { transform: translateY(0) translateX(-3px); }
+  40% { transform: translateY(0) translateX(3px); }
+  50% { transform: translateY(0) translateX(-2px); }
+  60% { transform: translateY(0) translateX(2px); }
+  70% { transform: translateY(0) translateX(-2px); }
+  80% { transform: translateY(0) translateX(2px); }
+  90% { transform: translateY(0) translateX(-1px); }
+}
+
+.feature-img.shake {
+  animation: shake 0.6s ease-in-out;
 }
 /* Responsive adjustments */
 @media (max-width: 768px) {
