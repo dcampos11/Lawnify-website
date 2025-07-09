@@ -57,7 +57,7 @@ body {
 }
 .carousel-item {
   width: 380px;
-  height: 200px;
+  height: 500px;
   background-color: white;
   border-radius: 16px;
   box-shadow: 0 8px 16px rgba(0,0,0,0.32);
