@@ -343,7 +343,7 @@ img {
 }
 
 /* shake animation for mobile tap */
-@keyframes shake {
+/* @keyframes shake {
   0%, 100% { transform: translateY(0) translateX(0); }
   10% { transform: translateY(0) translateX(-3px); }
   20% { transform: translateY(0) translateX(3px); }
@@ -358,6 +358,24 @@ img {
 
 .feature-img.shake {
   animation: shake 0.6s ease-in-out;
+} */
+
+/* subtle shake animation for mobile tap */
+@keyframes shake {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  10% { transform: translateY(0) rotate(-2deg); }
+  20% { transform: translateY(0) rotate(2deg); }
+  30% { transform: translateY(0) rotate(-2deg); }
+  40% { transform: translateY(0) rotate(2deg); }
+  50% { transform: translateY(0) rotate(-1deg); }
+  60% { transform: translateY(0) rotate(1deg); }
+  70% { transform: translateY(0) rotate(-1deg); }
+  80% { transform: translateY(0) rotate(1deg); }
+  90% { transform: translateY(0) rotate(0deg); }
+}
+
+.feature-img.shake {
+  animation: shake 0.4s ease-in-out;
 }
 /* Responsive adjustments */
 @media (max-width: 768px) {
