@@ -1,4 +1,6 @@
-<!--  <!DOCTYPE html>
+<!-- 
+
+ <!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -22,7 +24,8 @@
   <div class="page-content">
    
    <section class="carousel">
-      <div class="carousel-track">
+      <div class="carousel-track" id="carouselTrack">
+        
         <div class="carousel-item"></div>
         <div class="carousel-item"></div>
         <div class="carousel-item">
@@ -90,9 +93,43 @@
       (Powered by Launchapd)
     </div>
   </div>
- 
+  
+
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+  
+      const track = document.getElementById('carouselTrack');
+      const items = Array.from(track.children);
+      
+     
+      items.forEach(item => {
+        const clone = item.cloneNode(true);
+        track.appendChild(clone);
+      });
+      
+    
+      const itemWidth = 380 + 20; 
+      const totalWidth = items.length * itemWidth;
+      
+
+      let currentTranslate = 0;
+      const speed = 1;
+      
+      function animate() {
+        currentTranslate -= speed;
+        
+        
+        if (Math.abs(currentTranslate) >= totalWidth) {
+          currentTranslate = 0;
+        }
+        
+        track.style.transform = `translateX(${currentTranslate}px)`;
+        requestAnimationFrame(animate);
+      }
+      
+
+      animate();
+      
       const imgs = document.querySelectorAll('.feature-img');
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -108,6 +145,7 @@
 </body>
 </html>
  -->
+
 
  <!DOCTYPE html>
 <html lang="en">
@@ -239,7 +277,7 @@
       // Start the animation
       animate();
       
-      // Feature images intersection observer (existing code)
+      // Feature images intersection observer and mobile tap effects
       const imgs = document.querySelectorAll('.feature-img');
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -250,6 +288,48 @@
         });
       }, { threshold: 0.25 });
       imgs.forEach(img => observer.observe(img));
+      
+      // Mobile tap-to-shake effect
+      function isMobileDevice() {
+        return window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+      }
+      
+      if (isMobileDevice()) {
+        imgs.forEach(img => {
+          img.addEventListener('touchstart', function(e) {
+            e.preventDefault(); // Prevent default touch behavior
+            
+            // Remove shake class if it exists
+            this.classList.remove('shake');
+            
+            // Force reflow to restart animation
+            this.offsetHeight;
+            
+            // Add shake class
+            this.classList.add('shake');
+            
+            // Remove shake class after animation completes
+            setTimeout(() => {
+              this.classList.remove('shake');
+            }, 600);
+          });
+          
+          // Also handle regular clicks for mobile browsers that support both
+          img.addEventListener('click', function(e) {
+            if (isMobileDevice()) {
+              e.preventDefault();
+              
+              this.classList.remove('shake');
+              this.offsetHeight;
+              this.classList.add('shake');
+              
+              setTimeout(() => {
+                this.classList.remove('shake');
+              }, 600);
+            }
+          });
+        });
+      }
     });
   </script>
 </body>
