@@ -1,5 +1,4 @@
 /* 
-
 * {
   margin: 0;
   padding: 0;
@@ -20,6 +19,7 @@ body {
   line-height: 1.6;
   padding: 0;
   margin: 0;
+}
 
 .black-header {
   background-color: #000;
@@ -135,12 +135,12 @@ img {
     drop-shadow(0px 12px 24px rgba(0, 0, 0, 0.3))
     drop-shadow(0px 8px  16px rgba(0, 0, 0, 0.2));
   border-radius: 0;
-
+ 
   opacity: 0;
   transform: translateY(50px);
   transition: opacity 1.5s ease-out,
               transform 1.5s ease-out;
-  
+
   will-change: opacity, transform, filter;
 }
 .feature-img.in-view {
@@ -148,11 +148,31 @@ img {
   transform: translateY(0);
 }
 
-.feature-img.in-view:hover {
-  transform: translateY(-5px) scale(1.02);
-  filter:
-    drop-shadow(0px 16px 32px rgba(0, 0, 0, 0.32))
-    drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.22));
+@media (hover: hover) and (pointer: fine) {
+  .feature-img.in-view:hover {
+    transform: translateY(-5px) scale(1.02);
+    filter:
+      drop-shadow(0px 16px 32px rgba(0, 0, 0, 0.32))
+      drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.22));
+  }
+}
+
+
+@keyframes shake {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  10% { transform: translateY(0) rotate(-2deg); }
+  20% { transform: translateY(0) rotate(2deg); }
+  30% { transform: translateY(0) rotate(-2deg); }
+  40% { transform: translateY(0) rotate(2deg); }
+  50% { transform: translateY(0) rotate(-1deg); }
+  60% { transform: translateY(0) rotate(1deg); }
+  70% { transform: translateY(0) rotate(-1deg); }
+  80% { transform: translateY(0) rotate(1deg); }
+  90% { transform: translateY(0) rotate(0deg); }
+}
+
+.feature-img.shake {
+  animation: shake 0.8s ease-in-out;
 }
 
 @media (max-width: 768px) {
@@ -252,6 +272,32 @@ body {
   margin: 0;
   object-position: center;
 }
+
+/* Gradient overlay */
+.carousel-gradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(to top, #007b70 0%, #5db94a 60%, transparent 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Carousel title */
+.carousel-title {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+  z-index: 2;
+  line-height: 1.2;
+}
 /* Remove the old keyframes animation */
 /* @keyframes scroll {
   0% { transform: translateX(0); }
@@ -342,24 +388,6 @@ img {
   }
 }
 
-/* shake animation for mobile tap */
-/* @keyframes shake {
-  0%, 100% { transform: translateY(0) translateX(0); }
-  10% { transform: translateY(0) translateX(-3px); }
-  20% { transform: translateY(0) translateX(3px); }
-  30% { transform: translateY(0) translateX(-3px); }
-  40% { transform: translateY(0) translateX(3px); }
-  50% { transform: translateY(0) translateX(-2px); }
-  60% { transform: translateY(0) translateX(2px); }
-  70% { transform: translateY(0) translateX(-2px); }
-  80% { transform: translateY(0) translateX(2px); }
-  90% { transform: translateY(0) translateX(-1px); }
-}
-
-.feature-img.shake {
-  animation: shake 0.6s ease-in-out;
-} */
-
 /* subtle shake animation for mobile tap */
 @keyframes shake {
   0%, 100% { transform: translateY(0) rotate(0deg); }
@@ -375,7 +403,7 @@ img {
 }
 
 .feature-img.shake {
-  animation: shake 0.8s ease-in-out;
+  animation: shake 0.4s ease-in-out;
 }
 /* Responsive adjustments */
 @media (max-width: 768px) {
