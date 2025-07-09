@@ -43,6 +43,16 @@
         <div class="carousel-item"></div>
       </div>
     </section>
+
+   
+   <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const track = document.querySelector('.carousel-track');
+    // duplicate all items
+    track.innerHTML += track.innerHTML;
+  });
+</script>
+
    
     <section class="store-badge-section">
       <a href="https://apps.apple.com/app/your-app-id">
