@@ -146,8 +146,7 @@
 </html>
  -->
 
-
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
@@ -289,40 +288,59 @@
       }, { threshold: 0.25 });
       imgs.forEach(img => observer.observe(img));
       
-      // Mobile tap-to-shake effect
+      // Mobile tap-to-shake effect with swipe detection
       function isMobileDevice() {
         return window.matchMedia('(hover: none) and (pointer: coarse)').matches;
       }
       
       if (isMobileDevice()) {
         imgs.forEach(img => {
-          img.addEventListener('touchstart', function(e) {
-            e.preventDefault(); // Prevent default touch behavior
-            
-            // Remove shake class if it exists
-            this.classList.remove('shake');
-            
-            // Force reflow to restart animation
-            this.offsetHeight;
-            
-            // Add shake class
-            this.classList.add('shake');
-            
-            // Remove shake class after animation completes
-            setTimeout(() => {
-              this.classList.remove('shake');
-            }, 600);
-          });
+          let touchStartX = 0;
+          let touchStartY = 0;
+          let touchStartTime = 0;
+          let touchMoved = false;
           
-          // Also handle regular clicks for mobile browsers that support both
-          img.addEventListener('click', function(e) {
-            if (isMobileDevice()) {
+          img.addEventListener('touchstart', function(e) {
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+            touchStartTime = Date.now();
+            touchMoved = false;
+          }, { passive: true });
+          
+          img.addEventListener('touchmove', function(e) {
+            if (!touchMoved) {
+              const touchCurrentX = e.touches[0].clientX;
+              const touchCurrentY = e.touches[0].clientY;
+              const deltaX = Math.abs(touchCurrentX - touchStartX);
+              const deltaY = Math.abs(touchCurrentY - touchStartY);
+              
+              // If user moved more than 10px in any direction, consider it a swipe
+              if (deltaX > 10 || deltaY > 10) {
+                touchMoved = true;
+              }
+            }
+          }, { passive: true });
+          
+          img.addEventListener('touchend', function(e) {
+            const touchDuration = Date.now() - touchStartTime;
+            
+            // Only trigger shake if:
+            // 1. Touch was short (less than 300ms)
+            // 2. User didn't move their finger (not a swipe)
+            // 3. Touch was within a reasonable time frame
+            if (!touchMoved && touchDuration < 300 && touchDuration > 50) {
               e.preventDefault();
               
+              // Remove shake class if it exists
               this.classList.remove('shake');
+              
+              // Force reflow to restart animation
               this.offsetHeight;
+              
+              // Add shake class
               this.classList.add('shake');
               
+              // Remove shake class after animation completes
               setTimeout(() => {
                 this.classList.remove('shake');
               }, 600);
