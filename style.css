@@ -51,7 +51,7 @@ body {
   display: flex;
   gap: 20px;
   animation: scroll 30s linear infinite;
-  width: max-content;
+/*   width: max-content; */
 }
 .carousel-item {
   width: 380px;
