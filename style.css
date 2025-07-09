@@ -375,7 +375,7 @@ img {
 }
 
 .feature-img.shake {
-  animation: shake 1.5s ease-in-out;
+  animation: shake 0.8s ease-in-out;
 }
 /* Responsive adjustments */
 @media (max-width: 768px) {
