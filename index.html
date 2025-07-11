@@ -33,7 +33,11 @@
 
   <div class="overlay-content">
     <img src="images/LAWNIFYlogo.PNG" alt="Lawnify Logo" class="logo" />
-    <p class="sub-tagline">Landscaping Simplified</p>
+<!--     <p class="sub-tagline">Landscaping Simplified</p> -->
+   <p class="sub-tagline">
+  Landscaping <span class="changing-word"></span>
+</p>
+
   </div>
 </header>
 
@@ -260,6 +264,43 @@ imgs.forEach(img => observer.observe(img));
 
   startCycle();
 });
+
+   <script>
+  const phrases = [
+    "Simplified",
+    "Made Easy",
+    "Smarter",
+    "On Demand",
+    "Streamlined",
+    "Hassle-Free",
+    "Reliable",
+    "Done Right",
+    "For You"
+  ];
+
+  const wordSpan = document.querySelector('.changing-word');
+  let index = 0;
+
+  function typeNextPhrase() {
+    const phrase = phrases[index];
+    wordSpan.textContent = "";
+    wordSpan.style.animation = 'none';
+
+    // Force reflow to restart animation
+    void wordSpan.offsetWidth;
+
+    wordSpan.textContent = phrase;
+    wordSpan.style.animation = 'typing 2s steps(30, end), blink 0.6s step-end infinite alternate';
+
+    index = (index + 1) % phrases.length;
+
+    setTimeout(typeNextPhrase, 3000); // Adjust timing if needed
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    typeNextPhrase();
+  });
+</script>
 
 
   </script>
