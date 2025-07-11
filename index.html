@@ -220,35 +220,39 @@ imgs.forEach(img => observer.observe(img));
 document.addEventListener('DOMContentLoaded', () => {
   const videos = document.querySelectorAll('.background-video');
   let currentIndex = 0;
+  let transitionBuffer = 1000; // time to overlap in milliseconds (1 sec)
 
-  function playNextVideo() {
-    const currentVideo = videos[currentIndex];
-    const nextIndex = (currentIndex + 1) % videos.length;
-    const nextVideo = videos[nextIndex];
+  function scheduleNextFade(video, nextVideo) {
+    const duration = video.duration * 1000;
+    const fadeStart = duration - transitionBuffer;
 
-    currentVideo.classList.remove('active');
-    nextVideo.classList.add('active');
+    setTimeout(() => {
+      nextVideo.currentTime = 0;
+      nextVideo.classList.add('active');
+      nextVideo.play();
 
-    // Restart next video
-    nextVideo.currentTime = 0;
-    nextVideo.play();
+      // Wait until next video is fully active, then fade out current
+      setTimeout(() => {
+        video.classList.remove('active');
+        video.pause();
+        currentIndex = (currentIndex + 1) % videos.length;
+        scheduleNextFade(nextVideo, videos[(currentIndex + 1) % videos.length]);
+      }, 1000); // match CSS transition duration
 
-    // Wait for the video to end then switch again
-    currentVideo.pause();
-    nextVideo.onended = playNextVideo;
-
-    currentIndex = nextIndex;
+    }, fadeStart);
   }
 
-  // Initialize playback
-  videos.forEach((video, index) => {
-    if (index !== 0) {
-      video.pause();
-    } else {
-      video.classList.add('active');
-      video.onended = playNextVideo;
-    }
-  });
+  function startCycle() {
+    const firstVideo = videos[currentIndex];
+    const nextVideo = videos[(currentIndex + 1) % videos.length];
+
+    firstVideo.classList.add('active');
+    firstVideo.play();
+
+    scheduleNextFade(firstVideo, nextVideo);
+  }
+
+  startCycle();
 });
 
   </script>
