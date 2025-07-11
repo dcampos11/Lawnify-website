@@ -292,6 +292,32 @@ img {
   100% { border-color: transparent; }
 }
 
+.horizontal-line {
+  position: absolute;
+  top: calc(50% + 60px); /* adjust if needed to sit just below tagline */
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  height: 2px;
+  width: 180px; /* matches tagline width visually — tweak as needed */
+  background-color: white;
+  opacity: 0;
+  animation: growHorizontalLine 0.8s ease-out 1.2s forwards;
+  z-index: 5;
+}
+
+@keyframes growHorizontalLine {
+  from {
+    transform: translateX(-50%) scaleX(0);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(-50%) scaleX(1);
+    opacity: 1;
+  }
+}
+
+
 .scroll-line {
   position: absolute;
   top: calc(50% + 100px); /* 50% viewport height + offset (adjust as needed) */
