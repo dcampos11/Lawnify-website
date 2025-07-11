@@ -209,71 +209,143 @@ imgs.forEach(img => observer.observe(img));
     overlay.style.backgroundColor = `rgba(0, 0, 0, ${backgroundOpacity})`;
   });
 
+
+
    document.addEventListener('DOMContentLoaded', () => {
   const videos = document.querySelectorAll('.background-video');
   let currentIndex = 0;
   const transitionBuffer = 1000; // 1 second overlap
+  let isTransitioning = false;
 
   function scheduleNextFade(video, nextVideo) {
     const duration = video.duration * 1000;
     const fadeStart = duration - transitionBuffer;
 
     setTimeout(() => {
+      isTransitioning = true;
+
+      // Reset next video
       nextVideo.currentTime = 0;
-      nextVideo.classList.add('active');
-      nextVideo.play();
+      nextVideo.load();
 
-      // Allow both videos to play during crossfade
-      setTimeout(() => {
-        video.classList.remove('active');
+      nextVideo.addEventListener('canplaythrough', function handleReady() {
+        nextVideo.removeEventListener('canplaythrough', handleReady);
 
-        // 💡 Delay pause until fade is fully done
+        nextVideo.classList.add('active');
+        nextVideo.play();
+
+        // Overlap before removing previous video
         setTimeout(() => {
+          video.classList.remove('active');
+
+          setTimeout(() => {
+            video.pause();
+            isTransitioning = false;
+          }, 1000);
+
+          currentIndex = (currentIndex + 1) % videos.length;
+          const upcoming = videos[(currentIndex + 1) % videos.length];
+          scheduleNextFade(nextVideo, upcoming);
+        }, 0);
+      });
+
+      // Fallback in case `canplaythrough` doesn’t fire
+      setTimeout(() => {
+        if (nextVideo.paused && isTransitioning) {
+          nextVideo.play();
+          nextVideo.classList.add('active');
+          video.classList.remove('active');
           video.pause();
-        }, 1000); // matches CSS transition duration
 
-        currentIndex = (currentIndex + 1) % videos.length;
-        scheduleNextFade(nextVideo, videos[(currentIndex + 1) % videos.length]);
-      }, 0);
-
+          currentIndex = (currentIndex + 1) % videos.length;
+          const upcoming = videos[(currentIndex + 1) % videos.length];
+          scheduleNextFade(nextVideo, upcoming);
+          isTransitioning = false;
+        }
+      }, 2000);
     }, fadeStart);
   }
 
-  // function startCycle() {
-  //   const firstVideo = videos[currentIndex];
-  //   const nextVideo = videos[(currentIndex + 1) % videos.length];
+  function startCycle() {
+    const firstVideo = videos[currentIndex];
+    const nextVideo = videos[(currentIndex + 1) % videos.length];
 
-  //   firstVideo.classList.add('active');
-  //   firstVideo.play();
+    firstVideo.classList.add('active');
+    firstVideo.currentTime = 0;
+    firstVideo.load();
 
-  //   scheduleNextFade(firstVideo, nextVideo);
-  // }
-
-  // startCycle();
-    function startCycle() {
-  const firstVideo = videos[currentIndex];
-  const nextVideo = videos[(currentIndex + 1) % videos.length];
-
-  firstVideo.classList.add('active');
-
-  // Wait for first video to be ready before playing
-  firstVideo.addEventListener('canplaythrough', () => {
-    firstVideo.play();
-    scheduleNextFade(firstVideo, nextVideo);
-  });
-
-  // Safety fallback in case 'canplaythrough' never fires
-  setTimeout(() => {
-    if (firstVideo.paused) {
+    firstVideo.addEventListener('canplaythrough', function initPlay() {
+      firstVideo.removeEventListener('canplaythrough', initPlay);
       firstVideo.play();
       scheduleNextFade(firstVideo, nextVideo);
-    }
-  }, 3000);
-}
+    });
 
-startCycle();
+    // Safety fallback
+    setTimeout(() => {
+      if (firstVideo.paused) {
+        firstVideo.play();
+        scheduleNextFade(firstVideo, nextVideo);
+      }
+    }, 3000);
+  }
 
+  startCycle();
 });
+
+//    document.addEventListener('DOMContentLoaded', () => {
+//   const videos = document.querySelectorAll('.background-video');
+//   let currentIndex = 0;
+//   const transitionBuffer = 1000; // 1 second overlap
+
+//   function scheduleNextFade(video, nextVideo) {
+//     const duration = video.duration * 1000;
+//     const fadeStart = duration - transitionBuffer;
+
+//     setTimeout(() => {
+//       nextVideo.currentTime = 0;
+//       nextVideo.classList.add('active');
+//       nextVideo.play();
+
+//       // Allow both videos to play during crossfade
+//       setTimeout(() => {
+//         video.classList.remove('active');
+
+//         // 💡 Delay pause until fade is fully done
+//         setTimeout(() => {
+//           video.pause();
+//         }, 1000); // matches CSS transition duration
+
+//         currentIndex = (currentIndex + 1) % videos.length;
+//         scheduleNextFade(nextVideo, videos[(currentIndex + 1) % videos.length]);
+//       }, 0);
+
+//     }, fadeStart);
+//   }
+
+//     function startCycle() {
+//   const firstVideo = videos[currentIndex];
+//   const nextVideo = videos[(currentIndex + 1) % videos.length];
+
+//   firstVideo.classList.add('active');
+
+//   // Wait for first video to be ready before playing
+//   firstVideo.addEventListener('canplaythrough', () => {
+//     firstVideo.play();
+//     scheduleNextFade(firstVideo, nextVideo);
+//   });
+
+//   // Safety fallback in case 'canplaythrough' never fires
+//   setTimeout(() => {
+//     if (firstVideo.paused) {
+//       firstVideo.play();
+//       scheduleNextFade(firstVideo, nextVideo);
+//     }
+//   }, 3000);
+// }
+
+// startCycle();
+
+// });
 
  
 
