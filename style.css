@@ -292,23 +292,25 @@ img {
   100% { border-color: transparent; }
 }
 
-.vertical-line {
+.scroll-line {
+  position: absolute;
+  top: calc(50% + 80px); /* 50% viewport height + offset (adjust as needed) */
+  left: 50%;
+  transform: translateX(-50%);
   width: 2px;
   height: 0;
   background-color: white;
-  margin-top: 12px;
-  animation: growLine 1.2s ease-out 1.8s forwards; /* wait until fade-in finishes */
   opacity: 0;
-  align-self: center; /* center it under the text */
+  animation: growScrollLine 1.2s ease-out 2.2s forwards; /* trigger after fade-in + small pause */
 }
 
-@keyframes growLine {
-  0% {
+@keyframes growScrollLine {
+  from {
     height: 0;
     opacity: 0;
   }
-  100% {
-    height: calc(100vh - 250px); /* adjust based on padding/logo height */
+  to {
+    height: calc(100vh - 50% - 80px); /* grow down from center */
     opacity: 1;
   }
 }
