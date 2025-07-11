@@ -189,30 +189,15 @@
       }
     });
 
+  // ✅ ONLY dynamic darkening effect on scroll
   window.addEventListener('scroll', () => {
-    const header = document.querySelector('.black-header');
-    const logo = header.querySelector('.logo');
-    const tagline = header.querySelector('.sub-tagline');
-    const overlay = header.querySelector('.overlay-content');
-
-    const maxScroll = window.innerHeight; // height of header (100vh)
-    const scrollY = Math.min(window.scrollY, maxScroll); // clamp value
-
-    // Calculate scroll progress (0 to 1)
+    const overlay = document.querySelector('.overlay-content');
+    const maxScroll = window.innerHeight;
+    const scrollY = Math.min(window.scrollY, maxScroll);
     const progress = scrollY / maxScroll;
 
-    // Interpolate values
-    const logoScale = 1 - progress * 0.6; // 1 → 0.4
-    const logoTranslateY = progress * 160; // 0 → 160px
-    const taglineOpacity = 1 - progress * 1.2; // 1 → 0 (fade out)
-    const backgroundOpacity = 0.3 + progress * 0.55; // 0.3 → 0.85
-    const headerHeight = 100 - progress * (100 - 8); // 100vh → 8vh
-
-    // Apply styles dynamically
-    logo.style.transform = `scale(${logoScale}) translateY(${logoTranslateY}px)`;
-    tagline.style.opacity = Math.max(0, taglineOpacity);
+    const backgroundOpacity = 0.3 + progress * 0.7; // 0.3 → 1.0
     overlay.style.backgroundColor = `rgba(0, 0, 0, ${backgroundOpacity})`;
-    header.style.height = `${headerHeight}vh`;
   });
 
   </script>
