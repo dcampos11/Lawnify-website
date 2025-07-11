@@ -91,7 +91,7 @@ body {
   color: white; 
   white-space: nowrap;
   overflow: hidden;
-  animation-delay: 0.8s;
+/*   animation-delay: 0.8s; */
 }
 
 .sub-tagline {
@@ -99,8 +99,9 @@ body {
   color: white;
   white-space: nowrap;
   overflow: hidden;
-  animation-delay: 0.4s;
+/*   animation-delay: 0.4s; */
 }
+
 
 
 .carousel {
@@ -276,6 +277,18 @@ img {
   animation: fadeInUp 1.2s ease-out forwards;
 }
 
+/* Staggered delays - logo first, then sub-tagline, then local-tagline */
+.logo {
+  animation-delay: 0s; /* Logo animates immediately */
+}
+
+.sub-tagline {
+  animation-delay: 0.4s; /* Sub-tagline animates 0.4s after logo starts */
+}
+
+.local-tagline {
+  animation-delay: 0.8s; /* Local-tagline animates 0.8s after logo starts */
+}
 
 #animated-word {
   display: inline-block;
