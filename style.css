@@ -91,7 +91,7 @@ body {
   color: white; 
   white-space: nowrap;
   overflow: hidden;
-  animation-delay: 0.4s;
+  animation-delay: 0.8s;
 }
 
 .sub-tagline {
@@ -99,7 +99,7 @@ body {
   color: white;
   white-space: nowrap;
   overflow: hidden;
-  animation-delay: 0.8s;
+  animation-delay: 0.4s;
 }
 
 
