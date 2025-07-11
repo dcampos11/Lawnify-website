@@ -93,7 +93,7 @@ body {
 }
 
 .local-tagline {
-  font-size: 18px;
+  font-size: 16px;
   color: white; /* now matches tagline color */
   opacity: 0;
   animation: fadeInUp 1.2s ease-out forwards;
