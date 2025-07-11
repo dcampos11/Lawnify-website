@@ -63,11 +63,11 @@ body {
 .sub-tagline {
   transition: opacity 0.1s linear;
 }
-
+/* 
 .black-header.shrink .logo {
   max-width: 100px;
   transform: translateY(160px); /* adjust depending on height */
-}
+/* }
 
 .black-header.shrink .sub-tagline {
   opacity: 0;
@@ -75,12 +75,11 @@ body {
 
 .black-header.shrink .overlay-content {
   background-color: rgba(0, 0, 0, 0.85); /* darker */
-}
+/* }
 
 .black-header.shrink {
   height: 80px;
-}
-
+} */ 
 
 .carousel {
   overflow: hidden;
