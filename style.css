@@ -299,7 +299,7 @@ img {
   transform: translateX(-50%) scaleX(0);
   transform-origin: center;
   height: 2px;
-  width: 150px; /* matches tagline width visually — tweak as needed */
+  width: 140px; /* matches tagline width visually — tweak as needed */
   background-color: white;
   opacity: 0;
   animation: growHorizontalLine 0.8s ease-out 1.2s forwards;
