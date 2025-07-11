@@ -290,15 +290,15 @@ imgs.forEach(img => observer.observe(img));
 
     if (!isDeleting && charIndex < currentWord.length) {
       charIndex++;
-      setTimeout(typeEffect, 200); // typing speed
+      setTimeout(typeEffect, 150); // typing speed
     } else if (isDeleting && charIndex > 0) {
       charIndex--;
-      setTimeout(typeEffect, 250); // deleting speed
+      setTimeout(typeEffect, 200); // deleting speed
     } else {
       if (!isDeleting) {
         // Pause before deleting
         isDeleting = true;
-        setTimeout(typeEffect, 2000);
+        setTimeout(typeEffect, 1500);
       } else {
         // Move to next word
         isDeleting = false;
