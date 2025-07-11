@@ -294,12 +294,12 @@ img {
 
 .horizontal-line {
   position: absolute;
-  top: calc(50% + 90px); /* adjust if needed to sit just below tagline */
+  top: calc(50% + 85px); /* adjust if needed to sit just below tagline */
   left: 50%;
   transform: translateX(-50%) scaleX(0);
   transform-origin: center;
   height: 2px;
-  width: 140px; /* matches tagline width visually — tweak as needed */
+  width: 135px; /* matches tagline width visually — tweak as needed */
   background-color: white;
   opacity: 0;
   animation: growHorizontalLine 0.8s ease-out 1.2s forwards;
@@ -320,7 +320,7 @@ img {
 
 .scroll-line {
   position: absolute;
-  top: calc(50% + 90px); /* 50% viewport height + offset (adjust as needed) */
+  top: calc(50% + 85px); /* 50% viewport height + offset (adjust as needed) */
   left: 50%;
   transform: translateX(-50%);
   width: 2px;
