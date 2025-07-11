@@ -29,7 +29,9 @@
 
   <div class="overlay-content">
     <img src="images/LAWNIFYlogo.PNG" alt="Lawnify Logo" class="logo" />
-  <p class="sub-tagline">Landscaping<span id="animated-word"></span></p>
+<!--   <p class="sub-tagline">Landscaping<span id="animated-word"></span></p> -->
+   <p class="sub-tagline">Landscaping<span id="animated-word">Simplified</span></p>
+
 <p class="local-tagline">San Antonio, Texas</p>
 
   </div>
@@ -295,7 +297,7 @@ imgs.forEach(img => observer.observe(img));
 
 
 const wordList = [
-  "Simplified",
+  //"Simplified",
   "Made Easy",
   "Smarter",
   "On Demand",
@@ -334,12 +336,19 @@ function typeEffect() {
   }
 }
 
-window.addEventListener("DOMContentLoaded", () => {
-  setTimeout(() => {
-    typeEffect();
-  }, 1800); // start typing after fade-in
-});
+// window.addEventListener("DOMContentLoaded", () => {
+//   setTimeout(() => {
+//     typeEffect();
+//   }, 1800); // start typing after fade-in
+// });
 
+window.addEventListener("DOMContentLoaded", () => {
+  // Wait for the initial fade-in (1.5s) + 2s delay before starting word animation
+  setTimeout(() => {
+    isDeleting = true; // begin by deleting "Simplified"
+    typeEffect();
+  }, 3500); // 1.5s fade + 2s wait
+});
 
 
 
