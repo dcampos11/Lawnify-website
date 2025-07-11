@@ -239,17 +239,40 @@ imgs.forEach(img => observer.observe(img));
     }, fadeStart);
   }
 
-  function startCycle() {
-    const firstVideo = videos[currentIndex];
-    const nextVideo = videos[(currentIndex + 1) % videos.length];
+  // function startCycle() {
+  //   const firstVideo = videos[currentIndex];
+  //   const nextVideo = videos[(currentIndex + 1) % videos.length];
 
-    firstVideo.classList.add('active');
+  //   firstVideo.classList.add('active');
+  //   firstVideo.play();
+
+  //   scheduleNextFade(firstVideo, nextVideo);
+  // }
+
+  // startCycle();
+    function startCycle() {
+  const firstVideo = videos[currentIndex];
+  const nextVideo = videos[(currentIndex + 1) % videos.length];
+
+  firstVideo.classList.add('active');
+
+  // Wait for first video to be ready before playing
+  firstVideo.addEventListener('canplaythrough', () => {
     firstVideo.play();
-
     scheduleNextFade(firstVideo, nextVideo);
-  }
+  });
 
-  startCycle();
+  // Safety fallback in case 'canplaythrough' never fires
+  setTimeout(() => {
+    if (firstVideo.paused) {
+      firstVideo.play();
+      scheduleNextFade(firstVideo, nextVideo);
+    }
+  }, 3000);
+}
+
+startCycle();
+
 });
 
  
