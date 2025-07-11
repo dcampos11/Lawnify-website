@@ -84,24 +84,20 @@ body {
   width: auto;
   height: auto;
   display: block;
-  animation-delay: 0.3s;
 }
-
-/* .sub-tagline {
-  font-size: 20px;
-  color: white;
- margin-top: 8px;
-} */
 
 .local-tagline {
   font-size: 16px;
-  color: white; /* now matches tagline color */
-/*   opacity: 0; */
-/*   animation: fadeInUp 1.2s ease-out forwards;
-  animation-delay: 0.9s;  */
+  color: white; 
   white-space: nowrap;
-/*  margin-top: 8px; */
-    overflow: hidden;
+  overflow: hidden;
+}
+
+.sub-tagline {
+  font-size: 20px;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 
@@ -278,17 +274,6 @@ img {
   animation: fadeInUp 1.2s ease-out forwards;
 }
 
-/* .logo {
-  animation-delay: 0.3s;
-} */
-
-.sub-tagline {
-  font-size: 20px;
-  color: white;
-/*   margin-top: 8px; */
-  white-space: nowrap;
-  overflow: hidden;
-}
 
 #animated-word {
   display: inline-block;
