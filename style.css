@@ -96,11 +96,12 @@ body {
 .local-tagline {
   font-size: 16px;
   color: white; /* now matches tagline color */
-  opacity: 0;
+/*   opacity: 0; */
 /*   animation: fadeInUp 1.2s ease-out forwards;
   animation-delay: 0.9s;  */
   white-space: nowrap;
 /*  margin-top: 8px; */
+    overflow: hidden;
 }
 
 
