@@ -20,10 +20,16 @@
 
 
 <header class="black-header">
-  <video autoplay muted loop playsinline class="background-video">
+<!--   <video autoplay muted loop playsinline class="background-video">
     <source src="videos/lawnvideo.mp4" type="video/mp4" />
     Your browser does not support the video tag.
-  </video>
+  </video> -->
+ <div class="video-container">
+  <video src="videos/lawnvideo.mp4" type="video/mp4" class="background-video active" muted autoplay playsinline></video>
+  <video src="videos/lawnvideo2.mp4" type="video/mp4" class="background-video" muted playsinline></video>
+  <video src="videos/lawnvideo3.mp4" type="video/mp4" class="background-video" muted playsinline></video>
+</div>
+
 
   <div class="overlay-content">
     <img src="images/LAWNIFYlogo.PNG" alt="Lawnify Logo" class="logo" />
@@ -211,6 +217,39 @@ imgs.forEach(img => observer.observe(img));
     const backgroundOpacity = 0.3 + progress * 0.7; // 0.3 → 1.0
     overlay.style.backgroundColor = `rgba(0, 0, 0, ${backgroundOpacity})`;
   });
+document.addEventListener('DOMContentLoaded', () => {
+  const videos = document.querySelectorAll('.background-video');
+  let currentIndex = 0;
+
+  function playNextVideo() {
+    const currentVideo = videos[currentIndex];
+    const nextIndex = (currentIndex + 1) % videos.length;
+    const nextVideo = videos[nextIndex];
+
+    currentVideo.classList.remove('active');
+    nextVideo.classList.add('active');
+
+    // Restart next video
+    nextVideo.currentTime = 0;
+    nextVideo.play();
+
+    // Wait for the video to end then switch again
+    currentVideo.pause();
+    nextVideo.onended = playNextVideo;
+
+    currentIndex = nextIndex;
+  }
+
+  // Initialize playback
+  videos.forEach((video, index) => {
+    if (index !== 0) {
+      video.pause();
+    } else {
+      video.classList.add('active');
+      video.onended = playNextVideo;
+    }
+  });
+});
 
   </script>
 </body>
