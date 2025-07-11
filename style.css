@@ -12,6 +12,13 @@ body,
 .feature {
   overflow: visible !important;
 }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: 'Segoe UI', sans-serif;
   background-color: #000;
@@ -26,6 +33,8 @@ body {
   height: 100vh;
   width: 100vw;
   overflow: hidden;
+  padding-top: env(safe-area-inset-top); /* respect notch areas */
+    margin: 0;
 }
 
 .background-video {
