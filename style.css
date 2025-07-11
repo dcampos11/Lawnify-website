@@ -302,6 +302,7 @@ img {
   background-color: white;
   opacity: 0;
   animation: growScrollLine 1.2s ease-out 2.2s forwards; /* trigger after fade-in + small pause */
+   z-index: 5;
 }
 
 @keyframes growScrollLine {
