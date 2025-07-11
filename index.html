@@ -296,8 +296,62 @@ imgs.forEach(img => observer.observe(img));
 });
 
 
-const wordList = [
-  //"Simplified",
+// const wordList = [
+//   //"Simplified",
+//   "Made Easy",
+//   "Smarter",
+//   "On Demand",
+//   "Streamlined",
+//   "Hassle-Free",
+//   "Reliable",
+//   "Done Right",
+//   "For You"
+// ];
+
+// const span = document.getElementById("animated-word");
+// let wordIndex = 0;
+// let charIndex = 0;
+// let isDeleting = false;
+
+// function typeEffect() {
+//   const currentWord = wordList[wordIndex];
+//   const visibleText = currentWord.substring(0, charIndex);
+//   span.textContent = visibleText;
+
+//   if (!isDeleting && charIndex < currentWord.length) {
+//     charIndex++;
+//     setTimeout(typeEffect, 150); // typing speed
+//   } else if (isDeleting && charIndex > 0) {
+//     charIndex--;
+//     setTimeout(typeEffect, 100); // deleting speed
+//   } else {
+//     if (!isDeleting) {
+//       isDeleting = true;
+//       setTimeout(typeEffect, 2500); // pause before deleting
+//     } else {
+//       isDeleting = false;
+//       wordIndex = (wordIndex + 1) % wordList.length;
+//       setTimeout(typeEffect, 300); // pause before typing new word
+//     }
+//   }
+// }
+
+// // window.addEventListener("DOMContentLoaded", () => {
+// //   setTimeout(() => {
+// //     typeEffect();
+// //   }, 1800); // start typing after fade-in
+// // });
+
+// window.addEventListener("DOMContentLoaded", () => {
+//   // Wait for the initial fade-in (1.5s) + 2s delay before starting word animation
+//   setTimeout(() => {
+//     isDeleting = true; // begin by deleting "Simplified"
+//     typeEffect();
+//   }, 3500); // 1.5s fade + 2s wait
+// });
+
+   const wordList = [
+  "Simplified",
   "Made Easy",
   "Smarter",
   "On Demand",
@@ -310,44 +364,37 @@ const wordList = [
 
 const span = document.getElementById("animated-word");
 let wordIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
+let charIndex = wordList[0].length; // Start fully written
+let isDeleting = true; // Start by deleting after delay
 
 function typeEffect() {
   const currentWord = wordList[wordIndex];
   const visibleText = currentWord.substring(0, charIndex);
   span.textContent = visibleText;
 
-  if (!isDeleting && charIndex < currentWord.length) {
-    charIndex++;
-    setTimeout(typeEffect, 150); // typing speed
-  } else if (isDeleting && charIndex > 0) {
+  if (isDeleting && charIndex > 0) {
     charIndex--;
     setTimeout(typeEffect, 100); // deleting speed
+  } else if (!isDeleting && charIndex < currentWord.length) {
+    charIndex++;
+    setTimeout(typeEffect, 150); // typing speed
   } else {
-    if (!isDeleting) {
-      isDeleting = true;
-      setTimeout(typeEffect, 2500); // pause before deleting
-    } else {
+    if (isDeleting) {
       isDeleting = false;
       wordIndex = (wordIndex + 1) % wordList.length;
       setTimeout(typeEffect, 300); // pause before typing new word
+    } else {
+      isDeleting = true;
+      setTimeout(typeEffect, 2500); // pause before deleting
     }
   }
 }
 
-// window.addEventListener("DOMContentLoaded", () => {
-//   setTimeout(() => {
-//     typeEffect();
-//   }, 1800); // start typing after fade-in
-// });
-
 window.addEventListener("DOMContentLoaded", () => {
-  // Wait for the initial fade-in (1.5s) + 2s delay before starting word animation
+  // Wait for fade-in + 2s before starting delete animation
   setTimeout(() => {
-    isDeleting = true; // begin by deleting "Simplified"
-    typeEffect();
-  }, 3500); // 1.5s fade + 2s wait
+    typeEffect(); // Now it will start deleting one character at a time
+  }, 3500);
 });
 
 
