@@ -254,54 +254,51 @@ imgs.forEach(img => observer.observe(img));
 
  
 
-  const wordList = [
-    "Simplified",
-    "Made Easy",
-    "Smarter",
-    "On Demand",
-    "Streamlined",
-    "Hassle-Free",
-    "Reliable",
-    "Done Right",
-    "For You"
-  ];
+const wordList = [
+  "Simplified",
+  "Made Easy",
+  "Smarter",
+  "On Demand",
+  "Streamlined",
+  "Hassle-Free",
+  "Reliable",
+  "Done Right",
+  "For You"
+];
 
-  const span = document.getElementById("animated-word");
-  let wordIndex = 0;
-  let charIndex = 0;
-  let isDeleting = false;
+const span = document.getElementById("animated-word");
+let wordIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
 
-  function typeEffect() {
-    const currentWord = wordList[wordIndex];
-    const visibleText = currentWord.substring(0, charIndex);
-    span.textContent = visibleText;
+function typeEffect() {
+  const currentWord = wordList[wordIndex];
+  const visibleText = currentWord.substring(0, charIndex);
+  span.textContent = visibleText;
 
-    if (!isDeleting && charIndex < currentWord.length) {
-      charIndex++;
-      setTimeout(typeEffect, 150); // typing speed
-    } else if (isDeleting && charIndex > 0) {
-      charIndex--;
-      setTimeout(typeEffect, 150); // deleting speed
+  if (!isDeleting && charIndex < currentWord.length) {
+    charIndex++;
+    setTimeout(typeEffect, 150); // typing speed
+  } else if (isDeleting && charIndex > 0) {
+    charIndex--;
+    setTimeout(typeEffect, 100); // deleting speed
+  } else {
+    if (!isDeleting) {
+      isDeleting = true;
+      setTimeout(typeEffect, 2500); // pause before deleting
     } else {
-      if (!isDeleting) {
-        // Pause before deleting
-        isDeleting = true;
-        setTimeout(typeEffect, 2500);
-      } else {
-        // Move to next word
-        isDeleting = false;
-        wordIndex = (wordIndex + 1) % wordList.length;
-        setTimeout(typeEffect, 200);
-      }
+      isDeleting = false;
+      wordIndex = (wordIndex + 1) % wordList.length;
+      setTimeout(typeEffect, 300); // pause before typing new word
     }
   }
+}
 
-  window.addEventListener("DOMContentLoaded", () => {
-    span.textContent = ""; // Start empty
-    setTimeout(() => {
-      typeEffect();
-    }, 1800); // Delay start to let fade-in happen first
-  });
+window.addEventListener("DOMContentLoaded", () => {
+  setTimeout(() => {
+    typeEffect();
+  }, 1800); // start typing after fade-in
+});
 
 
 
