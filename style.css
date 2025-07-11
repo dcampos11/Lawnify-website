@@ -279,7 +279,7 @@ img {
   display: inline-block;
   border-right: 2px solid white;
   padding-left: 6px;
-  animation: blinkCursor 0.7s infinite;
+  animation: blinkCursor 1.0s infinite;
 }
 
 @keyframes blinkCursor {
