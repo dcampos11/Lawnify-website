@@ -298,7 +298,7 @@ imgs.forEach(img => observer.observe(img));
       if (!isDeleting) {
         // Pause before deleting
         isDeleting = true;
-        setTimeout(typeEffect, 1500);
+        setTimeout(typeEffect, 2000);
       } else {
         // Move to next word
         isDeleting = false;
@@ -312,7 +312,7 @@ imgs.forEach(img => observer.observe(img));
     span.textContent = ""; // Start empty
     setTimeout(() => {
       typeEffect();
-    }, 2000); // Delay start to let fade-in happen first
+    }, 1500); // Delay start to let fade-in happen first
   });
 
 
