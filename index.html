@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -201,3 +201,188 @@
 
 
 
+ -->
+
+
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6T76N1202K"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-6T76N1202K');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lawnify – Smarter Lawn Care</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+  <header class="black-header">
+    <img src="images/LAWNIFYlogo.PNG" alt="Lawnify Logo" class="logo" />
+    <p class="sub-tagline">Landscaping Simplified</p>
+  </header>
+
+  <main class="page-content">
+    <section class="carousel">
+      <div class="carousel-track" id="carouselTrack">
+        <div class="carousel-item"></div>
+        <div class="carousel-item"></div>
+        <div class="carousel-item">
+          <img src="images/trees.png" alt="Carousel Image" />
+        </div>
+        <div class="carousel-item">
+          <img src="images/plants.png" alt="Carousel Image" />
+        </div>
+        <div class="carousel-item">
+          <img src="images/Rectangle 3.png" alt="Carousel Image" />
+        </div>
+        <div class="carousel-item">
+          <img src="images/Designs.PNG" alt="Carousel Image" />
+        </div>
+        <div class="carousel-item"></div>
+        <div class="carousel-item"></div>
+        <div class="carousel-item"></div>
+        <div class="carousel-item"></div>
+      </div>
+    </section>
+
+    <section class="store-badge-section">
+      <a href="https://apps.apple.com/app/your-app-id">
+        <img src="images/Black_App_Store_Badge.svg" alt="Download on the App Store" class="app-store-badge" />
+      </a>
+    </section>
+
+    <section class="about">
+      <h2>Smarter Lawn Care</h2>
+      <p>Lawnify is the easiest way to manage, schedule, and pay for professional lawn care right from your phone. We handle everything — so you can kick back and enjoy your yard.</p>
+    </section>
+
+    <section class="features">
+      <div class="feature">
+        <div class="text">
+          <h3>Instant Quotes</h3>
+          <p>Enter your property details and get a real-time quote.</p>
+        </div>
+        <img src="images/iPhone 16 Pro (3).png" alt="Instant Quote Screenshot" class="feature-img" />
+      </div>
+      <div class="feature">
+        <div class="text">
+          <h3>3% Cash Back</h3>
+          <p>Earn money on every invoice &amp; rewards on every visit.</p>
+        </div>
+        <img src="images/iPhone 16 Pro (2).png" alt="Cash Back Screenshot" class="feature-img" />
+      </div>
+      <div class="feature">
+        <div class="text">
+          <h3>Autopay &amp; More</h3>
+          <p>Schedule, pay, and chat — all in one app.</p>
+        </div>
+        <img src="images/iPhone 16 Pro (1).png" alt="Service Selection Screenshot" class="feature-img" />
+      </div>
+    </section>
+
+    <section class="preview">
+      <h2>Coming Soon to iOS</h2>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Serving The Greater San Antonio Area 📍</p>
+    <p>lawnifyapp@gmail.com</p>
+    <div class="legal">
+      © 2025 Lawnify, LLC.<br>
+      (Powered by Launchpad)
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const track = document.getElementById('carouselTrack');
+      const items = Array.from(track.children);
+
+      items.forEach(item => {
+        const clone = item.cloneNode(true);
+        track.appendChild(clone);
+      });
+
+      const itemWidth = 380 + 20;
+      const totalWidth = items.length * itemWidth;
+
+      let currentTranslate = 0;
+      const speed = 0.8;
+
+      function animate() {
+        currentTranslate -= speed;
+        if (Math.abs(currentTranslate) >= totalWidth) {
+          currentTranslate = 0;
+        }
+        track.style.transform = `translateX(${currentTranslate}px)`;
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+
+      const imgs = document.querySelectorAll('.feature-img');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.25 });
+      imgs.forEach(img => observer.observe(img));
+
+      function isMobileDevice() {
+        return window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+      }
+
+      if (isMobileDevice()) {
+        imgs.forEach(img => {
+          let touchStartX = 0;
+          let touchStartY = 0;
+          let touchStartTime = 0;
+          let touchMoved = false;
+
+          img.addEventListener('touchstart', function(e) {
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+            touchStartTime = Date.now();
+            touchMoved = false;
+          }, { passive: true });
+
+          img.addEventListener('touchmove', function(e) {
+            if (!touchMoved) {
+              const touchCurrentX = e.touches[0].clientX;
+              const touchCurrentY = e.touches[0].clientY;
+              const deltaX = Math.abs(touchCurrentX - touchStartX);
+              const deltaY = Math.abs(touchCurrentY - touchStartY);
+              if (deltaX > 10 || deltaY > 10) {
+                touchMoved = true;
+              }
+            }
+          }, { passive: true });
+
+          img.addEventListener('touchend', function(e) {
+            const touchDuration = Date.now() - touchStartTime;
+            if (!touchMoved && touchDuration < 300 && touchDuration > 50) {
+              e.preventDefault();
+              this.classList.remove('shake');
+              this.offsetHeight;
+              this.classList.add('shake');
+              setTimeout(() => {
+                this.classList.remove('shake');
+              }, 600);
+            }
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>
