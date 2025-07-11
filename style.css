@@ -301,7 +301,7 @@ img {
   height: 0;
   background-color: white;
   opacity: 0;
-  animation: growScrollLine 1.8s ease-out 1.8s forwards; /* trigger after fade-in + small pause */
+  animation: growScrollLine 1.6s ease-out 1.7s forwards; /* trigger after fade-in + small pause */
    z-index: 5;
 }
 
