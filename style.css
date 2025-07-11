@@ -21,7 +21,7 @@ body {
   margin: 0;
 }
 
-.black-header {
+/* .black-header {
   background-color: #000;
   color: white;
   padding: calc(env(safe-area-inset-top, 0px) + 60px) 20px 50px;
@@ -41,7 +41,35 @@ body {
   font-size: 20px;
   color: white;
   margin-top: 8px;
+} */
+
+.black-header {
+  background-color: #000;
+  color: white;
+  height: 100vh; /* Full screen height */
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  padding: 0 20px;
 }
+
+.logo {
+  max-width: 280px;
+  width: auto;
+  height: auto;
+  display: block;
+}
+
+.sub-tagline {
+  font-size: 20px;
+  color: white;
+  margin-top: 8px;
+}
+
 
 .carousel {
   overflow: hidden;
