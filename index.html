@@ -217,10 +217,11 @@ imgs.forEach(img => observer.observe(img));
     const backgroundOpacity = 0.3 + progress * 0.7; // 0.3 → 1.0
     overlay.style.backgroundColor = `rgba(0, 0, 0, ${backgroundOpacity})`;
   });
-document.addEventListener('DOMContentLoaded', () => {
+
+   document.addEventListener('DOMContentLoaded', () => {
   const videos = document.querySelectorAll('.background-video');
   let currentIndex = 0;
-  let transitionBuffer = 1000; // time to overlap in milliseconds (1 sec)
+  const transitionBuffer = 1000; // 1 second overlap
 
   function scheduleNextFade(video, nextVideo) {
     const duration = video.duration * 1000;
@@ -231,13 +232,18 @@ document.addEventListener('DOMContentLoaded', () => {
       nextVideo.classList.add('active');
       nextVideo.play();
 
-      // Wait until next video is fully active, then fade out current
+      // Allow both videos to play during crossfade
       setTimeout(() => {
         video.classList.remove('active');
-        video.pause();
+
+        // 💡 Delay pause until fade is fully done
+        setTimeout(() => {
+          video.pause();
+        }, 1000); // matches CSS transition duration
+
         currentIndex = (currentIndex + 1) % videos.length;
         scheduleNextFade(nextVideo, videos[(currentIndex + 1) % videos.length]);
-      }, 1000); // match CSS transition duration
+      }, 0);
 
     }, fadeStart);
   }
@@ -254,6 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   startCycle();
 });
+
 
   </script>
 </body>
