@@ -265,7 +265,8 @@ imgs.forEach(img => observer.observe(img));
 });
 
  
-  const phrases = [
+
+  const wordList = [
     "Simplified",
     "Made Easy",
     "Smarter",
@@ -277,28 +278,44 @@ imgs.forEach(img => observer.observe(img));
     "For You"
   ];
 
-  const wordSpan = document.querySelector('.changing-word');
-  let index = 0;
+  const span = document.getElementById("animated-word");
+  let wordIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
 
-  function typeNextPhrase() {
-    const phrase = phrases[index];
-    wordSpan.textContent = "";
-    wordSpan.style.animation = 'none';
+  function typeEffect() {
+    const currentWord = wordList[wordIndex];
+    const visibleText = currentWord.substring(0, charIndex);
+    span.textContent = visibleText;
 
-    // Force reflow to restart animation
-    void wordSpan.offsetWidth;
-
-    wordSpan.textContent = phrase;
-    wordSpan.style.animation = 'typing 2s steps(30, end), blink 0.6s step-end infinite alternate';
-
-    index = (index + 1) % phrases.length;
-
-    setTimeout(typeNextPhrase, 3000); // Adjust timing if needed
+    if (!isDeleting && charIndex < currentWord.length) {
+      charIndex++;
+      setTimeout(typeEffect, 80); // typing speed
+    } else if (isDeleting && charIndex > 0) {
+      charIndex--;
+      setTimeout(typeEffect, 50); // deleting speed
+    } else {
+      if (!isDeleting) {
+        // Pause before deleting
+        isDeleting = true;
+        setTimeout(typeEffect, 1000);
+      } else {
+        // Move to next word
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % wordList.length;
+        setTimeout(typeEffect, 200);
+      }
+    }
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    typeNextPhrase();
+  window.addEventListener("DOMContentLoaded", () => {
+    span.textContent = ""; // Start empty
+    setTimeout(() => {
+      typeEffect();
+    }, 1000); // Delay start to let fade-in happen first
   });
+
+
 
 
   </script>
