@@ -209,6 +209,9 @@ img {
   .feature {
     margin-bottom: 5px;
   }
+   .black-header {
+    height: 120vh;
+  }
 }
 
 .page-content {
@@ -222,4 +225,29 @@ img {
   padding: 20px 10px;
 }
 
+/* Fade-in animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.logo,
+.sub-tagline {
+  opacity: 0;
+  animation: fadeInUp 1.2s ease-out forwards;
+}
+
+.logo {
+  animation-delay: 0.3s;
+}
+
+.sub-tagline {
+  animation-delay: 0.7s;
+}
 
