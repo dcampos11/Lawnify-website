@@ -293,12 +293,12 @@ imgs.forEach(img => observer.observe(img));
       setTimeout(typeEffect, 150); // typing speed
     } else if (isDeleting && charIndex > 0) {
       charIndex--;
-      setTimeout(typeEffect, 200); // deleting speed
+      setTimeout(typeEffect, 180); // deleting speed
     } else {
       if (!isDeleting) {
         // Pause before deleting
         isDeleting = true;
-        setTimeout(typeEffect, 2000);
+        setTimeout(typeEffect, 2500);
       } else {
         // Move to next word
         isDeleting = false;
@@ -312,7 +312,7 @@ imgs.forEach(img => observer.observe(img));
     span.textContent = ""; // Start empty
     setTimeout(() => {
       typeEffect();
-    }, 1500); // Delay start to let fade-in happen first
+    }, 1800); // Delay start to let fade-in happen first
   });
 
 
