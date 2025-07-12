@@ -260,7 +260,7 @@ body {
 /* —— UPDATED MOBILE MENU —— */
 .mobile-menu {
   position: absolute;
-  top: 60px;           /* directly beneath the hamburger */
+  top: 40px;           /* directly beneath the hamburger */
   right: 5px;         /* align with hamburger’s right edge */
   background: none;    /* remove the black card */
   border-radius: 0;
