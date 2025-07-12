@@ -347,7 +347,7 @@ img {
 
 .capsule-container {
   position: relative;
-  width: 280px;        /* fixed width matches SVG viewBox */
+  width: 220px;        /* fixed width matches SVG viewBox */
   height: 50px;        /* fixed height matches SVG viewBox */
   margin-top: 20px;    /* adjust this to move capsule up/down */
   display: flex;
