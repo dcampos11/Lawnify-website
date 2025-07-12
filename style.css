@@ -372,3 +372,23 @@ img {
   z-index: 5;
 }
 
+.capsule-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.capsule-fill-path {
+  fill: rgba(255, 255, 255, 0); /* Start fully transparent */
+  transition: fill 0.4s ease;
+}
+
+/* Hover trigger on the whole capsule container */
+.capsule-container:hover .capsule-fill-path {
+  fill: rgba(255, 255, 255, 0.5); /* On hover, semi-transparent white */
+}
+
