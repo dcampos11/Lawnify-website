@@ -29,8 +29,12 @@
 
   <div class="overlay-content">
     <img src="images/LAWNIFYlogo.PNG" alt="Lawnify Logo" class="logo" />
-   <p class="sub-tagline">Landscaping<span id="animated-word">Simplified</span></p>
-      
+<!--    <p class="sub-tagline">Landscaping<span id="animated-word">Simplified</span></p>
+       -->
+
+   <p class="sub-tagline"><span id="animated-word">Landscaping Simplified.</span></p>
+
+   
    <!-- ✅ New capsule wrapper -->
  <div class="capsule-container">
   <svg class="capsule-outline" viewBox="0 0 280 50" preserveAspectRatio="xMidYMid meet">
@@ -319,43 +323,86 @@ imgs.forEach(img => observer.observe(img));
   startCycle();
 });
 
+const phraseList = [
+    "Landscaping Simplified.",
+    "Your Neighborhood Lawn Experts.",
+    "Full Service. Full Attention."
+  ];
 
-   const wordList = ["Simplified", "Made Easy", "Hassle-Free", "Done Right", "For You"];
+  const span = document.getElementById("animated-word");
+  let phraseIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
 
-const span = document.getElementById("animated-word");
-let wordIndex = 0;
-let charIndex = wordList[0].length; // Start fully written
-let isDeleting = true; // Start by deleting after delay
+  function typeEffect() {
+    const currentPhrase = phraseList[phraseIndex];
+    const visibleText = currentPhrase.substring(0, charIndex);
+    span.textContent = visibleText;
 
-function typeEffect() {
-  const currentWord = wordList[wordIndex];
-  const visibleText = currentWord.substring(0, charIndex);
-  span.textContent = visibleText;
-
-  if (isDeleting && charIndex > 0) {
-    charIndex--;
-    setTimeout(typeEffect, 100); // deleting speed
-  } else if (!isDeleting && charIndex < currentWord.length) {
-    charIndex++;
-    setTimeout(typeEffect, 150); // typing speed
-  } else {
-    if (isDeleting) {
-      isDeleting = false;
-      wordIndex = (wordIndex + 1) % wordList.length;
-      setTimeout(typeEffect, 300); // pause before typing new word
+    if (!isDeleting && charIndex < currentPhrase.length) {
+      charIndex++;
+      setTimeout(typeEffect, 120); // typing speed
+    } else if (isDeleting && charIndex > 0) {
+      charIndex--;
+      setTimeout(typeEffect, 80); // deleting speed
     } else {
-      isDeleting = true;
-      setTimeout(typeEffect, 2800); // pause before deleting
+      if (!isDeleting) {
+        isDeleting = true;
+        setTimeout(typeEffect, 2800); // pause before deleting
+      } else {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phraseList.length;
+        setTimeout(typeEffect, 300); // pause before typing next phrase
+      }
     }
   }
-}
 
-window.addEventListener("DOMContentLoaded", () => {
-  // Wait for fade-in + 2s before starting delete animation
-  setTimeout(() => {
-    typeEffect(); // Now it will start deleting one character at a time
-  }, 3500);
-});
+  window.addEventListener("DOMContentLoaded", () => {
+    // Start with full "Landscaping Simplified." already rendered
+    span.textContent = phraseList[0];
+    charIndex = phraseList[0].length;
+    isDeleting = true;
+
+    setTimeout(() => {
+      typeEffect();
+    }, 3500); // wait before deleting initial phrase
+  });
+//    const wordList = ["Simplified", "Made Easy", "Hassle-Free", "Done Right", "For You"];
+
+// const span = document.getElementById("animated-word");
+// let wordIndex = 0;
+// let charIndex = wordList[0].length; // Start fully written
+// let isDeleting = true; // Start by deleting after delay
+
+// function typeEffect() {
+//   const currentWord = wordList[wordIndex];
+//   const visibleText = currentWord.substring(0, charIndex);
+//   span.textContent = visibleText;
+
+//   if (isDeleting && charIndex > 0) {
+//     charIndex--;
+//     setTimeout(typeEffect, 100); // deleting speed
+//   } else if (!isDeleting && charIndex < currentWord.length) {
+//     charIndex++;
+//     setTimeout(typeEffect, 150); // typing speed
+//   } else {
+//     if (isDeleting) {
+//       isDeleting = false;
+//       wordIndex = (wordIndex + 1) % wordList.length;
+//       setTimeout(typeEffect, 300); // pause before typing new word
+//     } else {
+//       isDeleting = true;
+//       setTimeout(typeEffect, 2800); // pause before deleting
+//     }
+//   }
+// }
+
+// window.addEventListener("DOMContentLoaded", () => {
+//   // Wait for fade-in + 2s before starting delete animation
+//   setTimeout(() => {
+//     typeEffect(); // Now it will start deleting one character at a time
+//   }, 3500);
+// });
 
 
 
