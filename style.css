@@ -345,9 +345,37 @@ img {
 
 
 
-
-
 .capsule-container {
+  position: relative;
+  width: 280px;        /* fixed width matches SVG viewBox */
+  height: 50px;        /* fixed height matches SVG viewBox */
+  margin-top: 20px;    /* adjust this to move capsule up/down */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.local-tagline {
+  font-size: 16px;
+  color: white;
+  position: relative; /* was absolute — change to relative */
+  z-index: 2;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.capsule-outline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+
+/* .capsule-container {
   position: relative;
   display: flex;
   justify-content: center;
@@ -373,7 +401,7 @@ img {
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
-}
+} */
 
 /* .capsule-path {
   fill: none;
