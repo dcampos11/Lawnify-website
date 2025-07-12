@@ -256,13 +256,22 @@ body {
   transform-origin: center;
 }
 
-.hamburger.active span:nth-child(1) {
+/* .hamburger.active span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
 
 .hamburger.active span:nth-child(2) {
   transform: rotate(-45deg) translate(5px, -5px);
+} */
+
+.hamburger.active span:nth-child(1) {
+  transform: translateY(11px) rotate(45deg);
 }
+
+.hamburger.active span:nth-child(2) {
+  transform: translateY(-11px) rotate(-45deg);
+}
+
 
 /* —— UPDATED MOBILE MENU —— */
 .mobile-menu {
