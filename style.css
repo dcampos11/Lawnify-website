@@ -86,20 +86,12 @@ body {
   display: block;
 }
 
-/* .local-tagline {
-  font-size: 16px;
-  color: white; 
-  white-space: nowrap;
-  overflow: hidden;
-/*   animation-delay: 0.8s; */
-/* } */
 
 .sub-tagline {
   font-size: 20px;
   color: white;
   white-space: nowrap;
   overflow: hidden;
-/*   animation-delay: 0.4s; */
 }
 
 
@@ -292,31 +284,6 @@ img {
   100% { border-color: transparent; }
 }
 
-/* .horizontal-line {
-  position: absolute;
-  top: calc(50% + 85px); /* adjust if needed to sit just below tagline */
-/*   left: 50%;
-  transform: translateX(-50%) scaleX(0);
-  transform-origin: center;
-  height: 2px;
-  width: 135px; /* matches tagline width visually — tweak as needed */
-/*   background-color: white;
-  opacity: 0;
-  animation: growHorizontalLine 0.8s ease-out 1.2s forwards;
-  z-index: 5;
-} */ 
-
-/* @keyframes growHorizontalLine {
-  from {
-    transform: translateX(-50%) scaleX(0);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(-50%) scaleX(1);
-    opacity: 1;
-  }
-} */
-
 
 .scroll-line {
   position: absolute;
@@ -341,9 +308,6 @@ img {
     opacity: 1;
   }
 }
-
-
-
 
 .capsule-container {
   position: relative;
@@ -375,49 +339,6 @@ img {
 }
 
 
-/* .capsule-container {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-  height: 60px;
-}
-
-.local-tagline {
-  font-size: 16px;
-  color: white;
-  z-index: 2;
-  position: absolute;
-  white-space: nowrap;
-}
-
-.capsule-outline {
-  width: 280px;
-  height: 50px;
-  overflow: visible;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1;
-} */
-
-/* .capsule-path {
-  fill: none;
-  stroke: white;
-  stroke-width: 2;
-  stroke-dasharray: 800;
-  stroke-dashoffset: 800;
-  animation: drawCapsule 1.5s ease-out forwards;
-  animation-delay: 1.2s;
-} */
-
-/* @keyframes drawCapsule {
-  to {
-    stroke-dashoffset: 0;
-  }
-} */
 .capsule-path {
   fill: none;
   stroke: white;
