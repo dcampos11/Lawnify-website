@@ -397,3 +397,37 @@ img {
   fill: rgba(255, 255, 255, 0.5); /* On hover, semi-transparent white */
 }
 
+
+.top-nav {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  justify-content: center;
+}
+
+.top-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 60px;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+}
+
+.top-nav li a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.top-nav li a:hover {
+  color: #2a9d8f; /* Accent hover color */
+}
+
