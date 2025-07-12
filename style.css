@@ -300,7 +300,7 @@ img {
   position: relative;
   width: 180px;        /* fixed width matches SVG viewBox */
   height: 50px;        /* fixed height matches SVG viewBox */
-  margin-top: 0px;    /* adjust this to move capsule up/down */
+  margin-top: 40px;    /* adjust this to move capsule up/down */
   display: flex;
   justify-content: center;
   align-items: center;
