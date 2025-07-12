@@ -352,7 +352,7 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 20px;
   height: 60px;
 }
 
@@ -399,12 +399,12 @@ img {
 }
 
 .capsule-path.left {
-  animation: drawCapsuleLeft 1.5s ease-out forwards;
+  animation: drawCapsuleLeft 2.5s ease-out forwards;
   animation-delay: 1.2s;
 }
 
 .capsule-path.right {
-  animation: drawCapsuleRight 1.5s ease-out forwards;
+  animation: drawCapsuleRight 2.5s ease-out forwards;
   animation-delay: 1.2s;
 }
 
