@@ -29,6 +29,18 @@
     <li><a href="#pricing">Pricing</a></li>
   </ul>
 </nav>
+<div class="mobile-nav">
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#services">Services</a>
+    <a href="#payments">Payments</a>
+    <a href="#rewards">Rewards</a>
+    <a href="#pricing">Pricing</a>
+  </div>
+</div>
 
  
  <div class="video-container">
@@ -43,31 +55,6 @@
    <p class="sub-tagline"><span id="animated-word">Landscaping Simplified.</span></p>
 
    
-   <!-- ✅ New capsule wrapper -->
-<!--  <div class="capsule-container">
-  <svg class="capsule-outline" viewBox="-5 0 290 50" preserveAspectRatio="xMidYMid meet">
-    <!-- Left half -->
-<!--     <path class="capsule-path left" d="
-      M 140,5 
-      h -120 
-      a 20,20 0 0 0 -20,20 
-      v 0 
-      a 20,20 0 0 0 20,20 
-      h 120
-    " />
-
-    <!-- Right half -->
-<!--     <path class="capsule-path right" d="
-      M 140,5 
-      h 120 
-      a 20,20 0 0 1 20,20 
-      v 0 
-      a 20,20 0 0 1 -20,20 
-      h -120
-    " />
-  </svg>
-  <p class="local-tagline">San Antonio, Texas</p>
-</div> -->
    <div class="capsule-container">
   <!-- NEW: Fill shape behind the stroke paths -->
   <svg class="capsule-fill" viewBox="-5 0 290 50" preserveAspectRatio="xMidYMid meet">
@@ -409,6 +396,16 @@ const phraseList = [
     top: window.innerHeight,
     left: 0,
     behavior: 'smooth'
+  });
+});
+   
+document.addEventListener('DOMContentLoaded', () => {
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('show');
   });
 });
 
