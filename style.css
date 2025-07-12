@@ -231,14 +231,6 @@ img {
   animation: shake 0.8s ease-in-out;
 }
 
-@media (max-width: 768px) {
-  .features {
-    flex-direction: column;
-  }
-  .feature {
-    margin-bottom: 5px;
-  }
-}
 
 .page-content {
   background-color: #f7f7f7;
@@ -433,12 +425,18 @@ img {
 
 
 
-/* Hide full nav on mobile */
-@media (max-width: 768px) {
-  .top-nav {
-    display: none;
-  }
 
+  @media (max-width: 768px) {
+  .features {
+    flex-direction: column;
+  }
+  .feature {
+    margin-bottom: 5px;
+  }
+      .top-nav {
+    display: none;
+      }
+}
   .mobile-nav {
     position: absolute;
     top: 20px;
