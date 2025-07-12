@@ -359,7 +359,7 @@ img {
 /* Scroll line adjusted to start from capsule bottom */
 .scroll-line {
   position: absolute;
-  top: calc(50vh + 25px); /* capsule vertical center (50%) + half its height (25px) */
+  top: calc(50vh + 90px); /* capsule vertical center (50%) + half its height (25px) */
   left: 50%;
   transform: translateX(-50%);
   width: 2px;
