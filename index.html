@@ -29,9 +29,6 @@
 
   <div class="overlay-content">
     <img src="images/LAWNIFYlogo.PNG" alt="Lawnify Logo" class="logo" />
-<!--    <p class="sub-tagline">Landscaping<span id="animated-word">Simplified</span></p>
-       -->
-
    <p class="sub-tagline"><span id="animated-word">Landscaping Simplified.</span></p>
 
    
@@ -348,7 +345,7 @@ const phraseList = [
     } else {
       if (!isDeleting) {
         isDeleting = true;
-        setTimeout(typeEffect, 3500); // pause before deleting
+        setTimeout(typeEffect, 3800); // pause before deleting
       } else {
         isDeleting = false;
         phraseIndex = (phraseIndex + 1) % phraseList.length;
@@ -365,45 +362,8 @@ const phraseList = [
 
     setTimeout(() => {
       typeEffect();
-    }, 4000); // wait before deleting initial phrase
+    }, 4200); // wait before deleting initial phrase
   });
-//    const wordList = ["Simplified", "Made Easy", "Hassle-Free", "Done Right", "For You"];
-
-// const span = document.getElementById("animated-word");
-// let wordIndex = 0;
-// let charIndex = wordList[0].length; // Start fully written
-// let isDeleting = true; // Start by deleting after delay
-
-// function typeEffect() {
-//   const currentWord = wordList[wordIndex];
-//   const visibleText = currentWord.substring(0, charIndex);
-//   span.textContent = visibleText;
-
-//   if (isDeleting && charIndex > 0) {
-//     charIndex--;
-//     setTimeout(typeEffect, 100); // deleting speed
-//   } else if (!isDeleting && charIndex < currentWord.length) {
-//     charIndex++;
-//     setTimeout(typeEffect, 150); // typing speed
-//   } else {
-//     if (isDeleting) {
-//       isDeleting = false;
-//       wordIndex = (wordIndex + 1) % wordList.length;
-//       setTimeout(typeEffect, 300); // pause before typing new word
-//     } else {
-//       isDeleting = true;
-//       setTimeout(typeEffect, 2800); // pause before deleting
-//     }
-//   }
-// }
-
-// window.addEventListener("DOMContentLoaded", () => {
-//   // Wait for fade-in + 2s before starting delete animation
-//   setTimeout(() => {
-//     typeEffect(); // Now it will start deleting one character at a time
-//   }, 3500);
-// });
-
 
 
   </script>
