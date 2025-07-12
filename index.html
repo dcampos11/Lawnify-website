@@ -393,6 +393,14 @@ const phraseList = [
     }, 4200); // wait before deleting initial phrase
   });
 
+   document.querySelector('.capsule-container').addEventListener('click', () => {
+  window.scrollBy({
+    top: window.innerHeight,
+    left: 0,
+    behavior: 'smooth'
+  });
+});
+
 
   </script>
 </body>
