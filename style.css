@@ -285,19 +285,6 @@ img {
 }
 
 
-.scroll-line {
-  position: absolute;
-  top: calc(50% + 85px); /* 50% viewport height + offset (adjust as needed) */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 2px;
-  height: 0;
-  background-color: white;
-  opacity: 0;
-  animation: growScrollLine 1.6s ease-out 1.7s forwards; /* trigger after fade-in + small pause */
-   z-index: 5;
-}
-
 @keyframes growScrollLine {
   from {
     height: 0;
