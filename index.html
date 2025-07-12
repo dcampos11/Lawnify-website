@@ -33,10 +33,10 @@
 
    
    <!-- ✅ New capsule wrapper -->
- <div class="capsule-container">
+<!--  <div class="capsule-container">
   <svg class="capsule-outline" viewBox="-5 0 290 50" preserveAspectRatio="xMidYMid meet">
     <!-- Left half -->
-    <path class="capsule-path left" d="
+<!--     <path class="capsule-path left" d="
       M 140,5 
       h -120 
       a 20,20 0 0 0 -20,20 
@@ -46,7 +46,7 @@
     " />
 
     <!-- Right half -->
-    <path class="capsule-path right" d="
+<!--     <path class="capsule-path right" d="
       M 140,5 
       h 120 
       a 20,20 0 0 1 20,20 
@@ -56,7 +56,35 @@
     " />
   </svg>
   <p class="local-tagline">San Antonio, Texas</p>
+</div> --> --> -->
+   <div class="capsule-container">
+  <!-- NEW: Fill shape behind the stroke paths -->
+  <svg class="capsule-fill" viewBox="-5 0 290 50" preserveAspectRatio="xMidYMid meet">
+    <path class="capsule-fill-path" d="
+      M 20,5 
+      h 240 
+      a 20,20 0 0 1 20,20 
+      v 0 
+      a 20,20 0 0 1 -20,20 
+      h -240
+      a 20,20 0 0 1 -20,-20 
+      v 0 
+      a 20,20 0 0 1 20,-20 
+      z
+    " />
+  </svg>
+
+  <!-- Existing outline SVGs -->
+  <svg class="capsule-outline" viewBox="-5 0 290 50" preserveAspectRatio="xMidYMid meet">
+    <path class="capsule-path left" d="M 140,5 h -120 a 20,20 0 0 0 -20,20 v 0 a 20,20 0 0 0 20,20 h 120" />
+    <path class="capsule-path right" d="M 140,5 h 120 a 20,20 0 0 1 20,20 v 0 a 20,20 0 0 1 -20,20 h -120" />
+  </svg>
+
+  <p class="local-tagline">San Antonio, Texas</p>
 </div>
+
+
+   
   </div>
  <div class="scroll-line"></div>
 
