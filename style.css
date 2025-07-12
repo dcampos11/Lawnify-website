@@ -325,14 +325,24 @@ img {
   pointer-events: none;
 }
 
-
+/* 
 .capsule-path {
   fill: none;
   stroke: white;
   stroke-width: 2;
   stroke-dasharray: 400;
   stroke-dashoffset: 400;
+} */
+.capsule-path {
+  fill: none;
+  stroke: white;
+  stroke-width: 2;
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
+
 
 .capsule-path.left {
   animation: drawCapsuleLeft 2.5s ease-out forwards;
