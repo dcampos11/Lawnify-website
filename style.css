@@ -5,13 +5,13 @@
   box-sizing: border-box;
 }
 
-html,
+/* html,
 body,
 .page-content,
 .features,
 .feature {
   overflow: visible !important;
-}
+} */
 
 html, body {
   height: 100%;
