@@ -438,12 +438,31 @@ body {
   }
 }
 
-/* Keyframes & Misc */
+
 @keyframes shake {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  10% { transform: translateY(0) rotate(-2deg); }
+  20% { transform: translateY(0) rotate(2deg); }
+  30% { transform: translateY(0) rotate(-2deg); }
+  40% { transform: translateY(0) rotate(2deg); }
+  50% { transform: translateY(0) rotate(-1deg); }
+  60% { transform: translateY(0) rotate(1deg); }
+  70% { transform: translateY(0) rotate(-1deg); }
+  80% { transform: translateY(0) rotate(1deg); }
+  90% { transform: translateY(0) rotate(0deg); }
+}
+
+.feature-img.shake {
+  animation: shake 0.8s ease-in-out;
+}
+
+
+/* Keyframes & Misc */
+/* @keyframes shake {
   0%,100% { transform: translateY(0) rotate(0deg); }
   20%, 40%, 60%, 80% { transform: translateY(0) rotate(2deg); }
   10%, 30%, 50%, 70%, 90% { transform: translateY(0) rotate(-2deg); }
-}
+} */
 
 @keyframes fadeInUp {
   0% { opacity: 0; transform: translateY(15px); }
