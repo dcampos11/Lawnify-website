@@ -400,7 +400,9 @@ img {
   max-width: 900px;
   display: flex;
   justify-content: center;
-}
+} 
+
+
 
 .top-nav ul {
   list-style: none;
@@ -426,22 +428,30 @@ img {
 
 
 
-  @media (max-width: 768px) {
+ @media (max-width: 768px) {
   .features {
     flex-direction: column;
   }
+
   .feature {
     margin-bottom: 5px;
   }
-      .top-nav {
-    display: none;
-      }
+
+  .top-nav {
+    display: none; /* hide desktop nav on mobile */
+  }
+
+  .mobile-nav {
+    display: block; /* show mobile nav only on small screens */
+  }
 }
+
   .mobile-nav {
     position: absolute;
     top: 20px;
     right: 20px;
     z-index: 11;
+     display: none;
   }
 
   .hamburger {
