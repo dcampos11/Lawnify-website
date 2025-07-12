@@ -256,14 +256,6 @@ body {
   transform-origin: center;
 }
 
-/* .hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.hamburger.active span:nth-child(2) {
-  transform: rotate(-45deg) translate(5px, -5px);
-} */
-
 .hamburger.active span:nth-child(1) {
   transform: translateY(10.5px) rotate(45deg);
 }
@@ -396,7 +388,7 @@ body {
 .feature .text p {
   font-size: 18px;
 }
-
+/* 
 .feature-img {
   width: 100%;
   max-width: 400px;
@@ -407,7 +399,28 @@ body {
   filter:
     drop-shadow(0px 12px 24px rgba(0, 0, 0, 0.3))
     drop-shadow(0px 8px  16px rgba(0, 0, 0, 0.2));
+} */
+
+/* Replace your filter-based shadows with box-shadow */
+.feature-img {
+  display: inline-block;               /* shrink-wrap to content */
+  overflow: visible !important;        /* allow shadows to spill out */
+  width: 100%;
+  max-width: 400px;
+
+  /* NEW: real box-shadow, no filter */
+  box-shadow:
+    0 12px 24px rgba(0, 0, 0, 0.3),
+    0  8px 16px rgba(0, 0, 0, 0.2);
+  filter: none;
+
+  /* keep your existing transitions */
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1.5s ease-out,
+              transform 1.5s ease-out;
 }
+
 
 .feature-img.in-view {
   opacity: 1;
