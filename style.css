@@ -177,7 +177,7 @@ body {
 /* Scroll line */
 .scroll-line {
   position: absolute;
-  top: calc(50vh + 78px);
+  top: calc(50vh + 68px);
   left: 50%;
   transform: translateX(-50%);
   width: 2px;
