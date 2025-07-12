@@ -304,6 +304,10 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;           /* 👈 Change to hand icon */
+  user-select: none;         /* 👈 Prevent text selection */
+  -webkit-user-select: none; /* For Safari */
+  -moz-user-select: none;    /* For Firefox */
 }
 
 .local-tagline {
@@ -313,6 +317,7 @@ img {
   z-index: 2;
   white-space: nowrap;
   line-height: 1;
+  pointer-events: none; 
 }
 
 .capsule-outline {
