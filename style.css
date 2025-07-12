@@ -291,7 +291,7 @@ img {
     opacity: 0;
   }
   to {
-    height: calc(100vh - 50% - 150px); /* grow down from center */
+    height: calc(100vh - 50% - 70px); /* grow down from center */
     opacity: 1;
   }
 }
