@@ -484,7 +484,7 @@ body {
   }
   
   .background-video {
-    top: 0;
+    top: -60px;
     height: calc(100vh + 60px); /* Match container height */
     min-height: calc(100vh + 60px);
   }
