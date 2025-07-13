@@ -430,6 +430,32 @@ body {
   100% { opacity: 1; transform: translateY(0); }
 }
 
+
+.about,
+.store-badge-section,
+.feature .text {
+  opacity: 0;
+  animation: fadeInUp 1.5s ease-out forwards;
+}
+
+/* if you want to stagger them, you can add delays: */
+.about {
+  animation-delay: 0.4s;
+}
+.store-badge-section {
+  animation-delay: 0.6s;
+}
+.feature .text:nth-child(1) {
+  animation-delay: 0.8s;
+}
+.feature .text:nth-child(2) {
+  animation-delay: 1.0s;
+}
+.feature .text:nth-child(3) {
+  animation-delay: 1.2s;
+}
+
+
 .logo,
 .sub-tagline,
 .local-tagline {
