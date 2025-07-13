@@ -471,20 +471,27 @@ body {
 
 
   
-
-   .black-header {
-    height: calc(100vh + 150px); /* Slight overflow to cover any gaps */
-    min-height: calc(100vh + 150px);
+.black-header {
+    height: 100vh;
+    overflow: hidden; /* Hide any overflow */
   }
   
   .video-container {
-    height: calc(100vh + 150px);
-    min-height: calc(100vh + 150px);
+    top: -60px; /* Move video up to cover white space */
+    height: calc(100vh + 60px); /* Extend height to compensate */
+    min-height: calc(100vh + 60px);
   }
   
   .background-video {
-    height: calc(100vh + 150px);
-    min-height: calc(100vh + 150px);
+    top: 0;
+    height: calc(100vh + 60px); /* Match container height */
+    min-height: calc(100vh + 60px);
+  }
+  
+  /* Ensure overlay content stays in correct position */
+  .overlay-content {
+    position: relative;
+    top: 60px; /* Compensate for video moving up */
   }
 
   
