@@ -473,18 +473,18 @@ body {
   
 
    .black-header {
-    height: calc(100vh + 80px); /* Slight overflow to cover any gaps */
-    min-height: calc(100vh + 80px);
+    height: calc(100vh + 150px); /* Slight overflow to cover any gaps */
+    min-height: calc(100vh + 150px);
   }
   
   .video-container {
-    height: calc(100vh + 80px);
-    min-height: calc(100vh + 80px);
+    height: calc(100vh + 150px);
+    min-height: calc(100vh + 150px);
   }
   
   .background-video {
-    height: calc(100vh + 80px);
-    min-height: calc(100vh + 80px);
+    height: calc(100vh + 150px);
+    min-height: calc(100vh + 150px);
   }
 
   
