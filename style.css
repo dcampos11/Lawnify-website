@@ -470,3 +470,26 @@ body {
 
   
 }
+
+
+
+
+
+/* —— Mini Header for sub‐pages —— */
+.mini-header {
+  height: 70px;           /* tweak this to just fit your nav */
+  overflow: hidden;
+}
+
+.mini-header .video-container,
+.mini-header .background-video {
+  height: 100%;
+  opacity: 1 !important;  /* keep the video visible */
+  z-index: 0;
+}
+
+.mini-header .overlay-content,
+.mini-header .scroll-line {
+  display: none;          /* hide all home‐page overlays */
+}
+
