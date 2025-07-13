@@ -235,6 +235,11 @@ body {
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
+
+
+   opacity: 0;
+  transform: translateY(15px);
+  animation: fadeInUp 1.5s ease-out forwards;
 }
 
 .hamburger span {
