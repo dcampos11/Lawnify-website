@@ -357,7 +357,7 @@ body {
   border-radius: 0;
  
   opacity: 0;
-  transform: translateY(50px);
+  transform: translateY(15px);
   transition: opacity 1.5s ease-out,
               transform 1.5s ease-out;
 
