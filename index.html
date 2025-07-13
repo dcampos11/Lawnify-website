@@ -414,13 +414,47 @@ const phraseList = [
   });
 });
    
-document.addEventListener('DOMContentLoaded', () => {
+// document.addEventListener('DOMContentLoaded', () => {
+//   const hamburger = document.getElementById('hamburger');
+//   const mobileMenu = document.getElementById('mobileMenu');
+
+//   hamburger.addEventListener('click', () => {
+//     hamburger.classList.toggle('active');
+//     mobileMenu.classList.toggle('show');
+//   });
+// });
+   document.addEventListener('DOMContentLoaded', () => {
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobileMenu');
+  let isAnimating = false;
 
   hamburger.addEventListener('click', () => {
+    if (isAnimating) return;
+    
+    isAnimating = true;
     hamburger.classList.toggle('active');
-    mobileMenu.classList.toggle('show');
+    
+    if (mobileMenu.classList.contains('show')) {
+      // Closing animation
+      mobileMenu.classList.remove('show');
+      setTimeout(() => {
+        isAnimating = false;
+      }, 300);
+    } else {
+      // Opening animation
+      mobileMenu.classList.add('show');
+      setTimeout(() => {
+        isAnimating = false;
+      }, 800); // Wait for all staggered animations to complete
+    }
+  });
+  
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target) && mobileMenu.classList.contains('show')) {
+      hamburger.classList.remove('active');
+      mobileMenu.classList.remove('show');
+    }
   });
 });
 
