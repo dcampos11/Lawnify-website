@@ -469,31 +469,5 @@ body {
   }
 
 
-
-  
-.black-header {
-    height: 100vh;
-    overflow: hidden; /* Hide any overflow */
-  top: -60px
-  }
-  
-  .video-container {
-    top: -60px; /* Move video up to cover white space */
-    height: calc(100vh + 60px); /* Extend height to compensate */
-    min-height: calc(100vh + 60px);
-  }
-  
-  .background-video {
-    top: -60px;
-    height: calc(100vh + 60px); /* Match container height */
-    min-height: calc(100vh + 60px);
-  }
-  
-  /* Ensure overlay content stays in correct position */
-  .overlay-content {
-    position: relative;
-    top: 60px; /* Compensate for video moving up */
-  }
-
   
 }
