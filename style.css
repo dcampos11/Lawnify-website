@@ -494,7 +494,7 @@ body {
   .video-container::before {
     content: '';
     position: absolute;
-    top: -20px;
+    top: -60px;
     background: inherit;
     z-index: -1;
   }
