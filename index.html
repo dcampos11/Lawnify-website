@@ -105,7 +105,7 @@
 
 
   <main class="page-content">
-    <section class="carousel">
+<!--     <section class="carousel">
       <div class="carousel-track" id="carouselTrack">
         <div class="carousel-item"></div>
         <div class="carousel-item"></div>
@@ -126,7 +126,7 @@
         <div class="carousel-item"></div>
         <div class="carousel-item"></div>
       </div>
-    </section>
+    </section> -->
 
    
     <section class="about">
@@ -180,31 +180,31 @@
   </footer>
 
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const track = document.getElementById('carouselTrack');
-      const items = Array.from(track.children);
+    // document.addEventListener('DOMContentLoaded', () => {
+    //   const track = document.getElementById('carouselTrack');
+    //   const items = Array.from(track.children);
 
-      items.forEach(item => {
-        const clone = item.cloneNode(true);
-        track.appendChild(clone);
-      });
+    //   items.forEach(item => {
+    //     const clone = item.cloneNode(true);
+    //     track.appendChild(clone);
+    //   });
 
-      const itemWidth = 380 + 20;
-      const totalWidth = items.length * itemWidth;
+    //   const itemWidth = 380 + 20;
+    //   const totalWidth = items.length * itemWidth;
 
-      let currentTranslate = 0;
-      const speed = 0.8;
+    //   let currentTranslate = 0;
+    //   const speed = 0.8;
 
-      function animate() {
-        currentTranslate -= speed;
-        if (Math.abs(currentTranslate) >= totalWidth) {
-          currentTranslate = 0;
-        }
-        track.style.transform = `translateX(${currentTranslate}px)`;
-        requestAnimationFrame(animate);
-      }
+    //   function animate() {
+    //     currentTranslate -= speed;
+    //     if (Math.abs(currentTranslate) >= totalWidth) {
+    //       currentTranslate = 0;
+    //     }
+    //     track.style.transform = `translateX(${currentTranslate}px)`;
+    //     requestAnimationFrame(animate);
+    //   }
 
-      animate();
+    //   animate();
 
       const imgs = document.querySelectorAll('.feature-img');
    
