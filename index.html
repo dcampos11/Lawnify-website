@@ -181,31 +181,6 @@
 
   <script>
      document.addEventListener('DOMContentLoaded', () => {
-    //   const track = document.getElementById('carouselTrack');
-    //   const items = Array.from(track.children);
-
-    //   items.forEach(item => {
-    //     const clone = item.cloneNode(true);
-    //     track.appendChild(clone);
-    //   });
-
-    //   const itemWidth = 380 + 20;
-    //   const totalWidth = items.length * itemWidth;
-
-    //   let currentTranslate = 0;
-    //   const speed = 0.8;
-
-    //   function animate() {
-    //     currentTranslate -= speed;
-    //     if (Math.abs(currentTranslate) >= totalWidth) {
-    //       currentTranslate = 0;
-    //     }
-    //     track.style.transform = `translateX(${currentTranslate}px)`;
-    //     requestAnimationFrame(animate);
-    //   }
-
-    //   animate();
-
       const imgs = document.querySelectorAll('.feature-img');
    
      const observer = new IntersectionObserver((entries) => {
@@ -216,11 +191,25 @@
       entry.target.classList.remove('in-view');
     }
   });
-}, { threshold: 0.25 });
+}, { threshold: 0.2 });
 
 imgs.forEach(img => observer.observe(img));
 
 
+    // 2) RIGHT HERE: hook up the in‐view animation for your other sections
+    const animTargets = document.querySelectorAll(
+      '.about, .store-badge-section, .feature .text'
+    );
+    const animObserver = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    animTargets.forEach(el => animObserver.observe(el));
+      
       function isMobileDevice() {
         return window.matchMedia('(hover: none) and (pointer: coarse)').matches;
       }
