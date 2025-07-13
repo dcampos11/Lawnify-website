@@ -256,7 +256,7 @@ body {
 
 
 
-.mobile-menu {
+/* .mobile-menu {
   position: absolute;
   top: 40px;          
   right: 5px;        
@@ -271,7 +271,7 @@ body {
   transform: translateY(-10px);
   pointer-events: none;
   transition: all 0.4s ease;
-}
+} */
 
 .mobile-menu a {
   color: white;
@@ -285,11 +285,37 @@ body {
   color: #2a9d8f;
 }
 
+
+
+.mobile-menu {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: none;
+  border-radius: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: right;
+  transform: translateX(100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
 .mobile-menu.show {
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+/* .mobile-menu.show {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
-}
+} */
 
 
 .about,
