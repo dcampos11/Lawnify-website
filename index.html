@@ -48,13 +48,15 @@
     <span></span>
   </div>
   <div class="mobile-menu" id="mobileMenu">
-<!--      <a href="index.html">Home</a> -->
    <a href="/">Home</a>
         <a href="/services/">Services</a>
         <a href="/payments/">Payments</a>
         <a href="/rewards/">Rewards</a>
         <a href="/pricing/">Pricing</a>
   </div>
+ 
+ <div class="mobile-blur-overlay" id="mobileBlurOverlay"></div>
+
 </div>
 
  
@@ -381,15 +383,41 @@ const phraseList = [
   });
 });
    
-document.addEventListener('DOMContentLoaded', () => {
+// document.addEventListener('DOMContentLoaded', () => {
+//   const hamburger = document.getElementById('hamburger');
+//   const mobileMenu = document.getElementById('mobileMenu');
+
+//   hamburger.addEventListener('click', () => {
+//     hamburger.classList.toggle('active');
+//     mobileMenu.classList.toggle('show');
+//   });
+// });
+
+   document.addEventListener('DOMContentLoaded', () => {
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobileMenu');
+  const blurOverlay = document.getElementById('mobileBlurOverlay');
+
+  function closeMobileMenu() {
+    hamburger.classList.remove('active');
+    mobileMenu.classList.remove('show');
+    blurOverlay.classList.remove('show');
+  }
 
   hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
+    const isActive = hamburger.classList.toggle('active');
     mobileMenu.classList.toggle('show');
+    blurOverlay.classList.toggle('show');
+  });
+
+  blurOverlay.addEventListener('click', closeMobileMenu);
+
+  // Close menu on link click
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMobileMenu);
   });
 });
+
 
 
   </script>
