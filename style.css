@@ -475,7 +475,7 @@ body {
 
 
 
-
+/* fix the hamburger not working on subpages.  */
 
 .mini-header {
   position: relative;
