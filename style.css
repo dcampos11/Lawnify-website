@@ -467,4 +467,30 @@ body {
   .mobile-nav {
     display: block;
   }
+
+
+  
+   .black-header {
+    height: 100vh;
+    height: 100dvh; /* Dynamic viewport height - newer browsers */
+    min-height: 100vh; /* Fallback */
+    min-height: 100dvh; /* Fallback for dynamic viewport */
+  }
+  
+  .video-container {
+    height: 100vh;
+    height: 100dvh; /* Dynamic viewport height */
+    min-height: 100vh; /* Ensure minimum coverage */
+    min-height: 100dvh;
+  }
+  
+  .background-video {
+    height: 100vh;
+    height: 100dvh; /* Dynamic viewport height */
+    min-height: 100vh; /* Ensure video covers entire screen */
+    min-height: 100dvh;
+  }
+
+
+  
 }
