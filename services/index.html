@@ -22,6 +22,8 @@
       </ul>
     </nav>
 
+   <div class="mobile-blur-overlay" id="mobileBlurOverlay"></div>
+
     <div class="mobile-nav">
       <div class="hamburger" id="hamburger">
         <span></span><span></span>
@@ -47,6 +49,35 @@
     <div class="legal">© 2025 Lawnify, LLC.</div>
   </footer>
 
-  <script src="/app.js"></script>
+ <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const blurOverlay = document.getElementById('mobileBlurOverlay');
+
+    function closeMobileMenu() {
+      hamburger.classList.remove('active');
+      mobileMenu.classList.remove('show');
+      if (blurOverlay) blurOverlay.classList.remove('show');
+    }
+
+    if (hamburger && mobileMenu) {
+      hamburger.addEventListener('click', () => {
+        const isActive = hamburger.classList.toggle('active');
+        mobileMenu.classList.toggle('show');
+        if (blurOverlay) blurOverlay.classList.toggle('show');
+      });
+
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+      });
+
+      if (blurOverlay) {
+        blurOverlay.addEventListener('click', closeMobileMenu);
+      }
+    }
+  });
+</script>
+
 </body>
 </html>
