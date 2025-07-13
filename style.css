@@ -498,5 +498,21 @@ body {
     position: relative;
     z-index: 10; /* Higher z-index to stay above video */
   }
+
+
+  /* Alternative approach - if you want to keep body background, extend video upward */
+  .black-header {
+    margin-top: -20px; /* Pull header up */
+    height: calc(100vh + 20px); /* Extend height to compensate */
+    overflow: hidden;
+  }
+  
+  .video-container {
+    height: calc(100vh + 20px); /* Match header height */
+  }
+  
+  .background-video {
+    height: calc(100vh + 20px); /* Match container height */
+  }
   
 }
