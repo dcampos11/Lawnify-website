@@ -525,10 +525,10 @@ body {
   /* Move the video container up independently */
   .video-container {
     position: absolute;
-    top: -50px; /* Move video up beyond header bounds */
+    top: -100px; /* Move video up beyond header bounds */
     left: 0;
     width: 100%;
-    height: calc(100vh + 50px); /* Extend height to compensate */
+    height: calc(100vh + 100px); /* Extend height to compensate */
     z-index: 0;
   }
   
