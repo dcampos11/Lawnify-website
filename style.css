@@ -468,37 +468,5 @@ body {
     display: block;
   }
 
-
-  
- .black-header {
-    position: relative;
-    height: 100vh;
-    overflow: hidden; /* Hide video overflow */
-  }
-  
-  .video-container {
-    position: absolute;
-    top: -50px; /* Move video up significantly */
-    left: -10px; /* Extend sides slightly */
-    width: calc(100% + 20px); /* Compensate width */
-    height: calc(100vh + 100px); /* Make video much taller */
-  }
-  
-  .background-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  /* Ensure overlay content stays centered and visible */
-  .overlay-content {
-    position: relative;
-    z-index: 10; /* Higher z-index to stay above video */
-  }
-
-
   
 }
