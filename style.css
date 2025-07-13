@@ -24,27 +24,18 @@ body {
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-  top: calc(-1 * env(safe-area-inset-top)); 
-/*  padding-top: env(safe-area-inset-top); */
+
 }
 
-/* .video-container {
+.video-container {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: 0;
-} */
-/* 2. Video now extends up under the notch */
-.video-container {
-  position: absolute;
-  top: calc(-1 * env(safe-area-inset-top));   /* pull it up */
-  left: 0;
-  width: 100%;
-  height: calc(100% + env(safe-area-inset-top)); /* and grow down */
-  z-index: 0;
 }
+
 
 .background-video {
   position: absolute;
@@ -77,11 +68,7 @@ body {
   align-items: center;
   text-align: center;
   gap: 12px;
-/*   padding: 0 20px; */
-
-  
-   padding: env(safe-area-inset-top) 20px 0;
-    padding-top: env(safe-area-inset-top);
+  padding: 0 20px; 
 }
 
 .logo {
