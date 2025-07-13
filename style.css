@@ -457,8 +457,6 @@ body {
   
 }
 
-
-
 .mobile-blur-overlay {
   position: fixed;
   top: 0;
@@ -467,16 +465,20 @@ body {
   height: 100vh;
   backdrop-filter: blur(10px);
   background: rgba(0, 0, 0, 0.3);
-  z-index: 9; /* below mobile menu (which is z-index: 11) */
+  z-index: 9;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0s linear 0.3s;
 }
 
 .mobile-blur-overlay.show {
   opacity: 1;
   pointer-events: auto;
+  visibility: visible;
+  transition: opacity 0.3s ease;
 }
+
 
 
 
