@@ -501,36 +501,36 @@ body {
 
 
 
-   html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow-x: hidden; /* Prevent horizontal scroll */
+
+
+
+   /* Force remove any default browser margins/padding */
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100% !important;
   }
   
   body {
-    background-color: #000; /* Temporary to see what's happening */
+    background-color: #000; /* Black background so any gaps aren't white */
   }
   
+  /* Make header start at absolute top and extend upward */
   .black-header {
-    position: fixed; /* Change from relative to fixed */
+    position: relative;
     top: 0;
-    left: 0;
-    right: 0;
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    width: 100vw;
-    z-index: 1;
+    margin-top: -50px; /* Pull header up above any body constraints */
+    padding-top: 50px; /* Add padding back to keep content positioned correctly */
+    height: calc(100vh + 50px); /* Extend height to compensate */
+    overflow: hidden;
   }
   
   .video-container {
-    position: fixed; /* Make video container fixed to viewport */
+    position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 0;
+    width: 100%;
+    height: 100%; /* Fill the extended header */
   }
   
   .background-video {
@@ -542,11 +542,12 @@ body {
     object-fit: cover;
   }
   
-  /* Ensure main content starts below the header */
-  .page-content {
+  /* Adjust overlay content to account for the padding */
+  .overlay-content {
     position: relative;
-    z-index: 2;
-    margin-top: 100vh; /* Push content below the fixed header */
+    z-index: 10;
+    /* Content should remain centered as before */
   }
+  
   
 }
