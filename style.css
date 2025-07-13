@@ -497,6 +497,11 @@ body {
  */
 
 
+
+
+
+
+
 /* Reset & Global Styles */
 * {
   margin: 0;
@@ -508,26 +513,34 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  /* MOBILE SAFE AREA FIX: Ensure body extends beyond safe areas */
+  background-color: #000; /* Change to black to match video */
 }
 
 body {
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f7f7f7;
+  background-color: #000; /* Black background to prevent white gaps */
   color: #333;
   line-height: 1.6;
+  /* MOBILE SAFE AREA FIX: Extend body beyond safe areas */
+  padding-top: 0;
+  margin-top: 0;
 }
 
 /* Header & Video */
 .black-header {
   position: relative;
   padding-top: 0;
-  height: 100vh;
-  /* MOBILE SAFE AREA FIX: Add safe area padding to height */
-  height: calc(100vh + env(safe-area-inset-top));
+  /* MOBILE SAFE AREA FIX: Use viewport units that include safe areas */
+  height: 100dvh; /* Dynamic viewport height */
+  min-height: 100vh; /* Fallback */
   width: 100vw;
   overflow: hidden;
-  /* MOBILE SAFE AREA FIX: Extend beyond the top safe area */
-  margin-top: calc(-1 * env(safe-area-inset-top));
+  /* MOBILE SAFE AREA FIX: Ensure header starts from absolute top */
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .video-container {
@@ -571,8 +584,11 @@ body {
   text-align: center;
   gap: 12px;
   padding: 0 20px;
-  /* MOBILE SAFE AREA FIX: Add safe area padding to top */
-  padding-top: calc(env(safe-area-inset-top) + 20px);
+  /* MOBILE SAFE AREA FIX: Use safe area padding */
+  padding-top: max(env(safe-area-inset-top), 20px);
+  padding-bottom: max(env(safe-area-inset-bottom), 20px);
+  padding-left: max(env(safe-area-inset-left), 20px);
+  padding-right: max(env(safe-area-inset-right), 20px);
 }
 
 .logo {
@@ -696,8 +712,8 @@ body {
 /* Top Navigation (Desktop) */
 .top-nav {
   position: absolute;
-  /* MOBILE SAFE AREA FIX: Account for safe area in positioning */
-  top: calc(20px + env(safe-area-inset-top));
+  /* MOBILE SAFE AREA FIX: Use safe area insets */
+  top: max(env(safe-area-inset-top), 20px);
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
@@ -731,9 +747,9 @@ body {
 .mobile-nav {
   display: none;
   position: absolute;
-  /* MOBILE SAFE AREA FIX: Account for safe area in positioning */
-  top: calc(20px + env(safe-area-inset-top));
-  right: 20px;
+  /* MOBILE SAFE AREA FIX: Use safe area insets */
+  top: max(env(safe-area-inset-top), 20px);
+  right: max(env(safe-area-inset-right), 20px);
   z-index: 11;
 }
 
@@ -802,7 +818,7 @@ body {
 /* Carousel */
 .carousel {
   overflow: hidden;
-  background-color: #f7f7f7;
+  background-color: #f7f7f7; /* Restore original background for content area */
   padding: 40px 0;
 }
 
@@ -837,6 +853,15 @@ body {
   margin: 40px auto;
   padding: 0 20px;
   text-align: center;
+  /* MOBILE SAFE AREA FIX: Ensure content has proper background */
+  background-color: #f7f7f7;
+}
+
+/* MOBILE SAFE AREA FIX: Add main content wrapper styling */
+.page-content {
+  background-color: #f7f7f7;
+  position: relative;
+  z-index: 1;
 }
 
 .store-badge-section {
@@ -977,12 +1002,12 @@ body {
 
 /* —— Mini Header for sub‐pages —— */
 .mini-header {
-  height: 70px;           /* tweak this to just fit your nav */
+  height: 70px;
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.3);
-  /* MOBILE SAFE AREA FIX: Add safe area support for mini header */
-  height: calc(70px + env(safe-area-inset-top));
-  margin-top: calc(-1 * env(safe-area-inset-top));
+  /* MOBILE SAFE AREA FIX: Ensure mini header also extends properly */
+  min-height: calc(70px + env(safe-area-inset-top));
+  padding-top: env(safe-area-inset-top);
 }
 
 .mini-header .video-container,
