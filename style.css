@@ -490,7 +490,14 @@ body {
     min-height: 100vh; /* Ensure video covers entire screen */
     min-height: 100dvh;
   }
-
+/* Additional safety measure - extend video container slightly */
+  .video-container::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    background: inherit;
+    z-index: -1;
+  }
 
   
 }
