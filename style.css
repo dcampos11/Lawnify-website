@@ -256,7 +256,7 @@ body {
 
 
 
-/* .mobile-menu {
+.mobile-menu {
   position: absolute;
   top: 40px;          
   right: 5px;        
@@ -289,105 +289,6 @@ body {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
-} */
-
-
-
-* Replace the existing mobile menu styles with this enhanced version */
-
-.mobile-menu {
-  position: absolute;
-  top: 40px;          
-  right: 5px;        
-  background: none;    
-  border-radius: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  text-align: right;   
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-}
-
-.mobile-menu a {
-  color: white;
-  text-decoration: none;
-  font-size: 18px;
-  font-weight: 500;
-  transition: color 0.3s ease;
-  transform: translateY(-20px);
-  opacity: 0;
-  animation-fill-mode: both;
-}
-
-.mobile-menu a:hover {
-  color: #2a9d8f;
-}
-
-.mobile-menu.show {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.mobile-menu.show a {
-  animation: slideDownBounce 0.6s ease-out forwards;
-}
-
-.mobile-menu.show a:nth-child(1) {
-  animation-delay: 0.1s;
-}
-
-.mobile-menu.show a:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.mobile-menu.show a:nth-child(3) {
-  animation-delay: 0.3s;
-}
-
-.mobile-menu.show a:nth-child(4) {
-  animation-delay: 0.4s;
-}
-
-.mobile-menu.show a:nth-child(5) {
-  animation-delay: 0.5s;
-}
-
-/* Keyframe animation for the staggered bounce effect */
-@keyframes slideDownBounce {
-  0% {
-    transform: translateY(-20px);
-    opacity: 0;
-  }
-  60% {
-    transform: translateY(5px);
-    opacity: 1;
-  }
-  80% {
-    transform: translateY(-2px);
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-/* Animation for hiding the menu items */
-.mobile-menu:not(.show) a {
-  animation: slideUpFade 0.3s ease-in forwards;
-}
-
-@keyframes slideUpFade {
-  0% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-10px);
-    opacity: 0;
-  }
 }
 
 
