@@ -1,5 +1,3 @@
-
-
  <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,7 +32,6 @@
 
  <nav class="top-nav">
   <ul>
-<!--     <li><a href="index.html">Home</a></li> -->
    <li><a href="/">Home</a></li>
         <li><a href="/services/">Services</a></li>
         <li><a href="/payments/">Payments</a></li>
@@ -72,7 +69,6 @@
 
    
    <div class="capsule-container">
-  <!-- NEW: Fill shape behind the stroke paths -->
   <svg class="capsule-fill" viewBox="-5 0 290 50" preserveAspectRatio="xMidYMid meet">
     <path class="capsule-fill-path" d="
       M 20,5 
@@ -87,8 +83,6 @@
       z
     " />
   </svg>
-
-  <!-- Existing outline SVGs -->
   <svg class="capsule-outline" viewBox="-5 0 290 50" preserveAspectRatio="xMidYMid meet">
     <path class="capsule-path left" d="M 140,5 h -120 a 20,20 0 0 0 -20,20 v 0 a 20,20 0 0 0 20,20 h 120" />
     <path class="capsule-path right" d="M 140,5 h 120 a 20,20 0 0 1 20,20 v 0 a 20,20 0 0 1 -20,20 h -120" />
@@ -149,8 +143,6 @@
   </main>
 
   <footer class="footer">
-<!--     <p>San Antonio's first smart lawn care app</p>
-    <p>lawnifyapp@gmail.com</p> -->
     <div class="legal">
       © 2025 Lawnify, LLC.<br>
       (Powered by Launchpad)
@@ -166,16 +158,12 @@ const observer = new IntersectionObserver((entries, obs) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('in-view');
-      obs.unobserve(entry.target);   // stop watching once it's in view
+      obs.unobserve(entry.target);  
     }
   });
 }, { threshold: 0.2 });
 
 imgs.forEach(img => observer.observe(img));
-
-
-
-    // 2) RIGHT HERE: hook up the in‐view animation for your other sections
     const animTargets = document.querySelectorAll(
       '.about, .store-badge-section, .feature .text'
     );
@@ -235,14 +223,13 @@ imgs.forEach(img => observer.observe(img));
       }
     });
 
-  // ✅ ONLY dynamic darkening effect on scroll
   window.addEventListener('scroll', () => {
     const overlay = document.querySelector('.overlay-content');
     const maxScroll = window.innerHeight;
     const scrollY = Math.min(window.scrollY, maxScroll);
     const progress = scrollY / maxScroll;
 
-    const backgroundOpacity = 0.3 + progress * 0.7; // 0.3 → 1.0
+    const backgroundOpacity = 0.3 + progress * 0.7;
     overlay.style.backgroundColor = `rgba(0, 0, 0, ${backgroundOpacity})`;
   });
 
@@ -251,7 +238,7 @@ imgs.forEach(img => observer.observe(img));
    document.addEventListener('DOMContentLoaded', () => {
   const videos = document.querySelectorAll('.background-video');
   let currentIndex = 0;
-  const transitionBuffer = 1000; // 1 second overlap
+  const transitionBuffer = 1000; 
   let isTransitioning = false;
 
   function scheduleNextFade(video, nextVideo) {
@@ -260,8 +247,6 @@ imgs.forEach(img => observer.observe(img));
 
     setTimeout(() => {
       isTransitioning = true;
-
-      // Reset next video
       nextVideo.currentTime = 0;
       nextVideo.load();
 
@@ -270,11 +255,8 @@ imgs.forEach(img => observer.observe(img));
 
         nextVideo.classList.add('active');
         nextVideo.play();
-
-        // Overlap before removing previous video
         setTimeout(() => {
           video.classList.remove('active');
-
           setTimeout(() => {
             video.pause();
             isTransitioning = false;
@@ -285,8 +267,6 @@ imgs.forEach(img => observer.observe(img));
           scheduleNextFade(nextVideo, upcoming);
         }, 0);
       });
-
-      // Fallback in case `canplaythrough` doesn’t fire
       setTimeout(() => {
         if (nextVideo.paused && isTransitioning) {
           nextVideo.play();
@@ -317,7 +297,6 @@ imgs.forEach(img => observer.observe(img));
       scheduleNextFade(firstVideo, nextVideo);
     });
 
-    // Safety fallback
     setTimeout(() => {
       if (firstVideo.paused) {
         firstVideo.play();
@@ -347,31 +326,30 @@ const phraseList = [
 
     if (!isDeleting && charIndex < currentPhrase.length) {
       charIndex++;
-      setTimeout(typeEffect, 120); // typing speed
+      setTimeout(typeEffect, 120); 
     } else if (isDeleting && charIndex > 0) {
       charIndex--;
-      setTimeout(typeEffect, 80); // deleting speed
+      setTimeout(typeEffect, 80); 
     } else {
       if (!isDeleting) {
         isDeleting = true;
-        setTimeout(typeEffect, 3800); // pause before deleting
+        setTimeout(typeEffect, 3800); 
       } else {
         isDeleting = false;
         phraseIndex = (phraseIndex + 1) % phraseList.length;
-        setTimeout(typeEffect, 300); // pause before typing next phrase
+        setTimeout(typeEffect, 300);
       }
     }
   }
 
   window.addEventListener("DOMContentLoaded", () => {
-    // Start with full "Landscaping Simplified." already rendered
     span.textContent = phraseList[0];
     charIndex = phraseList[0].length;
     isDeleting = true;
 
     setTimeout(() => {
       typeEffect();
-    }, 4200); // wait before deleting initial phrase
+    }, 4200); 
   });
 
    document.querySelector('.capsule-container').addEventListener('click', () => {
@@ -381,8 +359,7 @@ const phraseList = [
     behavior: 'smooth'
   });
 });
-   
-
+  
    document.addEventListener('DOMContentLoaded', () => {
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobileMenu');
@@ -402,14 +379,10 @@ const phraseList = [
 
   blurOverlay.addEventListener('click', closeMobileMenu);
 
-  // Close menu on link click
   mobileMenu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', closeMobileMenu);
   });
 });
-
-
-
   </script>
 </body>
 </html>
