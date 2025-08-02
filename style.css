@@ -716,4 +716,12 @@ body {
   letter-spacing: 1px;
 }
 
+.carousel-container {
+  cursor: grab;
+}
+
+.carousel-container.active {
+  cursor: grabbing;
+}
+
 
