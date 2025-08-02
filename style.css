@@ -74,6 +74,15 @@ body {
   padding: 0 20px; 
 }
 
+.grid-background {
+  background-color: #fdfcfa; /* Light off-white background */
+  background-image: 
+    linear-gradient(to right, rgba(0, 122, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 122, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px; /* Size of each grid square */
+}
+
+
 .logo {
   max-width: 280px;
   width: auto;
