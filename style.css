@@ -658,27 +658,32 @@ body {
   margin-bottom: 0rem;
 }
 
-/* Carousel container: full-bleed + scrollable */
 .carousel-container {
   position: relative;
   width: 100vw;
-  left: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-
+  /* center a full-viewport element inside a padded parent */
+  margin-left: calc((100% - 100vw) / 2);
+  margin-right: calc((100% - 100vw) / 2);
+  
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
-
-  /* vertical breathing room for shadows */
-  padding: 40px 0;
+  
+  /* add horizontal padding so cards don’t butt up against edges */
+  padding: 40px 20px;
+  
+  cursor: grab;
+}
+.carousel-container:active {
+  cursor: grabbing;
 }
 
-/* Flex row, no auto animation */
+
 .carousel-content {
-  display: flex;
+  display: inline-flex;  /* so its width is exactly as wide as all cards combined */
   gap: 20px;
 }
+
 
 /* “You” card styling */
 .testimonial-card.you {
@@ -716,9 +721,6 @@ body {
   letter-spacing: 1px;
 }
 
-.carousel-container {
-  cursor: grab;
-}
 
 .carousel-container.active {
   cursor: grabbing;
