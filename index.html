@@ -520,9 +520,23 @@ const phraseList = [
       });
     });
   });
+
+
+   // ===== seamless testimonial carousel setup =====
+document.addEventListener('DOMContentLoaded', () => {
+  const carousel = document.querySelector('.carousel-content');
+  // total width of ALL cards
+  const total = carousel.scrollWidth;
+  // half of that (we duplicated the set once)
+  const half = total / 2;
+  // set a custom property on the element
+  carousel.style.setProperty('--scroll-distance', `-${half}px`);
+});
+
   </script>
 </body>
 </html>
+
 
 
 
