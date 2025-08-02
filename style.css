@@ -658,11 +658,21 @@ body {
   margin-bottom: 1rem;
 }
 
-/* Masking container */
+/* make carousel overflow full-width and add vertical padding */
 .carousel-container {
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
+
+  /* full-bleed hack */
+  width: 100vw;
+  left: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+
+  /* extra top/bottom padding so shadows aren’t cut off */
+  padding: 80px 0;
 }
+
 
 /* Flex-row of cards, animated */
 .carousel-content {
