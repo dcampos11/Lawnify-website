@@ -713,12 +713,12 @@ body {
   position: relative;   /* ensure border-image positions correctly */
   background: none;
   box-shadow: none;
-  border: 2px dashed #2a9d8f; /* fallback for older browsers */
+  border: 2px dashed #f2b01e; /* fallback for older browsers */
   /* now override with a custom dash pattern: */
   border-image: repeating-linear-gradient(
     to right,
-    #2a9d8f 0,
-    #2a9d8f 12px,     /* dash length */
+    #f2b01e 0,
+    #f2b01e 12px,     /* dash length */
     transparent 12px,
     transparent 18px  /* dash length + gap */
   ) 1;                /* “1” means use the gradient at full border width */
