@@ -516,17 +516,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const container = document.querySelector('.carousel-container');
   const youCard   = document.querySelector('.testimonial-card.you');
 
-  // calculate offset to center the “You” card
-  const offset = youCard.offsetLeft - (container.clientWidth / 2 - youCard.clientWidth / 2);
+  // delay so we first see the customer cards slide into view
+  const scrollDelay = 1000; // milliseconds
 
-  // perform a one-time smooth scroll
-  container.scrollTo({ left: offset, behavior: 'smooth' });
+  setTimeout(() => {
+    // calculate offset to center the “You” card
+    const offset = youCard.offsetLeft - (container.clientWidth / 2 - youCard.clientWidth / 2);
+    container.scrollTo({ left: offset, behavior: 'smooth' });
+  }, scrollDelay);
 });
+
 
 
   </script>
 </body>
 </html>
+
 
 
 
