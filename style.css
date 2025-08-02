@@ -677,6 +677,15 @@ body {
 .carousel-container:active {
   cursor: grabbing;
 }
+.carousel-container,
+.carousel-container * {
+  /* prevent any text or image from being selected */
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
 
 
 .carousel-content {
@@ -720,10 +729,4 @@ body {
   font-size: 1.1rem;
   letter-spacing: 1px;
 }
-
-
-.carousel-container.active {
-  cursor: grabbing;
-}
-
 
