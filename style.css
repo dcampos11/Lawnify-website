@@ -75,12 +75,17 @@ body {
 }
 
 .grid-background {
-  background-color: #fdfcfa; /* Light off-white background */
+  background-color: #fdfcfa;
   background-image: 
     linear-gradient(to right, rgba(0, 122, 255, 0.05) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(0, 122, 255, 0.05) 1px, transparent 1px);
-  background-size: 40px 40px; /* Size of each grid square */
+  background-size: 40px 40px;
+  background-repeat: repeat;
+  background-position: top left;
+  min-height: 100vh; /* ensures it fills the screen if content is short */
+  z-index: 0;
 }
+
 
 
 .logo {
