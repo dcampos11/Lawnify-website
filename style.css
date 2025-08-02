@@ -702,28 +702,24 @@ body {
 }
 
 
-/* “You” card styling */
-/* .testimonial-card.you {
-  background: none;         
-  border: 2px dashed #f2b01e;     
-  box-shadow: none;           
-} */
 
 .testimonial-card.you {
-  position: relative;   /* ensure border-image positions correctly */
+  position: relative;
   background: none;
   box-shadow: none;
-  border: 2px dashed #f2b01e; /* fallback for older browsers */
-  /* now override with a custom dash pattern: */
-  border-image: repeating-linear-gradient(
-    to right,
-    #f2b01e 0,
-    #f2b01e 12px,     /* dash length */
-    transparent 12px,
-    transparent 18px  /* dash length + gap */
-  ) 1;                /* “1” means use the gradient at full border width */
-  border-radius: 8px; /* keep your corner rounding */
+  border: none;              /* remove any existing border */
 }
+
+.testimonial-card.you::before {
+  content: "";
+  position: absolute;
+  inset: 0;                  /* cover the full card */
+  box-sizing: border-box;    /* include border in the size */
+  border: 2px dashed #f2b01e;
+  border-radius: 8px;
+  pointer-events: none;      /* let clicks pass through */
+}
+
 
 /* Mini badge inside “You” card */
 .app-store-badge-mini {
