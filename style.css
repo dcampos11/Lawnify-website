@@ -682,8 +682,9 @@ body {
 
 /* “You” card styling */
 .testimonial-card.you {
-  border: 2px dotted #ccc;
-  box-shadow: none;
+  background: none;            /* transparent */
+  border: 2px dashed #ccc;     /* dashed border */
+  box-shadow: none;            /* no shadow */
 }
 
 /* Mini badge inside “You” card */
