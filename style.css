@@ -703,10 +703,26 @@ body {
 
 
 /* “You” card styling */
+/* .testimonial-card.you {
+  background: none;         
+  border: 2px dashed #f2b01e;     
+  box-shadow: none;           
+} */
+
 .testimonial-card.you {
-  background: none;            /* transparent */
-  border: 2px dashed #f2b01e;     /* dashed border */
-  box-shadow: none;            /* no shadow */
+  position: relative;   /* ensure border-image positions correctly */
+  background: none;
+  box-shadow: none;
+  border: 2px dashed #2a9d8f; /* fallback for older browsers */
+  /* now override with a custom dash pattern: */
+  border-image: repeating-linear-gradient(
+    to right,
+    #2a9d8f 0,
+    #2a9d8f 12px,     /* dash length */
+    transparent 12px,
+    transparent 18px  /* dash length + gap */
+  ) 1;                /* “1” means use the gradient at full border width */
+  border-radius: 8px; /* keep your corner rounding */
 }
 
 /* Mini badge inside “You” card */
