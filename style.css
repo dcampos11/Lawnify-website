@@ -667,7 +667,7 @@ body {
   
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
+
   
   /* add horizontal padding so cards don’t butt up against edges */
   padding: 40px 20px;
