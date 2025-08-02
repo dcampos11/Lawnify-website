@@ -658,27 +658,40 @@ body {
   margin-bottom: 0rem;
 }
 
-/* make carousel overflow full-width and add vertical padding */
+/* Carousel container: full-bleed + scrollable */
 .carousel-container {
   position: relative;
-  overflow: hidden;
-
-  /* full-bleed hack */
   width: 100vw;
   left: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
 
-  /* extra top/bottom padding so shadows aren’t cut off */
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+
+  /* vertical breathing room for shadows */
   padding: 40px 0;
 }
 
+/* Flex row, no auto animation */
 .carousel-content {
   display: flex;
   gap: 20px;
-  /* use the CSS variable we’ll set in JS for the exact pixel distance */
-  animation: scroll-left 30s linear infinite;
 }
+
+/* “You” card styling */
+.testimonial-card.you {
+  border: 2px dotted #ccc;
+  box-shadow: none;
+}
+
+/* Mini badge inside “You” card */
+.app-store-badge-mini {
+  width: 120px;
+  margin-top: 12px;
+}
+
 /* Individual card style */
 .testimonial-card {
   flex: 0 0 280px;
@@ -701,15 +714,5 @@ body {
   font-size: 1.1rem;
   letter-spacing: 1px;
 }
-
-@keyframes scroll-left {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(var(--scroll-distance));
-  }
-}
-
 
 
