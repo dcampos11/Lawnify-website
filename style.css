@@ -729,7 +729,7 @@ body {
 
 /* Individual card style */
 .testimonial-card {
-  flex: 0 0 280px;
+  flex: 0 0 320px;
   background: white;
   border-radius: 8px;
   padding: 20px;
