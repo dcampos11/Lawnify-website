@@ -655,7 +655,7 @@ body {
   font-family: 'Satoshi', sans-serif;
   font-weight: 600;
   font-size: 2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0rem;
 }
 
 /* make carousel overflow full-width and add vertical padding */
@@ -670,7 +670,7 @@ body {
   margin-right: -50vw;
 
   /* extra top/bottom padding so shadows aren’t cut off */
-  padding: 80px 0;
+  padding: 40px 0;
 }
 
 
