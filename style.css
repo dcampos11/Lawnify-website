@@ -216,6 +216,68 @@ body {
   }
 }
 
+/* Add to style.css */
+
+/* FAQ wrapper */
+.faq {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.faq h2 {
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 600;
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Each question/answer pair */
+.faq-item {
+  border-top: 1px solid #ddd;
+}
+
+.faq-item:last-of-type {
+  border-bottom: 1px solid #ddd;
+}
+
+/* Question bar */
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.faq-toggle {
+  font-size: 1.5rem;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+/* Answer panel (hidden by default) */
+.faq-answer {
+  display: none;
+  padding: 0 0 1rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* When open */
+.faq-answer.open {
+  display: block;
+}
+.faq-toggle.open {
+  transform: rotate(45deg); /* + becomes × */
+}
+
 
 .top-nav {
   position: absolute;
