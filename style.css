@@ -643,4 +643,62 @@ body {
 
 
 
+/* Testimonials Carousel */
+
+.testimonials {
+  max-width: 1000px;
+  margin: 60px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+.testimonials h2 {
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 600;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Masking container */
+.carousel-container {
+  overflow: hidden;
+  position: relative;
+}
+
+/* Flex-row of cards, animated */
+.carousel-content {
+  display: flex;
+  gap: 20px;
+  animation: scroll-left 30s linear infinite;
+}
+
+/* Individual card style */
+.testimonial-card {
+  flex: 0 0 280px;
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: left;
+}
+.testimonial-text {
+  font-style: italic;
+  margin-bottom: 12px;
+}
+.testimonial-name {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.testimonial-stars {
+  color: #f2b01e;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+/* Keyframes for continuous scroll */
+@keyframes scroll-left {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+
 
