@@ -673,6 +673,11 @@ body {
   padding: 40px 20px;
   
   cursor: grab;
+
+    /* Hide scrollbar for IE, Edge */
+  -ms-overflow-style: none;
+  /* Hide scrollbar for Firefox */
+  scrollbar-width: none;
 }
 .carousel-container:active {
   cursor: grabbing;
@@ -686,7 +691,10 @@ body {
   -ms-user-select: none;
 }
 
-
+/* Hide scrollbar for WebKit browsers (Chrome, Safari) */
+.carousel-container::-webkit-scrollbar {
+  display: none;
+}
 
 .carousel-content {
   display: inline-flex;  /* so its width is exactly as wide as all cards combined */
