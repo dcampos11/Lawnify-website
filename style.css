@@ -673,14 +673,12 @@ body {
   padding: 40px 0;
 }
 
-
-/* Flex-row of cards, animated */
 .carousel-content {
   display: flex;
   gap: 20px;
+  /* use the CSS variable we’ll set in JS for the exact pixel distance */
   animation: scroll-left 30s linear infinite;
 }
-
 /* Individual card style */
 .testimonial-card {
   flex: 0 0 280px;
@@ -704,10 +702,13 @@ body {
   letter-spacing: 1px;
 }
 
-/* Keyframes for continuous scroll */
 @keyframes scroll-left {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(var(--scroll-distance));
+  }
 }
 
 
