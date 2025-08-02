@@ -705,7 +705,7 @@ body {
 /* “You” card styling */
 .testimonial-card.you {
   background: none;            /* transparent */
-  border: 2px dashed #ccc;     /* dashed border */
+  border: 2px dashed #f2b01e;     /* dashed border */
   box-shadow: none;            /* no shadow */
 }
 
