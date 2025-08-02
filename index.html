@@ -458,9 +458,24 @@ const phraseList = [
     link.addEventListener('click', closeMobileMenu);
   });
 });
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const answer = item.querySelector('.faq-answer');
+        const toggle = btn.querySelector('.faq-toggle');
+
+        const isOpen = answer.classList.toggle('open');
+        toggle.classList.toggle('open', isOpen);
+      });
+    });
+  });
   </script>
 </body>
 </html>
+
 
 
 
