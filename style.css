@@ -462,7 +462,7 @@ body {
   opacity: 0;
   transform: translateY(15px);
   transition: opacity 1.5s ease-out,
-              transform 0.8s ease-out;
+              transform 0.6s ease-out;
 
   will-change: opacity, transform, filter;
 }
@@ -660,8 +660,9 @@ body {
 }
 
 @media only screen and (max-width: 768px) {
-  .carousel-content .testimonial-card:last-child {
-    margin-right: 20px; /* same as your container’s 20px padding */
+  .carousel-content::after {
+    content: "";
+    flex: 0 0 20px;  /* same as your container’s 20px padding */
   }
 }
 
