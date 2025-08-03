@@ -744,12 +744,21 @@ body {
 
 /* Individual card style */
 .testimonial-card {
-  flex: 0 0 320px;
+/*   flex: 0 0 320px;
   background: white;
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  text-align: left;
+  text-align: left; */
+   flex: 0 0 320px;                /* match your widened cards */
+  max-width: 320px;
+  background: rgba(42, 157, 143, 0.05); /* light mint tint */
+  border: 2px solid #2A9D8F;      /* Lawnify green */
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .testimonial-text {
   font-style: italic;
