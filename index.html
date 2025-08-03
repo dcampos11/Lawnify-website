@@ -360,47 +360,47 @@ imgs.forEach(img => observer.observe(img));
         return window.matchMedia('(hover: none) and (pointer: coarse)').matches;
       }
 
-      if (isMobileDevice()) {
-        imgs.forEach(img => {
-          let touchStartX = 0;
-          let touchStartY = 0;
-          let touchStartTime = 0;
-          let touchMoved = false;
+    //   if (isMobileDevice()) {
+    //     imgs.forEach(img => {
+    //       let touchStartX = 0;
+    //       let touchStartY = 0;
+    //       let touchStartTime = 0;
+    //       let touchMoved = false;
 
-          img.addEventListener('touchstart', function(e) {
-            touchStartX = e.touches[0].clientX;
-            touchStartY = e.touches[0].clientY;
-            touchStartTime = Date.now();
-            touchMoved = false;
-          }, { passive: true });
+    //       img.addEventListener('touchstart', function(e) {
+    //         touchStartX = e.touches[0].clientX;
+    //         touchStartY = e.touches[0].clientY;
+    //         touchStartTime = Date.now();
+    //         touchMoved = false;
+    //       }, { passive: true });
 
-          img.addEventListener('touchmove', function(e) {
-            if (!touchMoved) {
-              const touchCurrentX = e.touches[0].clientX;
-              const touchCurrentY = e.touches[0].clientY;
-              const deltaX = Math.abs(touchCurrentX - touchStartX);
-              const deltaY = Math.abs(touchCurrentY - touchStartY);
-              if (deltaX > 10 || deltaY > 10) {
-                touchMoved = true;
-              }
-            }
-          }, { passive: true });
+    //       img.addEventListener('touchmove', function(e) {
+    //         if (!touchMoved) {
+    //           const touchCurrentX = e.touches[0].clientX;
+    //           const touchCurrentY = e.touches[0].clientY;
+    //           const deltaX = Math.abs(touchCurrentX - touchStartX);
+    //           const deltaY = Math.abs(touchCurrentY - touchStartY);
+    //           if (deltaX > 10 || deltaY > 10) {
+    //             touchMoved = true;
+    //           }
+    //         }
+    //       }, { passive: true });
 
-          img.addEventListener('touchend', function(e) {
-            const touchDuration = Date.now() - touchStartTime;
-            if (!touchMoved && touchDuration < 300 && touchDuration > 50) {
-              e.preventDefault();
-              this.classList.remove('shake');
-              this.offsetHeight;
-              this.classList.add('shake');
-              setTimeout(() => {
-                this.classList.remove('shake');
-              }, 600);
-            }
-          });
-        });
-      }
-    });
+    //       img.addEventListener('touchend', function(e) {
+    //         const touchDuration = Date.now() - touchStartTime;
+    //         if (!touchMoved && touchDuration < 300 && touchDuration > 50) {
+    //           e.preventDefault();
+    //           this.classList.remove('shake');
+    //           this.offsetHeight;
+    //           this.classList.add('shake');
+    //           setTimeout(() => {
+    //             this.classList.remove('shake');
+    //           }, 600);
+    //         }
+    //       });
+    //     });
+    //   }
+    // });
 
   window.addEventListener('scroll', () => {
     const overlay = document.querySelector('.overlay-content');
@@ -612,6 +612,7 @@ slider.addEventListener('mousemove', e => {
   </script>
 </body>
 </html>
+
 
 
 
