@@ -750,3 +750,53 @@ body {
   letter-spacing: 1px;
 }
 
+
+/* Container tweaks */
+.testimonial-card.review-link {
+  flex: 0 0 320px;                /* match your widened cards */
+  max-width: 320px;
+  background: rgba(42, 157, 143, 0.05); /* light mint tint */
+  border: 2px solid #2A9D8F;      /* Lawnify green */
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Text */
+.testimonial-card.review-link .testimonial-text {
+  font-style: normal;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+/* Link button */
+.review-link-button {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 600;
+  color: #2A9D8F;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.2s ease;
+}
+
+.review-link-button:hover {
+  color: #1f796f;
+}
+
+/* Arrow icon */
+.arrow-icon {
+  width: 20px;
+  height: 20px;
+  margin-left: 8px;
+  transition: transform 0.2s ease;
+  color: inherit; /* picks up link color */
+}
+
+.review-link-button:hover .arrow-icon {
+  transform: translateX(4px);
+}
+
+
