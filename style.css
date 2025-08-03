@@ -801,9 +801,9 @@ body {
   top: 50%;
   left: 0;
   width: 100%;
-  height: 0.6em;               /* tweak for stroke thickness */
-  transform: translateY(-50%) rotate(-10deg);
-  opacity: 0.6;                /* makes it feel hand-drawn */
+  height: 0.6em;            /* adjust the thickness of the visual strike */
+  transform: translateY(-50%);
+  opacity: 0.6;             /* dial back if you want it lighter */
   pointer-events: none;
 }
 
