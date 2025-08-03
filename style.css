@@ -662,7 +662,7 @@ body {
 @media only screen and (max-width: 768px) {
   .carousel-content::after {
     content: "";
-    flex: 0 0 0px;  /* same as your container’s 20px padding */
+    flex: 0 0 5px;  /* same as your container’s 20px padding */
   }
 }
 
