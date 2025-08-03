@@ -546,33 +546,6 @@ const phraseList = [
 
 
 
-//   const slider = document.querySelector('.carousel-container');
-// let isDown = false;
-// let startX, scrollLeft;
-
-// slider.addEventListener('mousedown', e => {
-//   isDown = true;
-//   slider.classList.add('active');
-//   // use getBoundingClientRect() for accurate left edge
-//   startX = e.clientX - slider.getBoundingClientRect().left;
-//   scrollLeft = slider.scrollLeft;
-// });
-// slider.addEventListener('mouseleave', () => {
-//   isDown = false;
-//   slider.classList.remove('active');
-// });
-// slider.addEventListener('mouseup', () => {
-//   isDown = false;
-//   slider.classList.remove('active');
-// });
-// slider.addEventListener('mousemove', e => {
-//   if (!isDown) return;
-//   e.preventDefault();
-//   // recalc relative movement
-//   let x = e.clientX - slider.getBoundingClientRect().left;
-//   let walk = (x - startX); 
-//   slider.scrollLeft = scrollLeft - walk;
-// });
 
 const slider = document.querySelector('.carousel-container');
 let isDown = false;
@@ -606,6 +579,7 @@ slider.addEventListener('mousemove', e => {
   </script>
 </body>
 </html>
+
 
 
 
