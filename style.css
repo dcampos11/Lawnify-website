@@ -791,11 +791,11 @@ body {
 }
 
 /* Text */
-.testimonial-card.review-link .testimonial-text {
+/* .testimonial-card.review-link .testimonial-text {
   font-style: normal;
   color: #333;
   margin-bottom: 16px;
-}
+} */
 
 /* Link button */
 .review-link-button {
