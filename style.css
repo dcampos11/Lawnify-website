@@ -216,7 +216,6 @@ body {
   }
 }
 
-/* Add to style.css */
 
 /* FAQ wrapper */
 .faq {
@@ -487,7 +486,7 @@ body {
   opacity: 0;
   transform: translateY(15px);
   transition: opacity 1.5s ease-out,
-              transform 1.5s ease-out;
+              transform 0.3s ease-out;
 
   will-change: opacity, transform, filter;
 }
