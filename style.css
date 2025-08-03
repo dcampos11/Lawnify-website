@@ -703,22 +703,37 @@ body {
 
 
 
-.testimonial-card.you {
+/*  .testimonial-card.you {
   position: relative;
   background: none;
   box-shadow: none;
-  border: none;              /* remove any existing border */
+  border: none;             
 }
 
 .testimonial-card.you::before {
   content: "";
   position: absolute;
-  inset: 0;                  /* cover the full card */
-  box-sizing: border-box;    /* include border in the size */
+  inset: 0;                  
+  box-sizing: border-box;    
   border: 2px dashed #f2b01e;
   border-radius: 8px;
-  pointer-events: none;      /* let clicks pass through */
+  pointer-events: none;     
+} */
+
+/* New “You” card styling */
+.testimonial-card.you {
+  flex: 0 0 320px;                         /* match other cards */
+  max-width: 320px;
+  background: rgba(242, 176, 30, 0.05);    /* light tint of #f2b01e */
+  border: 2px solid #f2b01e;               /* solid orange border */
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
 }
+
 
 
 /* Mini badge inside “You” card */
