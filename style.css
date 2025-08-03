@@ -622,14 +622,14 @@ body {
   width: 100vw;
   overflow: hidden;
 
-  /* show your new image instead of a video */
+
   background-image: url('/images/pexels-hermaion-173552.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-/* hide the old video markup */
+
 .mini-header .video-container,
 .mini-header .background-video {
   display: none;
@@ -661,22 +661,18 @@ body {
 .carousel-container {
   position: relative;
   width: 100vw;
-  /* center a full-viewport element inside a padded parent */
+
   margin-left: calc((100% - 100vw) / 2);
   margin-right: calc((100% - 100vw) / 2);
   
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 
-  
-  /* add horizontal padding so cards don’t butt up against edges */
   padding: 40px 20px;
   
   cursor: grab;
-
-    /* Hide scrollbar for IE, Edge */
   -ms-overflow-style: none;
-  /* Hide scrollbar for Firefox */
+ 
   scrollbar-width: none;
 }
 .carousel-container:active {
@@ -684,48 +680,31 @@ body {
 }
 .carousel-container,
 .carousel-container * {
-  /* prevent any text or image from being selected */
+ 
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
 }
 
-/* Hide scrollbar for WebKit browsers (Chrome, Safari) */
+
 .carousel-container::-webkit-scrollbar {
   display: none;
 }
 
 .carousel-content {
-  display: inline-flex;  /* so its width is exactly as wide as all cards combined */
+  display: inline-flex;  
   gap: 20px;
 }
 
 
 
-/*  .testimonial-card.you {
-  position: relative;
-  background: none;
-  box-shadow: none;
-  border: none;             
-}
 
-.testimonial-card.you::before {
-  content: "";
-  position: absolute;
-  inset: 0;                  
-  box-sizing: border-box;    
-  border: 2px dashed #f2b01e;
-  border-radius: 8px;
-  pointer-events: none;     
-} */
-
-/* New “You” card styling */
 .testimonial-card.you {
-  flex: 0 0 320px;                         /* match other cards */
+  flex: 0 0 320px;                         
   max-width: 320px;
-  background: rgba(242, 176, 30, 0.05);    /* light tint of #f2b01e */
-  border: 2px solid #f2b01e;               /* solid orange border */
+  background: rgba(242, 176, 30, 0.05);    
+  border: 2px solid #f2b01e;               
   border-radius: 8px;
   padding: 20px;
   display: flex;
@@ -736,24 +715,17 @@ body {
 
 
 
-/* Mini badge inside “You” card */
 .app-store-badge-mini {
   width: 120px;
-/*   margin-top: 24px; */
+
 }
 
-/* Individual card style */
+
 .testimonial-card {
-/*   flex: 0 0 320px;
-  background: white;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  text-align: left; */
-   flex: 0 0 320px;                /* match your widened cards */
+   flex: 0 0 320px;                
   max-width: 320px;
-  background: rgba(42, 157, 143, 0.05); /* light mint tint */
-  border: 2px solid #2A9D8F;      /* Lawnify green */
+  background: rgba(42, 157, 143, 0.05); 
+  border: 2px solid #2A9D8F;      
   border-radius: 8px;
   padding: 20px;
   display: flex;
@@ -777,12 +749,11 @@ body {
 }
 
 
-/* Container tweaks */
 .testimonial-card.review-link {
-  flex: 0 0 320px;                /* match your widened cards */
+  flex: 0 0 320px;         
   max-width: 320px;
-  background: rgba(42, 157, 143, 0.05); /* light mint tint */
-  border: 2px solid #2A9D8F;      /* Lawnify green */
+  background: rgba(42, 157, 143, 0.05); 
+  border: 2px solid #2A9D8F;      
   border-radius: 8px;
   padding: 20px;
   display: flex;
@@ -790,14 +761,7 @@ body {
   justify-content: space-between;
 }
 
-/* Text */
-/* .testimonial-card.review-link .testimonial-text {
-  font-style: normal;
-  color: #333;
-  margin-bottom: 16px;
-} */
 
-/* Link button */
 .review-link-button {
   display: inline-flex;
   align-items: center;
@@ -812,13 +776,13 @@ body {
   color: #1f796f;
 }
 
-/* Arrow icon */
+
 .arrow-icon {
   width: 20px;
   height: 20px;
   margin-left: 8px;
   transition: transform 0.2s ease;
-  color: inherit; /* picks up link color */
+  color: inherit;
 }
 
 .review-link-button:hover .arrow-icon {
