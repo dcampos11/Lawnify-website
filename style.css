@@ -659,6 +659,11 @@ body {
 
 }
 
+@media only screen and (max-width: 768px) {
+  .carousel-content .testimonial-card:last-child {
+    margin-right: 20px; /* same as your container’s 20px padding */
+  }
+}
 
 
 
