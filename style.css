@@ -505,7 +505,7 @@ body {
   }
 }
 
-@keyframes shake {
+/* @keyframes shake {
   0%, 100% { transform: translateY(0) rotate(0deg); }
   10% { transform: translateY(0) rotate(-2deg); }
   20% { transform: translateY(0) rotate(2deg); }
@@ -520,7 +520,7 @@ body {
 
 .feature-img.shake {
   animation: shake 0.8s ease-in-out;
-}
+} */
 
 @keyframes fadeInUp {
   0% { opacity: 0; transform: translateY(15px); }
