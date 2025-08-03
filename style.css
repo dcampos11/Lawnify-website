@@ -693,6 +693,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   text-align: left;
+  margin-right: 20px;
 }
 
 
