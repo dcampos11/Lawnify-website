@@ -739,7 +739,7 @@ body {
 /* Mini badge inside “You” card */
 .app-store-badge-mini {
   width: 120px;
-  margin-top: 24px;
+/*   margin-top: 24px; */
 }
 
 /* Individual card style */
