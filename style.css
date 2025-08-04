@@ -401,7 +401,7 @@ body {
 }
 
 .feature .text h3 {
-/*   font-size: 28px; */
+
   color: #2a9d8f;
 
    font-family: 'Satoshi', sans-serif;
@@ -448,7 +448,7 @@ body {
   100% { opacity: 1; transform: translateY(0); }
 }
 
-/* start everything hidden and nudged down */
+
 .about,
 .store-badge-section,
 .feature .text {
@@ -456,7 +456,6 @@ body {
   transform: translateY(15px);
 }
 
-/* when .in-view is added, run the animation */
 .about.in-view,
 .store-badge-section.in-view,
 .feature .text.in-view {
@@ -531,12 +530,6 @@ body {
 
 
 
-
-
-
-
-/* fix the hamburger not working on subpages.  */
-
 .mini-header {
   position: relative;
   height: 100vh;
@@ -556,15 +549,12 @@ body {
   display: none;
 }
 
-/* still keep your overlay/content hidden */
 .mini-header .overlay-content,
 .mini-header .scroll-line {
   display: none;
 }
 
 
-
-/* Testimonials Carousel */
 
 .testimonials {
   max-width: 1000px;
@@ -625,7 +615,7 @@ body {
 @media only screen and (max-width: 768px) {
   .carousel-content::after {
     content: "";
-    flex: 0 0 4px;  /* same as your container’s 20px padding */
+    flex: 0 0 4px;  
   }
 }
 
@@ -721,10 +711,10 @@ body {
   transform: translateX(4px);
 }
 
-/* ── style.css ── */
+
 @media (min-width: 769px) {
   .top-nav {
-    position: fixed;    /* ← fixed keeps it on-screen at all times */
+    position: fixed;   
     top: 0;
     left: 0;
     width: 100%;
@@ -749,39 +739,6 @@ body {
   }
 
 
-/*   .top-nav li a {
-  color: white;
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: 500;
-  transition: color 0.3s ease;
-
-
-} 
-
-
-.top-nav li a::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background: #2a9d8f;
-  transition: width 0.3s ease, left 0.3s ease;
-}
-
-.top-nav li a:hover {
-  color: #2a9d8f;
-
-}
-
-.top-nav li a:hover::after {
-  width: 100%;
-  left: 0;
-}
- */
-
   .top-nav li a {
     color: white;
      text-decoration: none;
@@ -792,7 +749,6 @@ body {
     transition: color 0.3s ease;
 }
 
-/* draw full-width bar but squash it horizontally */
 .top-nav li a::after {
   content: "";
   position: absolute;
@@ -806,7 +762,6 @@ body {
   transition: transform 0.3s ease;
 }
 
-/* on hover, un-squash back to full size */
 .top-nav li a:hover::after {
   transform: scaleX(1);
 }
