@@ -756,14 +756,9 @@ body {
   font-weight: 500;
   transition: color 0.3s ease;
 
-    transition: color 0.3s ease, letter-spacing 0.3s ease;
+
 } 
 
-/* .top-nav li a {
-  position: relative;
-  padding: 4px 0;
-  transition: color 0.3s ease;
-} */
 
 .top-nav li a::after {
   content: "";
@@ -778,11 +773,11 @@ body {
 
 .top-nav li a:hover {
   color: #2a9d8f;
-  letter-spacing: 1px;
+
 }
 
 .top-nav li a:hover::after {
-  width: 100%;
+  width: 60%;
   left: 0;
 }
 
