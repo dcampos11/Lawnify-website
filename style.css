@@ -750,7 +750,7 @@ body {
   .top-nav ul {
     max-width: 900px;
     margin: 0 auto;
-    padding: 20px 0;
+    padding: 10px 0;
     display: flex;
     justify-content: center;
     gap: 60px;
