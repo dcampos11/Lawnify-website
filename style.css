@@ -783,6 +783,7 @@ body {
  */
 
   .top-nav li a {
+    color: white;
   position: relative;
   display: inline-block;
       text-decoration: none;
