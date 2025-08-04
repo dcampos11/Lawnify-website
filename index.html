@@ -120,31 +120,6 @@
       </a>
     </section>
 
-
-<!--     <section class="features">
-      <div class="feature">
-        <div class="text">
-          <h3>Instant Quotes</h3>
-          <p>Upfront pricing. No hidden costs.</p>
-        </div>
-        <img src="images/InstantQuotes.png" alt="Instant Quote Screenshot" class="feature-img" />
-      </div>
-      <div class="feature">
-        <div class="text">
-          <h3>3% Cash Back</h3>
-          <p>Loyalty pays off. Enjoy 3% back every time you pay.</p>
-        </div>
-        <img src="images/CashBack.png" alt="Cash Back Screenshot" class="feature-img" />
-      </div>
-      <div class="feature">
-        <div class="text">
-          <h3>Autopay & More</h3>
-          <p>Secure, monthly billing.</p>
-        </div>
-        <img src="images/More.png" alt="Service Selection Screenshot" class="feature-img" />
-      </div>
-    </section> -->
-
    <section class="features">
   <div class="feature">
     <div class="text">
@@ -362,47 +337,6 @@ imgs.forEach(img => observer.observe(img));
       function isMobileDevice() {
         return window.matchMedia('(hover: none) and (pointer: coarse)').matches;
       }
-
-      // if (isMobileDevice()) {
-      //   imgs.forEach(img => {
-      //     let touchStartX = 0;
-      //     let touchStartY = 0;
-      //     let touchStartTime = 0;
-      //     let touchMoved = false;
-
-      //     img.addEventListener('touchstart', function(e) {
-      //       touchStartX = e.touches[0].clientX;
-      //       touchStartY = e.touches[0].clientY;
-      //       touchStartTime = Date.now();
-      //       touchMoved = false;
-      //     }, { passive: true });
-
-      //     img.addEventListener('touchmove', function(e) {
-      //       if (!touchMoved) {
-      //         const touchCurrentX = e.touches[0].clientX;
-      //         const touchCurrentY = e.touches[0].clientY;
-      //         const deltaX = Math.abs(touchCurrentX - touchStartX);
-      //         const deltaY = Math.abs(touchCurrentY - touchStartY);
-      //         if (deltaX > 10 || deltaY > 10) {
-      //           touchMoved = true;
-      //         }
-      //       }
-      //     }, { passive: true });
-
-      //     img.addEventListener('touchend', function(e) {
-      //       const touchDuration = Date.now() - touchStartTime;
-      //       if (!touchMoved && touchDuration < 300 && touchDuration > 50) {
-      //         e.preventDefault();
-      //         this.classList.remove('shake');
-      //         this.offsetHeight;
-      //         this.classList.add('shake');
-      //         setTimeout(() => {
-      //           this.classList.remove('shake');
-      //         }, 600);
-      //       }
-      //     });
-      //   });
-      // }
     });
 
   window.addEventListener('scroll', () => {
@@ -597,10 +531,8 @@ slider.addEventListener('mousedown', e => {
 
 slider.addEventListener('mousemove', e => {
   if (!isDown) return;
-  // how far we’ve moved since the initial click
   const x    = e.pageX - slider.offsetLeft;
   const walk = x - startX;
-  // update scrollLeft so the container follows the drag exactly
   slider.scrollLeft = scrollStart - walk;
 });
 
@@ -615,6 +547,7 @@ slider.addEventListener('mousemove', e => {
   </script>
 </body>
 </html>
+
 
 
 
