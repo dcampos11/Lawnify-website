@@ -784,9 +784,10 @@ body {
 
   .top-nav li a {
     color: white;
+     text-decoration: none;
   position: relative;
   display: inline-block;
-      text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 /* draw full-width bar but squash it horizontally */
