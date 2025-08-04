@@ -758,4 +758,37 @@ body {
   transform: translateX(4px);
 }
 
+/* ── style.css ── */
+@media (min-width: 769px) {
+  .top-nav {
+    /* switch from absolute to sticky */
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: transparent;
+    transition: background 0.3s ease, backdrop-filter 0.3s ease;
+    z-index: 1000;
+  }
+
+  /* constrain your links to the same 900px and center them */
+  .top-nav ul {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 0;   /* give it a little vertical padding */
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+  }
+
+  /* once scrolled, flip on the white blur */
+  .top-nav.scrolled {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+  }
+
+  .top-nav.scrolled li a {
+    color: #333;  /* darker link color when on white background */
+  }
+}
 
