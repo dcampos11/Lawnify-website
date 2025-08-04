@@ -217,7 +217,6 @@ body {
 }
 
 
-/* FAQ wrapper */
 .faq {
   max-width: 800px;
   margin: 60px auto;
@@ -232,7 +231,6 @@ body {
   text-align: center;
 }
 
-/* Each question/answer pair */
 .faq-item {
   border-top: 1px solid #ddd;
 }
@@ -241,7 +239,6 @@ body {
   border-bottom: 1px solid #ddd;
 }
 
-/* Question bar */
 .faq-question {
   width: 100%;
   background: none;
@@ -261,7 +258,6 @@ body {
   transition: transform 0.2s ease;
 }
 
-/* Answer panel (hidden by default) */
 .faq-answer {
   display: none;
   padding: 0 0 1rem;
@@ -269,34 +265,15 @@ body {
   line-height: 1.5;
 }
 
-/* When open */
+
 .faq-answer.open {
   display: block;
 }
 .faq-toggle.open {
-  transform: rotate(45deg); /* + becomes × */
+  transform: rotate(45deg); 
 }
 
-/* 
-  .top-nav {
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
-  width: 100%;
-  max-width: 900px;
-  display: flex;
-  justify-content: center;
-}
 
-.top-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 60px;
-  padding: 0;
-  margin: 0;
-} */
 
 .top-nav li a {
   color: white;
