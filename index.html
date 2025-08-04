@@ -543,46 +543,27 @@ slider.addEventListener('mousemove', e => {
   })
 );
 
-
-
-
-
-   
-  //  const nav = document.querySelector('.top-nav');
-  // window.addEventListener('scroll', () => {
-  //   if (window.scrollY > 10) {
-  //     nav.classList.add('scrolled');
-  //   } else {
-  //     nav.classList.remove('scrolled');
-  //   }
-  // });
    
 const nav    = document.querySelector('.top-nav');
 const links  = nav.querySelectorAll('li a');
-const maxFade = 200; // px scroll until full opacity
-const minShade = 51; // final RGB component for “#333”
+const maxFade = 200; 
+const minShade = 51;
 
 window.addEventListener('scroll', () => {
   const pct = Math.min(window.scrollY / maxFade, 1);
 
-  // background & blur
   nav.style.background     = `rgba(255,255,255,${pct * 0.8})`;
   nav.style.backdropFilter = `blur(${pct * 5}px)`;
 
-  // compute gray level from 255 → minShade
   const shade = Math.round(255 - pct * (255 - minShade));
   const color = `rgb(${shade},${shade},${shade})`;
 
-  // apply to each link
   links.forEach(a => a.style.color = color);
 });
-
-
-
-   
   </script>
 </body>
 </html>
+
 
 
 
