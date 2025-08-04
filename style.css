@@ -283,10 +283,10 @@ body {
   transition: color 0.3s ease;
 } 
 
-.top-nav li a:hover {
+/* .top-nav li a:hover {
   color: #2a9d8f;
 } 
-
+ */
 .mobile-nav {
   display: none;
   position: absolute;
@@ -762,7 +762,7 @@ body {
     backdrop-filter: blur(5px);
   }
 
-  .top-nav.scrolled li a {
+/*   .top-nav.scrolled li a {
     color: #333;
-  }
+  } */
 }
