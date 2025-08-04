@@ -548,19 +548,29 @@ slider.addEventListener('mousemove', e => {
 
 
    
+  //  const nav = document.querySelector('.top-nav');
+  // window.addEventListener('scroll', () => {
+  //   if (window.scrollY > 10) {
+  //     nav.classList.add('scrolled');
+  //   } else {
+  //     nav.classList.remove('scrolled');
+  //   }
+  // });
    const nav = document.querySelector('.top-nav');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 10) {
-      nav.classList.add('scrolled');
-    } else {
-      nav.classList.remove('scrolled');
-    }
-  });
+const maxFade = 200; // px of scroll until full opacity
+
+window.addEventListener('scroll', () => {
+  const pct = Math.min(window.scrollY / maxFade, 1);
+  nav.style.background = `rgba(255,255,255,${pct * 0.8})`;
+  nav.style.backdropFilter = `blur(${pct * 5}px)`;
+});
+
 
    
   </script>
 </body>
 </html>
+
 
 
 
