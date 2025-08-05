@@ -484,7 +484,7 @@ body {
 }
 
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .features {
     flex-direction: column;
   }
@@ -503,7 +503,40 @@ body {
 
   
   
+} */
+
+@media (max-width: 768px) {
+  .mobile-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1001;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-end;
+    background: transparent;
+    backdrop-filter: none;
+    transition: background 0.3s ease, backdrop-filter 0.3s ease;
+  }
+
+  .mobile-nav.scrolled {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(6px);
+  }
+
+  .hamburger span {
+    background-color: white;
+    transition: background-color 0.3s ease;
+  }
+
+  .mobile-nav.scrolled .hamburger span {
+    background-color: black;
+  }
 }
+
+
+
 
 .mobile-blur-overlay {
   position: fixed;
