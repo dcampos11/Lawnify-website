@@ -406,6 +406,140 @@ body {
 }
 
 
+/* 
+@media (max-width: 768px) {
+
+  .top-nav {
+    display: none;
+  }
+
+  
+  .mobile-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background: transparent;
+    max-height: 60px;          
+    overflow: hidden;
+    opacity: 0;                 
+    transition:
+      opacity 0.3s ease-out,
+      max-height 0.4s ease,
+      background 0.3s ease,
+      backdrop-filter 0.3s ease,
+      box-shadow 0.3s ease;
+    z-index: 1001;
+  }
+
+
+  .mobile-nav.scrolled {
+    opacity: 1;
+    background: rgba(255, 255, 255, 1);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 2px 8px rgba(42, 157, 143, 0.3);
+  }
+
+
+  .mobile-nav.expanded {
+    max-height: 600px;         
+
+
+  }
+
+
+  .download-btn {
+    display: none;
+    margin-right: auto;
+  }
+  .download-btn img {
+    height: 32px;
+    width: auto;
+  }
+  .mobile-nav.scrolled .download-btn {
+    display: block;
+    opacity: 0;
+    animation: fadeInDownload 0.4s ease-out forwards;
+  }
+  @keyframes fadeInDownload {
+    to { opacity: 1; }
+  }
+
+
+  .mobile-toggle {
+     position: absolute;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    margin-left: auto;
+  }
+  .toggle-icon {
+    width: 30px;
+    height: 30px;
+    color: white;             
+    transition: transform 0.3s ease,
+                color 0.3s ease;
+  }
+  .mobile-nav.scrolled .toggle-icon {
+    color: black;
+  }
+  .mobile-toggle.open .toggle-icon {
+    transform: rotate(180deg);
+  }
+
+
+  .mobile-nav .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 60px 20px 20px;   
+    gap: 16px;
+  }
+  .mobile-nav .mobile-menu a {
+    color: black !important;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    transition: opacity 0.3s ease;
+  }
+  .mobile-nav .mobile-menu a:hover {
+    opacity: 0.7;
+  }
+
+
+  .features {
+    flex-direction: column;
+  }
+  .feature {
+    margin-bottom: 5px;
+  }
+
+
+  .carousel-content::after {
+    content: "";
+    flex: 0 0 4px;
+  }
+
+   
+  .mobile-nav.expanded .mobile-menu {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+
+  .mobile-nav.expanded {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}
+ */
 
 @media (max-width: 768px) {
   /* Hide desktop nav */
@@ -447,8 +581,6 @@ body {
   /* Expand menu when toggled open */
   .mobile-nav.expanded {
     max-height: 600px;          /* enough to show all links */
-
-
   }
 
   /* Download badge (hidden until scrolled) */
@@ -471,7 +603,7 @@ body {
 
   /* Toggle (arrow) button */
   .mobile-toggle {
-     position: absolute;
+    position: absolute;
     background: none;
     border: none;
     padding: 0;
@@ -492,14 +624,19 @@ body {
     transform: rotate(180deg);
   }
 
-  /* The menu links inside the expanded nav */
+  /* The menu links inside the expanded nav - HIDDEN BY DEFAULT */
   .mobile-nav .mobile-menu {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     padding: 60px 20px 20px;   /* pushes links below the toggle */
     gap: 16px;
+    opacity: 0;                /* HIDDEN by default */
+    pointer-events: none;      /* Can't click when hidden */
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
   }
+  
   .mobile-nav .mobile-menu a {
     color: black !important;
     text-decoration: none;
@@ -510,6 +647,13 @@ body {
   }
   .mobile-nav .mobile-menu a:hover {
     opacity: 0.7;
+  }
+
+  /* ONLY show menu when expanded */
+  .mobile-nav.expanded .mobile-menu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
   }
 
   /* Features stack vertically on mobile */
@@ -525,21 +669,7 @@ body {
     content: "";
     flex: 0 0 4px;
   }
-
-   /* 1) Make the links actually visible/clickable when expanded */
-  .mobile-nav.expanded .mobile-menu {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  /* 2) (Optional) Stack the toggle and the menu vertically */
-  .mobile-nav.expanded {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-  }
 }
-
 
 
 .mini-header {
