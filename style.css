@@ -544,6 +544,32 @@ body {
   .top-nav {
     display: none;
   }
+
+  /* hide the download badge until we scroll */
+.download-btn {
+  display: none;
+  margin-right: auto;           /* push hamburger to the right */
+}
+
+/* size it appropriately */
+.download-btn img {
+  height: 32px;
+  width: auto;
+}
+
+/* once .scrolled is applied, show it */
+.mobile-nav.scrolled .download-btn {
+  display: block;
+  opacity: 0;
+  animation: fadeInDownload 0.4s ease-out forwards;
+}
+
+/* simple fade-in */
+@keyframes fadeInDownload {
+  to { opacity: 1; }
+}
+
+  
 }
 
 
