@@ -506,9 +506,9 @@ body {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -8px;      /* pull it down a bit so you don’t see the hard edge */
+  bottom: -10px;      /* pull it down a bit so you don’t see the hard edge */
   width: 100%;
-  height: 8px;       /* controls the “spread” */
+  height: 10px;       /* controls the “spread” */
   background: linear-gradient(
     to bottom,
     rgba(42,157,143,0.3) 0%,     /* darkest */
