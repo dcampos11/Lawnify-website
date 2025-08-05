@@ -587,33 +587,52 @@ slider.addEventListener('mousemove', e => {
 
 
 
+//    document.addEventListener('DOMContentLoaded', () => {
+//   const toggle      = document.getElementById('mobileToggle');
+//   const mobileMenu  = document.getElementById('mobileMenu');
+//   const blurOverlay = document.getElementById('mobileBlurOverlay');
+
+//   function closeMobileMenu() {
+//     toggle.classList.remove('open');
+//     mobileMenu.classList.remove('show');
+//     blurOverlay.classList.remove('show');
+//     toggle.setAttribute('aria-label', 'Open menu');
+//   }
+
+//   toggle.addEventListener('click', () => {
+//     const isOpen = toggle.classList.toggle('open');
+//     mobileMenu.classList.toggle('show');
+//     blurOverlay.classList.toggle('show');
+//     toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+//   });
+
+//   blurOverlay.addEventListener('click', closeMobileMenu);
+//   mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMobileMenu));
+// });
+
    document.addEventListener('DOMContentLoaded', () => {
-  const toggle      = document.getElementById('mobileToggle');
-  const mobileMenu  = document.getElementById('mobileMenu');
-  const blurOverlay = document.getElementById('mobileBlurOverlay');
+  const mobileNav   = document.querySelector('.mobile-nav');
+  const toggleBtn   = document.getElementById('mobileToggle');
 
-  function closeMobileMenu() {
-    toggle.classList.remove('open');
-    mobileMenu.classList.remove('show');
-    blurOverlay.classList.remove('show');
-    toggle.setAttribute('aria-label', 'Open menu');
-  }
-
-  toggle.addEventListener('click', () => {
-    const isOpen = toggle.classList.toggle('open');
-    mobileMenu.classList.toggle('show');
-    blurOverlay.classList.toggle('show');
-    toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+  // Open / close on arrow tap
+  toggleBtn.addEventListener('click', e => {
+    e.stopPropagation();              // don’t trigger the document click
+    mobileNav.classList.toggle('expanded');
   });
 
-  blurOverlay.addEventListener('click', closeMobileMenu);
-  mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMobileMenu));
+  // Close if you click anywhere outside the nav
+  document.addEventListener('click', e => {
+    if (!mobileNav.contains(e.target)) {
+      mobileNav.classList.remove('expanded');
+    }
+  });
 });
 
    
   </script>
 </body>
 </html>
+
 
 
 
