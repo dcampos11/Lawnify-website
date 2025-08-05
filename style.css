@@ -568,7 +568,27 @@ body {
     pointer-events: auto;
     transform: translateY(0);
   } */
-
+ /* toggle arrow (right) */
+  .mobile-toggle {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    flex-shrink: 0;
+    z-index: 1002;
+  }
+  .toggle-icon {
+    width: 30px;
+    height: 30px;
+    color: white;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  .mobile-nav.scrolled .toggle-icon {
+    color: black;
+  }
+  .mobile-toggle.open .toggle-icon {
+    transform: rotate(180deg);
+  }
 
    /* dropdown menu panel */
   .mobile-menu {
