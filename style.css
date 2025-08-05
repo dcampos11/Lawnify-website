@@ -483,14 +483,7 @@ body {
   .mobile-nav.expanded {
     max-height: 600px;          /* enough to show all links */
 
-    
-       display: flex;
-    flex-direction: column;
-    align-items: flex-end;
 
-    opacity: 1;
-    pointer-events: auto;
-    
   }
 
   /* Download badge (hidden until scrolled) */
@@ -566,6 +559,19 @@ body {
   .carousel-content::after {
     content: "";
     flex: 0 0 4px;
+  }
+
+   /* 1) Make the links actually visible/clickable when expanded */
+  .mobile-nav.expanded .mobile-menu {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* 2) (Optional) Stack the toggle and the menu vertically */
+  .mobile-nav.expanded {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
   }
 }
 
