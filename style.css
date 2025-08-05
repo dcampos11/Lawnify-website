@@ -487,7 +487,7 @@ body {
   .mobile-menu {
     display: none;              /* hidden by default */
     position: absolute;
-    top: 100%;                  /* directly below the 60px bar */
+    top: 99%;                  /* directly below the 60px bar */
     right: 0;                   /* pin to the right edge */
   left: auto;                 /* cancel any left anchoring */
     width: 100%;
