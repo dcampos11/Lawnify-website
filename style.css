@@ -281,7 +281,7 @@ body {
   z-index: 11;
 }
 
-.hamburger {
+/* .hamburger {
   width: 30px;
   height: 24px;
   display: flex;
@@ -310,7 +310,7 @@ body {
 
 .hamburger.active span:nth-child(2) {
   transform: translateY(-10.5px) rotate(-45deg);
-}
+} */
 
 
 
@@ -505,14 +505,14 @@ body {
     backdrop-filter: blur(6px);
   }
 
-  .hamburger span {
+/*   .hamburger span {
     background-color: white;
     transition: background-color 0.3s ease;
   }
 
   .mobile-nav.scrolled .hamburger span {
     background-color: black;
-  }
+  } */
   .features {
     flex-direction: column;
   }
