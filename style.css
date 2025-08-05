@@ -487,6 +487,7 @@ body {
     flex-direction: column;
     z-index: 1002;            
   }
+  
 
  
 .mobile-menu a {
@@ -503,6 +504,10 @@ body {
   .mobile-nav.expanded .mobile-menu {
     display: flex;
   }
+  /* 1) Remove the nav shadow once expanded */
+.mobile-nav.scrolled.expanded {
+  box-shadow: none;
+}
   
   .features {
     flex-direction: column;
