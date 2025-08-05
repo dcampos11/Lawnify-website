@@ -584,24 +584,45 @@ slider.addEventListener('mousemove', e => {
   });
 
 
-   document.addEventListener('DOMContentLoaded', () => {
+//    document.addEventListener('DOMContentLoaded', () => {
+//   const mobileNav   = document.querySelector('.mobile-nav');
+//   const toggleBtn   = document.getElementById('mobileToggle');
+
+//  // Open / close on arrow tap
+//   toggleBtn.addEventListener('click', e => {
+//     e.stopPropagation();              // don’t trigger the document click
+//     mobileNav.classList.toggle('expanded');
+//     toggleBtn.classList.toggle('open');  
+//   });
+
+
+   
+//   // Close if you click anywhere outside the nav
+//   document.addEventListener('click', e => {
+//     if (!mobileNav.contains(e.target)) {
+//       mobileNav.classList.remove('expanded');
+//       toggleBtn.classList.toggle('open');
+//     }
+//   });
+// });
+
+   /* Updated JavaScript for Mobile Navigation - Replace the existing mobile nav JS */
+document.addEventListener('DOMContentLoaded', () => {
   const mobileNav   = document.querySelector('.mobile-nav');
   const toggleBtn   = document.getElementById('mobileToggle');
 
- // Open / close on arrow tap
+  // Open / close on arrow tap
   toggleBtn.addEventListener('click', e => {
-    e.stopPropagation();              // don’t trigger the document click
+    e.stopPropagation();              // don't trigger the document click
     mobileNav.classList.toggle('expanded');
     toggleBtn.classList.toggle('open');  
   });
 
-
-   
   // Close if you click anywhere outside the nav
   document.addEventListener('click', e => {
     if (!mobileNav.contains(e.target)) {
       mobileNav.classList.remove('expanded');
-      toggleBtn.classList.toggle('open');
+      toggleBtn.classList.remove('open');  // Fixed: was toggle, should be remove
     }
   });
 });
@@ -610,6 +631,7 @@ slider.addEventListener('mousemove', e => {
   </script>
 </body>
 </html>
+
 
 
 
