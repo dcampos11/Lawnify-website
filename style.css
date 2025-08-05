@@ -533,6 +533,17 @@ body {
   .mobile-nav.scrolled .hamburger span {
     background-color: black;
   }
+  .features {
+    flex-direction: column;
+  }
+  .feature {
+    margin-bottom: 5px;
+  }
+
+
+  .top-nav {
+    display: none;
+  }
 }
 
 
