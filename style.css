@@ -507,10 +507,10 @@ body {
   content: "";
   position: absolute;
   bottom: -4px;      /* sits just below the menu */
-  left: 0;
+/*   left: 0;
   width: 100%;
   height: 8px;       /* controls how tall the shadow is */
-  background: linear-gradient(
+/*   background: linear-gradient(
     to bottom,
     rgba(42,157,143,0.3) 0%,
     transparent 100%
