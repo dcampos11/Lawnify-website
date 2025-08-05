@@ -432,44 +432,6 @@ body {
     box-shadow: 0 2px 8px rgba(42,157,143,0.3);
   }
 
-  /* make each <a> a block, then right-align its text */
-/* .mobile-menu a {
-  display: block;
-  width: 100%;
-  text-align: left;
-} */
-  /* gradient “underline” under each link */
-.mobile-menu a {
-  position: relative;                  /* needed for the pseudo-arrow */
-  padding: 12px 20px 14px;             /* extra bottom padding so the line sits below the text */
-  background-image: 
-    linear-gradient(
-      to right,
-      rgba(0, 122, 255, 0.05) 1px, 
-      transparent 1px
-    );
-  background-repeat: no-repeat;
-  background-size: 90% 1px;            /* 90% width, 1px tall */
-  background-position: left calc(100% - 1px);
-  /* your existing styles: */
-  color: #333;
-  text-decoration: none;
-  font-size: 18px;
-  transition: background 0.2s ease;
-}
-
-/* right‐arrow icon, aligned to the same vertical center as toggle */
-.mobile-menu a::after {
-  content: '→';                        /* or use url('…arrow.svg') */
-  position: absolute;
-  right: 20px;                         /* same as your link padding */
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 18px;
-  color: #2a9d8f;                      /* pick whatever color you like */
-}
-
-
   .download-btn img {
     height: 32px;
     width: auto;
@@ -525,7 +487,20 @@ body {
     flex-direction: column;
     z-index: 1002;            
   }
-  
+
+    /* make each <a> a block, then right-align its text */
+.mobile-menu a {
+  display: block;
+  width: 100%;
+  text-align: left;
+   padding: 12px 20px;
+    color: #333;
+    text-decoration: none;
+    font-size: 18px;
+    transition: background 0.2s ease;
+}
+
+
 /*   .mobile-menu a {
     padding: 12px 20px;
     color: #333;
