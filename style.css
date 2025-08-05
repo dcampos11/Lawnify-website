@@ -475,20 +475,6 @@ body {
   }
 
 
-/*   .mobile-menu {
-    display: none;       
-    position: absolute;
-    top: 95%;                 
-    left: 0;                   
-    width: 100%;
-    border-top: none;
-    background: rgba(255,255,255,1);
-    box-shadow: 0 2px 8px rgba(42, 157, 143, 0.3);
-    flex-direction: column;
-    z-index: 1000;            
-  }
-   */
-
   .mobile-menu {
   display: none;
   position: absolute;
