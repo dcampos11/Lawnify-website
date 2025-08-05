@@ -407,51 +407,13 @@ body {
 
 
 /* Updated Mobile Navigation CSS - Replace the mobile nav section */
-
 @media (max-width: 768px) {
   
-/*   .top-nav {
-    display: none;
-  }
-
-
-  .mobile-nav {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 100%;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;  
-    align-items: flex-start;        
-    background: transparent;
-    max-height: 60px;               
-    overflow: hidden;
-    opacity: 0;            
-    transition:
-      opacity 0.3s ease-out,
-      max-height 0.4s ease,
-      background 0.3s ease,
-      backdrop-filter 0.3s ease,
-      box-shadow 0.3s ease;
-    z-index: 1001;
-  }
-
-
-  .mobile-nav.scrolled {
-    opacity: 1;
-    background: rgba(255, 255, 255, 1);
-    backdrop-filter: blur(6px);
-    box-shadow: 0 2px 8px rgba(42, 157, 143, 0.3);
-  } */
-
-  /* hide desktop nav */
   .top-nav {
     display: none;
   }
 
-  /* nav bar container */
-  .mobile-nav {
+/*   .mobile-nav {
     position: fixed;
     top: 0; left: 0; right: 0;
     display: flex;
@@ -462,32 +424,43 @@ body {
     transition: background 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
     z-index: 1001;
   }
-  /* after scrolling */
+
+  .mobile-nav.scrolled {
+    background: rgba(255,255,255,1);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 2px 8px rgba(42,157,143,0.3);
+  } */
+
+   /* 1) Fixed-height nav */
+  .mobile-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 60px;               /* lock the height */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    background: transparent;
+    transition: background 0.3s, box-shadow 0.3s, backdrop-filter 0.3s;
+    z-index: 1001;
+  }
   .mobile-nav.scrolled {
     background: rgba(255,255,255,1);
     backdrop-filter: blur(6px);
     box-shadow: 0 2px 8px rgba(42,157,143,0.3);
   }
 
-
-  
-
-  /* Expand menu when toggled open */
+/* 
   .mobile-nav.expanded {
-    max-height: 600px;          /* enough to show all links */
-    align-items: flex-start;    /* Keep alignment consistent when expanded */
-  }
-
-
-/*   .download-btn {
-    display: none;
-    flex-shrink: 0;            
+    max-height: 600px;         
+    align-items: flex-start;    
   } */
+
   .download-btn img {
     height: 32px;
     width: auto;
   }
-    /* download badge (left) */
+
   .download-btn {
     display: none;
     flex-shrink: 0;
@@ -498,77 +471,12 @@ body {
     display: block;
     opacity: 1;
   }
-/*   .mobile-nav.scrolled .download-btn {
-    display: block;
-    opacity: 0;
-    animation: fadeInDownload 0.4s ease-out forwards;
-  } */
+
   @keyframes fadeInDownload {
     to { opacity: 1; }
   }
 
   
-/*   .mobile-toggle {
-    position: static;         
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    flex-shrink: 0;           
-  }
-  .toggle-icon {
-    width: 30px;
-    height: 30px;
-    color: white;               
-    transition: transform 0.3s ease,
-                color 0.3s ease;
-  }
-  .mobile-nav.scrolled .toggle-icon {
-    color: black;
-  }
-  .mobile-toggle.open .toggle-icon {
-    transform: rotate(180deg);
-  } */
-
-
-/*   .mobile-nav .mobile-menu {
-    position: absolute;       
-    top: 60px;                 
-    right: 20px;                
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 16px;
-    opacity: 0;             
-    pointer-events: none;       
-    transform: translateY(-10px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    background: rgba(255, 255, 255, 0.95); 
-    backdrop-filter: blur(6px);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
-  
-  .mobile-nav .mobile-menu a {
-    color: black !important;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: 500;
-    margin-bottom: 12px;
-    transition: opacity 0.3s ease;
-  }
-  .mobile-nav .mobile-menu a:hover {
-    opacity: 0.7;
-  }
-
-
-  .mobile-nav.expanded .mobile-menu {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
-  } */
- /* toggle arrow (right) */
   .mobile-toggle {
     background: none;
     border: none;
@@ -590,14 +498,27 @@ body {
     transform: rotate(180deg);
   }
 
-   /* dropdown menu panel */
-  .mobile-menu {
+  
+/*   .mobile-menu {
     display: none;
     flex-direction: column;
     background: white;
     width: 100%;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  } */
+   /* 4) Position the dropdown _under_ the bar */
+  .mobile-menu {
+    display: none;              /* hidden by default */
+    position: absolute;
+    top: 100%;                  /* directly below the 60px bar */
+    left: 0;
+    width: 100%;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    flex-direction: column;
+    z-index: 1000;              /* sit under the toggle so badge & arrow stay visible */
   }
+  
   .mobile-menu a {
     padding: 12px 20px;
     color: #333;
@@ -610,12 +531,12 @@ body {
     background: #f9f9f9;
   }
 
-  /* show when expanded */
+
   .mobile-nav.expanded .mobile-menu {
     display: flex;
   }
   
-  /* Features stack vertically on mobile */
+  
   .features {
     flex-direction: column;
   }
@@ -623,11 +544,14 @@ body {
     margin-bottom: 5px;
   }
 
-  /* Carousel padding fix */
   .carousel-content::after {
     content: "";
     flex: 0 0 4px;
   }
+
+
+
+  
 }
 
 
@@ -654,8 +578,6 @@ body {
 .mini-header .scroll-line {
   display: none;
 }
-
-
 
 .testimonials {
   max-width: 1000px;
@@ -720,8 +642,6 @@ body {
   }
 }
 
-
-
 .testimonial-card.you {
   flex: 0 0 320px;                         
   max-width: 320px;
@@ -736,13 +656,10 @@ body {
 
 }
 
-
-
 .app-store-badge-mini {
   width: 120px;
 
 }
-
 
 .testimonial-card {
    flex: 0 0 320px;                
