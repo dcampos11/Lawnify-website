@@ -487,10 +487,10 @@ body {
   .mobile-menu {
     display: none;              /* hidden by default */
     position: absolute;
-    top: 120%;                  /* directly below the 60px bar */
+    top: 100%;                  /* directly below the 60px bar */
     right: 0;                   /* pin to the right edge */
   left: auto;                 /* cancel any left anchoring */
-    width: 50%;
+    width: 30%;
     background: rgba(255,255,255,1);
     box-shadow: 0 2px 8px rgba(42,157,143,0.3);
     flex-direction: column;
