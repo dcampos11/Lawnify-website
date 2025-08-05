@@ -307,17 +307,22 @@ body {
   flex-direction: column;
   gap: 16px;
   text-align: right;
-  transform: translateX(100%);
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    transform: none; 
+/*   transform: translateX(100%);
   opacity: 0;
   pointer-events: none;
-  transition: transform 0.4s ease, opacity 0.4s ease;
+  transition: transform 0.4s ease, opacity 0.4s ease; */
 }
 
-.mobile-menu.show {
+/* .mobile-menu.show {
   transform: translateX(0);
   opacity: 1;
   pointer-events: auto;
-}
+} */
 
 
 .about,
@@ -494,6 +499,8 @@ body {
 .mobile-nav .mobile-menu {
   /* we’ll lay these out in the expanded area */
   opacity: 1;                 /* always “present,” but hidden by overflow */
+
+  pointer-events: auto;
 }
 
 /* position the arrow in the top bar */
