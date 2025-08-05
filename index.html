@@ -556,7 +556,7 @@ const minShade = 51;
 window.addEventListener('scroll', () => {
   const pct = Math.min(window.scrollY / maxFade, 1);
 
-  nav.style.background     = `rgba(255,255,255,${pct * 0.8})`;
+  nav.style.background     = `rgba(255,255,255,${pct * 1.0})`;
   nav.style.backdropFilter = `blur(${pct * 5}px)`;
 
   const shade = Math.round(255 - pct * (255 - minShade));
@@ -580,6 +580,7 @@ window.addEventListener('scroll', () => {
   </script>
 </body>
 </html>
+
 
 
 
