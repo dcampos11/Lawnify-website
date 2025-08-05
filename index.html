@@ -548,38 +548,70 @@ slider.addEventListener('mousemove', e => {
 );
 
    
-const nav    = document.querySelector('.top-nav');
-const links  = nav.querySelectorAll('li a');
-const maxFade = 200; 
-const minShade = 51;
+// const nav    = document.querySelector('.top-nav');
+// const links  = nav.querySelectorAll('li a');
+// const maxFade = 200; 
+// const minShade = 51;
 
-window.addEventListener('scroll', () => {
-  const pct = Math.min(window.scrollY / maxFade, 1);
+// window.addEventListener('scroll', () => {
+//   const pct = Math.min(window.scrollY / maxFade, 1);
 
-  nav.style.background     = `rgba(255,255,255,${pct * 1.0})`;
-  nav.style.backdropFilter = `blur(${pct * 5}px)`;
+//   nav.style.background     = `rgba(255,255,255,${pct * 1.0})`;
+//   nav.style.backdropFilter = `blur(${pct * 5}px)`;
 
-  const shade = Math.round(255 - pct * (255 - minShade));
-  const color = `rgb(${shade},${shade},${shade})`;
+//   const shade = Math.round(255 - pct * (255 - minShade));
+//   const color = `rgb(${shade},${shade},${shade})`;
 
-  links.forEach(a => a.style.color = color);
-});
-
-
-   window.addEventListener('scroll', () => {
-  const mobileNav = document.querySelector('.mobile-nav');
-  if (window.scrollY > 20) {
-    mobileNav.classList.add('scrolled');
-  } else {
-    mobileNav.classList.remove('scrolled');
-  }
-});
+//   links.forEach(a => a.style.color = color);
+// });
 
 
+//    window.addEventListener('scroll', () => {
+//   const mobileNav = document.querySelector('.mobile-nav');
+//   if (window.scrollY > 20) {
+//     mobileNav.classList.add('scrolled');
+//   } else {
+//     mobileNav.classList.remove('scrolled');
+//   }
+// });
+
+ document.addEventListener('DOMContentLoaded', () => {
+    const nav       = document.querySelector('.top-nav');
+    const mobileNav = document.querySelector('.mobile-nav');
+    const links     = nav.querySelectorAll('li a');
+    const maxFade   = 200;   // same fade distance you were using
+    const minShade  = 51;
+
+    window.addEventListener('scroll', () => {
+      const y   = window.scrollY;
+      const pct = Math.min(y / maxFade, 1);
+
+      // ── DESKTOP ──
+      // background & blur
+      nav.style.background     = `rgba(255,255,255,${pct})`;
+      nav.style.backdropFilter = `blur(${pct * 5}px)`;
+
+      // link color
+      const shade = Math.round(255 - pct * (255 - minShade));
+      const color = `rgb(${shade},${shade},${shade})`;
+      links.forEach(a => a.style.color = color);
+
+      // toggle shadow via .scrolled
+      nav.classList.toggle('scrolled', pct > 0);
+
+      // ── MOBILE ──
+      // fade in the entire bar
+      mobileNav.style.opacity = pct;
+
+      // and toggle background/blur/shadow
+      mobileNav.classList.toggle('scrolled', pct > 0);
+    });
+  });
    
   </script>
 </body>
 </html>
+
 
 
 
