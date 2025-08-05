@@ -601,7 +601,7 @@ slider.addEventListener('mousemove', e => {
   document.addEventListener('click', e => {
     if (!mobileNav.contains(e.target)) {
       mobileNav.classList.remove('expanded');
-      toggleBtn.classList.toggle('close');
+      toggleBtn.classList.toggle('open');
     }
   });
 });
@@ -610,6 +610,7 @@ slider.addEventListener('mousemove', e => {
   </script>
 </body>
 </html>
+
 
 
 
