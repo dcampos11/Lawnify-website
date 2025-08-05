@@ -804,7 +804,7 @@ body {
   }
 
   .top-nav.scrolled {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 1.0);
     backdrop-filter: blur(5px);
   }
 
