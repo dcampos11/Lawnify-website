@@ -506,19 +506,18 @@ body {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -20px;
+  bottom: -20px;      /* pull it down a bit so you don’t see the hard edge */
   width: 100%;
-  height: 20px;
-  background: radial-gradient(
-    ellipse at top center,
-    rgba(42,157,143,0.3) 0%,
-    rgba(42,157,143,0.1) 40%,
-    rgba(42,157,143,0.02) 70%,
-    transparent 100%
+  height: 20px;       /* controls the “spread” */
+  background: linear-gradient(
+    to bottom,
+    rgba(42,157,143,0.3) 0%,     /* darkest */
+    rgba(42,157,143,0.15) 30%,   /* mid-fade */
+    rgba(42,157,143,0.05) 60%,   /* almost gone */
+    transparent 100%             /* fully transparent */
   );
   pointer-events: none;
 }
-
 
  
 .mobile-menu a {
