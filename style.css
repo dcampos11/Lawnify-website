@@ -450,6 +450,13 @@ body {
     box-shadow: 0 2px 8px rgba(42,157,143,0.3);
   }
 
+  /* make each <a> a block, then right-align its text */
+.mobile-menu a {
+  display: block;
+  width: 100%;
+  text-align: right;
+}
+
 /* 
   .mobile-nav.expanded {
     max-height: 600px;         
