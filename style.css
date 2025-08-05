@@ -520,7 +520,8 @@ body {
     top: 100%;                  /* directly below the 60px bar */
     left: 0;
     width: 100%;
-    background: white;
+/*     background: white; */
+    background: rgba(255,255,255,1);
     box-shadow: 0 2px 8px rgba(42,157,143,0.3);
     flex-direction: column;
     z-index: 1000;              /* sit under the toggle so badge & arrow stay visible */
