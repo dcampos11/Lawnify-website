@@ -526,7 +526,7 @@ body {
     z-index: 1002;            
   }
   
-  .mobile-menu a {
+/*   .mobile-menu a {
     padding: 12px 20px;
     color: #333;
     text-decoration: none;
@@ -535,7 +535,7 @@ body {
   }
   .mobile-menu a:hover {
     background: #f9f9f9;
-  }
+  } */
 
   .mobile-nav.expanded .mobile-menu {
     display: flex;
