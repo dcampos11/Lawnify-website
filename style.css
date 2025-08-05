@@ -443,6 +443,125 @@ body {
 
 
 @media (max-width: 768px) {
+  /* Hide desktop nav */
+  .top-nav {
+    display: none;
+  }
+
+  /* Mobile nav base state */
+  .mobile-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background: transparent;
+    max-height: 60px;           /* collapsed height */
+    overflow: hidden;
+    opacity: 0;                 /* start hidden, fade in on scroll */
+    transition:
+      opacity 0.3s ease-out,
+      max-height 0.4s ease,
+      background 0.3s ease,
+      backdrop-filter 0.3s ease,
+      box-shadow 0.3s ease;
+    z-index: 1001;
+  }
+
+  /* Fade in & style on scroll */
+  .mobile-nav.scrolled {
+    opacity: 1;
+    background: rgba(255, 255, 255, 1);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 2px 8px rgba(42, 157, 143, 0.3);
+  }
+
+  /* Expand menu when toggled open */
+  .mobile-nav.expanded {
+    max-height: 600px;          /* enough to show all links */
+  }
+
+  /* Download badge (hidden until scrolled) */
+  .download-btn {
+    display: none;
+    margin-right: auto;
+  }
+  .download-btn img {
+    height: 32px;
+    width: auto;
+  }
+  .mobile-nav.scrolled .download-btn {
+    display: block;
+    opacity: 0;
+    animation: fadeInDownload 0.4s ease-out forwards;
+  }
+  @keyframes fadeInDownload {
+    to { opacity: 1; }
+  }
+
+  /* Toggle (arrow) button */
+  .mobile-toggle {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    margin-left: auto;
+  }
+  .toggle-icon {
+    width: 30px;
+    height: 30px;
+    color: white;               /* flips to black on scroll */
+    transition: transform 0.3s ease,
+                color 0.3s ease;
+  }
+  .mobile-nav.scrolled .toggle-icon {
+    color: black;
+  }
+  .mobile-toggle.open .toggle-icon {
+    transform: rotate(180deg);
+  }
+
+  /* The menu links inside the expanded nav */
+  .mobile-nav .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 60px 20px 20px;   /* pushes links below the toggle */
+    gap: 16px;
+  }
+  .mobile-nav .mobile-menu a {
+    color: black !important;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    transition: opacity 0.3s ease;
+  }
+  .mobile-nav .mobile-menu a:hover {
+    opacity: 0.7;
+  }
+
+  /* Features stack vertically on mobile */
+  .features {
+    flex-direction: column;
+  }
+  .feature {
+    margin-bottom: 5px;
+  }
+
+  /* Carousel padding fix */
+  .carousel-content::after {
+    content: "";
+    flex: 0 0 4px;
+  }
+}
+
+
+
+/* @media (max-width: 768px) {
   .mobile-nav {
     position: fixed;
     top: 0;
@@ -543,7 +662,7 @@ body {
 @keyframes fadeInDownload {
   to { opacity: 1; }
 }
-}
+} */
 
 
 
@@ -814,11 +933,11 @@ body {
   box-shadow: 0 2px 8px rgba(42, 157, 143, 0.3);
 }
 
-/* 3) Mobile: hide everything at load, then fade in */
-@media (max-width: 768px) {
+
+/* @media (max-width: 768px) {
   .mobile-nav {
     opacity: 0;
-    /* include opacity in the transition chain */
+
     transition: 
       opacity 0.3s ease-out,
       box-shadow 0.3s ease-out, 
@@ -831,7 +950,7 @@ body {
 }
 
 
-/* base button reset */
+
 .mobile-toggle {
   background: none;
   border: none;
@@ -840,28 +959,28 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0;                      /* match your fade-in pattern */
+  opacity: 0;                      
   transform: translateY(15px);
-  animation: fadeInUp 1.5s ease-out forwards  /* reuse your fadeInUp */;
+  animation: fadeInUp 1.5s ease-out forwards ;
 }
 
-/* arrow styling */
+
 .toggle-icon {
   width: 30px;
   height: 30px;
-  color: white;                    /* inherits via stroke="currentColor" */
+  color: white;                 
   transition: transform 0.3s ease;
 }
 
-/* when menu is open, flip arrow */
+
 .mobile-toggle.open .toggle-icon {
   transform: rotate(180deg);
 }
 
-/* if you want the arrow to turn black once scrolled */
+
 .mobile-nav.scrolled .toggle-icon {
   color: black;
 }
-
+ */
 
 
