@@ -460,12 +460,24 @@ body {
     cursor: pointer;
     flex-shrink: 0;
     z-index: 1002;
+    
+      opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
   }
   .toggle-icon {
     width: 30px;
     height: 30px;
-    color: white;
+/*     color: white; */
     transition: transform 0.3s ease, color 0.3s ease;
+
+     color: transparent;
+  }
+
+  /* when scrolled, show both the bar and the toggle */
+  .mobile-nav.scrolled .mobile-toggle {
+    opacity: 1;
+    pointer-events: auto;
   }
   .mobile-nav.scrolled .toggle-icon {
     color: black;
