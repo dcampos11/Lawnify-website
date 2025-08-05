@@ -519,6 +519,15 @@ const phraseList = [
         toggle.classList.toggle('open', isOpen);
       });
     });
+
+       // 2) open the first FAQ on load
+  const firstItem   = document.querySelector('.faq-item');
+  if (firstItem) {
+    const answer     = firstItem.querySelector('.faq-answer');
+    const toggle     = firstItem.querySelector('.faq-toggle');
+    answer.classList.add('open');
+    toggle.classList.add('open');
+  }
   });
 
 
@@ -584,31 +593,6 @@ slider.addEventListener('mousemove', e => {
   });
 
 
-
-// document.addEventListener('DOMContentLoaded', () => {
-//   const mobileNav   = document.querySelector('.mobile-nav');
-//   const toggleBtn   = document.getElementById('mobileToggle');
-
-  
-//   toggleBtn.addEventListener('click', e => {
-//     e.stopPropagation();              
-//     mobileNav.classList.toggle('expanded');
-//     toggleBtn.classList.toggle('open');  
-//   });
-
-  
-//   document.addEventListener('click', e => {
-//     if (!mobileNav.contains(e.target)) {
-//       mobileNav.classList.remove('expanded');
-//       toggleBtn.classList.remove('open');  
-//     }
-//   });
-// });
-
-
-   // --------------------------------------------
-// Mobile nav dropdown + scroll-fade
-// --------------------------------------------
 document.addEventListener('DOMContentLoaded', () => {
   const mobileNav = document.querySelector('.mobile-nav');
   const toggleBtn = document.getElementById('mobileToggle');
@@ -639,6 +623,7 @@ document.addEventListener('DOMContentLoaded', () => {
   </script>
 </body>
 </html>
+
 
 
 
