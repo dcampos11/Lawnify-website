@@ -837,4 +837,11 @@ body {
 }
 
 }
+/* teal shadow on both desktop and mobile top bars */
+.top-nav,
+.mobile-nav {
+  /* horizontal offset, vertical offset, blur radius, color */
+  box-shadow: 0 2px 8px rgba(42, 157, 143, 0.3);
+}
+
 
