@@ -495,9 +495,10 @@ body {
   top: 100%;
   left: 0;
   width: 100%;
-  background: #fff;
+  background: rgba(255,255,255,1);
   box-shadow: none;
   z-index: 1000;
+   flex-direction: column;
 }
 
 .mobile-menu::after {
