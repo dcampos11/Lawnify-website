@@ -482,6 +482,15 @@ body {
   /* Expand menu when toggled open */
   .mobile-nav.expanded {
     max-height: 600px;          /* enough to show all links */
+
+    
+       display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    opacity: 1;
+    pointer-events: auto;
+    
   }
 
   /* Download badge (hidden until scrolled) */
