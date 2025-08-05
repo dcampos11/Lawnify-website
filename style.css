@@ -478,7 +478,7 @@ body {
   .mobile-menu {
     display: none;       
     position: absolute;
-    top: 100%;                 
+    top: 95%;                 
     left: 0;                   
     width: 100%;
     border-top: none;
