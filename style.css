@@ -852,3 +852,37 @@ body {
 }
 
 
+/* base button reset */
+.mobile-toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;                      /* match your fade-in pattern */
+  transform: translateY(15px);
+  animation: fadeInUp 1.5s ease-out forwards  /* reuse your fadeInUp */;
+}
+
+/* arrow styling */
+.toggle-icon {
+  width: 30px;
+  height: 30px;
+  color: white;                    /* inherits via stroke="currentColor" */
+  transition: transform 0.3s ease;
+}
+
+/* when menu is open, flip arrow */
+.mobile-toggle.open .toggle-icon {
+  transform: rotate(180deg);
+}
+
+/* if you want the arrow to turn black once scrolled */
+.mobile-nav.scrolled .toggle-icon {
+  color: black;
+}
+
+
+
