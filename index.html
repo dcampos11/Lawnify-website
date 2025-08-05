@@ -591,7 +591,12 @@ slider.addEventListener('mousemove', e => {
  // Open / close on arrow tap
   toggleBtn.addEventListener('click', e => {
     e.stopPropagation();              // don’t trigger the document click
+    
+   // mobileNav.classList.toggle('expanded');
+
+   // new
     mobileNav.classList.toggle('expanded');
+ toggleBtn.classList.toggle('open');  
   });
 
 
@@ -608,4 +613,5 @@ slider.addEventListener('mousemove', e => {
   </script>
 </body>
 </html>
+
 
