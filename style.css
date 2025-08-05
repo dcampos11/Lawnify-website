@@ -511,7 +511,7 @@ body {
   height: 8px;       /* controls the “spread” */
   background: linear-gradient(
     to bottom,
-    rgba(42,157,143,0.25) 0%,     /* darkest */
+    rgba(42,157,143,0.22) 0%,     /* darkest */
     rgba(42,157,143,0.15) 30%,   /* mid-fade */
     rgba(42,157,143,0.05) 60%,   /* almost gone */
     transparent 100%             /* fully transparent */
