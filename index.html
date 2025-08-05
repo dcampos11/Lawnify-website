@@ -584,46 +584,54 @@ slider.addEventListener('mousemove', e => {
   });
 
 
-//    document.addEventListener('DOMContentLoaded', () => {
+
+// document.addEventListener('DOMContentLoaded', () => {
 //   const mobileNav   = document.querySelector('.mobile-nav');
 //   const toggleBtn   = document.getElementById('mobileToggle');
 
-//  // Open / close on arrow tap
+  
 //   toggleBtn.addEventListener('click', e => {
-//     e.stopPropagation();              // don’t trigger the document click
+//     e.stopPropagation();              
 //     mobileNav.classList.toggle('expanded');
 //     toggleBtn.classList.toggle('open');  
 //   });
 
-
-   
-//   // Close if you click anywhere outside the nav
+  
 //   document.addEventListener('click', e => {
 //     if (!mobileNav.contains(e.target)) {
 //       mobileNav.classList.remove('expanded');
-//       toggleBtn.classList.toggle('open');
+//       toggleBtn.classList.remove('open');  
 //     }
 //   });
 // });
 
-   /* Updated JavaScript for Mobile Navigation - Replace the existing mobile nav JS */
-document.addEventListener('DOMContentLoaded', () => {
-  const mobileNav   = document.querySelector('.mobile-nav');
-  const toggleBtn   = document.getElementById('mobileToggle');
 
-  // Open / close on arrow tap
+   // --------------------------------------------
+// Mobile nav dropdown + scroll-fade
+// --------------------------------------------
+document.addEventListener('DOMContentLoaded', () => {
+  const mobileNav = document.querySelector('.mobile-nav');
+  const toggleBtn = document.getElementById('mobileToggle');
+
+  // toggle menu open/closed
   toggleBtn.addEventListener('click', e => {
-    e.stopPropagation();              // don't trigger the document click
+    e.stopPropagation();
     mobileNav.classList.toggle('expanded');
-    toggleBtn.classList.toggle('open');  
+    toggleBtn.classList.toggle('open');
   });
 
-  // Close if you click anywhere outside the nav
+  // click outside to close
   document.addEventListener('click', e => {
     if (!mobileNav.contains(e.target)) {
       mobileNav.classList.remove('expanded');
-      toggleBtn.classList.remove('open');  // Fixed: was toggle, should be remove
+      toggleBtn.classList.remove('open');
     }
+  });
+
+  // fade in on scroll
+  window.addEventListener('scroll', () => {
+    const pct = Math.min(window.scrollY / 200, 1);
+    mobileNav.classList.toggle('scrolled', pct > 0);
   });
 });
 
@@ -631,6 +639,7 @@ document.addEventListener('DOMContentLoaded', () => {
   </script>
 </body>
 </html>
+
 
 
 
