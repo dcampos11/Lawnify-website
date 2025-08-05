@@ -555,9 +555,23 @@ window.addEventListener('scroll', () => {
 
   links.forEach(a => a.style.color = color);
 });
+
+
+   window.addEventListener('scroll', () => {
+  const mobileNav = document.querySelector('.mobile-nav');
+  if (window.scrollY > 20) {
+    mobileNav.classList.add('scrolled');
+  } else {
+    mobileNav.classList.remove('scrolled');
+  }
+});
+
+
+   
   </script>
 </body>
 </html>
+
 
 
 
