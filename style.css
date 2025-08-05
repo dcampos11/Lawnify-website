@@ -273,14 +273,14 @@ body {
   transform: rotate(45deg); 
 }
 
-.mobile-nav {
+/* .mobile-nav {
   display: none;
   position: absolute;
   top: 20px;
   right: 20px;
   z-index: 11;
 }
-
+ */
 
 .mobile-menu a {
   color: white;
@@ -449,7 +449,7 @@ body {
 }
 
 
-
+/* 
 @media (max-width: 768px) {
   .mobile-nav {
     position: fixed;
@@ -476,26 +476,26 @@ body {
   right: 0;
   width: 100%;
   background: white;
-  max-height: 60px;            /* collapsed height */
+  max-height: 60px;           
   overflow: hidden;
   transition: max-height 0.4s ease;
   z-index: 1001;
 }
 
-/* when expanded, show enough room for links */
+
 .mobile-nav.expanded {
-  max-height: 240px;          /* adjust if you add more links */
+  max-height: 240px;        
 }
 
-/* keep only the toggle visible in the header */
+
 .mobile-nav .mobile-menu {
-  /* we’ll lay these out in the expanded area */
-  opacity: 1;                 /* always “present,” but hidden by overflow */
+
+  opacity: 1;               
 
   pointer-events: auto;
 }
 
-/* position the arrow in the top bar */
+
 .mobile-toggle {
   position: absolute;
   top: 16px;
@@ -506,15 +506,15 @@ body {
   cursor: pointer;
 }
 
-/* links container sits below the bar’s initial 60px */
+
 .mobile-nav .mobile-menu {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  padding: 60px 20px 20px;    /* push links below the toggle */
+  padding: 60px 20px 20px;   
 }
 
-/* style your links */
+
 .mobile-nav .mobile-menu a {
   color: black;
   text-decoration: none;
@@ -523,7 +523,7 @@ body {
   margin-bottom: 12px;
 }
 
-/* optional: a little hover feedback */
+
 .mobile-nav .mobile-menu a:hover {
   opacity: 0.7;
 }
@@ -540,31 +540,94 @@ body {
     display: none;
   }
 
-  /* hide the download badge until we scroll */
+
 .download-btn {
   display: none;
-  margin-right: auto;           /* push hamburger to the right */
+  margin-right: auto;          
 }
 
-/* size it appropriately */
+
 .download-btn img {
   height: 32px;
   width: auto;
 }
 
-/* once .scrolled is applied, show it */
+
 .mobile-nav.scrolled .download-btn {
   display: block;
   opacity: 0;
   animation: fadeInDownload 0.4s ease-out forwards;
 }
 
-/* simple fade-in */
+
 @keyframes fadeInDownload {
   to { opacity: 1; }
 }
 
   
+}
+ */
+
+@media (max-width: 768px) {
+  .mobile-nav {
+    display: flex;                 /* always present in layout */
+    position: fixed;
+    top: 0; right: 0;
+    width: 100%;
+    background: white;             /* collapsed white bar */
+    max-height: 60px;              /* hide links under overflow */
+    overflow: hidden;
+    opacity: 0;                    /* start fully hidden */
+    pointer-events: none;          /* can’t tap until scrolled */
+    transition: 
+      opacity 0.3s ease-out, 
+      max-height 0.4s ease;
+    z-index: 1001;
+  }
+
+  /* → Fade in the collapsed bar, download button, and arrow on scroll */
+  .mobile-nav.scrolled {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* → Grow the bar to reveal links when arrow clicked */
+  .mobile-nav.expanded {
+    max-height: 240px;             /* adjust to comfortably fit your 4 links */
+  }
+
+  /* Download badge: let it be hidden until scroll */
+  .download-btn {
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+  }
+  .mobile-nav.scrolled .download-btn {
+    opacity: 1;
+  }
+
+  /* Arrow toggle: same pattern */
+  .mobile-toggle {
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+  }
+  .mobile-nav.scrolled .mobile-toggle {
+    opacity: 1;
+  }
+
+  /* Links container sits below collapsed bar */
+  .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 60px 20px 20px;      /* push links below the 60px header */
+  }
+  .mobile-menu a {
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
 }
 
 
