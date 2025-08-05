@@ -590,41 +590,30 @@ slider.addEventListener('mousemove', e => {
   const mobileNav   = document.querySelector('.mobile-nav');
   const toggleBtn   = document.getElementById('mobileToggle');
 
-  // Open / close on arrow tap
-  // toggleBtn.addEventListener('click', e => {
-  //   e.stopPropagation();              // don’t trigger the document click
-  //   mobileNav.classList.toggle('expanded');
-  // });
+  Open / close on arrow tap
+  toggleBtn.addEventListener('click', e => {
+    e.stopPropagation();              // don’t trigger the document click
+    mobileNav.classList.toggle('expanded');
+  });
 
-    /* REPLACE WITH: */
-toggleBtn.addEventListener('click', e => {
-  e.stopPropagation();
-  const isExpanded = mobileNav.classList.toggle('expanded');
-  toggleBtn.classList.toggle('open', isExpanded);
-});
 
     
-//   // Close if you click anywhere outside the nav
-//   document.addEventListener('click', e => {
-//     if (!mobileNav.contains(e.target)) {
-//       mobileNav.classList.remove('expanded');
-//     }
-//   });
-// });
-
-
-    /* REPLACE WITH: */
-document.addEventListener('click', e => {
-  if (!mobileNav.contains(e.target)) {
-    mobileNav.classList.remove('expanded');
-    toggleBtn.classList.remove('open');
-  }
+  // Close if you click anywhere outside the nav
+  document.addEventListener('click', e => {
+    if (!mobileNav.contains(e.target)) {
+      mobileNav.classList.remove('expanded');
+    }
+  });
 });
+
+
+ 
 
    
   </script>
 </body>
 </html>
+
 
 
 
