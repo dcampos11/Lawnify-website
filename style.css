@@ -5,46 +5,6 @@
   box-sizing: border-box;
 }
 
-/* base */
-.shape {
-  position: absolute;
-  z-index: -1;
-  opacity: 0.8;
-}
-
-/* top-left organic curve */
-.shape--top-left {
-  top: -50px;
-  left: -30px;
-  width: 320px;
-  height: 280px;
-  background: #05a848;
-  /* very loose, asymmetric corners */
-  border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%;
-}
-
-/* top-right swoop */
-.shape--top-right {
-  top: -40px;
-  right: -20px;
-  width: 360px;
-  height: 240px;
-  background: #15EFE1;
-  border-radius: 50% 60% 40% 30% / 40% 50% 60% 70%;
-}
-
-/* middle-left dribble */
-.shape--mid-left {
-  top: 200px;
-  left: -80px;
-  width: 280px;
-  height: 360px;
-  background: #053033;
-  border-radius: 40% 70% 30% 60% / 60% 30% 50% 40%;
-}
-
-
-
 
 html, body {
   height: 100%;
@@ -77,23 +37,8 @@ body {
   width: 100vw;
   overflow: hidden;
 
-/*   background-color: black;                         /* fill behind the notch */
-/*   padding-top: env(safe-area-inset-top); 
-   padding-top: constant(safe-area-inset-top); */ 
-
 }
 
-/* .black-header::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: env(safe-area-inset-top);
-  background: black;
-  z-index: 1002;
-  /* fallback for older iOS */
-/*   height: constant(safe-area-inset-top);
-} */
- 
 .video-container {
   position: absolute;
   top: 0;
@@ -607,15 +552,6 @@ body {
   }
 
 
-  .shape--top-left,
-  .shape--top-right,
-  .shape--mid-left {
-    width: 180px;
-    height: 180px;
-  }
-  .shape--top-left { top: -40px; left: -20px; }
-  .shape--top-right { top: -50px; right: -10px; }
-  .shape--mid-left { top: 150px; left: -60px; }
 
   
 }
