@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -35,7 +35,7 @@
   <main class="page-content">
     <section class="pricing" id="pricing">
       <h1>Welcome to Lawnify</h1>
-      <!-- Pricing UI -->
+ 
     </section>
   </main>
 
@@ -72,5 +72,101 @@
     }
   });
 </script>
+</body>
+</html>
+ -->
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us – Lawnify</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+  <header class="black-header">
+    <nav class="top-nav">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/services/">Services</a></li>
+        <li><a href="/rewards/">Rewards</a></li>
+        <li><a href="/about/">About Us</a></li>
+      </ul>
+    </nav>
+
+    <div class="mobile-blur-overlay" id="mobileBlurOverlay"></div>
+    <div class="mobile-nav">
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span>
+      </div>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="/">Home</a>
+        <a href="/services/">Services</a>
+        <a href="/rewards/">Rewards</a>
+        <a href="/about/">About Us</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-content">
+
+    <!-- New About Header Section -->
+    <section class="about-header" style="text-align: center; padding: 2rem 1rem;">
+      <h1>About Us</h1>
+      <p>
+        At Lawnify, we’re on a mission to deliver smarter, more efficient lawn care tailored
+        just for you. From precision mowing to personalized maintenance plans, we keep your
+        outdoor space healthy, vibrant, and hassle-free.
+      </p>
+      <img
+        src="images/DotSignature.png"
+        alt="Lawnify Signature"
+        style="max-width: 200px; margin-top: 1rem;"
+      />
+    </section>
+
+    <!-- Existing Content (e.g. Pricing, etc.) -->
+    <section class="pricing" id="pricing">
+      <h1>Welcome to Lawnify</h1>
+      <!-- Pricing UI -->
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="legal">© 2025 Lawnify, LLC.</div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const hamburger = document.getElementById('hamburger');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const blurOverlay = document.getElementById('mobileBlurOverlay');
+
+      function closeMobileMenu() {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('show');
+        if (blurOverlay) blurOverlay.classList.remove('show');
+      }
+
+      if (hamburger && mobileMenu) {
+        hamburger.addEventListener('click', () => {
+          const isActive = hamburger.classList.toggle('active');
+          mobileMenu.classList.toggle('show');
+          if (blurOverlay) blurOverlay.classList.toggle('show');
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', closeMobileMenu);
+        });
+
+        if (blurOverlay) {
+          blurOverlay.addEventListener('click', closeMobileMenu);
+        }
+      }
+    });
+  </script>
 </body>
 </html>
