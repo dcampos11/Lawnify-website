@@ -426,7 +426,7 @@ body {
     align-items: center;
     padding: 0 20px;
     background: transparent;
-    transition: background 0.3s, box-shadow 0.3s, backdrop-filter 0.3s;
+/*     transition: background 0.3s, box-shadow 0.3s, backdrop-filter 0.3s; */
     z-index: 1001;
 
     
@@ -463,9 +463,9 @@ body {
     opacity: 1;
   } */
 
-  @keyframes fadeInDownload {
+/*   @keyframes fadeInDownload {
     to { opacity: 1; }
-  }
+  } */
 
 /*   
   .mobile-toggle {
@@ -490,7 +490,7 @@ body {
     z-index: 1002;
     
     opacity: 1;
-    pointer-events: none;
+    pointer-events: auto;
   }
 
 
