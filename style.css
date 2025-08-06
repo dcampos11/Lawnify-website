@@ -558,7 +558,8 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 5px;                     /* adjust to taste */
+  max-height: 80%; /* so it never exceeds 80% of the 50px nav (i.e. 40px) */
+  width: auto;                   /* adjust to taste */
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
   z-index: 1002;                    /* sit above other nav items */
   pointer-events: none;             /* let clicks pass through */
