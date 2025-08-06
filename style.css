@@ -50,9 +50,9 @@ body {
   background: black;
   z-index: 1002;
   /* fallback for older iOS */
-  height: constant(safe-area-inset-top);
+/*   height: constant(safe-area-inset-top);
 } */
-
+ 
 .video-container {
   position: absolute;
   top: 0;
