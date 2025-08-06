@@ -551,6 +551,18 @@ body {
 .mobile-nav.scrolled.expanded {
   box-shadow: none;
 }
+
+  /* new logo styling */
+.mobile-nav-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 24px;                     /* adjust to taste */
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+  z-index: 1002;                    /* sit above other nav items */
+  pointer-events: none;             /* let clicks pass through */
+}
   
   .features {
     flex-direction: column;
