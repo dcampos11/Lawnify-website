@@ -17,7 +17,29 @@
   <!-- Fonts & CSS -->
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,600,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css" />
-
+<!-- only for About Us -->
+<style>
+  .about-header {
+    margin-top: 2rem;
+    text-align: center;
+    padding: 4rem 1rem;
+    /* stack six radial gradients as "blobs" */
+    background-image:
+      radial-gradient(circle 250px at 20% 30%,  #00674F 0%, transparent 70%),
+      radial-gradient(circle 200px at 80% 20%,  #0BC3A1 0%, transparent 70%),
+      radial-gradient(circle 220px at 10% 10%,  #0EF375 0%, transparent 70%),
+      radial-gradient(circle 180px at 25% 80%,  #05a848 0%, transparent 70%),
+      radial-gradient(circle 200px at 75% 70%,  #15EFE1 0%, transparent 70%),
+      radial-gradient(circle 240px at 50% 50%,  #053033 0%, transparent 70%);
+    background-repeat: no-repeat;
+    /* optional: ensure a fallback or base color behind the blobs */
+    background-color: #fff;
+    /* make sure your heading text is legible on dark blobs */
+    color: white;
+    /* if needed, add a subtle text-shadow for extra contrast */
+    text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+  }
+</style>
   <!-- Favicons -->
   <link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
