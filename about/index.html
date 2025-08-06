@@ -101,186 +101,186 @@
 
   <!-- === SCRIPTS (copied from your home page) === -->
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const imgs = document.querySelectorAll('.feature-img');
-      const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in-view');
-            obs.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.2 });
-      imgs.forEach(img => observer.observe(img));
+    // document.addEventListener('DOMContentLoaded', () => {
+    //   const imgs = document.querySelectorAll('.feature-img');
+    //   const observer = new IntersectionObserver((entries, obs) => {
+    //     entries.forEach(entry => {
+    //       if (entry.isIntersecting) {
+    //         entry.target.classList.add('in-view');
+    //         obs.unobserve(entry.target);
+    //       }
+    //     });
+    //   }, { threshold: 0.2 });
+    //   imgs.forEach(img => observer.observe(img));
 
-      const animTargets = document.querySelectorAll('.about, .store-badge-section, .feature .text');
-      const animObserver = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in-view');
-            obs.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.2 });
-      animTargets.forEach(el => animObserver.observe(el));
-    });
+    //   const animTargets = document.querySelectorAll('.about, .store-badge-section, .feature .text');
+    //   const animObserver = new IntersectionObserver((entries, obs) => {
+    //     entries.forEach(entry => {
+    //       if (entry.isIntersecting) {
+    //         entry.target.classList.add('in-view');
+    //         obs.unobserve(entry.target);
+    //       }
+    //     });
+    //   }, { threshold: 0.2 });
+    //   animTargets.forEach(el => animObserver.observe(el));
+    // });
 
-    window.addEventListener('scroll', () => {
-      const overlay = document.querySelector('.overlay-content');
-      if (!overlay) return;
-      const maxScroll = window.innerHeight;
-      const scrollY = Math.min(window.scrollY, maxScroll);
-      const progress = scrollY / maxScroll;
-      overlay.style.backgroundColor = `rgba(0, 0, 0, ${0.3 + progress * 0.7})`;
-    });
+    // window.addEventListener('scroll', () => {
+    //   const overlay = document.querySelector('.overlay-content');
+    //   if (!overlay) return;
+    //   const maxScroll = window.innerHeight;
+    //   const scrollY = Math.min(window.scrollY, maxScroll);
+    //   const progress = scrollY / maxScroll;
+    //   overlay.style.backgroundColor = `rgba(0, 0, 0, ${0.3 + progress * 0.7})`;
+    // });
 
-    document.addEventListener('DOMContentLoaded', () => {
-      const videos = document.querySelectorAll('.background-video');
-      let currentIndex = 0;
-      const transitionBuffer = 1000;
-      let isTransitioning = false;
+    // document.addEventListener('DOMContentLoaded', () => {
+    //   const videos = document.querySelectorAll('.background-video');
+    //   let currentIndex = 0;
+    //   const transitionBuffer = 1000;
+    //   let isTransitioning = false;
 
-      function scheduleNextFade(video, nextVideo) {
-        const duration = video.duration * 1000;
-        const fadeStart = duration - transitionBuffer;
+    //   function scheduleNextFade(video, nextVideo) {
+    //     const duration = video.duration * 1000;
+    //     const fadeStart = duration - transitionBuffer;
 
-        setTimeout(() => {
-          isTransitioning = true;
-          nextVideo.currentTime = 0;
-          nextVideo.load();
+    //     setTimeout(() => {
+    //       isTransitioning = true;
+    //       nextVideo.currentTime = 0;
+    //       nextVideo.load();
 
-          nextVideo.addEventListener('canplaythrough', function handleReady() {
-            nextVideo.removeEventListener('canplaythrough', handleReady);
+    //       nextVideo.addEventListener('canplaythrough', function handleReady() {
+    //         nextVideo.removeEventListener('canplaythrough', handleReady);
 
-            nextVideo.classList.add('active');
-            nextVideo.play();
-            setTimeout(() => {
-              video.classList.remove('active');
-              setTimeout(() => {
-                video.pause();
-                isTransitioning = false;
-              }, 1000);
+    //         nextVideo.classList.add('active');
+    //         nextVideo.play();
+    //         setTimeout(() => {
+    //           video.classList.remove('active');
+    //           setTimeout(() => {
+    //             video.pause();
+    //             isTransitioning = false;
+    //           }, 1000);
 
-              currentIndex = (currentIndex + 1) % videos.length;
-              const upcoming = videos[(currentIndex + 1) % videos.length];
-              scheduleNextFade(nextVideo, upcoming);
-            }, 0);
-          });
+    //           currentIndex = (currentIndex + 1) % videos.length;
+    //           const upcoming = videos[(currentIndex + 1) % videos.length];
+    //           scheduleNextFade(nextVideo, upcoming);
+    //         }, 0);
+    //       });
 
-          setTimeout(() => {
-            if (nextVideo.paused && isTransitioning) {
-              nextVideo.play();
-              nextVideo.classList.add('active');
-              video.classList.remove('active');
-              video.pause();
+    //       setTimeout(() => {
+    //         if (nextVideo.paused && isTransitioning) {
+    //           nextVideo.play();
+    //           nextVideo.classList.add('active');
+    //           video.classList.remove('active');
+    //           video.pause();
 
-              currentIndex = (currentIndex + 1) % videos.length;
-              const upcoming = videos[(currentIndex + 1) % videos.length];
-              scheduleNextFade(nextVideo, upcoming);
-              isTransitioning = false;
-            }
-          }, 2000);
-        }, fadeStart);
-      }
+    //           currentIndex = (currentIndex + 1) % videos.length;
+    //           const upcoming = videos[(currentIndex + 1) % videos.length];
+    //           scheduleNextFade(nextVideo, upcoming);
+    //           isTransitioning = false;
+    //         }
+    //       }, 2000);
+    //     }, fadeStart);
+    //   }
 
-      function startCycle() {
-        const firstVideo = videos[currentIndex];
-        const nextVideo = videos[(currentIndex + 1) % videos.length];
+    //   function startCycle() {
+    //     const firstVideo = videos[currentIndex];
+    //     const nextVideo = videos[(currentIndex + 1) % videos.length];
 
-        firstVideo.classList.add('active');
-        firstVideo.currentTime = 0;
-        firstVideo.load();
+    //     firstVideo.classList.add('active');
+    //     firstVideo.currentTime = 0;
+    //     firstVideo.load();
 
-        firstVideo.addEventListener('canplaythrough', function initPlay() {
-          firstVideo.removeEventListener('canplaythrough', initPlay);
-          firstVideo.play();
-          scheduleNextFade(firstVideo, nextVideo);
-        });
+    //     firstVideo.addEventListener('canplaythrough', function initPlay() {
+    //       firstVideo.removeEventListener('canplaythrough', initPlay);
+    //       firstVideo.play();
+    //       scheduleNextFade(firstVideo, nextVideo);
+    //     });
 
-        setTimeout(() => {
-          if (firstVideo.paused) {
-            firstVideo.play();
-            scheduleNextFade(firstVideo, nextVideo);
-          }
-        }, 3000);
-      }
+    //     setTimeout(() => {
+    //       if (firstVideo.paused) {
+    //         firstVideo.play();
+    //         scheduleNextFade(firstVideo, nextVideo);
+    //       }
+    //     }, 3000);
+    //   }
 
-      if (videos.length) startCycle();
-    });
+    //   if (videos.length) startCycle();
+    // });
 
-    const phraseList = [
-      "Landscaping Simplified",
-      "Tap. Book. Relax.",
-      "Your Lawn, Our Turf"
-    ];
-    const span = document.getElementById("animated-word");
-    let phraseIndex = 0, charIndex = 0, isDeleting = false;
-    function typeEffect() {
-      const currentPhrase = phraseList[phraseIndex];
-      span.textContent = currentPhrase.substring(0, charIndex);
-      if (!isDeleting && charIndex < currentPhrase.length) {
-        charIndex++; setTimeout(typeEffect, 120);
-      } else if (isDeleting && charIndex > 0) {
-        charIndex--; setTimeout(typeEffect, 80);
-      } else {
-        isDeleting = !isDeleting;
-        if (!isDeleting) phraseIndex = (phraseIndex + 1) % phraseList.length;
-        setTimeout(typeEffect, isDeleting ? 3800 : 300);
-      }
-    }
-    window.addEventListener("DOMContentLoaded", () => {
-      if (span) {
-        span.textContent = phraseList[0];
-        charIndex = phraseList[0].length;
-        isDeleting = true;
-        setTimeout(typeEffect, 4200);
-      }
-    });
+    // const phraseList = [
+    //   "Landscaping Simplified",
+    //   "Tap. Book. Relax.",
+    //   "Your Lawn, Our Turf"
+    // ];
+    // const span = document.getElementById("animated-word");
+    // let phraseIndex = 0, charIndex = 0, isDeleting = false;
+    // function typeEffect() {
+    //   const currentPhrase = phraseList[phraseIndex];
+    //   span.textContent = currentPhrase.substring(0, charIndex);
+    //   if (!isDeleting && charIndex < currentPhrase.length) {
+    //     charIndex++; setTimeout(typeEffect, 120);
+    //   } else if (isDeleting && charIndex > 0) {
+    //     charIndex--; setTimeout(typeEffect, 80);
+    //   } else {
+    //     isDeleting = !isDeleting;
+    //     if (!isDeleting) phraseIndex = (phraseIndex + 1) % phraseList.length;
+    //     setTimeout(typeEffect, isDeleting ? 3800 : 300);
+    //   }
+    // }
+    // window.addEventListener("DOMContentLoaded", () => {
+    //   if (span) {
+    //     span.textContent = phraseList[0];
+    //     charIndex = phraseList[0].length;
+    //     isDeleting = true;
+    //     setTimeout(typeEffect, 4200);
+    //   }
+    // });
 
-    document.querySelector('.capsule-container')?.addEventListener('click', () => {
-      window.scrollBy({ top: window.innerHeight, left: 0, behavior: 'smooth' });
-    });
+    // document.querySelector('.capsule-container')?.addEventListener('click', () => {
+    //   window.scrollBy({ top: window.innerHeight, left: 0, behavior: 'smooth' });
+    // });
 
-    document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('.faq-question').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const item = btn.closest('.faq-item');
-          const ans = item.querySelector('.faq-answer');
-          const tog = btn.querySelector('.faq-toggle');
-          const open = ans.classList.toggle('open');
-          tog.classList.toggle('open', open);
-        });
-      });
-      // open first FAQ by default
-      const first = document.querySelector('.faq-item');
-      if (first) {
-        first.querySelector('.faq-answer')?.classList.add('open');
-        first.querySelector('.faq-toggle')?.classList.add('open');
-      }
-    });
+    // document.addEventListener('DOMContentLoaded', () => {
+    //   document.querySelectorAll('.faq-question').forEach(btn => {
+    //     btn.addEventListener('click', () => {
+    //       const item = btn.closest('.faq-item');
+    //       const ans = item.querySelector('.faq-answer');
+    //       const tog = btn.querySelector('.faq-toggle');
+    //       const open = ans.classList.toggle('open');
+    //       tog.classList.toggle('open', open);
+    //     });
+    //   });
+    //   // open first FAQ by default
+    //   const first = document.querySelector('.faq-item');
+    //   if (first) {
+    //     first.querySelector('.faq-answer')?.classList.add('open');
+    //     first.querySelector('.faq-toggle')?.classList.add('open');
+    //   }
+    // });
 
-    // Carousel drag
-    const slider = document.querySelector('.carousel-container');
-    if (slider) {
-      let isDown = false, startX, scrollStart;
-      slider.addEventListener('mousedown', e => {
-        isDown = true;
-        startX = e.pageX - slider.offsetLeft;
-        scrollStart = slider.scrollLeft;
-        slider.classList.add('active');
-      });
-      slider.addEventListener('mousemove', e => {
-        if (!isDown) return;
-        const x = e.pageX - slider.offsetLeft;
-        slider.scrollLeft = scrollStart - (x - startX);
-      });
-      ['mouseup','mouseleave'].forEach(evt =>
-        slider.addEventListener(evt, () => {
-          isDown = false;
-          slider.classList.remove('active');
-        })
-      );
-    }
+    // // Carousel drag
+    // const slider = document.querySelector('.carousel-container');
+    // if (slider) {
+    //   let isDown = false, startX, scrollStart;
+    //   slider.addEventListener('mousedown', e => {
+    //     isDown = true;
+    //     startX = e.pageX - slider.offsetLeft;
+    //     scrollStart = slider.scrollLeft;
+    //     slider.classList.add('active');
+    //   });
+    //   slider.addEventListener('mousemove', e => {
+    //     if (!isDown) return;
+    //     const x = e.pageX - slider.offsetLeft;
+    //     slider.scrollLeft = scrollStart - (x - startX);
+    //   });
+    //   ['mouseup','mouseleave'].forEach(evt =>
+    //     slider.addEventListener(evt, () => {
+    //       isDown = false;
+    //       slider.classList.remove('active');
+    //     })
+    //   );
+    // }
 
     // Scroll‐fade nav
     document.addEventListener('DOMContentLoaded', () => {
