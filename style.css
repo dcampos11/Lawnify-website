@@ -769,12 +769,12 @@ body {
   transform: scaleX(1);
 }
 
-  .mobile-nav {
+/*   .mobile-nav {
   display: none;
   position: absolute;
   top: 20px;
   right: 20px;
-  z-index: 11;
+  z-index: 11; */
 }
 
 
@@ -782,8 +782,8 @@ body {
 
 
 /* 1) Remove always-on shadow; prepare transition */
-.top-nav,
-.mobile-nav {
+/* .top-nav,
+.mobile-n {
   box-shadow: none;
   transition: 
     box-shadow 0.3s ease-out, 
@@ -792,8 +792,8 @@ body {
 }
 
 /* 2) Shadow fades in on scroll */
-.top-nav.scrolled,
+/* .top-nav.scrolled,
 .mobile-nav.scrolled {
   box-shadow: 0 2px 8px rgba(42, 157, 143, 0.3);
-}
+} */
 
