@@ -42,6 +42,17 @@ body {
 
 }
 
+.black-header::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: env(safe-area-inset-top);
+  background: black;
+  z-index: 1002;
+  /* fallback for older iOS */
+  height: constant(safe-area-inset-top);
+}
+
 .video-container {
   position: absolute;
   top: 0;
