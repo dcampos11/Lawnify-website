@@ -113,17 +113,17 @@
     //   }, { threshold: 0.2 });
     //   imgs.forEach(img => observer.observe(img));
 
-    //   const animTargets = document.querySelectorAll('.about, .store-badge-section, .feature .text');
-    //   const animObserver = new IntersectionObserver((entries, obs) => {
-    //     entries.forEach(entry => {
-    //       if (entry.isIntersecting) {
-    //         entry.target.classList.add('in-view');
-    //         obs.unobserve(entry.target);
-    //       }
-    //     });
-    //   }, { threshold: 0.2 });
-    //   animTargets.forEach(el => animObserver.observe(el));
-    // });
+      const animTargets = document.querySelectorAll('.about, .store-badge-section, .feature .text');
+      const animObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      animTargets.forEach(el => animObserver.observe(el));
+    });
 
     // window.addEventListener('scroll', () => {
     //   const overlay = document.querySelector('.overlay-content');
