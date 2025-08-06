@@ -5,54 +5,42 @@
   box-sizing: border-box;
 }
 
-/* =============================
-   ABOUT HERO BLOBS
-   ============================= */
-.about-hero {
-  position: relative;
-  overflow: hidden;
-  /* extra top padding so your text doesn’t collide with the blobs */
-  padding-top: 4rem;
-  margin-bottom: 4rem;
-}
-
-.about-hero .blob {
+/* base */
+.shape {
   position: absolute;
-  border-radius: 50%;
-  opacity: 0.8;
   z-index: -1;
+  opacity: 0.8;
 }
 
-/* left-top */
-.blob1 {
-  top: -100px;
-  left: -100px;
-  width: 300px;
-  height: 300px;
+/* top-left organic curve */
+.shape--top-left {
+  top: -50px;
+  left: -30px;
+  width: 320px;
+  height: 280px;
   background: #05a848;
-  /* random border-radius shape for an organic blob */
-  border-radius: 60% 40% 30% 70%;
+  /* very loose, asymmetric corners */
+  border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%;
 }
 
-/* right-top */
-.blob2 {
-  top: -120px;
-  right: -80px;
-  width: 350px;
-  height: 350px;
+/* top-right swoop */
+.shape--top-right {
+  top: -40px;
+  right: -20px;
+  width: 360px;
+  height: 240px;
   background: #15EFE1;
-  border-radius: 40% 60% 70% 30%;
+  border-radius: 50% 60% 40% 30% / 40% 50% 60% 70%;
 }
 
-/* center-top */
-.blob3 {
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 250px;
-  height: 250px;
+/* middle-left dribble */
+.shape--mid-left {
+  top: 200px;
+  left: -80px;
+  width: 280px;
+  height: 360px;
   background: #053033;
-  border-radius: 50% 30% 64% 46%;
+  border-radius: 40% 70% 30% 60% / 60% 30% 50% 40%;
 }
 
 
@@ -619,13 +607,17 @@ body {
   }
 
 
-   .blob1, .blob2, .blob3 {
-    width: 150px;
-    height: 150px;
+  .shape--top-left,
+  .shape--top-right,
+  .shape--mid-left {
+    width: 180px;
+    height: 180px;
   }
-  .blob1 { top: -60px; left: -60px; }
-  .blob2 { top: -80px; right: -40px; }
-  .blob3 { top: -40px; /* already centered by translateX */ }
+  .shape--top-left { top: -40px; left: -20px; }
+  .shape--top-right { top: -50px; right: -10px; }
+  .shape--mid-left { top: 150px; left: -60px; }
+
+  
 }
 
 
