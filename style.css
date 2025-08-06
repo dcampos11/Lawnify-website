@@ -428,12 +428,17 @@ body {
     background: transparent;
     transition: background 0.3s, box-shadow 0.3s, backdrop-filter 0.3s;
     z-index: 1001;
+
+    
+     background: rgba(255,255,255,1);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 8px rgba(42,157,143,0.3);
   }
-  .mobile-nav.scrolled {
+/*   .mobile-nav.scrolled {
     background: rgba(255,255,255,1);
     backdrop-filter: blur(6px);
     box-shadow: 0 2px 8px rgba(42,157,143,0.3);
-  }
+  } */
 
   .download-btn img {
     height: 32px;
@@ -441,7 +446,13 @@ body {
     transform: translateY(3px); 
   }
 
-  .download-btn {
+   .download-btn {
+    display: block;
+    opacity: 1;
+  }
+  
+
+/*   .download-btn {
     display: none;
     flex-shrink: 0;
     opacity: 0;
@@ -450,13 +461,13 @@ body {
   .mobile-nav.scrolled .download-btn {
     display: block;
     opacity: 1;
-  }
+  } */
 
   @keyframes fadeInDownload {
     to { opacity: 1; }
   }
 
-  
+/*   
   .mobile-toggle {
     background: none;
     border: none;
@@ -468,7 +479,15 @@ body {
       opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
+  } */
+
+   .mobile-toggle {
+    opacity: 1;
+    pointer-events: auto;
   }
+
+
+  
   .toggle-icon {
     width: 30px;
     height: 30px;
@@ -477,10 +496,10 @@ body {
   }
 
   /* when scrolled, show both the bar and the toggle */
-  .mobile-nav.scrolled .mobile-toggle {
+/*   .mobile-nav.scrolled .mobile-toggle {
     opacity: 1;
     pointer-events: auto;
-  }
+  } */
   .mobile-nav.scrolled .toggle-icon {
     color: black;
   }
