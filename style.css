@@ -452,6 +452,7 @@ body {
   .download-btn img {
     height: 32px;
     width: auto;
+    transform: translateY(3px); 
   }
 
   .download-btn {
