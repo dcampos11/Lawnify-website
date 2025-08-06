@@ -25,6 +25,19 @@ body {
   background-position: top left;
 }
 
+/* fill only the top unsafe (notch) area with black */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  /* use the notch inset height */
+  height: env(safe-area-inset-top);
+  /* fallback for older iOS */
+  height: constant(safe-area-inset-top);
+  background: black;
+  z-index: 9999;          /* make sure it sits above your pattern */
+  pointer-events: none;   /* so clicks still go through */
+}
 
 
 .black-header {
