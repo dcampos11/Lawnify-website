@@ -482,8 +482,15 @@ body {
   } */
 
    .mobile-toggle {
+     background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    flex-shrink: 0;
+    z-index: 1002;
+    
     opacity: 1;
-    pointer-events: auto;
+    pointer-events: none;
   }
 
 
@@ -492,7 +499,7 @@ body {
     width: 30px;
     height: 30px;
     transition: transform 0.3s ease, color 0.3s ease;
-     color: transparent;
+     color: black;
   }
 
   /* when scrolled, show both the bar and the toggle */
@@ -500,9 +507,9 @@ body {
     opacity: 1;
     pointer-events: auto;
   } */
-  .mobile-nav.scrolled .toggle-icon {
+/*   .mobile-nav.scrolled .toggle-icon {
     color: black;
-  }
+  } */
   .mobile-toggle.open .toggle-icon {
     transform: rotate(180deg);
   }
