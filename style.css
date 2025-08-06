@@ -540,12 +540,10 @@ body {
   width: 100%;
   text-align: left;
    padding: 12px 20px;
-/*     color: #333; */
-color: #FFFFFF;
-
-    text-decoration: none;
-    font-size: 18px;
-    transition: background 0.2s ease;
+  color: #333;    
+ text-decoration: none;
+  font-size: 18px;
+  transition: background 0.2s ease;
 }
 
   .mobile-nav.expanded .mobile-menu {
@@ -566,10 +564,6 @@ color: #FFFFFF;
     content: "";
     flex: 0 0 4px;
   }
-
-
-
-  
 }
 
 
