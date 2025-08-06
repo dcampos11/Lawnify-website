@@ -40,13 +40,13 @@
 </html>
 
  -->
-
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
   <title>About Us – Lawnify</title>
+
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-6T76N1202K"></script>
   <script>
@@ -70,45 +70,43 @@
 </head>
 <body>
 
-  <!-- === HEADER / NAV (identical to home) === -->
-  <header class="black-header">
-    <!-- Desktop navigation -->
-    <nav class="top-nav">
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/services/">Services</a></li>
-        <li><a href="/rewards/">Rewards</a></li>
-        <li><a href="/about/">About Us</a></li>
-      </ul>
-    </nav>
+  <!-- === NAVIGATION ONLY (no header) === -->
 
-    <!-- Mobile navigation -->
-    <div class="mobile-nav">
-      <a href="https://apps.apple.com/app/your-app-id"
-         class="download-btn"
-         target="_blank"
-         rel="noopener">
-        <img src="/images/Black_App_Store_Badge.svg"
-             alt="Download on the App Store" />
-      </a>
+  <!-- Desktop nav -->
+  <nav class="top-nav">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/services/">Services</a></li>
+      <li><a href="/rewards/">Rewards</a></li>
+      <li><a href="/about/">About Us</a></li>
+    </ul>
+  </nav>
 
-      <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">
-        <svg class="toggle-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path d="M7 10l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      </button>
+  <!-- Mobile nav -->
+  <div class="mobile-nav">
+    <a href="https://apps.apple.com/app/your-app-id"
+       class="download-btn"
+       target="_blank"
+       rel="noopener">
+      <img src="/images/Black_App_Store_Badge.svg"
+           alt="Download on the App Store" />
+    </a>
 
-      <div class="mobile-menu" id="mobileMenu">
-        <a href="/">Home</a>
-        <a href="/services/">Services</a>
-        <a href="/rewards/">Rewards</a>
-        <a href="/about/">About Us</a>
-      </div>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">
+      <svg class="toggle-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M7 10l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="/">Home</a>
+      <a href="/services/">Services</a>
+      <a href="/rewards/">Rewards</a>
+      <a href="/about/">About Us</a>
     </div>
-  </header>
-  <!-- === end HEADER / NAV === -->
+  </div>
 
-  <!-- === ABOUT HEADER SECTION === -->
+  <!-- === ABOUT SECTION === -->
   <section class="about-header" style="text-align: center; padding: 2rem 1rem;">
     <h1>About Us</h1>
     <p>
@@ -120,10 +118,8 @@
       style="max-width: 200px; margin-top: 1rem;"
     />
   </section>
-  <!-- === end ABOUT HEADER === -->
 
   <main class="page-content">
-    <!-- Your existing content -->
     <section class="pricing" id="pricing">
       <h1>Welcome to Lawnify</h1>
       <!-- Pricing UI -->
