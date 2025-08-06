@@ -552,17 +552,6 @@ body {
   box-shadow: none;
 }
 
-.mobile-nav-logo {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 30px;       /* pick a value that looks good */
-    width: auto;        /* preserve aspect ratio */
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
-    z-index: 1002;
-    pointer-events: none;
-  }
   
   .features {
     flex-direction: column;
