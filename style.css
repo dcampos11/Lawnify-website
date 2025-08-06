@@ -778,6 +778,22 @@ body {
 }
 
 
+   .top-nav,
+.mobile-n {
+  box-shadow: none;
+  transition: 
+    box-shadow 0.3s ease-out, 
+    background 0.3s ease-out, 
+    backdrop-filter 0.3s ease-out;
+}
+
+
+ .top-nav.scrolled,
+.mobile-nav.scrolled {
+  box-shadow: 0 2px 8px rgba(42, 157, 143, 0.3);
+}
+
+
 }
 
 
