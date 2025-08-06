@@ -769,12 +769,12 @@ body {
   transform: scaleX(1);
 }
 
-/*   .mobile-nav {
+  .mobile-nav {
   display: none;
   position: absolute;
   top: 20px;
   right: 20px;
-  z-index: 11; */
+  z-index: 11;
 }
 
 
