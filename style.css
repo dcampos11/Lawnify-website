@@ -480,7 +480,7 @@ body {
     pointer-events: auto;
   }
   .mobile-nav.scrolled .toggle-icon {
-    color: black;
+    color: white;
   }
   .mobile-toggle.open .toggle-icon {
     transform: rotate(180deg);
@@ -493,7 +493,7 @@ body {
   top: 100%;
   left: 0;
   width: 100%;
-  background: rgba(255,255,255,1);
+  background: rgba(0,0,0,1);
  
        box-shadow: none;
   z-index: 1000;
