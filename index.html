@@ -45,32 +45,15 @@
 
  
 <div class="mobile-nav">
-  <!-- New download link, hidden by default -->
-<!--   <a href="https://apps.apple.com/app/your-app-id"
-     class="download-btn"
-     target="_blank"
-     rel="noopener">
-    <img src="images/Black_App_Store_Badge.svg"
-         alt="Download on the App Store" />
-  </a>
- -->
 
-  <!-- current page label replaces the badge -->
   <span id="mobilePageTitle" class="mobile-page-title">Home</span>
 
 <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">
   <svg class="toggle-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-    <!-- simple down-arrow path -->
     <path d="M7 10l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
   </svg>
 </button>
 
- 
-<!--   <div class="mobile-menu" id="mobileMenu">
-        <a href="/services/">Services</a>
-        <a href="/rewards/">Rewards</a>
-        <a href="/about/">About Us</a>
-  </div> -->
 
  <div class="mobile-menu" id="mobileMenu">
 
@@ -642,8 +625,7 @@ document.addEventListener('DOMContentLoaded', () => {
     '/about/':      'About Us'
   };
   mobilePageTitle.textContent = titleMap[path] || '';
-  
-  // …the rest of your mobile‐nav toggle & click‐outside code…
+ 
 });
 
 
@@ -651,6 +633,7 @@ document.addEventListener('DOMContentLoaded', () => {
   </script>
 </body>
 </html>
+
 
 
 
