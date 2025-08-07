@@ -56,20 +56,18 @@ body {
 
 
   
- /* curved fade: same 75%→100% in middle,
-     but deeper (longer) fade toward the edges */
-  -webkit-mask-image: radial-gradient(
-    ellipse 200% 100%        /* ellipse: 200% width, 100% height */
-    at 50% -25%,             /* center the ellipse 25% above the top middle */
-    black 75%,               /* opaque through 75% of that ellipse-radius */
-    transparent 100%         /* then fade to transparent at the edge */
-  );
-  mask-image: radial-gradient(
-    ellipse 200% 100% at 50% -25%,
-    black 75%,
-    transparent 100%
-  );
-  
+ -webkit-mask-image: 
+    radial-gradient(ellipse at left center, transparent 30%, black 70%),
+    radial-gradient(ellipse at right center, transparent 30%, black 70%),
+    linear-gradient(to bottom, black 75%, transparent 100%);
+  -webkit-mask-composite: destination-in;
+  mask-image: 
+    radial-gradient(ellipse at left center, transparent 30%, black 70%),
+    radial-gradient(ellipse at right center, transparent 30%, black 70%),
+    linear-gradient(to bottom, black 75%, transparent 100%);
+  mask-composite: intersect;
+  mask-repeat: no-repeat;
+  mask-size: 100% 100%;
 }
 
 
@@ -113,19 +111,18 @@ body {
 
 
   
- /* curved fade: same 75%→100% in middle,
-     but deeper (longer) fade toward the edges */
-  -webkit-mask-image: radial-gradient(
-    ellipse 200% 100%        /* ellipse: 200% width, 100% height */
-    at 50% -25%,             /* center the ellipse 25% above the top middle */
-    black 75%,               /* opaque through 75% of that ellipse-radius */
-    transparent 100%         /* then fade to transparent at the edge */
-  );
-  mask-image: radial-gradient(
-    ellipse 200% 100% at 50% -25%,
-    black 75%,
-    transparent 100%
-  );
+ -webkit-mask-image: 
+    radial-gradient(ellipse at left center, transparent 30%, black 70%),
+    radial-gradient(ellipse at right center, transparent 30%, black 70%),
+    linear-gradient(to bottom, black 75%, transparent 100%);
+  -webkit-mask-composite: destination-in;
+  mask-image: 
+    radial-gradient(ellipse at left center, transparent 30%, black 70%),
+    radial-gradient(ellipse at right center, transparent 30%, black 70%),
+    linear-gradient(to bottom, black 75%, transparent 100%);
+  mask-composite: intersect;
+  mask-repeat: no-repeat;
+  mask-size: 100% 100%;
 }
 
 
