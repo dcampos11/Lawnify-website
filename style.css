@@ -87,6 +87,10 @@ body {
   text-align: center;
   gap: 12px;
   padding: 0 20px; 
+
+  /* fade out the bottom of the video so the page bg shows through */
+  -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
+  mask-image:         linear-gradient(to bottom, black 75%, transparent 100%);
 }
 
 
