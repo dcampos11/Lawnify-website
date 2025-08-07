@@ -350,8 +350,8 @@ imgs.forEach(img => observer.observe(img));
     const scrollY = Math.min(window.scrollY, maxScroll);
     const progress = scrollY / maxScroll;
 
-    const backgroundOpacity = 0.3 + progress * 0.7;
-    overlay.style.backgroundColor = `rgba(0, 0, 0, ${backgroundOpacity})`;
+    // const backgroundOpacity = 0.3 + progress * 0.7;
+    // overlay.style.backgroundColor = `rgba(0, 0, 0, ${backgroundOpacity})`;
   });
 
 
@@ -612,6 +612,7 @@ document.addEventListener('DOMContentLoaded', () => {
   </script>
 </body>
 </html>
+
 
 
 
