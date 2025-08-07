@@ -799,20 +799,3 @@ body {
 
 }
 
-
-/* 1) Remove always-on shadow; prepare transition */
-/* .top-nav,
-.mobile-n {
-  box-shadow: none;
-  transition: 
-    box-shadow 0.3s ease-out, 
-    background 0.3s ease-out, 
-    backdrop-filter 0.3s ease-out;
-}
-
-/* 2) Shadow fades in on scroll */
-/* .top-nav.scrolled,
-.mobile-nav.scrolled {
-  box-shadow: 0 2px 8px rgba(42, 157, 143, 0.3);
-} */
-
