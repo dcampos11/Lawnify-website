@@ -5,44 +5,6 @@
   box-sizing: border-box;
 }
 
-/* slide down with bounce */
-@keyframes slideDownBounce {
-  0% {
-    max-height: 0;
-    transform: translateY(-20px);
-    opacity: 0;
-  }
-  60% {
-    transform: translateY(10px);
-    opacity: 1;
-  }
-  80% {
-    transform: translateY(-5px);
-  }
-  100% {
-    transform: translateY(0);
-    max-height: 500px; /* or whatever your menu’s full height is */
-    opacity: 1;
-  }
-}
-
-/* slide up with a tiny “pop” */
-@keyframes slideUpPop {
-  0% {
-    transform: translateY(0);
-    opacity: 1;
-    max-height: 500px;
-  }
-  20% {
-    transform: translateY(5px);
-  }
-  100% {
-    transform: translateY(-20px);
-    opacity: 0;
-    max-height: 0;
-  }
-}
-
 
 
 html, body {
@@ -501,26 +463,8 @@ body {
   }
 
 
-  
-.mobile-nav.expanded .mobile-menu {
-  animation: slideDownBounce 0.6s ease-out forwards;
-}
-
-.mobile-menu.closing {
-   display: flex;    
-  animation: slideUpPop 0.4s ease-in forwards;
-}
-  
   .mobile-menu {
 
-     max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  /* ensure the animation applies only when the class is toggled */
-  animation-fill-mode: forwards;
-
-
-    
   display: none;
   position: absolute;
   top: 100%;
