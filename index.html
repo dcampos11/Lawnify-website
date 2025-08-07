@@ -63,7 +63,7 @@
 
  
   <div class="mobile-menu" id="mobileMenu">
-   <a href="/">Home</a>
+<!--    <a href="/">Home</a> -->
         <a href="/services/">Services</a>
         <a href="/rewards/">Rewards</a>
         <a href="/about/">About Us</a>
@@ -603,10 +603,26 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+   document.addEventListener('DOMContentLoaded', () => {
+  const mobilePageTitle = document.getElementById('mobilePageTitle');
+  const path = window.location.pathname;
+  const titleMap = {
+    '/':            'Home',
+    '/services/':   'Services',
+    '/rewards/':    'Rewards',
+    '/about/':      'About Us'
+  };
+  mobilePageTitle.textContent = titleMap[path] || '';
+  
+  // …the rest of your mobile‐nav toggle & click‐outside code…
+});
+
+
 
   </script>
 </body>
 </html>
+
 
 
 
