@@ -56,15 +56,17 @@ body {
 
 
   
-   /* curved, subtle fade that kicks in late in the middle but deeper at edges */
+ /* curved fade: same 75%→100% in middle,
+     but deeper (longer) fade toward the edges */
   -webkit-mask-image: radial-gradient(
-    ellipse farthest-side at 50% 0%,
-    black 85%,       /* fully opaque for the first 85% of the radius */
-    transparent 100% /* fade out by the very edge */
+    ellipse 200% 100%        /* ellipse: 200% width, 100% height */
+    at 50% -25%,             /* center the ellipse 25% above the top middle */
+    black 75%,               /* opaque through 75% of that ellipse-radius */
+    transparent 100%         /* then fade to transparent at the edge */
   );
   mask-image: radial-gradient(
-    ellipse farthest-side at 50% 0%,
-    black 85%,
+    ellipse 200% 100% at 50% -25%,
+    black 75%,
     transparent 100%
   );
   
@@ -111,15 +113,17 @@ body {
 
 
   
-    /* curved, subtle fade that kicks in late in the middle but deeper at edges */
+ /* curved fade: same 75%→100% in middle,
+     but deeper (longer) fade toward the edges */
   -webkit-mask-image: radial-gradient(
-    ellipse farthest-side at 50% 0%,
-    black 85%,       /* fully opaque for the first 85% of the radius */
-    transparent 100% /* fade out by the very edge */
+    ellipse 200% 100%        /* ellipse: 200% width, 100% height */
+    at 50% -25%,             /* center the ellipse 25% above the top middle */
+    black 75%,               /* opaque through 75% of that ellipse-radius */
+    transparent 100%         /* then fade to transparent at the edge */
   );
   mask-image: radial-gradient(
-    ellipse farthest-side at 50% 0%,
-    black 85%,
+    ellipse 200% 100% at 50% -25%,
+    black 75%,
     transparent 100%
   );
 }
