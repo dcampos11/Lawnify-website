@@ -580,65 +580,26 @@ slider.addEventListener('mousemove', e => {
   });
 
 
-// document.addEventListener('DOMContentLoaded', () => {
-//   const mobileNav = document.querySelector('.mobile-nav');
-//   const toggleBtn = document.getElementById('mobileToggle');
+document.addEventListener('DOMContentLoaded', () => {
+  const mobileNav = document.querySelector('.mobile-nav');
+  const toggleBtn = document.getElementById('mobileToggle');
 
-//   // toggle menu open/closed
-//   toggleBtn.addEventListener('click', e => {
-//     e.stopPropagation();
-//     mobileNav.classList.toggle('expanded');
-//     toggleBtn.classList.toggle('open');
-//   });
-
-//   // click outside to close
-//   document.addEventListener('click', e => {
-//     if (!mobileNav.contains(e.target)) {
-//       mobileNav.classList.remove('expanded');
-//       toggleBtn.classList.remove('open');
-//     }
-//   });
-
-
-// });
-
-   document.addEventListener('DOMContentLoaded', () => {
-  const mobileNav  = document.querySelector('.mobile-nav');
-  const toggleBtn  = document.getElementById('mobileToggle');
-  const mobileMenu = document.getElementById('mobileMenu');
-
+  // toggle menu open/closed
   toggleBtn.addEventListener('click', e => {
     e.stopPropagation();
-    const isOpen = mobileNav.classList.contains('expanded');
-
-    if (isOpen) {
-      // start closing animation
-      mobileMenu.classList.add('closing');
-      // when it finishes, fully collapse
-      mobileMenu.addEventListener('animationend', function handler() {
-        mobileNav.classList.remove('expanded');
-        mobileMenu.classList.remove('closing');
-        toggleBtn.classList.remove('open');
-      }, { once: true });
-    } else {
-      // instantly open
-      mobileMenu.classList.remove('closing');
-      mobileNav.classList.add('expanded');
-      toggleBtn.classList.add('open');
-    }
+    mobileNav.classList.toggle('expanded');
+    toggleBtn.classList.toggle('open');
   });
 
-  // click-outside to also close
+  // click outside to close
   document.addEventListener('click', e => {
-    if (!mobileNav.contains(e.target) && mobileNav.classList.contains('expanded')) {
-      mobileMenu.classList.add('closing');
-      mobileMenu.addEventListener('animationend', function handler() {
-        mobileNav.classList.remove('expanded');
-        mobileMenu.classList.remove('closing');
-        toggleBtn.classList.remove('open');
-      }, { once: true });
+    if (!mobileNav.contains(e.target)) {
+      mobileNav.classList.remove('expanded');
+      toggleBtn.classList.remove('open');
     }
   });
+
+
 });
 
 
@@ -646,6 +607,7 @@ slider.addEventListener('mousemove', e => {
   </script>
 </body>
 </html>
+
 
 
 
