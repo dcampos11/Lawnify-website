@@ -515,23 +515,23 @@ body {
 
 
 
-
+/* 
 .mobile-menu::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -8px;      /* pull it down a bit so you don’t see the hard edge */
+  bottom: -8px;      
   width: 100%;
-  height: 8px;       /* controls the “spread” */
+  height: 8px;     
   background: linear-gradient(
     to bottom,
-    rgba(42,157,143,0.22) 0%,     /* darkest */
-    rgba(42,157,143,0.15) 30%,   /* mid-fade */
-    rgba(42,157,143,0.05) 60%,   /* almost gone */
-    transparent 100%             /* fully transparent */
+    rgba(42,157,143,0.22) 0%,    
+    rgba(42,157,143,0.15) 30%,  
+    rgba(42,157,143,0.05) 60%, 
+    transparent 100%       
   );
   pointer-events: none;
-}
+} */
 
  
 .mobile-menu a {
