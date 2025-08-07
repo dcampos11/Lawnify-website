@@ -580,32 +580,72 @@ slider.addEventListener('mousemove', e => {
   });
 
 
-document.addEventListener('DOMContentLoaded', () => {
-  const mobileNav = document.querySelector('.mobile-nav');
-  const toggleBtn = document.getElementById('mobileToggle');
+// document.addEventListener('DOMContentLoaded', () => {
+//   const mobileNav = document.querySelector('.mobile-nav');
+//   const toggleBtn = document.getElementById('mobileToggle');
 
-  // toggle menu open/closed
-  toggleBtn.addEventListener('click', e => {
-    e.stopPropagation();
-    mobileNav.classList.toggle('expanded');
-    toggleBtn.classList.toggle('open');
+//   // toggle menu open/closed
+//   toggleBtn.addEventListener('click', e => {
+//     e.stopPropagation();
+//     mobileNav.classList.toggle('expanded');
+//     toggleBtn.classList.toggle('open');
+//   });
+
+//   // click outside to close
+//   document.addEventListener('click', e => {
+//     if (!mobileNav.contains(e.target)) {
+//       mobileNav.classList.remove('expanded');
+//       toggleBtn.classList.remove('open');
+//     }
+//   });
+
+
+// });
+
+   document.addEventListener('DOMContentLoaded', () => {
+    const mobileNav  = document.querySelector('.mobile-nav');
+    const toggleBtn  = document.getElementById('mobileToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    toggleBtn.addEventListener('click', e => {
+      e.stopPropagation();
+
+      if (!mobileNav.classList.contains('expanded')) {
+        // opening
+        mobileMenu.classList.remove('closing');
+        mobileNav.classList.add('expanded');
+      } else {
+        // closing
+        mobileMenu.classList.add('closing');
+        mobileMenu.addEventListener('animationend', function handler() {
+          mobileMenu.removeEventListener('animationend', handler);
+          mobileNav.classList.remove('expanded');
+          mobileMenu.classList.remove('closing');
+        });
+      }
+
+      toggleBtn.classList.toggle('open');
+    });
+
+    // click-outside to trigger the same closing animation
+    document.addEventListener('click', e => {
+      if (!mobileNav.contains(e.target) && mobileNav.classList.contains('expanded')) {
+        mobileMenu.classList.add('closing');
+        mobileMenu.addEventListener('animationend', function handler() {
+          mobileMenu.removeEventListener('animationend', handler);
+          mobileNav.classList.remove('expanded');
+          mobileMenu.classList.remove('closing');
+          toggleBtn.classList.remove('open');
+        });
+      }
+    });
   });
-
-  // click outside to close
-  document.addEventListener('click', e => {
-    if (!mobileNav.contains(e.target)) {
-      mobileNav.classList.remove('expanded');
-      toggleBtn.classList.remove('open');
-    }
-  });
-
-
-});
 
 
   </script>
 </body>
 </html>
+
 
 
 
