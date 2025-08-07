@@ -37,6 +37,10 @@ body {
   height: 100vh;
   width: 100vw;
   overflow: hidden;
+  background-color: rgba(0, 0, 0, 1);
+
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+  mask-image:         linear-gradient(to bottom, black 0%, transparent 100%);
 
 }
 
@@ -120,8 +124,8 @@ body {
   text-align: center;
   gap: 12px;
   padding: 0 20px; 
-  -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
-  mask-image:         linear-gradient(to bottom, black 0%, transparent 100%);
+/*   -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+  mask-image:         linear-gradient(to bottom, black 0%, transparent 100%); */
 }
 
 
@@ -132,9 +136,6 @@ body {
   width: auto;
   height: auto;
   display: block;
-
-  
-  opacity: 1;
 }
 
 .sub-tagline {
@@ -142,8 +143,6 @@ body {
   color: white;
   white-space: nowrap;
   overflow: hidden;
-
-  opacity: 1;
 }
 
 .about h2 {
