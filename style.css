@@ -426,17 +426,6 @@ body {
   box-shadow: 0 2px 8px rgba(42,157,143,0.3);
   }
 
-
-/*   .download-btn img {
-    height: 32px;
-    width: auto;
-    transform: translateY(3px); 
-  }
-
-   .download-btn {
-    display: block;
-    opacity: 1;
-  } */
   
    .mobile-toggle {
      background: none;
@@ -494,7 +483,6 @@ body {
 }
 
  
-/* place this in your mobile/nav section of style.css */
 .mobile-page-title {
 
    display: inline-block;
@@ -503,8 +491,8 @@ body {
   font-weight: 500;
   color: #333;
   margin-right: auto;
-  padding-bottom: 4px;           /* give some space above the line */
-  border-bottom: 2px solid #4EC2AF;  /* the colored horizontal line */
+  padding-bottom: 4px;           
+  border-bottom: 2px solid #4EC2AF;  
   user-select: none;
 }
 
@@ -550,8 +538,7 @@ body {
   }
 
 
-  
-  /* 1) Remove the nav shadow once expanded */
+
   .mobile-nav.scrolled.expanded {
     box-shadow: none;
   }
@@ -569,16 +556,15 @@ body {
   }
 
 
-  /* make each menu-item a flex row */
+
 .mobile-menu .menu-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 20px;   /* matches your existing a-padding */
-/*   border-bottom: 1px solid #eee; */
+  padding: 12px 20px;   
 }
 
-/* hide the default link padding */
+
 .mobile-menu .menu-item a {
   margin: 0;
   padding: 0;
@@ -587,17 +573,13 @@ body {
   font-weight: 500;
   color: #333;
   text-decoration: none;
-
-          outline: none;
+  outline: none;
   -webkit-appearance: none;
-
-  /* kill the gray tap highlight on WebKit-based browsers */
   -webkit-tap-highlight-color: transparent;
-  /* kill it elsewhere too */
   tap-highlight-color: transparent;
 }
 
-/* extra info on the right */
+
 .menu-extra {
   font-family: 'Satoshi', sans-serif;
   font-size: 14px;
@@ -608,22 +590,20 @@ body {
 }
 
 
-/* download badge styling */
 .menu-extra.download-btn img {
   height: 24px;
   width: auto;
   
-  display: inline-flex;    /* don’t fill the whole row */
-  align-items: center;     /* center the img vertically */
-  margin: 0;               /* reset any auto margins */
+  display: inline-flex;   
+  align-items: center;     
+  margin: 0;               
 }
-/* Override the default full-width link for our download button */
 .mobile-menu .menu-item .download-btn {
-  display: inline-flex;   /* shrink to content */
-  align-items: center;    /* vertical align */
-  width: auto;            /* override width:100% */
-  margin-left: auto;      /* push it to the right edge */
-  padding: 0;             /* clear any padding */
+  display: inline-flex;  
+  align-items: center;   
+  width: auto;            
+  margin-left: auto;     
+  padding: 0;         
 }
 
 
