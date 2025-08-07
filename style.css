@@ -403,6 +403,7 @@ body {
 
 /* Updated Mobile Navigation CSS - Replace the mobile nav section */
 @media (max-width: 768px) {
+
   
   .top-nav {
     display: none;
@@ -565,6 +566,50 @@ body {
     content: "";
     flex: 0 0 4px;
   }
+
+
+  /* make each menu-item a flex row */
+.mobile-menu .menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;   /* matches your existing a-padding */
+  border-bottom: 1px solid #eee;
+}
+
+/* hide the default link padding */
+.mobile-menu .menu-item a {
+  margin: 0;
+  padding: 0;
+  font-family: 'Satoshi', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  text-decoration: none;
+}
+
+/* extra info on the right */
+.menu-extra {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  white-space: nowrap;
+}
+
+/* you can tweak spacing if needed */
+.menu-extra.email { /* maybe smaller */
+  font-size: 13px;
+}
+.menu-extra.phone {
+  font-size: 14px;
+}
+
+/* download badge styling */
+.menu-extra.download-btn img {
+  height: 24px;
+  width: auto;
+}
+
 
 }
 
