@@ -224,17 +224,16 @@ body {
   z-index: 5;
 
 
-/* new: fade starts at 60% down, then drops to transparent by 100% */
+ /* make the fade start sooner: black stays opaque until 30% down, then transitions to transparent by 100% */
   -webkit-mask-image: linear-gradient(
     to bottom,
-    black 60%,
+    black 30%,
     transparent 100%
   );
-  mask-image: linear-gradient(
-     to bottom,
-  black 50%,    /* keep fully opaque until halfway down */
-  black 85%,    /* then hold opacity until 85% */
-  transparent   /* fade to transparent at the very bottom */
+          mask-image: linear-gradient(
+    to bottom,
+    black 30%,
+    transparent 100%
   );
 }
 
@@ -243,21 +242,7 @@ body {
   to {
     height: calc(100vh - 50% - 65px);
     opacity: 1;
-/* new: fade starts at 60% down, then drops to transparent by 100% */
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    black 60%,
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-     to bottom,
-  black 50%,    /* keep fully opaque until halfway down */
-  black 85%,    /* then hold opacity until 85% */
-  transparent   /* fade to transparent at the very bottom */
-  );
-  }
-
-  
+  }  
 }
 
 
