@@ -227,12 +227,12 @@ body {
  /* make the fade start sooner: black stays opaque until 30% down, then transitions to transparent by 100% */
   -webkit-mask-image: linear-gradient(
     to bottom,
-    black 10%,
+    black 5%,
     transparent 100%
   );
           mask-image: linear-gradient(
     to bottom,
-    black 10%,
+    black 5%,
     transparent 100%
   );
 }
