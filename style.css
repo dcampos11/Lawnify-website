@@ -480,10 +480,11 @@ body {
  
 /* place this in your mobile/nav section of style.css */
 .mobile-page-title {
+ font-family: 'Satoshi', sans-serif;
   font-size: 18px;
   font-weight: 500;
   color: #333;
-  margin-right: auto;    /* push the toggle button to the right */
+  margin-right: auto;
   user-select: none;
 }
 
