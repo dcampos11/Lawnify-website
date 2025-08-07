@@ -435,13 +435,6 @@ body {
 @media (max-width: 768px) {
 
 
-.black-header {
-   position: relative;
-   padding-top: 0;
-  height: 150vh;
-  width: 100vw;
-  overflow: hidden;
-}
   
   .top-nav {
     display: none;
