@@ -210,7 +210,7 @@ body {
   line-height: 1;
   pointer-events: none;
 }
-
+/* 
 .scroll-line {
   position: absolute;
   top: calc(50vh + 68px);
@@ -225,7 +225,7 @@ body {
 
 
  /* make the fade start sooner: black stays opaque until 30% down, then transitions to transparent by 100% */
-  -webkit-mask-image: linear-gradient(
+/*   -webkit-mask-image: linear-gradient(
     to bottom,
     black 1%,
     transparent 100%
@@ -235,7 +235,7 @@ body {
     black 1%,
     transparent 100%
   );
-}
+} */ 
 
 /* @keyframes growScrollLine {
   from { height: 0; opacity: 0; }
@@ -468,7 +468,7 @@ body {
 
    .download-btn {
     display: block;
-    opacity: 0;
+    opacity: 1;
   }
   
    .mobile-toggle {
