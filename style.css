@@ -501,7 +501,25 @@ body {
   }
 
 
+  
+.mobile-nav.expanded .mobile-menu {
+  animation: slideDownBounce 0.6s ease-out forwards;
+}
+
+.mobile-menu.closing {
+  animation: slideUpPop 0.4s ease-in forwards;
+}
+  
   .mobile-menu {
+
+     max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  /* ensure the animation applies only when the class is toggled */
+  animation-fill-mode: forwards;
+
+
+    
   display: none;
   position: absolute;
   top: 100%;
@@ -513,6 +531,7 @@ body {
   z-index: 1000;
   flex-direction: column;
 }
+
 
 .mobile-menu::after {
   content: "";
