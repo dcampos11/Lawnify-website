@@ -507,6 +507,7 @@ body {
 }
 
 .mobile-menu.closing {
+   display: flex;    
   animation: slideUpPop 0.4s ease-in forwards;
 }
   
