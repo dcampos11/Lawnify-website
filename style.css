@@ -508,7 +508,7 @@ body {
   font-weight: 500;
   color: #333;
   margin-right: auto;
-  padding-bottom: 5px;           /* give some space above the line */
+  padding-bottom: 4px;           /* give some space above the line */
   border-bottom: 2px solid #2a9d8f;  /* the colored horizontal line */
   user-select: none;
 }
