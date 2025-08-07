@@ -48,9 +48,20 @@ body {
   height: 100%;
   z-index: 0;
 
-  /* fade out the bottom of the video so the page bg shows through */
-  -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
-  mask-image:         linear-gradient(to bottom, black 75%, transparent 100%);
+
+/*   -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
+  mask-image:         linear-gradient(to bottom, black 75%, transparent 100%); */
+    /* fade out the bottom of the element in a curved way */
+  -webkit-mask-image: radial-gradient(
+    circle farthest-corner at 50% 0%,
+    black 60%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    circle farthest-corner at 50% 0%,
+    black 60%,
+    transparent 100%
+  );
 }
 
 
@@ -88,9 +99,20 @@ body {
   gap: 12px;
   padding: 0 20px; 
 
-  /* fade out the bottom of the video so the page bg shows through */
+/* 
   -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
-  mask-image:         linear-gradient(to bottom, black 75%, transparent 100%);
+  mask-image:         linear-gradient(to bottom, black 75%, transparent 100%); */
+    /* fade out the bottom of the element in a curved way */
+  -webkit-mask-image: radial-gradient(
+    circle farthest-corner at 50% 0%,
+    black 60%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    circle farthest-corner at 50% 0%,
+    black 60%,
+    transparent 100%
+  );
 }
 
 
@@ -227,9 +249,10 @@ body {
     transparent 100%
   );
   mask-image: linear-gradient(
-    to bottom,
-    black 60%,
-    transparent 100%
+     to bottom,
+  black 50%,    /* keep fully opaque until halfway down */
+  black 85%,    /* then hold opacity until 85% */
+  transparent   /* fade to transparent at the very bottom */
   );
 }
 
