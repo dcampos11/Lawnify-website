@@ -231,7 +231,13 @@ body {
   to {
     height: calc(100vh - 50% - 65px);
     opacity: 1;
+
+    /* fade out the bottom of the video so the page bg shows through */
+  -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
+  mask-image:         linear-gradient(to bottom, black 75%, transparent 100%);
   }
+
+  
 }
 
 
