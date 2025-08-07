@@ -614,27 +614,17 @@ body {
 .meta-group {
   display: flex;
   align-items: center;
+    flex-direction: row-reverse;
 }
 
 /* 3) Tweak the icon */
 .meta-group .icon {
-  width: 1.0em;
-  height: 1.0em;
-  margin-right: 0.5em;
+  width: 0.8em;
+  height: 0.8em;
+   margin: 0 0 0 0.5em; /* top/right/bottom/left */
   stroke: #333;
   flex-shrink: 0;
 }
-
-/* /* 4) Keep your existing menu-extra styling, just ensure it’s inline-flex */
-/* .meta-group .menu-extra {
-  display: inline-flex;
-  align-items: center;
-  font-family: 'Satoshi', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  color: #333;
-  text-decoration: none;
-} */ 
 
 }
 
