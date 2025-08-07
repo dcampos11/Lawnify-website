@@ -607,16 +607,32 @@ body {
 }
 
 
-  /* Feather icon sizing & spacing */
-.menu-item .icon {
-  width: 1.2em;           /* scales with font-size */
+
+/* 2) New wrapper for icon+text */
+.meta-group {
+  display: flex;
+  align-items: center;
+}
+
+/* 3) Tweak the icon */
+.meta-group .icon {
+  width: 1.2em;
   height: 1.2em;
-  margin-right: 0.5em;    /* space between icon & text */
-  stroke: #2a9d8f;        /* your brand green */
-  vertical-align: middle;
+  margin-right: 0.5em;
+  stroke: #333;
   flex-shrink: 0;
 }
 
+/* 4) Keep your existing menu-extra styling, just ensure it’s inline-flex */
+.meta-group .menu-extra {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Satoshi', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  text-decoration: none;
+}
 
 }
 
