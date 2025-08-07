@@ -56,31 +56,15 @@ body {
 
 
   
-    /* fade out the bottom of the element in a curved way */
-/*   -webkit-mask-image: radial-gradient(
-    circle farthest-corner at 50% 0%,
-    black 60%,
-    transparent 100%
-  );
-  mask-image: radial-gradient(
-    circle farthest-corner at 50% 0%,
-    black 60%,
-    transparent 100%
-  ); */
-
-
-
-    /* curved fade: early fade in center, deeper into the corners */
+   /* curved, subtle fade that kicks in late in the middle but deeper at edges */
   -webkit-mask-image: radial-gradient(
-    ellipse at 50% 0%,       /* center the ellipse at the top middle */
-    black 30%,               /* fully opaque until 30% of the radius */
-    black 60%,               /* hold opacity through 60% of the radius */
-    transparent 100%         /* then fade to transparent by the edge */
+    ellipse farthest-side at 50% 0%,
+    black 85%,       /* fully opaque for the first 85% of the radius */
+    transparent 100% /* fade out by the very edge */
   );
   mask-image: radial-gradient(
-    ellipse at 50% 0%,
-    black 30%,
-    black 60%,
+    ellipse farthest-side at 50% 0%,
+    black 85%,
     transparent 100%
   );
   
@@ -127,31 +111,15 @@ body {
 
 
   
-    /* fade out the bottom of the element in a curved way */
-/*   -webkit-mask-image: radial-gradient(
-    circle farthest-corner at 50% 0%,
-    black 60%,
-    transparent 100%
-  );
-  mask-image: radial-gradient(
-    circle farthest-corner at 50% 0%,
-    black 60%,
-    transparent 100%
-  ); */
-
-
-
-    /* curved fade: early fade in center, deeper into the corners */
+    /* curved, subtle fade that kicks in late in the middle but deeper at edges */
   -webkit-mask-image: radial-gradient(
-    ellipse at 50% 0%,       /* center the ellipse at the top middle */
-    black 30%,               /* fully opaque until 30% of the radius */
-    black 60%,               /* hold opacity through 60% of the radius */
-    transparent 100%         /* then fade to transparent by the edge */
+    ellipse farthest-side at 50% 0%,
+    black 85%,       /* fully opaque for the first 85% of the radius */
+    transparent 100% /* fade out by the very edge */
   );
   mask-image: radial-gradient(
-    ellipse at 50% 0%,
-    black 30%,
-    black 60%,
+    ellipse farthest-side at 50% 0%,
+    black 85%,
     transparent 100%
   );
 }
