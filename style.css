@@ -240,7 +240,7 @@ body {
 @keyframes growScrollLine {
   from { height: 0; opacity: 0; }
   to {
-    height: calc(100vh - 50% - 65px);
+    height: calc(100vh - 50% - 95px);
     opacity: 1;
   }  
 }
