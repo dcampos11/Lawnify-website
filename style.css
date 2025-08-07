@@ -541,6 +541,14 @@ body {
   font-weight: 500;
   color: #333;
   transition: background 0.2s ease;
+
+        outline: none;
+  -webkit-appearance: none;
+
+  /* kill the gray tap highlight on WebKit-based browsers */
+  -webkit-tap-highlight-color: transparent;
+  /* kill it elsewhere too */
+  tap-highlight-color: transparent;
 }
   
 
