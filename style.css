@@ -480,11 +480,21 @@ body {
  
 /* place this in your mobile/nav section of style.css */
 .mobile-page-title {
- font-family: 'Satoshi', sans-serif;
+/*  font-family: 'Satoshi', sans-serif;
   font-size: 18px;
   font-weight: 800;
   color: #333;
   margin-right: auto;
+  user-select: none; */
+
+   display: inline-block;
+  font-family: 'Satoshi', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+  margin-right: auto;
+  padding-bottom: 4px;           /* give some space above the line */
+  border-bottom: 2px solid #2a9d8f;  /* the colored horizontal line */
   user-select: none;
 }
 
