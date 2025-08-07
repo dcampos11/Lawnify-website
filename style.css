@@ -603,6 +603,10 @@ body {
 .menu-extra.download-btn img {
   height: 24px;
   width: auto;
+  
+  display: inline-flex;    /* don’t fill the whole row */
+  align-items: center;     /* center the img vertically */
+  margin: 0;               /* reset any auto margins */
 }
 
 
