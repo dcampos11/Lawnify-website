@@ -50,8 +50,8 @@ body {
   z-index: 0;
 
 
-  -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
-  mask-image:         linear-gradient(to bottom, black 66%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+  mask-image:         linear-gradient(to bottom, black 55%, transparent 100%);
 
 
 }
@@ -92,8 +92,8 @@ body {
   padding: 0 20px; 
 
 
-  -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
-  mask-image:         linear-gradient(to bottom, black 65%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+  mask-image:         linear-gradient(to bottom, black 55%, transparent 100%);
 
 
 }
