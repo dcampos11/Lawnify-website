@@ -495,12 +495,6 @@ body {
  
 /* place this in your mobile/nav section of style.css */
 .mobile-page-title {
-/*  font-family: 'Satoshi', sans-serif;
-  font-size: 18px;
-  font-weight: 800;
-  color: #333;
-  margin-right: auto;
-  user-select: none; */
 
    display: inline-block;
   font-family: 'Satoshi', sans-serif;
@@ -540,9 +534,6 @@ body {
   width: 100%;
   text-align: left;
    padding: 12px 20px;
-/*   color: #333;    
- text-decoration: none;
-  font-size: 18px; */
   text-decoration: none;
   ont-family: 'Satoshi', sans-serif;
   font-size: 14px;
@@ -555,9 +546,6 @@ body {
   .mobile-nav.expanded .mobile-menu {
     display: flex;
   }
-
-
-
 
 
   
@@ -578,9 +566,6 @@ body {
     flex: 0 0 4px;
   }
 
-
-
-  
 }
 
 
