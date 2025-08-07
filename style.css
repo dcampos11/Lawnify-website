@@ -427,7 +427,7 @@ body {
   }
 
 
-  .download-btn img {
+/*   .download-btn img {
     height: 32px;
     width: auto;
     transform: translateY(3px); 
@@ -436,7 +436,7 @@ body {
    .download-btn {
     display: block;
     opacity: 1;
-  }
+  } */
   
    .mobile-toggle {
      background: none;
@@ -574,7 +574,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 12px 20px;   /* matches your existing a-padding */
-  border-bottom: 1px solid #eee;
+/*   border-bottom: 1px solid #eee; */
 }
 
 /* hide the default link padding */
@@ -590,19 +590,14 @@ body {
 
 /* extra info on the right */
 .menu-extra {
+  font-family: 'Satoshi', sans-serif;
   font-size: 14px;
   font-weight: 500;
   color: #333;
+  text-decoration: none;
   white-space: nowrap;
 }
 
-/* you can tweak spacing if needed */
-.menu-extra.email { /* maybe smaller */
-  font-size: 13px;
-}
-.menu-extra.phone {
-  font-size: 14px;
-}
 
 /* download badge styling */
 .menu-extra.download-btn img {
