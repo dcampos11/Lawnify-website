@@ -72,7 +72,7 @@ body {
 
 
 
-/* .background-video {
+.background-video {
   position: absolute;
   top: 0;
   left: 0;
@@ -88,7 +88,7 @@ body {
 .background-video.active {
   opacity: 1;
   z-index: 1;
-} */
+}
 
 
 
