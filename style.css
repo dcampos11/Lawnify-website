@@ -132,6 +132,9 @@ body {
   width: auto;
   height: auto;
   display: block;
+
+  
+  opacity: 1;
 }
 
 .sub-tagline {
@@ -139,6 +142,8 @@ body {
   color: white;
   white-space: nowrap;
   overflow: hidden;
+
+  opacity: 1;
 }
 
 .about h2 {
@@ -147,6 +152,8 @@ body {
   font-size: 2.2rem;
   line-height: 1.2;
   letter-spacing: -0.01em;
+
+  
 }
 
 
