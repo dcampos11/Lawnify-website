@@ -492,6 +492,9 @@ body {
   max-height: 0;               /* start fully closed */
   overflow: hidden;            /* clip the contents */
   transition: max-height 0.3s ease-out;  /* animate open/closed */
+
+      /* approximate the old gradient using a box-shadow */
+  box-shadow: 0 8px 16px rgba(42, 157, 143, 0.15);
 }
 
 
