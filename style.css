@@ -618,8 +618,8 @@ body {
 
 /* 3) Tweak the icon */
 .meta-group .icon {
-  width: 1.2em;
-  height: 1.2em;
+  width: 1.0em;
+  height: 1.0em;
   margin-right: 0.5em;
   stroke: #333;
   flex-shrink: 0;
