@@ -210,41 +210,6 @@ body {
   line-height: 1;
   pointer-events: none;
 }
-/* 
-.scroll-line {
-  position: absolute;
-  top: calc(50vh + 68px);
-  left: 50%;
-  transform: translateX(-50%);
-  width: 2px;
-  height: 0;
-  background-color: white;
-  opacity: 0;
-  animation: growScrollLine 1.6s ease-out 2.7s forwards;
-  z-index: 5;
-
-
- /* make the fade start sooner: black stays opaque until 30% down, then transitions to transparent by 100% */
-/*   -webkit-mask-image: linear-gradient(
-    to bottom,
-    black 1%,
-    transparent 100%
-  );
-          mask-image: linear-gradient(
-    to bottom,
-    black 1%,
-    transparent 100%
-  );
-} */ 
-
-/* @keyframes growScrollLine {
-  from { height: 0; opacity: 0; }
-  to {
-    height: calc(100vh - 50% - 150px);
-    opacity: 1;
-  }  
-} */
-
 
 .faq {
   max-width: 800px;
@@ -818,7 +783,5 @@ body {
 .mobile-nav.scrolled {
   box-shadow: 0 2px 8px rgba(42, 157, 143, 0.3);
 }
-
-
 }
 
