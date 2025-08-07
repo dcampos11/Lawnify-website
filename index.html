@@ -603,48 +603,50 @@ slider.addEventListener('mousemove', e => {
 // });
 
    document.addEventListener('DOMContentLoaded', () => {
-    const mobileNav  = document.querySelector('.mobile-nav');
-    const toggleBtn  = document.getElementById('mobileToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
+  const mobileNav  = document.querySelector('.mobile-nav');
+  const toggleBtn  = document.getElementById('mobileToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
 
-    toggleBtn.addEventListener('click', e => {
-      e.stopPropagation();
+  toggleBtn.addEventListener('click', e => {
+    e.stopPropagation();
+    const isOpen = mobileNav.classList.contains('expanded');
 
-      if (!mobileNav.classList.contains('expanded')) {
-        // opening
+    if (isOpen) {
+      // start closing animation
+      mobileMenu.classList.add('closing');
+      // when it finishes, fully collapse
+      mobileMenu.addEventListener('animationend', function handler() {
+        mobileNav.classList.remove('expanded');
         mobileMenu.classList.remove('closing');
-        mobileNav.classList.add('expanded');
-      } else {
-        // closing
-        mobileMenu.classList.add('closing');
-        mobileMenu.addEventListener('animationend', function handler() {
-          mobileMenu.removeEventListener('animationend', handler);
-          mobileNav.classList.remove('expanded');
-          mobileMenu.classList.remove('closing');
-        });
-      }
-
-      toggleBtn.classList.toggle('open');
-    });
-
-    // click-outside to trigger the same closing animation
-    document.addEventListener('click', e => {
-      if (!mobileNav.contains(e.target) && mobileNav.classList.contains('expanded')) {
-        mobileMenu.classList.add('closing');
-        mobileMenu.addEventListener('animationend', function handler() {
-          mobileMenu.removeEventListener('animationend', handler);
-          mobileNav.classList.remove('expanded');
-          mobileMenu.classList.remove('closing');
-          toggleBtn.classList.remove('open');
-        });
-      }
-    });
+        toggleBtn.classList.remove('open');
+      }, { once: true });
+    } else {
+      // instantly open
+      mobileMenu.classList.remove('closing');
+      mobileNav.classList.add('expanded');
+      toggleBtn.classList.add('open');
+    }
   });
+
+  // click-outside to also close
+  document.addEventListener('click', e => {
+    if (!mobileNav.contains(e.target) && mobileNav.classList.contains('expanded')) {
+      mobileMenu.classList.add('closing');
+      mobileMenu.addEventListener('animationend', function handler() {
+        mobileNav.classList.remove('expanded');
+        mobileMenu.classList.remove('closing');
+        toggleBtn.classList.remove('open');
+      }, { once: true });
+    }
+  });
+});
+
 
 
   </script>
 </body>
 </html>
+
 
 
 
