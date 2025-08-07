@@ -220,10 +220,17 @@ body {
   z-index: 5;
 
 
-
-  /* fade out the bottom of the video so the page bg shows through */
-  -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
-  mask-image:         linear-gradient(to bottom, black 75%, transparent 100%);
+/* new: fade starts at 60% down, then drops to transparent by 100% */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    black 60%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    black 60%,
+    transparent 100%
+  );
 }
 
 @keyframes growScrollLine {
@@ -231,10 +238,17 @@ body {
   to {
     height: calc(100vh - 50% - 65px);
     opacity: 1;
-
-    /* fade out the bottom of the video so the page bg shows through */
-  -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
-  mask-image:         linear-gradient(to bottom, black 75%, transparent 100%);
+/* new: fade starts at 60% down, then drops to transparent by 100% */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    black 60%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    black 60%,
+    transparent 100%
+  );
   }
 
   
