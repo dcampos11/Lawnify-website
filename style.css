@@ -607,6 +607,17 @@ body {
 }
 
 
+  /* Feather icon sizing & spacing */
+.menu-item .icon {
+  width: 1.2em;           /* scales with font-size */
+  height: 1.2em;
+  margin-right: 0.5em;    /* space between icon & text */
+  stroke: #2a9d8f;        /* your brand green */
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+
 }
 
 
