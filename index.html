@@ -46,13 +46,17 @@
  
 <div class="mobile-nav">
   <!-- New download link, hidden by default -->
-  <a href="https://apps.apple.com/app/your-app-id"
+<!--   <a href="https://apps.apple.com/app/your-app-id"
      class="download-btn"
      target="_blank"
      rel="noopener">
     <img src="images/Black_App_Store_Badge.svg"
          alt="Download on the App Store" />
   </a>
+ -->
+
+  <!-- current page label replaces the badge -->
+  <span id="mobilePageTitle" class="mobile-page-title">Home</span>
 
 <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">
   <svg class="toggle-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -622,6 +626,7 @@ document.addEventListener('DOMContentLoaded', () => {
   </script>
 </body>
 </html>
+
 
 
 
