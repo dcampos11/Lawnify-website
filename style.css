@@ -494,7 +494,7 @@ body {
   color: #333;
   margin-right: auto;
   padding-bottom: 3px;           /* give some space above the line */
-  border-bottom: 1.5px solid #2a9d8f;  /* the colored horizontal line */
+  border-bottom: 2px solid #2a9d8f;  /* the colored horizontal line */
   user-select: none;
 }
 
