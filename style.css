@@ -463,7 +463,7 @@ body {
   }
 
 
-  .mobile-menu {
+/*   .mobile-menu {
 
   display: none;
   position: absolute;
@@ -475,7 +475,25 @@ body {
   box-shadow: none;
   z-index: 1000;
   flex-direction: column;
+} */
+
+  .mobile-menu {
+  /* keep it in the flow so flex works, but hide via max-height */
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: rgba(255,255,255,1);
+  z-index: 1000;
+
+  /* new slide-down setup */
+  max-height: 0;               /* start fully closed */
+  overflow: hidden;            /* clip the contents */
+  transition: max-height 0.3s ease-out;  /* animate open/closed */
 }
+
 
 
 .mobile-menu::after {
@@ -506,16 +524,27 @@ body {
   font-size: 18px;
   transition: background 0.2s ease;
 }
-
+  
+/* 
   .mobile-nav.expanded .mobile-menu {
     display: flex;
-  }
-  /* 1) Remove the nav shadow once expanded */
-.mobile-nav.scrolled.expanded {
-  box-shadow: none;
+  } */
+
+
+  .mobile-nav.expanded .mobile-menu {
+  /* slide it open: choose a max-height big enough to show all links */
+  max-height: 500px;  /* adjust this to match your menu’s real height */
 }
 
+
+
   
+  /* 1) Remove the nav shadow once expanded */
+  .mobile-nav.scrolled.expanded {
+    box-shadow: none;
+  }
+
+
   .features {
     flex-direction: column;
   }
