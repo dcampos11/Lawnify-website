@@ -218,6 +218,12 @@ body {
   opacity: 0;
   animation: growScrollLine 1.6s ease-out 2.7s forwards;
   z-index: 5;
+
+
+
+  /* fade out the bottom of the video so the page bg shows through */
+  -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
+  mask-image:         linear-gradient(to bottom, black 75%, transparent 100%);
 }
 
 @keyframes growScrollLine {
