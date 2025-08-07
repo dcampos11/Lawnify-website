@@ -478,6 +478,14 @@ body {
 }
 
  
+/* place this in your mobile/nav section of style.css */
+.mobile-page-title {
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+  margin-right: auto;    /* push the toggle button to the right */
+  user-select: none;
+}
 
 
 
