@@ -449,7 +449,10 @@ body {
 /* Updated Mobile Navigation CSS - Replace the mobile nav section */
 @media (max-width: 768px) {
 
-
+ .founder-letter {
+    margin: 2rem 1rem;   /* 2rem vertical, 1rem horizontal */
+    padding: 2rem 1rem;  /* optional: tighten up padding too */
+  }
   
   .top-nav {
     display: none;
