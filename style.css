@@ -28,7 +28,7 @@
 .hero {
   position: relative;
   padding-top: 4rem;     /* ← adjust to match your .top-nav height */
-  padding-bottom: 300px; /* ← keeps the green under your letter */
+ 
   /* (optional) prevent any margin collapse if you ever re-add margins */
   border-top: 1px solid transparent;
 }
