@@ -33,8 +33,6 @@
 <nav class="top-nav">
   <ul>
      <li><a href="/">Home</a></li>
-    <li><a href="/about/">About Us</a></li>
-<!--     <li><a href="/">Home</a></li> -->
     <li><a href="/services/">Services</a></li>
     <li><a href="/rewards/">Rewards</a></li>
       <li><a href="/about/">About Us</a></li>
@@ -74,7 +72,7 @@
     </div>
 
     <div class="menu-item">
-      <a href="/about/">About Us</a>
+      <a href="/">Home</a>
       <div class="meta-group">
         <i data-feather="smartphone" class="icon"></i>
         <a href="https://apps.apple.com/app/your-app-id"
@@ -220,10 +218,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobilePageTitle = document.getElementById('mobilePageTitle');
   const path = window.location.pathname;
   const titleMap = {
-    '/about/':            'About Us',
-    '/':      'Home',
+     '/':      'Home',
     '/services/':   'Services',
-    '/rewards/':    'Rewards'
+    '/rewards/':    'Rewards',
+    '/about/':            'About Us'
   };
   if (mobilePageTitle) {
     mobilePageTitle.textContent = titleMap[path] || '';
