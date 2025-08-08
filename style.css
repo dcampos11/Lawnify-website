@@ -5,14 +5,12 @@
   box-sizing: border-box;
 }
 
-/* 2) Your existing background + fade */
 .hero {
   position: relative;
   padding-top: 4rem; 
 
 }
 
-/* 2) Your existing background + fade */
 .hero::before {
   content: "";
   position: absolute;
@@ -28,13 +26,12 @@
 }
 
 
-/* make sure your navs stay on top of that pseudo-element */
 .top-nav,
 .mobile-nav {
   z-index: 2;
 }
 
-/* bring your headline and letter above the background */
+
 .hero .about-header,
 .hero .founder-letter {
   position: relative;
@@ -42,10 +39,6 @@
 }
 
 
-
-/* ———————————————————
-   Founder Letter Card 
-   ——————————————————— */
 .founder-letter {
   background: #fff;
   max-width: 800px;
@@ -55,7 +48,6 @@
   box-shadow: 0 8px 24px rgba(0,0,0,0.08);
   text-align: left;          
 }
-
 
 
 .fl-title {
@@ -84,10 +76,6 @@
 }
 
 
-
-
-
-
 html, body {
   height: 100%;
   margin: 0;
@@ -111,7 +99,6 @@ body {
 }
 
 
-
 .black-header {
    position: relative;
    padding-top: 0;
@@ -120,7 +107,6 @@ body {
   overflow: hidden;
 }
 
-
 .video-container {
   position: absolute;
   top: 0;
@@ -128,16 +114,9 @@ body {
   width: 100%;
   height: 100%;
   z-index: 0;
-
-
   -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
   mask-image:         linear-gradient(to bottom, black 55%, transparent 100%);
-
-
 }
-
-
-
 
 
 .background-video {
@@ -159,7 +138,6 @@ body {
 }
 
 
-
 .overlay-content {
   position: relative;
   z-index: 1;
@@ -176,10 +154,6 @@ body {
   -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
   mask-image:         linear-gradient(to bottom, black 55%, transparent 100%);
 }
-
-
-
-
 
 
 .logo {
@@ -485,76 +459,66 @@ body {
 }
 
 
-/* Updated Mobile Navigation CSS - Replace the mobile nav section */
+
 @media (max-width: 768px) {
 
 
-    /* target the About page intro headline */
   .about-header h2 {
-    color: #fff;        /* make the text white */
+    color: #fff;       
   }
   
  .founder-letter {
-    margin: 2rem 1rem;   /* 2rem vertical, 1rem horizontal */
-    padding: 2rem 1rem;  /* optional: tighten up padding too */
+    margin: 2rem 1rem;  
+    padding: 2rem 1rem; 
   }
   
   .top-nav {
     display: none;
   }
 
-   /* 1) Fixed-height nav */
+  
   .mobile-nav {
     position: fixed;
     top: 0; left: 0; right: 0;
-    height: 50px;               /* lock the height */
+    height: 50px;       
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
     z-index: 1001;
-
-    
-     background: rgba(255,255,255,1);
-  backdrop-filter: blur(6px);
-  box-shadow: 0 2px 8px rgba(42,157,143,0.3);
+    background: rgba(255,255,255,1);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 2px 8px rgba(42,157,143,0.3);
   }
 
   
    .mobile-toggle {
-     background: none;
+    background: none;
     border: none;
-
-
-      outline: none;
-  -webkit-appearance: none;
-
-  /* kill the gray tap highlight on WebKit-based browsers */
-  -webkit-tap-highlight-color: transparent;
-  /* kill it elsewhere too */
-  tap-highlight-color: transparent;
-     
+    outline: none;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    tap-highlight-color: transparent; 
     padding: 0;
     cursor: pointer;
     flex-shrink: 0;
     z-index: 1002;
-    
     opacity: 1;
     pointer-events: auto;
   }
 
+  
   .mobile-toggle:focus,
-.mobile-toggle:active {
+  .mobile-toggle:active {
   background: transparent;
   outline: none;
 }
 
-  
   .toggle-icon {
     width: 30px;
     height: 30px;
     transition: transform 0.3s ease;
-     color: black;
+    color: black;
   }
 
   .mobile-toggle.open .toggle-icon {
@@ -563,14 +527,12 @@ body {
 
 
   .mobile-menu {
-
   display: none;
   position: absolute;
   top: 100%;
   left: 0;
   width: 100%;
   background: rgba(255,255,255,1);
- 
   box-shadow: none;
   z-index: 1000;
   flex-direction: column;
@@ -578,8 +540,7 @@ body {
 
  
 .mobile-page-title {
-
-   display: inline-block;
+  display: inline-block;
   font-family: 'Satoshi', sans-serif;
   font-size: 18px;
   font-weight: 500;
@@ -589,9 +550,6 @@ body {
   border-bottom: 2px solid #4EC2AF;  
   user-select: none;
 }
-
-
-
 
 
 .mobile-menu::after {
@@ -626,11 +584,9 @@ body {
 
 }
   
-
   .mobile-nav.expanded .mobile-menu {
     display: flex;
   }
-
 
 
   .mobile-nav.scrolled.expanded {
@@ -681,7 +637,6 @@ body {
   color: #333;
   text-decoration: none;
   white-space: nowrap;
-
    display: inline-flex;
 }
 
@@ -689,11 +644,12 @@ body {
 .menu-extra.download-btn img {
   height: 24px;
   width: auto;
-  
   display: inline-flex;   
   align-items: center;     
   margin: 0;               
 }
+
+  
 .mobile-menu .menu-item .download-btn {
   display: inline-flex;  
   align-items: center;   
@@ -703,23 +659,20 @@ body {
 }
 
 
-
-/* 2) New wrapper for icon+text */
 .meta-group {
   display: flex;
   align-items: center;
-    flex-direction: row-reverse;
+  flex-direction: row-reverse;
 }
 
-/* 3) Tweak the icon */
+
 .meta-group .icon {
   width: 1.0em;
   height: 1.0em;
-   margin: 0 0 0 0.5em; /* top/right/bottom/left */
+   margin: 0 0 0 0.5em;
   stroke: #333;
   flex-shrink: 0;
 }
-
 }
 
 
@@ -728,14 +681,11 @@ body {
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-
-
   background-image: url('/images/pexels-hermaion-173552.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
-
 
 .mini-header .video-container,
 .mini-header .background-video {
@@ -763,29 +713,24 @@ body {
 .carousel-container {
   position: relative;
   width: 100vw;
-
   margin-left: calc((100% - 100vw) / 2);
   margin-right: calc((100% - 100vw) / 2);
-  
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-
   padding: 40px 20px;
-
-  
   cursor: grab;
   -ms-overflow-style: none;
- 
   scrollbar-width: none;
-
-
 }
+
+
 .carousel-container:active {
   cursor: grabbing;
 }
+
+
 .carousel-container,
 .carousel-container * {
- 
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -906,7 +851,6 @@ body {
     left: 0;
     width: 100%;
     background: transparent;
-   
     transition: background 0.3s ease, backdrop-filter 0.3s ease;
     z-index: 1000;
   }
@@ -929,11 +873,11 @@ body {
 
   .top-nav li a {
     color: white;
-     text-decoration: none;
-     font-size: 16px;
-  font-weight: 500;
-  position: relative;
-  display: inline-block;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    position: relative;
+    display: inline-block;
     transition: color 0.3s ease;
 }
 
@@ -978,18 +922,18 @@ body {
   box-shadow: 0 2px 8px rgba(42, 157, 143, 0.3);
 }
 
-   /* target that About‐page intro container */
+   
   .about-header {
-    max-width: 1600px;    /* or whatever width feels right */
-/*     padding: 0 40px;      /* loosen up the side padding if you like */ */
-    margin: 0 auto;       /* keep it centered */
+    max-width: 1600px;    /
+
+    margin: 0 auto;    
   }
   
-   /* target the About page intro headline */
+
   .about-header h2 {
-    font-size: 4rem;    /* bump this up until it’s as big as you like */
-    line-height: 1.1;   /* tighten up the lines a bit */
-    color: #fff;        /* make the text white */
+    font-size: 4rem;    
+    line-height: 1.1;   
+    color: #fff;     
 
     padding-top: 2rem; 
   }
