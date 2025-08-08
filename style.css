@@ -19,8 +19,8 @@
   padding-bottom: 300px;
 
   /* fade the green out to transparent at the bottom edge */
-  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-  mask-image:         linear-gradient(to bottom, black 60%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+  mask-image:         linear-gradient(to bottom, black 0%, transparent 100%);
 }
 
 /* keep your nav and content above the background/fade */
