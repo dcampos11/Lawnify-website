@@ -6,6 +6,23 @@
 }
 
 
+/* 1) In your stylesheet, replace or augment your .about-header rules: */
+.about-header {
+  position: relative;
+  background-color: #053033;
+  padding: 4rem 1rem 300px;        /* ← top padding for spacing, bottom to reach mid–founder-letter */
+  text-align: center;
+  overflow: hidden;
+
+  /* 2) mask to fade at bottom */
+  -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+  mask-image:         linear-gradient(to bottom, black 55%, transparent 100%);
+}
+
+/* 3) Remove the inline margin-top on your HTML and let the CSS spacing do the work */
+.about-header {
+  margin: 0; 
+}
 
 /* ———————————————————
    Founder Letter Card 
