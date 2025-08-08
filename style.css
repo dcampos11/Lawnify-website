@@ -893,6 +893,7 @@ body {
 
 
 @media (min-width: 769px) {
+  
   .top-nav {
     position: fixed;   
     top: 0;
@@ -970,5 +971,13 @@ body {
 .mobile-nav.scrolled {
   box-shadow: 0 2px 8px rgba(42, 157, 143, 0.3);
 }
+
+   /* target the About page intro headline */
+  .about-header h2 {
+    font-size: 4rem;    /* bump this up until it’s as big as you like */
+    line-height: 1.1;   /* tighten up the lines a bit */
+    color: #fff;        /* make the text white */
+  }
+  
 }
 
