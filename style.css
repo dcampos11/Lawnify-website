@@ -7,6 +7,32 @@
 
 
 
+.hero {
+  position: relative;
+  overflow: hidden;
+
+  /* solid dark-green across the whole hero region */
+  background-color: #053033;
+
+  /* give it extra bottom padding so it extends *behind* your founder-letter */
+  /* tweak this value until the fade hits exactly at the bottom of that card */
+  padding-bottom: 300px;
+
+  /* fade the green out to transparent at the bottom edge */
+  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  mask-image:         linear-gradient(to bottom, black 60%, transparent 100%);
+}
+
+/* keep your nav and content above the background/fade */
+.hero > nav,
+.hero > .mobile-nav,
+.hero > .about-header,
+.hero > .founder-letter {
+  position: relative;
+  z-index: 1;
+}
+
+
 
 /* ———————————————————
    Founder Letter Card 
