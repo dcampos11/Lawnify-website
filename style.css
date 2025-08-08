@@ -10,7 +10,7 @@
 /* HERO WRAPPER */
 .hero {
   position: relative;
-  padding-bottom: 300px; /* ↑ bump this until the green reaches just under your letter */
+/*   padding-bottom: 300px; /* ↑ bump this until the green reaches just under your letter */ */
 }
 
 /* the actual colored + fading layer */
@@ -18,10 +18,10 @@
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background-color: #053033;
+  background-color: #2a9d8f;
   /* fade at bottom */
-  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-  mask-image:         linear-gradient(to bottom, black 60%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+  mask-image:         linear-gradient(to bottom, black 0%, transparent 100%);
   pointer-events: none;
   z-index: 0;
 }
