@@ -7,23 +7,47 @@
 
 
 
-/* HERO WRAPPER */
-.hero {
+
+/* .hero {
   position: relative;
 }
 
-/* the actual colored + fading layer */
+
 .hero::before {
   content: "";
   position: absolute;
  top: 0; left: 0; right: 0; bottom: 0;
   background-color: #2a9d8f;
-  /* fade at bottom */
+
   -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
   mask-image:         linear-gradient(to bottom, black 0%, transparent 100%);
   pointer-events: none;
   z-index: 0;
+} */
+/* 1) Reserve 4rem under the fixed nav */
+.hero {
+  position: relative;
+  padding-top: 4rem;     /* ← adjust to match your .top-nav height */
+  padding-bottom: 300px; /* ← keeps the green under your letter */
+  /* (optional) prevent any margin collapse if you ever re-add margins */
+  border-top: 1px solid transparent;
 }
+
+/* 2) Your existing background + fade */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;    /* now truly at the top of the page */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #2a9d8f;
+  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  mask-image:         linear-gradient(to bottom, black 60%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
 
 /* make sure your navs stay on top of that pseudo-element */
 .top-nav,
