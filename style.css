@@ -57,6 +57,8 @@
 }
 .site-footer .footer-contact p {
   margin: 0.25rem 0;
+   color: #888;
+  font-size: 14px;
 }
 .site-footer .footer-contact a {
   color: #333;
