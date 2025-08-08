@@ -11,7 +11,7 @@
   padding-top: 4rem;     /* ← adjust to match your .top-nav height */
  
   /* (optional) prevent any margin collapse if you ever re-add margins */
-  border-top: 1px solid transparent;
+/*   border-top: 1px solid transparent; */
 }
 
 /* 2) Your existing background + fade */
