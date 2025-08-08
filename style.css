@@ -10,7 +10,7 @@
 /* ———————————————————
    Founder Letter Card 
    ——————————————————— */
-/* .founder-letter {
+.founder-letter {
   background: #fff;
   max-width: 800px;
   margin: 3rem auto;
@@ -18,48 +18,8 @@
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.08);
   text-align: left;          
-} */
-
-.founder-letter {
-  position: relative;        /* for our pseudo-elements */
-  padding-bottom: 4rem;      /* make room for the envelope below */
-  /* …your existing styles here… */
 }
 
-/* Envelope body: a little rectangle behind the card */
-.founder-letter::before {
-  content: "";
-  position: absolute;
-  bottom: -1rem;             /* lift it up into the card’s padding */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60%;                /* how wide the envelope is */
-  height: 1.5rem;            /* how tall the envelope body is */
-  background: #f9f9f9;       /* envelope paper color */
-  border: 1px solid #ccc;    /* subtle outline */
-  border-top: none;          /* so the card’s bottom edge looks seamless */
-  border-radius: 0 0 4px 4px;/* rounded bottom corners */
-  z-index: -1;               /* sit under the white card */
-}
-
-/* Envelope flap: an upside-down triangle */
-.founder-letter::after {
-  content: "";
-  position: absolute;
-  bottom: calc(-1rem + 1px); /* a hair higher so borders meet nicely */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-left: 1.25rem solid transparent;
-  border-right:1.25rem solid transparent;
-  border-top: 1.25rem solid #f9f9f9; /* same paper color */
-  z-index: -1;
-  /* outline the flap with borders on its sloping edges: */
-  box-shadow:
-    -1px -1px 0 0 #ccc inset, /* left slope */
-     1px -1px 0 0 #ccc inset; /* right slope */
-}
 
 
 .fl-title {
