@@ -43,34 +43,98 @@
   <footer class="footer">
     <div class="legal">© 2025 Lawnify, LLC.</div>
   </footer>
- <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const blurOverlay = document.getElementById('mobileBlurOverlay');
+ <!-- === SCRIPTS (copied from your home page) === -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const animTargets = document.querySelectorAll('.about, .store-badge-section, .feature .text');
+      const animObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      animTargets.forEach(el => animObserver.observe(el));
+    });
 
-    function closeMobileMenu() {
-      hamburger.classList.remove('active');
-      mobileMenu.classList.remove('show');
-      if (blurOverlay) blurOverlay.classList.remove('show');
-    }
 
-    if (hamburger && mobileMenu) {
-      hamburger.addEventListener('click', () => {
-        const isActive = hamburger.classList.toggle('active');
-        mobileMenu.classList.toggle('show');
-        if (blurOverlay) blurOverlay.classList.toggle('show');
-      });
+ document.addEventListener('DOMContentLoaded', () => {
+    const nav       = document.querySelector('.top-nav');
+    const mobileNav = document.querySelector('.mobile-nav');
+    const links     = nav.querySelectorAll('li a');
+    const maxFade   = 200;   // same fade distance you were using
+    const minShade  = 51;
 
-      mobileMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', closeMobileMenu);
-      });
+    window.addEventListener('scroll', () => {
+      const y   = window.scrollY;
+      const pct = Math.min(y / maxFade, 1);
 
-      if (blurOverlay) {
-        blurOverlay.addEventListener('click', closeMobileMenu);
-      }
+      // ── DESKTOP ──
+      // background & blur
+      nav.style.background     = `rgba(255,255,255,${pct})`;
+      nav.style.backdropFilter = `blur(${pct * 5}px)`;
+
+      // link color
+      const shade = Math.round(255 - pct * (255 - minShade));
+      const color = `rgb(${shade},${shade},${shade})`;
+      links.forEach(a => a.style.color = color);
+
+      // toggle shadow via .scrolled
+      nav.classList.toggle('scrolled', pct > 0);
+
+   
+    });
+  });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const mobileNav = document.querySelector('.mobile-nav');
+  const toggleBtn = document.getElementById('mobileToggle');
+
+  // toggle menu open/closed
+  toggleBtn.addEventListener('click', e => {
+    e.stopPropagation();
+    mobileNav.classList.toggle('expanded');
+    toggleBtn.classList.toggle('open');
+  });
+
+  // click outside to close
+  document.addEventListener('click', e => {
+    if (!mobileNav.contains(e.target)) {
+      mobileNav.classList.remove('expanded');
+      toggleBtn.classList.remove('open');
     }
   });
+
+
+});
+
+    document.addEventListener('DOMContentLoaded', () => {
+  const mobilePageTitle = document.getElementById('mobilePageTitle');
+  const path = window.location.pathname;
+  const titleMap = {
+     '/':      'Home',
+    '/services/':   'Services',
+    '/rewards/':    'Rewards',
+    '/about/':            'About Us'
+  };
+  if (mobilePageTitle) {
+    mobilePageTitle.textContent = titleMap[path] || '';
+  }
+});
+
+
+    
+  </script>
+
+   <!-- Feather Icons -->
+<script src="https://unpkg.com/feather-icons"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    feather.replace();
+  });
 </script>
+
 </body>
 </html>
