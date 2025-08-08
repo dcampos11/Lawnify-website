@@ -9,7 +9,8 @@
 <body>
 
  <header class="black-header">
-    <nav class="top-nav">
+   
+<!--    <nav class="top-nav">
       <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/services/">Services</a></li>
@@ -30,7 +31,69 @@
         <a href="/rewards/">Rewards</a>
         <a href="/about/">About Us</a>
       </div>
+    </div> -->
+
+   
+  <!--NAVIGATION  -->
+<nav class="top-nav">
+  <ul>
+     <li><a href="/">Home</a></li>
+    <li><a href="/services/">Services</a></li>
+    <li><a href="/rewards/">Rewards</a></li>
+      <li><a href="/about/">About Us</a></li>
+  </ul>
+</nav>
+
+<div class="mobile-nav">
+  <!-- this span is used by your mobilePageTitle script -->
+  <span id="mobilePageTitle" class="mobile-page-title">About Us</span>
+
+  <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">
+    <svg class="toggle-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M7 10l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </button>
+
+  <div class="mobile-menu" id="mobileMenu">
+
+    <div class="menu-item">
+      <a href="/">Home</a>
+      <div class="meta-group">
+        <i data-feather="mail" class="icon"></i>
+        <a href="mailto:info@lawnifyapp.com" class="menu-extra email">
+          info@lawnifyapp.com
+        </a>
+      </div>
     </div>
+
+    <div class="menu-item">
+      <a href="/services/">Services</a>
+      <div class="meta-group">
+        <i data-feather="phone" class="icon"></i>
+        <a href="tel:2103091660" class="menu-extra phone">
+          (210) 309-1660
+        </a>
+      </div>
+    </div>
+
+    <div class="menu-item">
+      <a href="/about/">About Us</a>
+      <div class="meta-group">
+        <i data-feather="smartphone" class="icon"></i>
+        <a href="https://apps.apple.com/app/your-app-id"
+           class="menu-extra download-btn"
+           target="_blank"
+           rel="noopener">
+          <img src="/images/Black_App_Store_Badge.svg"
+               alt="Download on the App Store"/>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+   
   </header>
   <main class="page-content">
     <section class="rewards" id="rewards">
