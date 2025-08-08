@@ -396,6 +396,62 @@
     // });
 
 
+
+
+    
+ document.addEventListener('DOMContentLoaded', () => {
+    const nav       = document.querySelector('.top-nav');
+    const mobileNav = document.querySelector('.mobile-nav');
+    const links     = nav.querySelectorAll('li a');
+    const maxFade   = 200;   // same fade distance you were using
+    const minShade  = 51;
+
+    window.addEventListener('scroll', () => {
+      const y   = window.scrollY;
+      const pct = Math.min(y / maxFade, 1);
+
+      // ── DESKTOP ──
+      // background & blur
+      nav.style.background     = `rgba(255,255,255,${pct})`;
+      nav.style.backdropFilter = `blur(${pct * 5}px)`;
+
+      // link color
+      const shade = Math.round(255 - pct * (255 - minShade));
+      const color = `rgb(${shade},${shade},${shade})`;
+      links.forEach(a => a.style.color = color);
+
+      // toggle shadow via .scrolled
+      nav.classList.toggle('scrolled', pct > 0);
+
+   
+    });
+  });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const mobileNav = document.querySelector('.mobile-nav');
+  const toggleBtn = document.getElementById('mobileToggle');
+
+  // toggle menu open/closed
+  toggleBtn.addEventListener('click', e => {
+    e.stopPropagation();
+    mobileNav.classList.toggle('expanded');
+    toggleBtn.classList.toggle('open');
+  });
+
+  // click outside to close
+  document.addEventListener('click', e => {
+    if (!mobileNav.contains(e.target)) {
+      mobileNav.classList.remove('expanded');
+      toggleBtn.classList.remove('open');
+    }
+  });
+
+
+});
+
+
+
     document.addEventListener('DOMContentLoaded', () => {
   const mobilePageTitle = document.getElementById('mobilePageTitle');
   const path = window.location.pathname;
