@@ -5,20 +5,18 @@
   box-sizing: border-box;
 }
 
-
+/* 2) Your existing background + fade */
 .hero {
   position: relative;
-  padding-top: 4rem;     /* ← adjust to match your .top-nav height */
- 
-  /* (optional) prevent any margin collapse if you ever re-add margins */
-/*   border-top: 1px solid transparent; */
+  padding-top: 4rem; 
+
 }
 
 /* 2) Your existing background + fade */
 .hero::before {
   content: "";
   position: absolute;
-  top: 0;    /* now truly at the top of the page */
+  top: 0;   
   left: 0;
   right: 0;
   bottom: 0;
@@ -33,7 +31,6 @@
 /* make sure your navs stay on top of that pseudo-element */
 .top-nav,
 .mobile-nav {
-  /* they already have position: fixed (desktop) or fixed-height (mobile). */
   z-index: 2;
 }
 
