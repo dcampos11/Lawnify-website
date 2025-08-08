@@ -491,8 +491,6 @@ body {
 
     /* target the About page intro headline */
   .about-header h2 {
-    font-size: 4rem;    /* bump this up until it’s as big as you like */
-    line-height: 1.1;   /* tighten up the lines a bit */
     color: #fff;        /* make the text white */
   }
   
@@ -980,6 +978,13 @@ body {
   box-shadow: 0 2px 8px rgba(42, 157, 143, 0.3);
 }
 
+   /* target that About‐page intro container */
+  .about-header {
+    max-width: 1200px;    /* or whatever width feels right */
+    padding: 0 40px;      /* loosen up the side padding if you like */
+    margin: 0 auto;       /* keep it centered */
+  }
+  
    /* target the About page intro headline */
   .about-header h2 {
     font-size: 4rem;    /* bump this up until it’s as big as you like */
