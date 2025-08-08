@@ -980,7 +980,7 @@ body {
 
    /* target that About‐page intro container */
   .about-header {
-    max-width: 1200px;    /* or whatever width feels right */
+    max-width: 1600px;    /* or whatever width feels right */
 /*     padding: 0 40px;      /* loosen up the side padding if you like */ */
     margin: 0 auto;       /* keep it centered */
   }
@@ -990,6 +990,8 @@ body {
     font-size: 4rem;    /* bump this up until it’s as big as you like */
     line-height: 1.1;   /* tighten up the lines a bit */
     color: #fff;        /* make the text white */
+
+    padding-top: 4rem; 
   }
   
 }
