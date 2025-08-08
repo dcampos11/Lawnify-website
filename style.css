@@ -32,12 +32,6 @@
   z-index: 1;
 }
 
-/* make sure your nav stays transparent so you see the #053033 behind it */
-.top-nav,
-.mobile-nav {
-  background: transparent !important;
-}
-
 /* ———————————————————
    Founder Letter Card 
    ——————————————————— */
