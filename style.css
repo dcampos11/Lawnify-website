@@ -488,6 +488,14 @@ body {
 /* Updated Mobile Navigation CSS - Replace the mobile nav section */
 @media (max-width: 768px) {
 
+
+    /* target the About page intro headline */
+  .about-header h2 {
+    font-size: 4rem;    /* bump this up until it’s as big as you like */
+    line-height: 1.1;   /* tighten up the lines a bit */
+    color: #fff;        /* make the text white */
+  }
+  
  .founder-letter {
     margin: 2rem 1rem;   /* 2rem vertical, 1rem horizontal */
     padding: 2rem 1rem;  /* optional: tighten up padding too */
