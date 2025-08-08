@@ -420,10 +420,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobilePageTitle = document.getElementById('mobilePageTitle');
   const path = window.location.pathname;
   const titleMap = {
-    '/':            'Home',
+    '/about/':            'About Us',
+    '/':      'Home',
     '/services/':   'Services',
-    '/rewards/':    'Rewards',
-    '/about/':      'About Us'
+    '/rewards/':    'Rewards'
   };
   if (mobilePageTitle) {
     mobilePageTitle.textContent = titleMap[path] || '';
