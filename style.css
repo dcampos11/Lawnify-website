@@ -1,13 +1,13 @@
-
+/* 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* style.css */
+ */
 
-.service-area-map .map-container {
+/* .service-area-map .map-container {
   max-width: 1000px;
   margin: 0 auto;
   border-radius: 16px;
@@ -19,11 +19,11 @@
   display: block;
   width: 100%;
   height: auto;
-}
+} */
 
 
 /* ————————————— Site Footer ————————————— */
-.site-footer {
+/* .site-footer {
   background-color: #FFF;
   padding: 40px 20px;
   font-size: 0.9rem;
@@ -66,10 +66,10 @@
 }
 .site-footer .footer-contact a:hover {
   text-decoration: underline;
-}
+} */
 
 /* Responsive tweak */
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
   .site-footer .footer-content {
     flex-direction: column;
     text-align: center;
@@ -1010,5 +1010,1096 @@ body {
     padding-top: 1.5rem; 
   }
   
+}
+ */
+
+
+/* ==========================================================================
+   LAWNIFY – style.css (organized)
+   NOTE: No rule values changed. Only reordered and commented for clarity.
+   Sections
+     1) Reset & Base
+     2) Global Structure & Common Sections
+     3) Navigation (shared: base z-index; desktop at ≥769; mobile at ≤768)
+     4) Home Page (black header, video, overlay, capsule, hero text)
+     5) About Page (hero wrapper + founder letter)
+     6) Services Page (service area map + mini-header variant)
+     7) Feature Blocks (cards, images, animations)
+     8) Testimonials (carousel + cards)
+     9) FAQ
+    10) Footer (new site-footer + legacy .footer)
+    11) Animations & Utility
+    12) Responsive Tweaks
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1) RESET & BASE
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #ffffff;
+  color: #333;
+  line-height: 1.6;
+
+  background-image:
+    linear-gradient(to right, rgba(0, 122, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 122, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-repeat: repeat;
+  background-position: top left;
+  z-index: 3;
+}
+
+
+/* ==========================================================================
+   2) GLOBAL STRUCTURE & COMMON SECTIONS (used across pages)
+   ========================================================================== */
+
+/* Common content wrappers used on Home (and shared) */
+.about,
+.preview,
+.footer {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+/* Home section title style reused elsewhere */
+.about h2 {
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 600;
+  font-size: 2.2rem;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.about-small-heading {
+  font-size: 0.9rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5em;
+}
+
+.store-badge-section {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0 20px;
+}
+
+.app-store-badge {
+  height: 48px;
+}
+
+/* Legal line shared by legacy footer usage */
+.footer p,
+.legal {
+  color: #888;
+  font-size: 14px;
+}
+
+.legal {
+  margin-top: 10px;
+}
+
+
+/* ==========================================================================
+   3) NAVIGATION (shared)
+   - Base stacking context for both desktop and mobile
+   - Desktop-specific styles live in the ≥769px media query
+   - Mobile-specific styles live in the ≤768px media query
+   ========================================================================== */
+
+/* Base z-index so nav layers above hero masks */
+.top-nav,
+.mobile-nav {
+  z-index: 2;
+}
+
+
+/* ==========================================================================
+   4) HOME PAGE – Black Header Hero, Video, Overlay, Capsule & Hero Text
+   ========================================================================== */
+
+/* Full-bleed header container used on Home */
+.black-header {
+  position: relative;
+  padding-top: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+/* Video layer with bottom fade mask */
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+  mask-image:         linear-gradient(to bottom, black 55%, transparent 100%);
+}
+
+/* Background videos cycle with opacity fades */
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.background-video.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* Dark overlay with same fade mask as video-container */
+.overlay-content {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  padding: 0 20px; 
+  -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+  mask-image:         linear-gradient(to bottom, black 55%, transparent 100%);
+}
+
+/* Branding and hero text */
+.logo {
+  max-width: 280px;
+  width: auto;
+  height: auto;
+  display: block;
+}
+
+.sub-tagline {
+  font-size: 16px;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-top: -15px;
+}
+
+.local-tagline {
+  font-size: 16px;
+  color: white;
+  position: relative;
+  z-index: 2;
+  white-space: nowrap;
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* Capsule outline animation under the logo */
+.capsule-container {
+  position: relative;
+  width: 180px;
+  height: 50px;
+  margin-top: -8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+
+.capsule-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.capsule-fill-path {
+  fill: rgba(255, 255, 255, 0);
+  transition: fill 0.4s ease;
+}
+
+.capsule-container:hover .capsule-fill-path {
+  fill: rgba(255, 255, 255, 0.5);
+}
+
+.capsule-outline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.capsule-path {
+  fill: none;
+  stroke: white;
+  stroke-width: 2.5;
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.capsule-path.left {
+  animation: drawCapsuleLeft 2.5s ease-out forwards;
+  animation-delay: 1.2s;
+}
+
+.capsule-path.right {
+  animation: drawCapsuleRight 2.5s ease-out forwards;
+  animation-delay: 1.2s;
+}
+
+
+/* ==========================================================================
+   5) ABOUT PAGE – Hero wrapper + Founder Letter
+   ========================================================================== */
+
+/* Hero wrapper used on /about/ (separate from .black-header) */
+.hero {
+  position: relative;
+  padding-top: 4rem; 
+}
+
+/* About hero background color with vertical fade */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;   
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #2a9d8f;
+  -webkit-mask-image: linear-gradient(to bottom, black 00%, transparent 80%);
+  mask-image:         linear-gradient(to bottom, black 00%, transparent 80%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ensure about header and letter sit above the mask */
+.hero .about-header,
+.hero .founder-letter {
+  position: relative;
+  z-index: 1;
+}
+
+/* Founder letter card */
+.founder-letter {
+  background: #fff;
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  text-align: left;          
+}
+
+.fl-title {
+  font-family: 'Satoshi', serif;
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+  color: #1a1a1a;
+}
+
+.fl-body p {
+  margin-bottom: 1.25rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.fl-signature {
+  margin-top: -50px;
+  margin-left: -25px;
+}
+
+.signature-img {
+  display: block;
+  margin-top: 0.5rem;
+  height: auto;
+  max-width: 200px;
+}
+
+
+/* ==========================================================================
+   6) SERVICES PAGE – Map + Mini Header Variant
+   ========================================================================== */
+
+/* Service area map block */
+.service-area-map .map-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+.service-area-map .map-container img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Header variant for /services/ (static background image) */
+.mini-header {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-image: url('/images/pexels-hermaion-173552.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.mini-header .video-container,
+.mini-header .background-video {
+  display: none;
+}
+
+.mini-header .overlay-content,
+.mini-header .scroll-line {
+  display: none;
+}
+
+
+/* ==========================================================================
+   7) FEATURE BLOCKS – cards, images, text (Home)
+   ========================================================================== */
+.features {
+  max-width: 1000px;
+  margin: 60px auto;
+  display: flex;
+  gap: 80px;
+  padding: 0 20px;
+  justify-content: center;
+}
+
+.feature {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+
+.feature .text h3 {
+  color: #2a9d8f;
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 600;
+  font-size: 2.2rem;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.feature .text p {
+  font-size: 18px;
+}
+
+.feature-img {
+  width: 100%;
+  max-width: 400px;
+  filter:
+    drop-shadow(0px 12px 24px rgba(0, 0, 0, 0.3))
+    drop-shadow(0px 8px  16px rgba(0, 0, 0, 0.2));
+  border-radius: 0;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 1.5s ease-out,
+              transform 0.6s ease-out;
+  will-change: opacity, transform, filter;
+}
+
+.feature-img.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ==========================================================================
+   8) TESTIMONIALS – Carousel + Cards
+   ========================================================================== */
+.testimonials {
+  max-width: 1000px;
+  margin: 60px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.testimonials h2 {
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 600;
+  font-size: 2rem;
+  margin-bottom: 0rem;
+}
+
+/* Full-bleed horizontally scrollable row */
+.carousel-container {
+  position: relative;
+  width: 100vw;
+  margin-left: calc((100% - 100vw) / 2);
+  margin-right: calc((100% - 100vw) / 2);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 40px 20px;
+  cursor: grab;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.carousel-container:active {
+  cursor: grabbing;
+}
+
+.carousel-container,
+.carousel-container * {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.carousel-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Inline-flex row of cards */
+.carousel-content {
+  display: inline-flex;
+  gap: 20px;
+}
+
+/* Testimonial card types */
+.testimonial-card.you {
+  flex: 0 0 320px;
+  max-width: 320px;
+  background: rgba(242, 176, 30, 0.05);
+  border: 2px solid #f2b01e;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.app-store-badge-mini {
+  width: 120px;
+}
+
+.testimonial-card {
+  flex: 0 0 320px;
+  max-width: 320px;
+  background: rgba(42, 157, 143, 0.05);
+  border: 2px solid #2A9D8F;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.testimonial-text {
+  font-style: italic;
+  margin-bottom: 12px;
+}
+
+.testimonial-name {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.testimonial-stars {
+  color: #f2b01e;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+.testimonial-card.review-link {
+  flex: 0 0 320px;
+  max-width: 320px;
+  background: rgba(42, 157, 143, 0.05);
+  border: 2px solid #2A9D8F;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.review-link-button {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 600;
+  color: #2A9D8F;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.2s ease;
+}
+
+.review-link-button:hover {
+  color: #1f796f;
+}
+
+.arrow-icon {
+  width: 20px;
+  height: 20px;
+  margin-left: 8px;
+  transition: transform 0.2s ease;
+  color: inherit;
+}
+
+.review-link-button:hover .arrow-icon {
+  transform: translateX(4px);
+}
+
+
+/* ==========================================================================
+   9) FAQ
+   ========================================================================== */
+.faq {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.faq h2 {
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 600;
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.faq-item {
+  border-top: 1px solid #ddd;
+}
+
+.faq-item:last-of-type {
+  border-bottom: 1px solid #ddd;
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.faq-toggle {
+  font-size: 1.5rem;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.faq-answer {
+  display: none;
+  padding: 0 0 1rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+.faq-answer.open {
+  display: block;
+}
+
+.faq-toggle.open {
+  transform: rotate(45deg); 
+}
+
+
+/* ==========================================================================
+   10) FOOTER
+   - New site footer component (.site-footer)
+   - Legacy .footer (simple legal line) already covered in section 2
+   ========================================================================== */
+
+/* ————————————— Site Footer ————————————— */
+.site-footer {
+  background-color: #FFF;
+  padding: 40px 20px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.site-footer .footer-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.site-footer .footer-links {
+  flex: 1;
+}
+
+.site-footer .footer-links a {
+  display: inline-block;
+  margin-right: 1.5rem;
+  color: #2a9d8f;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.site-footer .footer-links a:hover {
+  opacity: 0.7;
+}
+
+.site-footer .footer-contact {
+  flex: 1;
+  text-align: right;
+}
+
+.site-footer .footer-contact p {
+  margin: 0.25rem 0;
+  color: #888;
+  font-size: 14px;
+}
+
+.site-footer .footer-contact a {
+  color: #333;
+  text-decoration: none;
+}
+
+.site-footer .footer-contact a:hover {
+  text-decoration: underline;
+}
+
+
+/* ==========================================================================
+   11) ANIMATIONS & UTILITY
+   ========================================================================== */
+
+/* Fade/slide-up for initial hero + section entrances */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(15px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Capsule outline draw animations */
+@keyframes drawCapsuleLeft {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes drawCapsuleRight {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Type cursor on rotating hero phrase */
+#animated-word {
+  display: inline-block;
+  border-right: 2px solid white;
+  padding-left: 6px;
+  animation: blinkCursor 1s infinite;
+}
+
+@keyframes blinkCursor {
+  0%, 49% { border-color: white; }
+  50%, 100% { border-color: transparent; }
+}
+
+/* Staggered “in-view” entrances for sections */
+.about,
+.store-badge-section,
+.feature .text {
+  opacity: 0;
+  transform: translateY(15px);
+}
+
+.about.in-view,
+.store-badge-section.in-view,
+.feature .text.in-view {
+  animation: fadeInUp 1.5s ease-out forwards;
+}
+
+/* Initial hero items also fade in */
+.logo,
+.sub-tagline,
+.local-tagline {
+  opacity: 0;
+  animation: fadeInUp 1.5s ease-out forwards;
+}
+
+
+/* ==========================================================================
+   12) RESPONSIVE TWEAKS
+   - Grouped by breakpoint
+   ========================================================================== */
+
+/* ≤600px: site footer layout stack */
+@media (max-width: 600px) {
+  .site-footer .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .site-footer .footer-contact {
+    text-align: center;
+  }
+}
+
+/* ≤768px: MOBILE NAV + mobile layout tweaks */
+@media (max-width: 768px) {
+
+  /* About page hero heading color on mobile */
+  .about-header h2 {
+    color: #fff;       
+  }
+
+  /* Founder letter spacing on mobile */
+  .founder-letter {
+    margin: 2rem 1rem;  
+    padding: 2rem 1rem; 
+  }
+
+  /* Hide desktop nav on mobile */
+  .top-nav {
+    display: none;
+  }
+
+  /* Mobile nav bar */
+  .mobile-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 50px;       
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 1001;
+    background: rgba(255,255,255,1);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 2px 8px rgba(42,157,143,0.3);
+  }
+
+  /* Mobile toggle button */
+  .mobile-toggle {
+    background: none;
+    border: none;
+    outline: none;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    tap-highlight-color: transparent; 
+    padding: 0;
+    cursor: pointer;
+    flex-shrink: 0;
+    z-index: 1002;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobile-toggle:focus,
+  .mobile-toggle:active {
+    background: transparent;
+    outline: none;
+  }
+
+  .toggle-icon {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+    color: black;
+  }
+
+  .mobile-toggle.open .toggle-icon {
+    transform: rotate(180deg);
+  }
+
+  /* Mobile dropdown menu */
+  .mobile-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(255,255,255,1);
+    box-shadow: none;
+    z-index: 1000;
+    flex-direction: column;
+  }
+
+  /* Mobile page title (left of chevron) */
+  .mobile-page-title {
+    display: inline-block;
+    font-family: 'Satoshi', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+    margin-right: auto;
+    padding-bottom: 4px;           
+    border-bottom: 2px solid #4EC2AF;  
+    user-select: none;
+  }
+
+  /* Soft fade under the open menu */
+  .mobile-menu::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;      
+    width: 100%;
+    height: 8px;     
+    background: linear-gradient(
+      to bottom,
+      rgba(42,157,143,0.22) 0%,    
+      rgba(42,157,143,0.15) 30%,  
+      rgba(42,157,143,0.05) 60%, 
+      transparent 100%       
+    );
+    pointer-events: none;
+  }
+
+  /* Mobile menu links */
+  .mobile-menu a {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 12px 20px;
+    text-decoration: none;
+    ont-family: 'Satoshi', sans-serif; /* NOTE: likely typo, left unchanged */
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    transition: background 0.2s ease;
+  }
+
+  /* Show menu when nav has .expanded */
+  .mobile-nav.expanded .mobile-menu {
+    display: flex;
+  }
+
+  /* Remove double shadow on scrolled + expanded */
+  .mobile-nav.scrolled.expanded {
+    box-shadow: none;
+  }
+
+  /* Stack features on mobile */
+  .features {
+    flex-direction: column;
+  }
+
+  .feature {
+    margin-bottom: 5px;
+  }
+
+  /* Reserve a tiny trailing spacer so last card isn't hard-clipped */
+  .carousel-content::after {
+    content: "";
+    flex: 0 0 4px;
+  }
+
+  /* Mobile menu row layout with meta on right */
+  .mobile-menu .menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;   
+  }
+
+  .mobile-menu .menu-item a {
+    margin: 0;
+    padding: 0;
+    font-family: 'Satoshi', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    text-decoration: none;
+    outline: none;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    tap-highlight-color: transparent;
+  }
+
+  .menu-extra {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    text-decoration: none;
+    white-space: nowrap;
+    display: inline-flex;
+  }
+
+  .menu-extra.download-btn img {
+    height: 24px;
+    width: auto;
+    display: inline-flex;   
+    align-items: center;     
+    margin: 0;               
+  }
+
+  .mobile-menu .menu-item .download-btn {
+    display: inline-flex;  
+    align-items: center;   
+    width: auto;            
+    margin-left: auto;     
+    padding: 0;         
+  }
+
+  .meta-group {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+  }
+
+  .meta-group .icon {
+    width: 1.0em;
+    height: 1.0em;
+    margin: 0 0 0 0.5em;
+    stroke: #333;
+    flex-shrink: 0;
+  }
+}
+
+/* (separate media rule used originally – preserved) */
+@media only screen and (max-width: 768px) {
+  .carousel-content::after {
+    content: "";
+    flex: 0 0 4px;  
+  }
+}
+
+/* ≥769px: DESKTOP NAV & About header sizing */
+@media (min-width: 769px) {
+  /* Desktop nav bar is fixed & transparent until scrolled */
+  .top-nav {
+    position: fixed;   
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: transparent;
+    transition: background 0.3s ease, backdrop-filter 0.3s ease;
+    z-index: 1000;
+  }
+
+  .top-nav ul {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    list-style: none;
+  }
+
+  .top-nav.scrolled {
+    background: rgba(255, 255, 255, 1.0);
+    backdrop-filter: blur(5px);
+  }
+
+  .top-nav li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s ease;
+  }
+
+  .top-nav li a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #2a9d8f;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+  }
+
+  .top-nav li a:hover::after {
+    transform: scaleX(1);
+  }
+
+  /* Hide mobile nav on desktop */
+  .mobile-nav {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 11;
+  }
+
+  /* NOTE: original file contained ".mobile-n" (likely a typo). Kept as-is. */
+  .top-nav,
+  .mobile-n {
+    box-shadow: none;
+    transition: 
+      box-shadow 0.3s ease-out, 
+      background 0.3s ease-out, 
+      backdrop-filter 0.3s ease-out;
+  }
+
+  .top-nav.scrolled,
+  .mobile-nav.scrolled {
+    box-shadow: 0 2px 8px rgba(42, 157, 143, 0.3);
+  }
+
+  /* About page large heading layout on desktop */
+  .about-header {
+    max-width: 1600px;    
+    margin: 0 auto;    
+  }
+  
+  .about-header h2 {
+    font-size: 4rem;    
+    line-height: 1.1;   
+    color: #fff;     
+    padding-top: 1.5rem; 
+  }
+}
+
+/* Hover-capable devices: subtle lift on feature images */
+@media (hover: hover) and (pointer: fine) {
+  .feature-img.in-view:hover {
+    transform: translateY(-5px) scale(1.02);
+    filter:
+      drop-shadow(0px 16px 32px rgba(0, 0, 0, 0.32))
+      drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.22));
+  }
 }
 
