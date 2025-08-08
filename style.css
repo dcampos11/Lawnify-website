@@ -113,6 +113,8 @@ body {
   color: white;
   white-space: nowrap;
   overflow: hidden;
+
+   transform: translateY(-25px);
 }
 
 .about h2 {
