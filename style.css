@@ -924,18 +924,15 @@ body {
 
    
   .about-header {
-    max-width: 1600px;    /
-
+    max-width: 1600px;    
     margin: 0 auto;    
   }
   
-
   .about-header h2 {
     font-size: 4rem;    
     line-height: 1.1;   
     color: #fff;     
-
-    padding-top: 2rem; 
+    padding-top: 1rem; 
   }
   
 }
