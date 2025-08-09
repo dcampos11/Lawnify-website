@@ -606,6 +606,11 @@ body {
   font-size: 1.1rem;
   font-weight: 500;
   cursor: pointer;
+
+       /* the important part for mobile */
+  color: #000;               /* force black like desktop */
+  -webkit-appearance: none;  /* neutralize iOS Safari button tint */
+  appearance: none;
 }
 
 .faq-toggle {
