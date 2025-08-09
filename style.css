@@ -652,69 +652,6 @@ body {
   justify-content: space-between;
   gap: 20px;
 }
-/*
-
-.site-footer .footer-links {
-  flex: 1;
-      font-family: 'Satoshi', sans-serif;
-}
-
-.site-footer .footer-links a {
-  display: inline-block;
-  margin-right: 1.5rem;
-  color: #2a9d8f;
-  text-decoration: none;
-  font-weight: 500;
-  transition: opacity 0.2s;
-}
-
-.site-footer .footer-links a:hover {
-  opacity: 0.7;
-}
-
-.site-footer .footer-contact {
-  flex: 1;
-  text-align: right;
-}
-
-.site-footer .footer-contact p {
-  margin: 0.25rem 0;
-  color: #888;
-  font-size: 14px;
-}
-
-
-.site-footer .footer-contact a {
-  font-family: 'Satoshi', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    color: #333;
-}
-
-
-.site-footer .footer-contact p:last-child {
-  color: #888;
-  font-size: 14px;
-  font-family: inherit; 
-}
-
-.site-footer .footer-contact a:hover {
-  text-decoration: underline;
-}
-
-.site-footer .footer-contact p {
-  display: flex;
-  align-items: center;
-  gap: 6px; 
-}
-
-.site-footer .footer-contact .icon {
-  width: 16px;
-  height: 16px;
-  stroke: #333;
-  flex-shrink: 0;
-}
-  */
 
 /* --- Centered footer layout --- */
 .footer-centered {
@@ -731,6 +668,13 @@ body {
   font-weight: 600;
   color: #333;
   margin: 0 0 10px 0;
+}
+
+/* Divider between sections */
+.footer-contact {
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
 }
 
 /* Contact */
