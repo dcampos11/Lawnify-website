@@ -1125,6 +1125,18 @@ body {
     padding-top: 1.5rem; 
   }
 
+      .faq {
+    max-width: 1000px;   /* same as .site-footer .footer-content */
+    margin: 60px auto;   /* keep centered container so left edge lines up */
+    padding: 0 20px;     /* same side padding as footer */
+    text-align: left;    /* ensure left-aligned */
+  }
+
+  .faq h2 {
+    text-align: left;    /* remove the center heading */
+    margin-left: 0;
+  }
+
 }
 
 /* Hover-capable devices: subtle lift on feature images */
