@@ -715,18 +715,15 @@ body {
 }
   */
 
-
-/* --- Footer layout tweaks --- */
-.site-footer .footer-content {
-  max-width: 1000px;
-  margin: 0 auto;
+/* --- Centered footer layout --- */
+.footer-centered {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-/* Headings for both columns */
+/* Headings */
 .footer-heading {
   font-family: 'Satoshi', sans-serif;
   font-size: 16px;
@@ -735,10 +732,37 @@ body {
   margin: 0 0 10px 0;
 }
 
-/* LEFT: Legal column */
+/* Contact */
+.footer-contact p {
+  margin: 0.25rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* center email/phone */
+  gap: 6px;
+}
+
+.footer-contact a {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  text-decoration: none;
+}
+
+.footer-contact a:hover {
+  text-decoration: underline;
+}
+
+/* Icons */
+.footer-contact .icon {
+  width: 16px;
+  height: 16px;
+  stroke: #333;
+}
+
+/* Legal */
 .footer-legal {
-  flex: 1;
-  text-align: left;
+  margin-top: 20px;
 }
 
 .legal-links {
@@ -761,60 +785,13 @@ body {
   opacity: 0.7;
 }
 
-/* Keep legal line styling as-is per your preference */
-.site-footer .legal {
+/* © line */
+.footer-legal .legal {
   color: #888;
   font-size: 14px;
-  font-family: inherit; /* stays the same as before */
 }
 
-/* RIGHT: Contact column (right-justified) */
-.site-footer .footer-contact {
-  flex: 1;
-  text-align: right;
-}
 
-.site-footer .footer-contact p {
-  margin: 0.25rem 0;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end; /* push text to the right edge */
-  gap: 6px;
-  color: #888;               /* keep paragraph color subtle */
-  font-size: 14px;
-}
-
-.site-footer .footer-contact a {
-  font-family: 'Satoshi', sans-serif; /* your requested font */
-  font-size: 14px;
-  font-weight: 500;
-  color: #333;
-  text-decoration: none;
-}
-
-.site-footer .footer-contact a:hover {
-  text-decoration: underline;
-}
-
-.site-footer .footer-contact .icon {
-  width: 16px;
-  height: 16px;
-  stroke: #333;
-  flex-shrink: 0;
-}
-
-/* Remove the old .footer-links look if that block is no longer used */
-.site-footer .footer-links { display: none; }
-
-/* Mobile: stack with left legal, right contact */
-@media (max-width: 600px) {
-  .site-footer .footer-content {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  .footer-legal { text-align: left; }
-  .footer-contact { text-align: right; }
-}
 
 
 
