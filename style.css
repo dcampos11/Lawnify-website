@@ -723,9 +723,11 @@ body {
 }
 
 .legal-links a {
-  color: #2a9d8f;
-  text-decoration: none;
+  font-family: 'Satoshi', sans-serif;
+  font-size: 14px;
   font-weight: 500;
+  color: #333;
+  text-decoration: none;
 }
 
 .legal-links a:hover {
