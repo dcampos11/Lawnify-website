@@ -1121,7 +1121,7 @@ body {
 @media (min-width: 769px) {
   .faq::after {
     font-size: 1.4rem;
-/*     padding-bottom: 110px; */
+    padding-bottom: 110px;
     background-size: 24px 110px;
   }
 }
@@ -1130,7 +1130,7 @@ body {
 @media (max-width: 768px) {
   .faq::after {
     font-size: 1.2rem;
-/*     padding-bottom: 80px; */
+    padding-bottom: 80px;
     background-size: 20px 80px;
   }
 }
