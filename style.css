@@ -637,14 +637,14 @@ body {
    ========================================================================== */
 
 /* ————————————— Site Footer ————————————— */
-/* .site-footer {
+ .site-footer {
   background-color: #FFF;
   padding: 40px 20px;
   font-size: 0.9rem;
   color: #555;
 }
 
-.site-footer .footer-content {
+/* .site-footer .footer-content {
   max-width: 1000px;
   margin: 0 auto;
   display: flex;
@@ -713,7 +713,8 @@ body {
   stroke: #333;
   flex-shrink: 0;
 }
- */
+  */
+
 
 /* --- Footer layout tweaks --- */
 .site-footer .footer-content {
