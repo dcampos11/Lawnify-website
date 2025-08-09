@@ -644,7 +644,7 @@ body {
   color: #555;
 }
 
-/* .site-footer .footer-content {
+ .site-footer .footer-content {
   max-width: 1000px;
   margin: 0 auto;
   display: flex;
@@ -652,6 +652,7 @@ body {
   justify-content: space-between;
   gap: 20px;
 }
+/*
 
 .site-footer .footer-links {
   flex: 1;
