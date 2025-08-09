@@ -672,7 +672,7 @@ body {
 
 /* Divider between sections */
 .footer-contact {
-  padding-bottom: 0px;
+  padding-bottom: 20px;
   margin-bottom: 20px;
   border-bottom: 1px solid #ddd;
 }
@@ -707,7 +707,7 @@ body {
 
 /* Legal */
 .footer-legal {
-  margin-top: 0px;
+  margin-top: -10px;
 }
 
 .legal-links {
