@@ -1074,19 +1074,6 @@ body {
     padding-top: 1.5rem; 
   }
 
-
-      .faq {
-    max-width: 900px;      /* keep a readable column width */
-    margin: 60px 0;        /* remove auto-centering; anchor left */
-    padding-left: 20px;    /* left gutter so it’s not on the edge */
-    padding-right: 20px;   /* small right padding for balance */
-    text-align: left;      /* make sure contents default to left */
-  }
-
-  .faq h2 {
-    text-align: left;      /* override the centered heading */
-    margin-left: 0;        /* ensure it lines up with Qs */
-  }
 }
 
 /* Hover-capable devices: subtle lift on feature images */
