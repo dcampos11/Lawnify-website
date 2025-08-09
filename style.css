@@ -690,6 +690,20 @@ body {
   text-decoration: underline;
 }
 
+.site-footer .footer-contact p {
+  display: flex;
+  align-items: center;
+  gap: 6px; /* space between icon and text */
+}
+
+.site-footer .footer-contact .icon {
+  width: 16px;
+  height: 16px;
+  stroke: #2a9d8f;
+  flex-shrink: 0;
+}
+
+
 
 /* ==========================================================================
    11) ANIMATIONS & UTILITY
