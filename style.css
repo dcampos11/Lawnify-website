@@ -1086,3 +1086,52 @@ body {
   }
 }
 
+
+/* ==========================================================
+   FAQ: "Got More Questions?" CTA + down arrow (mobile & desktop)
+   (No HTML changes — uses a pseudo-element)
+   ========================================================== */
+.faq { position: relative; }
+
+.faq::after {
+  content: "Got More Questions?";
+  display: block;
+  text-align: center;
+  font-family: 'Satoshi', sans-serif; /* match .faq h2 */
+  font-weight: 600;                    /* match .faq h2 */
+  font-size: 1.3rem;                   /* match .faq h2 */
+  line-height: 1.2;
+  color: inherit;
+
+  margin-top: 28px;      /* space above the CTA line */
+  padding-bottom: 84px;  /* room for the arrow graphic below the text */
+
+  /* center a vertical arrow below the text */
+  background-image: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' width='24' height='96' viewBox='0 0 24 96'>\
+  <line x1='12' y1='0' x2='12' y2='76' stroke='%232A9D8F' stroke-width='2'/>\
+  <polyline points='6,70 12,76 18,70' fill='none' stroke='%232A9D8F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/>\
+</svg>");
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: 24px 96px;
+}
+
+/* Desktop: slightly larger and longer arrow */
+@media (min-width: 769px) {
+  .faq::after {
+    font-size: 1.4rem;
+    padding-bottom: 110px;
+    background-size: 24px 110px;
+  }
+}
+
+/* Mobile: tighten a bit */
+@media (max-width: 768px) {
+  .faq::after {
+    font-size: 1.2rem;
+    padding-bottom: 80px;
+    background-size: 20px 80px;
+  }
+}
+
