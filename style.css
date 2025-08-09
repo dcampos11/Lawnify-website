@@ -650,6 +650,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+         text-align: left; 
   gap: 20px;
 }
 
@@ -657,7 +658,7 @@ body {
 .footer-centered {
   display: flex;
   flex-direction: column;
-  align-items: felx-start;
+  align-items: flex-start;
   text-align: left;
 }
 
@@ -683,8 +684,9 @@ body {
 .footer-contact p {
   margin: 0.25rem 0;
   display: flex;
-  align-items: center;
-  justify-content: center; /* center email/phone */
+/*   align-items: center; */
+  justify-content: flex-start; 
+     text-align: left;
   gap: 6px;
 }
 
@@ -803,16 +805,6 @@ body {
    - Grouped by breakpoint
    ========================================================================== */
 
-/* ≤600px: site footer layout stack */
-@media (max-width: 600px) {
-  .site-footer .footer-content {
-    flex-direction: column;
-    text-align: center;
-  }
-  .site-footer .footer-contact {
-    text-align: center;
-  }
-}
 
 /* ≤768px: MOBILE NAV + mobile layout tweaks */
 @media (max-width: 768px) {
