@@ -603,6 +603,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+     font-family: 'Satoshi', sans-serif;
   font-size: 1.1rem;
   font-weight: 500;
   cursor: pointer;
