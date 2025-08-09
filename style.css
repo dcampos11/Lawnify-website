@@ -728,6 +728,10 @@ body {
 
 .legal-links li {
   margin-bottom: 8px;
+
+      display: flex;
+  align-items: center;   /* vertically center icon & text */
+  gap: 6px; 
 }
 
 .legal-links a {
@@ -736,6 +740,13 @@ body {
   font-weight: 500;
   color: #333;
   text-decoration: none;
+}
+
+.legal-links .icon {
+  width: 16px;
+  height: 16px;
+  stroke: #333;
+  flex-shrink: 0;
 }
 
 .legal-links a:hover {
