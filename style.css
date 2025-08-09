@@ -675,6 +675,8 @@ body {
   padding-bottom: 20px;
   margin-bottom: 20px;
   border-bottom: 1px solid #ddd;
+
+     width: 100%; /* make divider stretch full width */
 }
 
 /* Contact */
