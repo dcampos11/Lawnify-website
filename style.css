@@ -682,16 +682,13 @@ body {
   font-size: 14px;
 }
 
-/* .site-footer .footer-contact a {
-  color: #333;
-  text-decoration: none;
-} */
 
 /* Email & phone in footer-contact */
 .site-footer .footer-contact a {
   font-family: 'Satoshi', sans-serif;
-     color: #333;
-  text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
 }
 
 /* Keep legal line styling as is */
@@ -714,7 +711,7 @@ body {
 .site-footer .footer-contact .icon {
   width: 16px;
   height: 16px;
-  stroke: #2a9d8f;
+  stroke: #333;
   flex-shrink: 0;
 }
 
