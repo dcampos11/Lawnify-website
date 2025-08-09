@@ -719,7 +719,7 @@ display: block;        /* avoid inline baseline quirks */
 
 /* Legal */
 .footer-legal {
-  margin-top: -13px;
+  margin-top: -15px;
 }
 
 .legal-links {
