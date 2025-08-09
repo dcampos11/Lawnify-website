@@ -655,6 +655,7 @@ body {
 
 .site-footer .footer-links {
   flex: 1;
+      font-family: 'Satoshi', sans-serif;
 }
 
 .site-footer .footer-links a {
@@ -681,9 +682,23 @@ body {
   font-size: 14px;
 }
 
-.site-footer .footer-contact a {
+/* .site-footer .footer-contact a {
   color: #333;
   text-decoration: none;
+} */
+
+/* Email & phone in footer-contact */
+.site-footer .footer-contact a {
+  font-family: 'Satoshi', sans-serif;
+     color: #333;
+  text-decoration: none;
+}
+
+/* Keep legal line styling as is */
+.site-footer .footer-contact p:last-child {
+  color: #888;
+  font-size: 14px;
+  font-family: inherit; /* stays same as before */
 }
 
 .site-footer .footer-contact a:hover {
