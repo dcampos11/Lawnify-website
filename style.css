@@ -1088,11 +1088,17 @@ body {
 
 
 /* ==========================================================
-   FAQ: "Got More Questions?" CTA + down arrow (mobile & desktop)
-   (No HTML changes — uses a pseudo-element)
+   FAQ CTA + Long Arrow to Footer (mobile & desktop)
+   - No HTML changes
+   - Text sits below the FAQ
+   - A long centered line runs toward the footer
+   - A down arrowhead floats just above the footer (not touching)
    ========================================================== */
+
+/* Make FAQ a positioning context */
 .faq { position: relative; }
 
+/* 1) CTA line below the FAQ list */
 .faq::after {
   content: "Got More Questions?";
   display: block;
@@ -1102,36 +1108,67 @@ body {
   font-size: 1.3rem;                   /* match .faq h2 */
   line-height: 1.2;
   color: inherit;
-
-  margin-top: 28px;      /* space above the CTA line */
-  padding-bottom: 84px;  /* room for the arrow graphic below the text */
-
-  /* center a vertical arrow below the text */
-  background-image: url("data:image/svg+xml;utf8,\
-<svg xmlns='http://www.w3.org/2000/svg' width='24' height='96' viewBox='0 0 24 96'>\
-  <line x1='12' y1='0' x2='12' y2='76' stroke='%232A9D8F' stroke-width='2'/>\
-  <polyline points='6,70 12,76 18,70' fill='none' stroke='%232A9D8F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/>\
-</svg>");
-  background-repeat: no-repeat;
-  background-position: center bottom;
-  background-size: 24px 96px;
+  margin-top: 28px;
+  margin-bottom: 12px; /* small space before the arrow line starts */
 }
 
-/* Desktop: slightly larger and longer arrow */
+/* 2) Long vertical line that extends toward the footer */
+.faq::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 100%;              /* starts right after the CTA block above */
+  width: 2px;
+  height: 2000px;         /* very long on purpose — footer will overlay it */
+  background: #2A9D8F;
+  pointer-events: none;
+  opacity: 1;
+  z-index: 0;             /* stays under later content (incl. footer) */
+}
+
+/* 3) Down arrowhead that sits just above the footer (not touching) */
+.site-footer,
+.footer { position: relative; }
+
+.site-footer::before,
+.footer::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -14px;           /* pulls the arrowhead slightly above the footer */
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  /* Down-pointing triangle */
+  border-bottom: 14px solid #2A9D8F;
+  pointer-events: none;
+  z-index: 1;           /* render above the long line */
+}
+
+/* Size tweaks */
 @media (min-width: 769px) {
-  .faq::after {
-    font-size: 1.4rem;
-    padding-bottom: 110px;
-    background-size: 24px 110px;
+  .faq::after { font-size: 1.4rem; }
+  .site-footer::before,
+  .footer::before {
+    top: -18px;                         /* a hair more gap on desktop */
+    border-left-width: 12px;
+    border-right-width: 12px;
+    border-bottom-width: 16px;
   }
 }
 
-/* Mobile: tighten a bit */
 @media (max-width: 768px) {
-  .faq::after {
-    font-size: 1.2rem;
-    padding-bottom: 80px;
-    background-size: 20px 80px;
+  .faq::after { font-size: 1.2rem; }
+  .site-footer::before,
+  .footer::before {
+    top: -12px;                         /* slightly tighter on mobile */
+    border-left-width: 10px;
+    border-right-width: 10px;
+    border-bottom-width: 14px;
   }
 }
+
 
