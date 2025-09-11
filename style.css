@@ -840,7 +840,7 @@ display: block;        /* avoid inline baseline quirks */
 .footer-quicklinks,
 .footer-contact,
 .footer-legal {
-  padding-top: 10px;
+  padding-top: 0px;
   margin-top: 0;
 }
 
