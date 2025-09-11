@@ -594,6 +594,13 @@ body {
   text-align: left;
 }
 
+.faq-subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem;     /* larger than FAQS */
+  font-weight: 600;
+  margin: -5px 0 20px;   /* tuck it closer to FAQS */
+  color: #111;           /* darker for emphasis */
+}
 
 .faq-item {
   border-top: 1px solid #ddd;
