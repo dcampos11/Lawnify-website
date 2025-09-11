@@ -595,10 +595,14 @@ body {
 }
 
 .faq-subtitle {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.8rem;     /* larger than FAQS */
+
+     font-family: 'Poppins', sans-serif;
+
+
   font-weight: 600;
-  margin: -5px 0 20px;   /* tuck it closer to FAQS */
+  font-size: 2.2rem;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
   color: #111;           /* darker for emphasis */
 }
 
