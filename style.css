@@ -773,6 +773,13 @@ display: block;        /* avoid inline baseline quirks */
 }
 
 
+.footer-quicklinks {
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  width: 100%;
+}
+
 /* Quick Links */
 .quick-links {
   list-style: none;
