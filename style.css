@@ -656,6 +656,23 @@ body {
 }
 
 
+/* Tighten space between "FAQS" and "Common Questions" */
+.faq h2 {
+  margin-bottom: 0.3rem;  /* was 1.5rem */
+}
+
+/* Give the subtitle more breathing room above the first divider */
+.faq-subtitle {
+  margin-top: 0;          /* sit closer to "FAQS" */
+  margin-bottom: 1.1rem;  /* push away from the first question line */
+}
+
+/* Optional: add a tiny buffer before the first question's border line */
+.faq .faq-item:first-of-type {
+  margin-top: 0.25rem;    /* nudges the border down a bit */
+}
+
+
 /* ==========================================================================
    10) FOOTER
    - New site footer component (.site-footer)
