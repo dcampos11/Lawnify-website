@@ -834,6 +834,23 @@ display: block;        /* avoid inline baseline quirks */
 
 
 
+
+
+
+.footer-quicklinks,
+.footer-contact,
+.footer-legal {
+  padding-top: 10px;
+  margin-top: 0;
+}
+
+.footer-quicklinks,
+.footer-contact {
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
 /* ==========================================================================
    11) ANIMATIONS & UTILITY
    ========================================================================== */
