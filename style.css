@@ -1124,6 +1124,12 @@ display: block;        /* avoid inline baseline quirks */
     stroke: #333;
     flex-shrink: 0;
   }
+
+
+ .testimonials h2 {
+    text-align: left;
+  }
+     
 }
 
 /* (separate media rule used originally – preserved) */
