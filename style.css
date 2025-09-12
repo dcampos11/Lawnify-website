@@ -206,8 +206,8 @@ body {
 /* Capsule outline animation under the logo */
 .capsule-container {
   position: relative;
-  width: 100px;
-  height: 55px;
+  width: 150px;
+  height: 50px;
   margin-top: -8px;
   display: flex;
   justify-content: center;
