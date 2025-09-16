@@ -1282,7 +1282,7 @@ display: block;        /* avoid inline baseline quirks */
 
     /* PRE-COMPACT: push chevron to far right */
     margin-left: auto;
-    transition: transform 220ms ease, margin 220ms ease;
+    transition: margin-left 220ms ease, transform 220ms ease;
   }
 
   .mobile-toggle:focus,
@@ -1438,6 +1438,39 @@ display: block;        /* avoid inline baseline quirks */
   .testimonials h2 {
     text-align: left;
   }
+
+
+
+     /* --- FINAL OVERRIDES (place at end of @media) --- */
+
+/* Pre-compact: chevron at far right */
+.mobile-nav:not(.compact) .mobile-toggle {
+  margin-left: auto !important;
+}
+
+/* Compact: chevron slides next to title */
+.mobile-nav.compact .mobile-toggle {
+  margin-left: 6px !important;  /* tiny space from title */
+}
+
+/* Logo behavior (already mostly correct) */
+.mobile-logo {
+  width: 0;                 /* reserves no space before compact */
+  opacity: 0;
+  transform: translateX(8px);
+  transition:
+    width 220ms ease,
+    opacity 900ms ease,
+    transform 900ms ease;
+}
+
+.mobile-nav.compact .mobile-logo {
+  width: 55px;              /* reveal */
+  margin-left: auto;        /* push to far right */
+  opacity: 1;
+  transform: translateX(0);
+}
+
 }
 
 
