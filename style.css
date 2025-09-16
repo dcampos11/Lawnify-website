@@ -1136,7 +1136,7 @@ display: block;        /* avoid inline baseline quirks */
 
 
      /* Flip ONLY the phone icon inside the mobile top nav */
-.mobile-nav .feather-phone {
+.mobile-nav .feather-phone-call {
   display: inline-block;          /* ensures transform applies cleanly */
   transform: scaleX(-1);
   transform-origin: 50% 50%;
