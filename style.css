@@ -917,69 +917,6 @@ display: block;        /* avoid inline baseline quirks */
     user-select: none;
   }
 
-  /* Mobile toggle (chevron) */
-/*   .mobile-toggle {
-    order: 1;
-    background: none;
-    border: none;
-    outline: none;
-    -webkit-appearance: none;
-    -webkit-tap-highlight-color: transparent;
-    tap-highlight-color: transparent;
-    padding: 0;
-    cursor: pointer;
-    flex-shrink: 0;
-    z-index: 1002;
-    opacity: 1;
-    pointer-events: auto;
- */
-    /* PRE-COMPACT: push chevron to far right */
-/*     margin-left: auto;
-    transition: margin-left 220ms ease, transform 220ms ease;
-  } */
-
-
-
-/*   .toggle-icon {
-    width: 30px;
-    height: 30px;
-    transition: transform 0.3s ease;
-    color: black;
-  }
-
-  .mobile-toggle.open .toggle-icon {
-    transform: rotate(180deg);
-  } */
-
-  /* New logo (far right) — invisible & zero-width until compact */
-/*   .mobile-logo {
-    order: 2;
-    display: block;      
-    width: 0;               
-    height: 55px;           
-    overflow: hidden;       
-    object-fit: contain;
-    opacity: 0;
-    transform: translateX(8px);   
-    transition:
-      opacity 900ms ease,
-      transform 900ms ease,
-      width 220ms ease;      
-  } */
-
-  /* Compact state (after scrolling past header) */
-/*   .mobile-nav.compact .mobile-toggle {
-   
-    margin-left: 6px;      
-  } */
-/* 
-  .mobile-nav.compact .mobile-logo {
-    width: 55px;            
-    margin-left: auto;      
-    opacity: 1;
-    transform: translateX(0);
-  }
- */
 
      /* Mobile toggle (chevron) */
 .mobile-toggle {
