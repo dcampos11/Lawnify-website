@@ -898,6 +898,12 @@ display: block;        /* avoid inline baseline quirks */
     flex-direction: column;
   }
 
+      .mobile-toggle:focus,
+  .mobile-toggle:active {
+    background: transparent;
+    outline: none;
+  }
+
   /* Mobile page title (left, stays put) */
   .mobile-page-title {
     order: 0;
@@ -912,7 +918,7 @@ display: block;        /* avoid inline baseline quirks */
   }
 
   /* Mobile toggle (chevron) */
-  .mobile-toggle {
+/*   .mobile-toggle {
     order: 1;
     background: none;
     border: none;
@@ -926,19 +932,15 @@ display: block;        /* avoid inline baseline quirks */
     z-index: 1002;
     opacity: 1;
     pointer-events: auto;
-
+ */
     /* PRE-COMPACT: push chevron to far right */
-    margin-left: auto;
+/*     margin-left: auto;
     transition: margin-left 220ms ease, transform 220ms ease;
-  }
+  } */
 
-  .mobile-toggle:focus,
-  .mobile-toggle:active {
-    background: transparent;
-    outline: none;
-  }
 
-  .toggle-icon {
+
+/*   .toggle-icon {
     width: 30px;
     height: 30px;
     transition: transform 0.3s ease;
@@ -947,36 +949,104 @@ display: block;        /* avoid inline baseline quirks */
 
   .mobile-toggle.open .toggle-icon {
     transform: rotate(180deg);
-  }
+  } */
 
   /* New logo (far right) — invisible & zero-width until compact */
-  .mobile-logo {
+/*   .mobile-logo {
     order: 2;
-    display: block;          /* keep in flow so opacity/transform can animate */
-    width: 0;                /* reserve no space pre-compact */
-    height: 55px;            /* your size */
-    overflow: hidden;        /* hide while width is 0 */
+    display: block;      
+    width: 0;               
+    height: 55px;           
+    overflow: hidden;       
     object-fit: contain;
     opacity: 0;
-    transform: translateX(8px);   /* subtle slide-in */
+    transform: translateX(8px);   
     transition:
       opacity 900ms ease,
       transform 900ms ease,
-      width 220ms ease;      /* quick grow when compact */
-  }
+      width 220ms ease;      
+  } */
 
   /* Compact state (after scrolling past header) */
-  .mobile-nav.compact .mobile-toggle {
-    /* remove the auto push so it slides left next to the title */
-    margin-left: 6px;        /* tiny breathing room from the title */
-  }
-
+/*   .mobile-nav.compact .mobile-toggle {
+   
+    margin-left: 6px;      
+  } */
+/* 
   .mobile-nav.compact .mobile-logo {
-    width: 55px;             /* reveal logo width */
-    margin-left: auto;       /* push it to the far right edge */
+    width: 55px;            
+    margin-left: auto;      
     opacity: 1;
     transform: translateX(0);
   }
+ */
+
+     /* Mobile toggle (chevron) */
+.mobile-toggle {
+  order: 1;
+  background: none;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  tap-highlight-color: transparent;
+  padding: 0;
+  cursor: pointer;
+  flex-shrink: 0;
+  z-index: 1002;
+  opacity: 1;
+  pointer-events: auto;
+
+  /* Keep a small gap from the title in BOTH states */
+  margin-left: 6px;
+
+  /* Animate position with transform (not margin-left) */
+  transform: translateX(var(--toggle-shift, 0));
+  transition: transform 220ms ease;
+}
+
+.toggle-icon {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s ease;
+  color: black;
+}
+
+.mobile-toggle.open .toggle-icon {
+  transform: rotate(180deg);
+}
+
+/* Remove the old margin-left hacks (auto ⇄ 6px) */
+.mobile-nav:not(.compact) .mobile-toggle { /* old rule removed */ }
+.mobile-nav.compact .mobile-toggle { /* old rule removed */ }
+
+/* The logo rules stay the same */
+.mobile-logo {
+  order: 2;
+  display: block;
+  width: 0;
+  height: 55px;
+  overflow: hidden;
+  object-fit: contain;
+  opacity: 0;
+  transform: translateX(8px);
+  transition:
+    width 220ms ease,
+    opacity 900ms ease,
+    transform 900ms ease;
+}
+
+.mobile-nav.compact .mobile-logo {
+  width: 55px;
+  margin-left: auto;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+
+     
+     
 
   /* Show menu when nav has .expanded */
   .mobile-nav.expanded .mobile-menu {
