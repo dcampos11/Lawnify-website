@@ -1229,7 +1229,7 @@ display: block;        /* avoid inline baseline quirks */
     height: 50px;
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* we’ll push the logo to the far right with margin-left:auto */
+    justify-content: flex-start; /* enable auto-margins to push end items */
     gap: 10px;
     padding: 0 20px;
     z-index: 1001;
@@ -1238,8 +1238,35 @@ display: block;        /* avoid inline baseline quirks */
     box-shadow: 0 2px 8px rgba(42,157,143,0.3);
   }
 
-  /* Mobile toggle button */
+  /* Mobile dropdown menu */
+  .mobile-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(255,255,255,1);
+    box-shadow: none;
+    z-index: 1000;
+    flex-direction: column;
+  }
+
+  /* Mobile page title (left, stays put) */
+  .mobile-page-title {
+    order: 0;
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+    padding-bottom: 4px;
+    border-bottom: 2px solid #4EC2AF;
+    user-select: none;
+  }
+
+  /* Mobile toggle (chevron) */
   .mobile-toggle {
+    order: 1;
     background: none;
     border: none;
     outline: none;
@@ -1253,8 +1280,8 @@ display: block;        /* avoid inline baseline quirks */
     opacity: 1;
     pointer-events: auto;
 
-    /* default (pre-compact): goes to the right via margin-left:auto below */
-    order: 2;
+    /* PRE-COMPACT: push chevron to far right */
+    margin-left: auto;
     transition: transform 220ms ease, margin 220ms ease;
   }
 
@@ -1275,30 +1302,43 @@ display: block;        /* avoid inline baseline quirks */
     transform: rotate(180deg);
   }
 
-  /* Mobile dropdown menu */
-  .mobile-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: rgba(255,255,255,1);
-    box-shadow: none;
-    z-index: 1000;
-    flex-direction: column;
+  /* New logo (far right) — invisible & zero-width until compact */
+  .mobile-logo {
+    order: 2;
+    display: block;          /* keep in flow so opacity/transform can animate */
+    width: 0;                /* reserve no space pre-compact */
+    height: 55px;            /* your size */
+    overflow: hidden;        /* hide while width is 0 */
+    object-fit: contain;
+    opacity: 0;
+    transform: translateX(8px);   /* subtle slide-in */
+    transition:
+      opacity 900ms ease,
+      transform 900ms ease,
+      width 220ms ease;      /* quick grow when compact */
   }
 
-  /* Mobile page title (text label) */
-  .mobile-page-title {
-    display: inline-block;
-    font-family: 'Poppins', sans-serif;
-    font-size: 18px;
-    font-weight: 500;
-    color: #333;
-    padding-bottom: 4px;
-    border-bottom: 2px solid #4EC2AF;
-    user-select: none;
-    order: 1; /* sits between chevron and logo in compact */
+  /* Compact state (after scrolling past header) */
+  .mobile-nav.compact .mobile-toggle {
+    /* remove the auto push so it slides left next to the title */
+    margin-left: 6px;        /* tiny breathing room from the title */
+  }
+
+  .mobile-nav.compact .mobile-logo {
+    width: 55px;             /* reveal logo width */
+    margin-left: auto;       /* push it to the far right edge */
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* Show menu when nav has .expanded */
+  .mobile-nav.expanded .mobile-menu {
+    display: flex;
+  }
+
+  /* Remove double shadow on scrolled + expanded */
+  .mobile-nav.scrolled.expanded {
+    box-shadow: none;
   }
 
   /* Soft fade under the open menu */
@@ -1326,36 +1366,11 @@ display: block;        /* avoid inline baseline quirks */
     text-align: left;
     padding: 12px 20px;
     text-decoration: none;
-    font-family: 'Poppins', sans-serif; /* fixed typo */
+    font-family: 'Poppins', sans-serif;
     font-size: 14px;
     font-weight: 500;
     color: #333;
     transition: background 0.2s ease;
-  }
-
-  /* Show menu when nav has .expanded */
-  .mobile-nav.expanded .mobile-menu {
-    display: flex;
-  }
-
-  /* Remove double shadow on scrolled + expanded */
-  .mobile-nav.scrolled.expanded {
-    box-shadow: none;
-  }
-
-  /* Stack features on mobile */
-  .features {
-    flex-direction: column;
-  }
-
-  .feature {
-    margin-bottom: 5px;
-  }
-
-  /* Reserve a tiny trailing spacer so last card isn't hard-clipped */
-  .carousel-content::after {
-    content: "";
-    flex: 0 0 4px;
   }
 
   /* Mobile menu row layout with meta on right */
@@ -1423,86 +1438,8 @@ display: block;        /* avoid inline baseline quirks */
   .testimonials h2 {
     text-align: left;
   }
-
-  /* ===== Mobile nav compact behavior (logo fade-in right, chevron slides left of title) ===== */
-
-/* 
-  .mobile-logo {
-    order: 3;
-    display: none;
-    width: 55px;
-    height: 55px;
-    object-fit: contain;
-    opacity: 0;
-    transform: translateX(8px); 
-    transition: opacity 999ms ease, transform 999ms ease;
-    pointer-events: none;
-  } */
-
-     /* New logo: always in flow, invisible until compact */
-.mobile-logo {
-  order: 2;                 /* after title & chevron */
-  display: block;           /* <-- keep it block so transitions work */
-  width: 55px;              /* your size */
-  height: 55px;
-  object-fit: contain;
-  opacity: 0;               /* start hidden */
-  transform: translateX(8px);         /* slight right slide-in feel */
-  transition: opacity 900ms ease, transform 900ms ease;  /* longer & smooth */
-  pointer-events: none;
 }
 
-/* When compact: fade/slide in */
-.mobile-nav.compact .mobile-logo {
-  opacity: 1;
-  transform: translateX(0);
-  margin-left: auto;        /* push it to the far right edge */
-}
-
-
-  /* Default (pre-compact): put the toggle on the far right */
-  .mobile-toggle {
-    margin-left: auto; /* pushes the toggle to the right when not compact */
-  }
-
-  /* When compact: show logo on the far right, move chevron next to title on the left */
-/*   .mobile-nav.compact .mobile-logo {
-    display: block;
-    opacity: 1;
-    transform: translateX(0);
-    margin-left: auto;
-  } */
-
-  .mobile-nav.compact .mobile-toggle {
-    order: 0;        /* chevron before the title */
-    margin-left: 0;  /* no push to the right */
-    transform: translateX(0);
-  }
-
-  /* Title remains order:1 in both states for consistency */
-  .mobile-nav.compact .mobile-page-title {
-    order: 1;
-  }
-
-
-
-     /* Default order (and also in compact): Title (0) → Chevron (1) → Logo (2) */
-.mobile-page-title { order: 0; }
-.mobile-toggle {
-  order: 1;
-  transition: transform 220ms ease, margin 220ms ease;
-}
-
-/* Before compact, we still want the chevron on the right of the title.
-   The logo is invisible but present, so push the logo to the edge: */
-.mobile-logo { margin-left: auto; }
-
-/* In compact we keep the same order; no need to move the chevron to the far left.
-   If you want a tiny nudge toward the title on compact, you can add: */
-.mobile-nav.compact .mobile-toggle { margin-left: 6px; }
-
-     
-}
 
 
 
