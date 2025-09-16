@@ -1430,12 +1430,12 @@ display: block;        /* avoid inline baseline quirks */
   .mobile-logo {
     order: 3;
     display: none;
-    width: 50px;  /* tweak to taste */
-    height: 50px;
+    width: 55px;  /* tweak to taste */
+    height: 55px;
     object-fit: contain;
     opacity: 0;
     transform: translateX(8px); /* slight slide-in from the right */
-    transition: opacity 800ms ease, transform 800ms ease;
+    transition: opacity 999ms ease, transform 999ms ease;
     pointer-events: none;
   }
 
