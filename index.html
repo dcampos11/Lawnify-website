@@ -344,6 +344,39 @@
 
 
   <script>
+
+
+   document.addEventListener('DOMContentLoaded', () => {
+  const mobileNav = document.querySelector('.mobile-nav');
+  const headerEl  = document.querySelector('.black-header');
+
+  if (!mobileNav || !headerEl) return;
+
+  const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
+
+  // Recalculate threshold on resize/orientation change
+  let headerThreshold = headerEl.offsetHeight; // typically equals 100vh in px
+  const recalc = () => { headerThreshold = headerEl.offsetHeight || window.innerHeight; };
+  window.addEventListener('resize', recalc);
+  window.addEventListener('orientationchange', recalc);
+  recalc();
+
+  const applyCompact = () => {
+    if (!isMobile()) {
+      mobileNav.classList.remove('compact');
+      return;
+    }
+    const scrolledPastHeader = window.scrollY >= headerThreshold;
+    mobileNav.classList.toggle('compact', scrolledPastHeader);
+  };
+
+  // Run once and on scroll
+  applyCompact();
+  window.addEventListener('scroll', applyCompact, { passive: true });
+});
+
+
+   
      document.addEventListener('DOMContentLoaded', () => {
 
       const imgs = document.querySelectorAll('.feature-img');
@@ -661,4 +694,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
 
