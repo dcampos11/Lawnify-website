@@ -1426,18 +1426,39 @@ display: block;        /* avoid inline baseline quirks */
 
   /* ===== Mobile nav compact behavior (logo fade-in right, chevron slides left of title) ===== */
 
-  /* New logo: hidden by default, will appear on far right when compact */
+/* 
   .mobile-logo {
     order: 3;
     display: none;
-    width: 55px;  /* tweak to taste */
+    width: 55px;
     height: 55px;
     object-fit: contain;
     opacity: 0;
-    transform: translateX(8px); /* slight slide-in from the right */
+    transform: translateX(8px); 
     transition: opacity 999ms ease, transform 999ms ease;
     pointer-events: none;
-  }
+  } */
+
+     /* New logo: always in flow, invisible until compact */
+.mobile-logo {
+  order: 2;                 /* after title & chevron */
+  display: block;           /* <-- keep it block so transitions work */
+  width: 55px;              /* your size */
+  height: 55px;
+  object-fit: contain;
+  opacity: 0;               /* start hidden */
+  transform: translateX(8px);         /* slight right slide-in feel */
+  transition: opacity 900ms ease, transform 900ms ease;  /* longer & smooth */
+  pointer-events: none;
+}
+
+/* When compact: fade/slide in */
+.mobile-nav.compact .mobile-logo {
+  opacity: 1;
+  transform: translateX(0);
+  margin-left: auto;        /* push it to the far right edge */
+}
+
 
   /* Default (pre-compact): put the toggle on the far right */
   .mobile-toggle {
@@ -1445,12 +1466,12 @@ display: block;        /* avoid inline baseline quirks */
   }
 
   /* When compact: show logo on the far right, move chevron next to title on the left */
-  .mobile-nav.compact .mobile-logo {
+/*   .mobile-nav.compact .mobile-logo {
     display: block;
     opacity: 1;
     transform: translateX(0);
-    margin-left: auto; /* ensures logo lives on the far right */
-  }
+    margin-left: auto;
+  } */
 
   .mobile-nav.compact .mobile-toggle {
     order: 0;        /* chevron before the title */
