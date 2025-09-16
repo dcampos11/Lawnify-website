@@ -268,6 +268,28 @@ body {
 }
 
 
+/* New hero subtitle under the logo */
+.hero-subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: #fff;
+  font-size: clamp(1rem, 2.8vw, 1.25rem);
+  line-height: 1.2;
+  margin-top: 4px;      /* subtle spacing under the logo */
+  opacity: 0;           /* match your existing fade-in pattern */
+  animation: fadeInUp 1.5s ease-out forwards;
+}
+
+/* If you want it a touch larger on mobile specifically */
+@media (max-width: 768px) {
+  .hero-subtitle {
+    font-size: 1.1rem;  /* tweak to taste */
+    text-align: center;
+  }
+}
+
+
+
 /* ==========================================================================
    5) ABOUT PAGE – Hero wrapper + Founder Letter
    ========================================================================== */
