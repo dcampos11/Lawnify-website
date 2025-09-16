@@ -962,7 +962,7 @@ display: block;        /* avoid inline baseline quirks */
   order: 2;
   display: block;
   width: 0;
-  height: 55px;
+  height: 60px;
   overflow: hidden;
   object-fit: contain;
   opacity: 0;
@@ -974,7 +974,7 @@ display: block;        /* avoid inline baseline quirks */
 }
 
 .mobile-nav.compact .mobile-logo {
-  width: 55px;
+  width: 60px;
   margin-left: auto;
   opacity: 1;
   transform: translateX(0);
@@ -1060,7 +1060,7 @@ display: block;        /* avoid inline baseline quirks */
   }
 
   .menu-extra.download-btn img {
-    height: 24px;
+    height: 20px;
     width: auto;
     display: inline-flex;
     align-items: center;
@@ -1119,7 +1119,7 @@ display: block;        /* avoid inline baseline quirks */
 }
 
 .mobile-nav.compact .mobile-logo {
-  width: 55px;              /* reveal */
+  width: 60px;              /* reveal */
   margin-left: auto;        /* push to far right */
   opacity: 1;
   transform: translateX(0);
