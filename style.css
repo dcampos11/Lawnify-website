@@ -933,25 +933,25 @@ display: block;        /* avoid inline baseline quirks */
 
 
 /* ≤768px: MOBILE NAV + mobile layout tweaks */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
 
-  /* About page hero heading color on mobile */
+
   .about-header h2 {
     color: #fff;       
   }
 
-  /* Founder letter spacing on mobile */
+ 
   .founder-letter {
     margin: 2rem 1rem;  
     padding: 2rem 1rem; 
   }
 
-  /* Hide desktop nav on mobile */
+
   .top-nav {
     display: none;
   }
 
-  /* Mobile nav bar */
+ 
   .mobile-nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -966,7 +966,7 @@ display: block;        /* avoid inline baseline quirks */
     box-shadow: 0 2px 8px rgba(42,157,143,0.3);
   }
 
-  /* Mobile toggle button */
+
   .mobile-toggle {
     background: none;
     border: none;
@@ -999,7 +999,7 @@ display: block;        /* avoid inline baseline quirks */
     transform: rotate(180deg);
   }
 
-  /* Mobile dropdown menu */
+
   .mobile-menu {
     display: none;
     position: absolute;
@@ -1012,10 +1012,10 @@ display: block;        /* avoid inline baseline quirks */
     flex-direction: column;
   }
 
-  /* Mobile page title (left of chevron) */
+
   .mobile-page-title {
     display: inline-block;
-/*     font-family: 'Satoshi', sans-serif; */
+
          font-family: 'Poppins', sans-serif;
     font-size: 18px;
     font-weight: 500;
@@ -1026,7 +1026,7 @@ display: block;        /* avoid inline baseline quirks */
     user-select: none;
   }
 
-  /* Soft fade under the open menu */
+
   .mobile-menu::after {
     content: "";
     position: absolute;
@@ -1044,31 +1044,31 @@ display: block;        /* avoid inline baseline quirks */
     pointer-events: none;
   }
 
-  /* Mobile menu links */
+  
   .mobile-menu a {
     display: block;
     width: 100%;
     text-align: left;
     padding: 12px 20px;
     text-decoration: none;
-    ont-family: 'Satoshi', sans-serif; /* NOTE: likely typo, left unchanged */
+    ont-family: 'Satoshi', sans-serif; 
     font-size: 14px;
     font-weight: 500;
     color: #333;
     transition: background 0.2s ease;
   }
 
-  /* Show menu when nav has .expanded */
+  
   .mobile-nav.expanded .mobile-menu {
     display: flex;
   }
 
-  /* Remove double shadow on scrolled + expanded */
+
   .mobile-nav.scrolled.expanded {
     box-shadow: none;
   }
 
-  /* Stack features on mobile */
+
   .features {
     flex-direction: column;
   }
@@ -1077,13 +1077,13 @@ display: block;        /* avoid inline baseline quirks */
     margin-bottom: 5px;
   }
 
-  /* Reserve a tiny trailing spacer so last card isn't hard-clipped */
+
   .carousel-content::after {
     content: "";
     flex: 0 0 4px;
   }
 
-  /* Mobile menu row layout with meta on right */
+
   .mobile-menu .menu-item {
     display: flex;
     justify-content: space-between;
@@ -1094,7 +1094,7 @@ display: block;        /* avoid inline baseline quirks */
   .mobile-menu .menu-item a {
     margin: 0;
     padding: 0;
-/*     font-family: 'Satoshi', sans-serif; */
+
          font-family: 'Poppins', sans-serif;
     font-size: 14px;
     font-weight: 500;
@@ -1107,7 +1107,7 @@ display: block;        /* avoid inline baseline quirks */
   }
 
   .menu-extra {
-/*     font-family: 'Satoshi', sans-serif; */
+
          font-family: 'Poppins', sans-serif;
     font-size: 14px;
     font-weight: 500;
@@ -1152,31 +1152,33 @@ display: block;        /* avoid inline baseline quirks */
     text-align: left;
   }
 
-     /* ===== Mobile nav compact behavior (logo fade-in, chevron slides left) ===== */
+     
+   
 
   .mobile-nav {
     display: flex;
     align-items: center;
-    gap: 10px; /* base gap; we'll tweak in compact state */
+    justify-content: space-between;
+    gap: 10px;
   }
 
-  /* New logo: hidden by default */
+
   .mobile-logo {
-    display: none;         /* off until compact */
-    width: 22px;           /* tweak to taste */
-    height: 22px;
+    display: none;     
+    width: 25px;         
+    height: 25px;
     object-fit: contain;
     opacity: 0;
     transform: translateY(2px);
     transition: opacity 220ms ease, transform 220ms ease;
-    pointer-events: none;  /* purely decorative */
+    pointer-events: none;  
   }
 
-  /* Keep title and toggle ordered: title (middle), toggle (right) by default */
+
   .mobile-page-title { order: 1; }
   .mobile-toggle { order: 2; margin-left: auto; transition: transform 220ms ease, margin 220ms ease; }
 
-  /* When compact: show logo, move chevron left of title, tighten spacing */
+
   .mobile-nav.compact {
     gap: 8px;
   }
@@ -1186,24 +1188,283 @@ display: block;        /* avoid inline baseline quirks */
     transform: translateY(0);
   }
   .mobile-nav.compact .mobile-toggle {
-    order: 0;            /* move before title */
-    margin-left: 0;      /* no push to right */
-    transform: translateX(0); /* ensure resting position */
+    order: 0;            
+    margin-left: 6;    
+    transform: translateX(0); 
   }
   .mobile-nav:not(.compact) .mobile-toggle {
-    /* subtle right bias so the slide feels intentional on enter/exit */
+  
     transform: translateX(0);
   }
 
-  /* Optional: nudge title a hair when compact for balance */
+  
   .mobile-nav.compact .mobile-page-title {
     order: 1;
   }
+} */
 
+/* ≤768px: MOBILE NAV + mobile layout tweaks */
+@media (max-width: 768px) {
 
-     
-     
+  /* About page hero heading color on mobile */
+  .about-header h2 {
+    color: #fff;
+  }
+
+  /* Founder letter spacing on mobile */
+  .founder-letter {
+    margin: 2rem 1rem;
+    padding: 2rem 1rem;
+  }
+
+  /* Hide desktop nav on mobile */
+  .top-nav {
+    display: none;
+  }
+
+  /* Mobile nav bar */
+  .mobile-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* we’ll push the logo to the far right with margin-left:auto */
+    gap: 10px;
+    padding: 0 20px;
+    z-index: 1001;
+    background: rgba(255,255,255,1);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 2px 8px rgba(42,157,143,0.3);
+  }
+
+  /* Mobile toggle button */
+  .mobile-toggle {
+    background: none;
+    border: none;
+    outline: none;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    tap-highlight-color: transparent;
+    padding: 0;
+    cursor: pointer;
+    flex-shrink: 0;
+    z-index: 1002;
+    opacity: 1;
+    pointer-events: auto;
+
+    /* default (pre-compact): goes to the right via margin-left:auto below */
+    order: 2;
+    transition: transform 220ms ease, margin 220ms ease;
+  }
+
+  .mobile-toggle:focus,
+  .mobile-toggle:active {
+    background: transparent;
+    outline: none;
+  }
+
+  .toggle-icon {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+    color: black;
+  }
+
+  .mobile-toggle.open .toggle-icon {
+    transform: rotate(180deg);
+  }
+
+  /* Mobile dropdown menu */
+  .mobile-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(255,255,255,1);
+    box-shadow: none;
+    z-index: 1000;
+    flex-direction: column;
+  }
+
+  /* Mobile page title (text label) */
+  .mobile-page-title {
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+    padding-bottom: 4px;
+    border-bottom: 2px solid #4EC2AF;
+    user-select: none;
+    order: 1; /* sits between chevron and logo in compact */
+  }
+
+  /* Soft fade under the open menu */
+  .mobile-menu::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 100%;
+    height: 8px;
+    background: linear-gradient(
+      to bottom,
+      rgba(42,157,143,0.22) 0%,
+      rgba(42,157,143,0.15) 30%,
+      rgba(42,157,143,0.05) 60%,
+      transparent 100%
+    );
+    pointer-events: none;
+  }
+
+  /* Mobile menu links */
+  .mobile-menu a {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 12px 20px;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif; /* fixed typo */
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    transition: background 0.2s ease;
+  }
+
+  /* Show menu when nav has .expanded */
+  .mobile-nav.expanded .mobile-menu {
+    display: flex;
+  }
+
+  /* Remove double shadow on scrolled + expanded */
+  .mobile-nav.scrolled.expanded {
+    box-shadow: none;
+  }
+
+  /* Stack features on mobile */
+  .features {
+    flex-direction: column;
+  }
+
+  .feature {
+    margin-bottom: 5px;
+  }
+
+  /* Reserve a tiny trailing spacer so last card isn't hard-clipped */
+  .carousel-content::after {
+    content: "";
+    flex: 0 0 4px;
+  }
+
+  /* Mobile menu row layout with meta on right */
+  .mobile-menu .menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+  }
+
+  .mobile-menu .menu-item a {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    text-decoration: none;
+    outline: none;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    tap-highlight-color: transparent;
+  }
+
+  .menu-extra {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    text-decoration: none;
+    white-space: nowrap;
+    display: inline-flex;
+  }
+
+  .menu-extra.download-btn img {
+    height: 24px;
+    width: auto;
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+  }
+
+  .mobile-menu .menu-item .download-btn {
+    display: inline-flex;
+    align-items: center;
+    width: auto;
+    margin-left: auto;
+    padding: 0;
+  }
+
+  .meta-group {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+  }
+
+  .meta-group .icon {
+    width: 1.0em;
+    height: 1.0em;
+    margin: 0 0 0 0.5em;
+    stroke: #333;
+    flex-shrink: 0;
+  }
+
+  .testimonials h2 {
+    text-align: left;
+  }
+
+  /* ===== Mobile nav compact behavior (logo fade-in right, chevron slides left of title) ===== */
+
+  /* New logo: hidden by default, will appear on far right when compact */
+  .mobile-logo {
+    order: 3;
+    display: none;
+    width: 25px;  /* tweak to taste */
+    height: 25px;
+    object-fit: contain;
+    opacity: 0;
+    transform: translateX(8px); /* slight slide-in from the right */
+    transition: opacity 220ms ease, transform 220ms ease;
+    pointer-events: none;
+  }
+
+  /* Default (pre-compact): put the toggle on the far right */
+  .mobile-toggle {
+    margin-left: auto; /* pushes the toggle to the right when not compact */
+  }
+
+  /* When compact: show logo on the far right, move chevron next to title on the left */
+  .mobile-nav.compact .mobile-logo {
+    display: block;
+    opacity: 1;
+    transform: translateX(0);
+    margin-left: auto; /* ensures logo lives on the far right */
+  }
+
+  .mobile-nav.compact .mobile-toggle {
+    order: 0;        /* chevron before the title */
+    margin-left: 0;  /* no push to the right */
+    transform: translateX(0);
+  }
+
+  /* Title remains order:1 in both states for consistency */
+  .mobile-nav.compact .mobile-page-title {
+    order: 1;
+  }
 }
+
+
 
 /* (separate media rule used originally – preserved) */
 @media only screen and (max-width: 768px) {
