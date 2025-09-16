@@ -915,6 +915,12 @@ display: block;        /* avoid inline baseline quirks */
     padding-bottom: 4px;
     border-bottom: 2px solid #4EC2AF;
     user-select: none;
+
+         /* NEW: kill iOS/Android tap highlight & focus ring */
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
   }
 
 
@@ -1143,6 +1149,13 @@ display: block;        /* avoid inline baseline quirks */
   transform-box: fill-box;
 }
 
+      /* NEW: ensure no focus ring shows on tap/keyboard */
+  .mobile-page-title:focus,
+  .mobile-page-title:focus-visible,
+  .mobile-page-title:active {
+    outline: none;
+    box-shadow: none;
+  }
 
 }
 
