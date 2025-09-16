@@ -774,6 +774,82 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
  <script>
+  // document.addEventListener('DOMContentLoaded', () => {
+  //   const mobileNav = document.querySelector('.mobile-nav');
+  //   const headerEl  = document.querySelector('.black-header');
+  //   const titleEl   = document.getElementById('mobilePageTitle');
+  //   const toggleEl  = document.getElementById('mobileToggle');
+
+  //   if (!mobileNav || !headerEl || !titleEl || !toggleEl) return;
+
+  //   const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
+
+  //   let headerThreshold = headerEl.offsetHeight || window.innerHeight;
+
+  //   const recalcHeaderThreshold = () => {
+  //     headerThreshold = headerEl.offsetHeight || window.innerHeight;
+  //   };
+
+  //   // Compute how far the toggle needs to be shifted RIGHT (pre-compact).
+  //   function computeToggleShift() {
+  //     if (!isMobile()) {
+  //       mobileNav.style.setProperty('--toggle-shift', '0px');
+  //       return;
+  //     }
+
+  //     const wasCompact = mobileNav.classList.contains('compact');
+  //     if (wasCompact) mobileNav.classList.remove('compact');
+
+  //     const navRect    = mobileNav.getBoundingClientRect();
+  //     const titleRect  = titleEl.getBoundingClientRect();
+  //     const toggleRect = toggleEl.getBoundingClientRect();
+
+  //     const RIGHT_PADDING = 20;
+  //     const rightInnerEdge = navRect.right - RIGHT_PADDING;
+  //     const targetLeftPreCompact = rightInnerEdge - toggleRect.width;
+  //     const compactLeft = titleRect.right + 6;
+  //     const delta = Math.max(0, Math.round(targetLeftPreCompact - compactLeft));
+
+  //     mobileNav.style.setProperty('--toggle-shift', `${delta}px`);
+
+  //     if (wasCompact) mobileNav.classList.add('compact');
+  //   }
+
+  //   function applyCompact() {
+  //     if (!isMobile()) {
+  //       mobileNav.classList.remove('compact');
+  //       mobileNav.style.setProperty('--toggle-shift', '0px');
+  //       return;
+  //     }
+  //     const scrolledPastHeader = window.scrollY >= headerThreshold;
+  //     mobileNav.classList.toggle('compact', scrolledPastHeader);
+
+  //     if (mobileNav.classList.contains('compact')) {
+  //       mobileNav.style.setProperty('--toggle-shift', '0px');
+  //     } else {
+  //       computeToggleShift();
+  //     }
+  //   }
+
+  //   recalcHeaderThreshold();
+  //   computeToggleShift();
+  //   applyCompact();
+
+  //   window.addEventListener('resize', () => {
+  //     recalcHeaderThreshold();
+  //     computeToggleShift();
+  //     applyCompact();
+  //   });
+
+  //   window.addEventListener('orientationchange', () => {
+  //     recalcHeaderThreshold();
+  //     computeToggleShift();
+  //     applyCompact();
+  //   });
+
+  //   window.addEventListener('scroll', applyCompact, { passive: true });
+  // });
+
   document.addEventListener('DOMContentLoaded', () => {
     const mobileNav = document.querySelector('.mobile-nav');
     const headerEl  = document.querySelector('.black-header');
@@ -782,7 +858,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!mobileNav || !headerEl || !titleEl || !toggleEl) return;
 
-    const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
+    const isMobile   = () => window.matchMedia('(max-width: 768px)').matches;
+    const COMPACT_AT = 0.5; // <— 50% of header height
 
     let headerThreshold = headerEl.offsetHeight || window.innerHeight;
 
@@ -821,20 +898,25 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileNav.style.setProperty('--toggle-shift', '0px');
         return;
       }
-      const scrolledPastHeader = window.scrollY >= headerThreshold;
-      mobileNav.classList.toggle('compact', scrolledPastHeader);
+      // Trigger compact once we’ve scrolled past 50% of the header height
+      const compactThreshold = headerThreshold * COMPACT_AT;
+      const scrolledPast = window.scrollY >= compactThreshold;
+
+      mobileNav.classList.toggle('compact', scrolledPast);
 
       if (mobileNav.classList.contains('compact')) {
-        mobileNav.style.setProperty('--toggle-shift', '0px');
+        mobileNav.style.setProperty('--toggle-shift', '0px'); // snug to title
       } else {
-        computeToggleShift();
+        computeToggleShift(); // push chevron back to far right
       }
     }
 
+    // Initial calculations
     recalcHeaderThreshold();
     computeToggleShift();
     applyCompact();
 
+    // Recalc on layout changes
     window.addEventListener('resize', () => {
       recalcHeaderThreshold();
       computeToggleShift();
@@ -847,8 +929,17 @@ document.addEventListener('DOMContentLoaded', () => {
       applyCompact();
     });
 
+    // In case media/video sizing affects header after load
+    window.addEventListener('load', () => {
+      recalcHeaderThreshold();
+      computeToggleShift();
+      applyCompact();
+    });
+
+    // Re-apply on scroll
     window.addEventListener('scroll', applyCompact, { passive: true });
   });
+
 
 
   document.addEventListener('DOMContentLoaded', () => {
@@ -1189,6 +1280,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
 
 
 
