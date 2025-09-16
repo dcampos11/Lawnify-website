@@ -184,7 +184,7 @@ body {
   height: auto;
   display: block;
 }
-
+/* 
 .sub-tagline {
   font-size: 16px;
   color: white;
@@ -204,7 +204,7 @@ body {
 }
 
 /* Capsule outline animation under the logo */
-.capsule-container {
+/* .capsule-container {
   position: relative;
   width: 180px;
   height: 50px;
@@ -265,7 +265,7 @@ body {
 .capsule-path.right {
   animation: drawCapsuleRight 2.5s ease-out forwards;
   animation-delay: 1.2s;
-}
+} */
 
 
 /* New hero subtitle under the logo */
