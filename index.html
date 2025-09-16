@@ -50,13 +50,31 @@
 <div class="mobile-nav">
 
  
-  <span id="mobilePageTitle" class="mobile-page-title">Home</span>
+<!--   <span id="mobilePageTitle" class="mobile-page-title">Home</span>
 
 <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">
   <svg class="toggle-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M7 10l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
   </svg>
+</button> -->
+ <!-- Title -->
+<span id="mobilePageTitle"
+      class="mobile-page-title"
+      role="button"
+      tabindex="0"
+      aria-controls="mobileMenu"
+      aria-expanded="false">Home</span>
+
+<!-- Toggle button -->
+<button class="mobile-toggle" id="mobileToggle"
+        aria-label="Open menu"
+        aria-controls="mobileMenu"
+        aria-expanded="false">
+  <svg class="toggle-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M7 10l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  </svg>
 </button>
+
  
   <!-- NEW: mobile logo (black) that fades in after header scroll) -->
   <img src="images/LawnifyBlack.jpg" alt="Lawnify" class="mobile-logo" />
@@ -377,98 +395,105 @@
 // });
 
 
-document.addEventListener('DOMContentLoaded', () => {
-  const mobileNav = document.querySelector('.mobile-nav');
-  const headerEl  = document.querySelector('.black-header');
-  const titleEl   = document.getElementById('mobilePageTitle');
-  const toggleEl  = document.getElementById('mobileToggle');
 
-  if (!mobileNav || !headerEl || !titleEl || !toggleEl) return;
 
-  const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
 
-  let headerThreshold = headerEl.offsetHeight || window.innerHeight;
 
-  const recalcHeaderThreshold = () => {
-    headerThreshold = headerEl.offsetHeight || window.innerHeight;
-  };
 
-  /**
-   * Compute how far the toggle needs to be shifted RIGHT (pre-compact)
-   * so it sits at the far edge. We animate that shift back to 0 on compact.
-   */
-  function computeToggleShift() {
-    if (!isMobile()) {
-      mobileNav.style.setProperty('--toggle-shift', '0px');
-      return;
-    }
+   
 
-    // Temporarily ensure NOT compact to measure the "pre-compact" geometry
-    const wasCompact = mobileNav.classList.contains('compact');
-    if (wasCompact) mobileNav.classList.remove('compact');
+// document.addEventListener('DOMContentLoaded', () => {
+//   const mobileNav = document.querySelector('.mobile-nav');
+//   const headerEl  = document.querySelector('.black-header');
+//   const titleEl   = document.getElementById('mobilePageTitle');
+//   const toggleEl  = document.getElementById('mobileToggle');
 
-    // Measure
-    const navRect    = mobileNav.getBoundingClientRect();
-    const titleRect  = titleEl.getBoundingClientRect();
-    const toggleRect = toggleEl.getBoundingClientRect();
+//   if (!mobileNav || !headerEl || !titleEl || !toggleEl) return;
 
-    // The nav has 20px side padding in CSS:
-    const RIGHT_PADDING = 20;
+//   const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
 
-    // Where we want the toggle’s LEFT edge when pre-compact (flush to right minus its width):
-    const rightInnerEdge = navRect.right - RIGHT_PADDING;
-    const targetLeftPreCompact = rightInnerEdge - toggleRect.width;
+//   let headerThreshold = headerEl.offsetHeight || window.innerHeight;
 
-    // Where the toggle sits in COMPACT next to the title (title right + 6px gap)
-    const compactLeft = titleRect.right + 6;
+//   const recalcHeaderThreshold = () => {
+//     headerThreshold = headerEl.offsetHeight || window.innerHeight;
+//   };
 
-    // Translate distance we need to push it to the right in pre-compact state
-    const delta = Math.max(0, Math.round(targetLeftPreCompact - compactLeft));
+//   /**
+//    * Compute how far the toggle needs to be shifted RIGHT (pre-compact)
+//    * so it sits at the far edge. We animate that shift back to 0 on compact.
+//    */
+//   function computeToggleShift() {
+//     if (!isMobile()) {
+//       mobileNav.style.setProperty('--toggle-shift', '0px');
+//       return;
+//     }
 
-    mobileNav.style.setProperty('--toggle-shift', `${delta}px`);
+//     // Temporarily ensure NOT compact to measure the "pre-compact" geometry
+//     const wasCompact = mobileNav.classList.contains('compact');
+//     if (wasCompact) mobileNav.classList.remove('compact');
 
-    // Restore compact if it was set
-    if (wasCompact) mobileNav.classList.add('compact');
-  }
+//     // Measure
+//     const navRect    = mobileNav.getBoundingClientRect();
+//     const titleRect  = titleEl.getBoundingClientRect();
+//     const toggleRect = toggleEl.getBoundingClientRect();
 
-  function applyCompact() {
-    if (!isMobile()) {
-      mobileNav.classList.remove('compact');
-      mobileNav.style.setProperty('--toggle-shift', '0px');
-      return;
-    }
-    const scrolledPastHeader = window.scrollY >= headerThreshold;
-    mobileNav.classList.toggle('compact', scrolledPastHeader);
+//     // The nav has 20px side padding in CSS:
+//     const RIGHT_PADDING = 20;
 
-    // When compact, shift = 0 (snug to title). When not, compute the right push.
-    if (mobileNav.classList.contains('compact')) {
-      mobileNav.style.setProperty('--toggle-shift', '0px');
-    } else {
-      computeToggleShift();
-    }
-  }
+//     // Where we want the toggle’s LEFT edge when pre-compact (flush to right minus its width):
+//     const rightInnerEdge = navRect.right - RIGHT_PADDING;
+//     const targetLeftPreCompact = rightInnerEdge - toggleRect.width;
 
-  // Initial calculations
-  recalcHeaderThreshold();
-  computeToggleShift();
-  applyCompact();
+//     // Where the toggle sits in COMPACT next to the title (title right + 6px gap)
+//     const compactLeft = titleRect.right + 6;
 
-  // Recalc on resize/orientation changes (fonts/layout can change widths)
-  window.addEventListener('resize', () => {
-    recalcHeaderThreshold();
-    computeToggleShift();
-    applyCompact();
-  });
+//     // Translate distance we need to push it to the right in pre-compact state
+//     const delta = Math.max(0, Math.round(targetLeftPreCompact - compactLeft));
 
-  window.addEventListener('orientationchange', () => {
-    recalcHeaderThreshold();
-    computeToggleShift();
-    applyCompact();
-  });
+//     mobileNav.style.setProperty('--toggle-shift', `${delta}px`);
 
-  // Re-apply on scroll
-  window.addEventListener('scroll', applyCompact, { passive: true });
-});
+//     // Restore compact if it was set
+//     if (wasCompact) mobileNav.classList.add('compact');
+//   }
+
+//   function applyCompact() {
+//     if (!isMobile()) {
+//       mobileNav.classList.remove('compact');
+//       mobileNav.style.setProperty('--toggle-shift', '0px');
+//       return;
+//     }
+//     const scrolledPastHeader = window.scrollY >= headerThreshold;
+//     mobileNav.classList.toggle('compact', scrolledPastHeader);
+
+//     // When compact, shift = 0 (snug to title). When not, compute the right push.
+//     if (mobileNav.classList.contains('compact')) {
+//       mobileNav.style.setProperty('--toggle-shift', '0px');
+//     } else {
+//       computeToggleShift();
+//     }
+//   }
+
+//   // Initial calculations
+//   recalcHeaderThreshold();
+//   computeToggleShift();
+//   applyCompact();
+
+//   // Recalc on resize/orientation changes (fonts/layout can change widths)
+//   window.addEventListener('resize', () => {
+//     recalcHeaderThreshold();
+//     computeToggleShift();
+//     applyCompact();
+//   });
+
+//   window.addEventListener('orientationchange', () => {
+//     recalcHeaderThreshold();
+//     computeToggleShift();
+//     applyCompact();
+//   });
+
+//   // Re-apply on scroll
+//   window.addEventListener('scroll', applyCompact, { passive: true });
+// });
 
 
 
@@ -782,6 +807,101 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
+   
+document.addEventListener('DOMContentLoaded', () => {
+  const mobileNav = document.querySelector('.mobile-nav');
+  const headerEl  = document.querySelector('.black-header');
+  const titleEl   = document.getElementById('mobilePageTitle');
+  const toggleEl  = document.getElementById('mobileToggle');
+
+  if (!mobileNav || !headerEl || !titleEl || !toggleEl) return;
+
+  const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
+
+  let headerThreshold = headerEl.offsetHeight || window.innerHeight;
+
+  const recalcHeaderThreshold = () => {
+    headerThreshold = headerEl.offsetHeight || window.innerHeight;
+  };
+
+  /**
+   * Compute how far the toggle needs to be shifted RIGHT (pre-compact)
+   * so it sits at the far edge. We animate that shift back to 0 on compact.
+   */
+  function computeToggleShift() {
+    if (!isMobile()) {
+      mobileNav.style.setProperty('--toggle-shift', '0px');
+      return;
+    }
+
+    // Temporarily ensure NOT compact to measure the "pre-compact" geometry
+    const wasCompact = mobileNav.classList.contains('compact');
+    if (wasCompact) mobileNav.classList.remove('compact');
+
+    // Measure
+    const navRect    = mobileNav.getBoundingClientRect();
+    const titleRect  = titleEl.getBoundingClientRect();
+    const toggleRect = toggleEl.getBoundingClientRect();
+
+    // The nav has 20px side padding in CSS:
+    const RIGHT_PADDING = 20;
+
+    // Where we want the toggle’s LEFT edge when pre-compact (flush to right minus its width):
+    const rightInnerEdge = navRect.right - RIGHT_PADDING;
+    const targetLeftPreCompact = rightInnerEdge - toggleRect.width;
+
+    // Where the toggle sits in COMPACT next to the title (title right + 6px gap)
+    const compactLeft = titleRect.right + 6;
+
+    // Translate distance we need to push it to the right in pre-compact state
+    const delta = Math.max(0, Math.round(targetLeftPreCompact - compactLeft));
+
+    mobileNav.style.setProperty('--toggle-shift', `${delta}px`);
+
+    // Restore compact if it was set
+    if (wasCompact) mobileNav.classList.add('compact');
+  }
+
+  function applyCompact() {
+    if (!isMobile()) {
+      mobileNav.classList.remove('compact');
+      mobileNav.style.setProperty('--toggle-shift', '0px');
+      return;
+    }
+    const scrolledPastHeader = window.scrollY >= headerThreshold;
+    mobileNav.classList.toggle('compact', scrolledPastHeader);
+
+    // When compact, shift = 0 (snug to title). When not, compute the right push.
+    if (mobileNav.classList.contains('compact')) {
+      mobileNav.style.setProperty('--toggle-shift', '0px');
+    } else {
+      computeToggleShift();
+    }
+  }
+
+  // Initial calculations
+  recalcHeaderThreshold();
+  computeToggleShift();
+  applyCompact();
+
+  // Recalc on resize/orientation changes (fonts/layout can change widths)
+  window.addEventListener('resize', () => {
+    recalcHeaderThreshold();
+    computeToggleShift();
+    applyCompact();
+  });
+
+  window.addEventListener('orientationchange', () => {
+    recalcHeaderThreshold();
+    computeToggleShift();
+    applyCompact();
+  });
+
+  // Re-apply on scroll
+  window.addEventListener('scroll', applyCompact, { passive: true });
+});
+
   </script>
 
  <!-- Feather Icons -->
@@ -794,6 +914,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
 
 
 
