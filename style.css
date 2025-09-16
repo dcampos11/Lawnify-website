@@ -1483,6 +1483,25 @@ display: block;        /* avoid inline baseline quirks */
   .mobile-nav.compact .mobile-page-title {
     order: 1;
   }
+
+
+
+     /* Default order (and also in compact): Title (0) → Chevron (1) → Logo (2) */
+.mobile-page-title { order: 0; }
+.mobile-toggle {
+  order: 1;
+  transition: transform 220ms ease, margin 220ms ease;
+}
+
+/* Before compact, we still want the chevron on the right of the title.
+   The logo is invisible but present, so push the logo to the edge: */
+.mobile-logo { margin-left: auto; }
+
+/* In compact we keep the same order; no need to move the chevron to the far left.
+   If you want a tiny nudge toward the title on compact, you can add: */
+.mobile-nav.compact .mobile-toggle { margin-left: 6px; }
+
+     
 }
 
 
