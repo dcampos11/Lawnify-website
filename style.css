@@ -1151,6 +1151,57 @@ display: block;        /* avoid inline baseline quirks */
  .testimonials h2 {
     text-align: left;
   }
+
+     /* ===== Mobile nav compact behavior (logo fade-in, chevron slides left) ===== */
+
+  .mobile-nav {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* base gap; we'll tweak in compact state */
+  }
+
+  /* New logo: hidden by default */
+  .mobile-logo {
+    display: none;         /* off until compact */
+    width: 22px;           /* tweak to taste */
+    height: 22px;
+    object-fit: contain;
+    opacity: 0;
+    transform: translateY(2px);
+    transition: opacity 220ms ease, transform 220ms ease;
+    pointer-events: none;  /* purely decorative */
+  }
+
+  /* Keep title and toggle ordered: title (middle), toggle (right) by default */
+  .mobile-page-title { order: 1; }
+  .mobile-toggle { order: 2; margin-left: auto; transition: transform 220ms ease, margin 220ms ease; }
+
+  /* When compact: show logo, move chevron left of title, tighten spacing */
+  .mobile-nav.compact {
+    gap: 8px;
+  }
+  .mobile-nav.compact .mobile-logo {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .mobile-nav.compact .mobile-toggle {
+    order: 0;            /* move before title */
+    margin-left: 0;      /* no push to right */
+    transform: translateX(0); /* ensure resting position */
+  }
+  .mobile-nav:not(.compact) .mobile-toggle {
+    /* subtle right bias so the slide feels intentional on enter/exit */
+    transform: translateX(0);
+  }
+
+  /* Optional: nudge title a hair when compact for balance */
+  .mobile-nav.compact .mobile-page-title {
+    order: 1;
+  }
+
+
+     
      
 }
 
