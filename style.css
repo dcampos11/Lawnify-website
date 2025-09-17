@@ -1343,7 +1343,11 @@ width: clamp(260px, 72vw, 560px);
   background: linear-gradient(to left, rgba(255,255,255,1), rgba(255,255,255,0));
 }
 
-     
+
+     .post-hero .ph-left .btn-cta {
+  margin-top: clamp(28px, 12vw, 120px) !important;
+}
+
 
 /* Desktop: keep it nice; you can show a larger card without huge gutters */
 @media (min-width: 1024px) {
