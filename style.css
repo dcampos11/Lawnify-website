@@ -966,8 +966,10 @@ display: block;        /* avoid inline baseline quirks */
     0 0 52px rgba(78,194,175,0.30);
   filter: saturate(1.05);
 }
+
 .btn-cta:active {
-  transfor
+  transform: translateY(0) scale(0.995);
+}
 
 
 /* Right column (How it works) */
