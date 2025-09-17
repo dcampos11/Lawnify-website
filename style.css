@@ -14,9 +14,25 @@
    ========================================================================== */
 
 
+
+
 /* ==========================================================================
    1) RESET & BASE
    ========================================================================== */
+
+
+
+/* Ensure phone scroller sits above header's fade/mask */
+.post-hero,
+.ph-grid,
+.ph-left {
+  position: relative;
+  z-index: 5;
+  overflow: visible;
+}
+
+
+
 * {
   margin: 0;
   padding: 0;
@@ -1338,36 +1354,30 @@ width: clamp(260px, 72vw, 560px);
   background: linear-gradient(to left, rgba(255,255,255,1), rgba(255,255,255,0));
 } */
 
-     /* --- Phone scroller (replaces single ph-hero-img) --- */
+/* --- Phone scroller --- */
 .phone-scroller {
-  --phone-shadow-pad: 20px;       /* adjust to taste */
-
+  --phone-shadow-pad: 22px;  /* breathing room top/bottom */
   position: relative;
   width: 100%;
-
-  /* Let shadows breathe vertically */
+  isolation: isolate;         /* clean stacking context */
   overflow: visible;
 
-  /* Make the “box” taller w/o moving the images */
-  padding-top: var(--phone-shadow-pad);
-  padding-bottom: var(--phone-shadow-pad);
-  margin-top: calc(-1 * var(--phone-shadow-pad));
-  margin-bottom: calc(-1 * var(--phone-shadow-pad));
-
-  margin-left: auto;
-  margin-right: auto;
+  /* Taller box without shifting layout */
+  padding-block: var(--phone-shadow-pad);
+  margin-block: calc(-1 * var(--phone-shadow-pad));
 }
 
-/* Horizontal scroll strip with snap */
+/* Horizontal scroll strip */
 .phone-track {
+  position: relative;
+  z-index: 1;                 /* content above fades */
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 82%;
   gap: 14px;
 
-  /* Only scroll horizontally; keep vertical overflow visible for shadows */
   overflow-x: auto;
-  overflow-y: visible;
+  overflow-y: visible;        /* allow shadow above/below */
   -webkit-overflow-scrolling: touch;
 
   scroll-snap-type: x mandatory;
@@ -1376,30 +1386,28 @@ width: clamp(260px, 72vw, 560px);
 }
 .phone-track::-webkit-scrollbar { display: none; }
 
-/* Each card centers on snap */
+/* Slides */
 .phone-slide {
   scroll-snap-align: center;
   display: block;
+  position: relative;         /* needed for pseudo-shadow below */
   text-decoration: none;
 }
 
-/* Phone image styling (unchanged size, just keep shadows) */
+/* Images (keep your transforms) */
 .phone-slide img {
   width: 100%;
   height: auto;
   display: block;
   border-radius: 0;
-  filter:
-    drop-shadow(0px 12px 24px rgba(0,0,0,0.30))
-    drop-shadow(0px 8px 16px rgba(0,0,0,0.20));
-  transform: translateY(12px);
+  /* keep your motion */
+  transform: translateY(12px) translateZ(0);  /* gives own layer on WebKit */
   opacity: 0;
   transition: opacity 0.8s ease-out, transform 0.6s ease-out;
 }
-/* reveal on load (you already had this) */
-.post-hero .phone-slide img { opacity: 1; transform: translateY(0); }
+.post-hero .phone-slide img { opacity: 1; transform: translateY(0) translateZ(0); }
 
-/* Edge fades to hint more content (unchanged) */
+/* Fades: put BEHIND the content so they don't hide side shadows */
 .phone-scroller::before,
 .phone-scroller::after {
   content: "";
@@ -1407,7 +1415,7 @@ width: clamp(260px, 72vw, 560px);
   top: 0; bottom: 0;
   width: 12%;
   pointer-events: none;
-  z-index: 1;
+  z-index: 0;                 /* behind .phone-track (z-index:1) */
 }
 .phone-scroller::before {
   left: 0;
@@ -1416,6 +1424,34 @@ width: clamp(260px, 72vw, 560px);
 .phone-scroller::after {
   right: 0;
   background: linear-gradient(to left, rgba(255,255,255,1), rgba(255,255,255,0));
+}
+
+/* (Optional) If you still think sides look trimmed, hide fades on mobile
+@media (max-width: 768px) {
+  .phone-scroller::before,
+  .phone-scroller::after { display: none; }
+}
+*/
+
+
+     /* iOS/Safari-friendly shadow that will never clip inside scroll layers */
+@supports (-webkit-touch-callout: none) {
+  .phone-slide::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 12px; /* soft shape for the shadow */
+    box-shadow:
+      0 12px 24px rgba(0,0,0,0.30),
+      0  8px 16px rgba(0,0,0,0.20);
+    z-index: 0;
+  }
+  .phone-slide img {
+    position: relative;
+    z-index: 1;
+    filter: none;  /* disable filter: drop-shadow() on iOS Safari */
+    transform: translateY(12px) translateZ(0);
+  }
 }
 
      
