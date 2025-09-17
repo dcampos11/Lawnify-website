@@ -1553,3 +1553,25 @@ width: clamp(260px, 72vw, 560px);
       drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.22));
   }
 }
+
+
+/* === Download button spacing tweaks === */
+
+/* Mobile (stacked): equal space above and below the button,
+   and a touch closer to the images */
+@media (max-width: 768px) {
+  .post-hero { --cta-gap: clamp(16px, 9vw, 56px); } /* was ~12vw; now a bit tighter */
+  .post-hero .ph-left .btn-cta {
+    margin-block: var(--cta-gap) !important; /* equal top & bottom spacing */
+  }
+  /* Use the button's bottom margin as the sole spacer */
+  .post-hero .ph-right { margin-top: 0 !important; }
+}
+
+/* Desktop (side-by-side): bring it a tad up, no extra bottom space needed */
+@media (min-width: 769px) {
+  .post-hero .ph-left .btn-cta {
+    margin-top: clamp(12px, 2.4vw, 28px) !important;
+    margin-bottom: 0 !important;
+  }
+}
