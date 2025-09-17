@@ -175,11 +175,25 @@
   <div class="ph-grid">
     <!-- Left: iPhone feature image + CTA -->
     <div class="ph-left">
-      <a href="/services/" class="ph-hero-link">
+<!--       <a href="/services/" class="ph-hero-link">
         <img src="images/InstantQuotes.png"
              alt="Instant Quote Screenshot"
              class="ph-hero-img" />
-      </a>
+      </a> -->
+     <div class="phone-scroller" aria-label="App preview">
+  <div class="phone-track">
+    <a href="/services/" class="phone-slide">
+      <img src="images/InstantQuotes.png" alt="Instant quote screen" />
+    </a>
+    <a href="/rewards/" class="phone-slide">
+      <img src="images/CashBack.png" alt="3% cash back screen" />
+    </a>
+    <a href="/about/" class="phone-slide">
+      <img src="images/More.png" alt="Autopay & more screen" />
+    </a>
+  </div>
+</div>
+
 
       <a href="/services/" class="btn-cta btn-glow" role="button" aria-label="Get started with Lawnify">
         Get Started
@@ -790,6 +804,26 @@
       mobilePageTitle.textContent = titleMap[path] || '';
     }
   });
+
+
+
+  document.addEventListener('DOMContentLoaded', () => {
+  const track = document.querySelector('.phone-track');
+  if (!track) return;
+
+  function centerSlide(idx = 1) { // 0,1,2 -> centers the middle by default
+    const slide = track.children[idx];
+    if (!slide) return;
+    const offset = slide.offsetLeft - (track.clientWidth - slide.clientWidth) / 2;
+    track.scrollLeft = offset;
+  }
+
+  // center after layout/paint
+  requestAnimationFrame(() => centerSlide(1));
+  // keep centered on resize (orientation change, etc.)
+  window.addEventListener('resize', () => centerSlide(1));
+});
+
 </script>
 
  
@@ -802,6 +836,7 @@
 
 </body>
 </html>
+
 
 
 
