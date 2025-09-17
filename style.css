@@ -879,7 +879,7 @@ display: block;        /* avoid inline baseline quirks */
 /* The hero phone image */
 .ph-hero-img {
   width: 100%;
-  max-width: 560px;      /* big and bold */
+width: clamp(260px, 72vw, 560px);
   height: auto;
   border-radius: 0;
   filter:
