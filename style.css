@@ -896,8 +896,80 @@ display: block;        /* avoid inline baseline quirks */
   transform: translateY(0);
 }
 
-/* CTA button base */
+
+/* 🔁 REPLACE your existing .btn-cta / .btn-glow styles with this */
+
+/* Base button */
 .btn-cta {
+  position: relative;
+  isolation: isolate;             /* keep glow layers contained */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 22px;
+  border-radius: 999px;
+  border: 0;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: clamp(15px, 1.6vw, 18px);
+  letter-spacing: 0.2px;
+  color: #fff;
+
+  /* Use a teal/green gradient fill */
+  background: linear-gradient(135deg, #2A9D8F 0%, #4EC2AF 100%);
+
+  /* Breathing outer glow (animates below) */
+  box-shadow:
+    0 6px 22px rgba(42,157,143,0.30),
+    0 0 36px rgba(78,194,175,0.22);
+
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    filter 220ms ease;
+}
+
+/* Ambient halo “shade” that breathes */
+.btn-glow::before {
+  content: "";
+  position: absolute;
+  inset: -8px;                    /* halo thickness */
+  border-radius: inherit;
+  background:
+    radial-gradient(120% 120% at 50% 50%,
+      rgba(78,194,175,0.38) 0%,
+      rgba(78,194,175,0.22) 40%,
+      rgba(78,194,175,0.00) 70%);
+  filter: blur(8px);
+  z-index: -1;
+  animation: haloPulse 2.8s ease-in-out infinite;
+}
+
+/* Subtle inner glow for depth */
+.btn-glow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow:
+    0 0 14px rgba(255,255,255,0.20) inset,
+    0 0 10px rgba(78,194,175,0.20) inset;
+  pointer-events: none;
+}
+
+/* Hover/active: a bit brighter + slight lift */
+.btn-cta:hover {
+  transform: translateY(-1px) scale(1.015);
+  box-shadow:
+    0 10px 28px rgba(42,157,143,0.38),
+    0 0 52px rgba(78,194,175,0.30);
+  filter: saturate(1.05);
+}
+.btn-cta:active {
+  transfor
+
+/* .btn-cta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -910,36 +982,36 @@ display: block;        /* avoid inline baseline quirks */
   letter-spacing: 0.2px;
   text-decoration: none;
   color: #fff;
-  background: #0b1211;           /* dark core helps the glow pop */
+  background: #0b1211;         
   position: relative;
-  isolation: isolate;            /* keeps the glow layers contained */
+  isolation: isolate;          
 }
+ */
 
-/* Rotating teal/green outline glow (pure CSS) */
-.btn-glow::before {
+/* .btn-glow::before {
   content: "";
   position: absolute;
-  inset: -2px;                   /* outline thickness */
+  inset: -2px;                   
   border-radius: inherit;
-  padding: 2px;                  /* ring width */
+  padding: 2px;                 
   background: conic-gradient(
     from 0deg,
     #2A9D8F, #4EC2AF, #2A9D8F, #4EC2AF, #2A9D8F
   );
-  /* Cut out the middle so only the ring shows */
+ 
   -webkit-mask: 
     linear-gradient(#000 0 0) content-box, 
     linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
           mask-composite: exclude;
   animation: spin360 2.8s linear infinite;
-  z-index: -1; /* sit under the label but above the button's background */
+  z-index: -1; 
   filter: drop-shadow(0 0 10px rgba(78, 194, 175, 0.7))
           drop-shadow(0 0 20px rgba(42, 157, 143, 0.4));
-}
+} */
 
-/* Extra soft glow close to edges */
-.btn-glow::after {
+
+/* .btn-glow::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -948,11 +1020,11 @@ display: block;        /* avoid inline baseline quirks */
     0 0 18px rgba(78, 194, 175, 0.35) inset,
     0 0 10px rgba(78, 194, 175, 0.25);
   pointer-events: none;
-}
+} */
 
-@keyframes spin360 {
+/* @keyframes spin360 {
   to { transform: rotate(360deg); }
-}
+} */
 
 /* Right column (How it works) */
 .ph-right {
