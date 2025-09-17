@@ -811,22 +811,76 @@
 
 
 
-  document.addEventListener('DOMContentLoaded', () => {
+//   document.addEventListener('DOMContentLoaded', () => {
+//   const track = document.querySelector('.phone-track');
+//   if (!track) return;
+
+//   function centerSlide(idx = 1) { // 0,1,2 -> centers the middle by default
+//     const slide = track.children[idx];
+//     if (!slide) return;
+//     const offset = slide.offsetLeft - (track.clientWidth - slide.clientWidth) / 2;
+//     track.scrollLeft = offset;
+//   }
+
+//   // center after layout/paint
+//   requestAnimationFrame(() => centerSlide(1));
+//   // keep centered on resize (orientation change, etc.)
+//   window.addEventListener('resize', () => centerSlide(1));
+// });
+
+
+document.addEventListener('DOMContentLoaded', () => {
   const track = document.querySelector('.phone-track');
   if (!track) return;
 
-  function centerSlide(idx = 1) { // 0,1,2 -> centers the middle by default
-    const slide = track.children[idx];
+  const slides = Array.from(track.children);
+
+  // Center a specific slide
+  function centerSlide(idx = 1) {
+    const slide = slides[idx];
     if (!slide) return;
     const offset = slide.offsetLeft - (track.clientWidth - slide.clientWidth) / 2;
     track.scrollLeft = offset;
   }
 
-  // center after layout/paint
+  // Center whichever slide is currently closest to center
+  function centerToNearest() {
+    const viewCenter = track.scrollLeft + track.clientWidth / 2;
+    let nearestIdx = 0;
+    let nearestDist = Infinity;
+
+    slides.forEach((s, i) => {
+      const slideCenter = s.offsetLeft + s.clientWidth / 2;
+      const dist = Math.abs(slideCenter - viewCenter);
+      if (dist < nearestDist) { nearestDist = dist; nearestIdx = i; }
+    });
+
+    centerSlide(nearestIdx);
+  }
+
+  // Initial: center the middle slide ONCE
   requestAnimationFrame(() => centerSlide(1));
-  // keep centered on resize (orientation change, etc.)
-  window.addEventListener('resize', () => centerSlide(1));
+
+  // After any user interaction, never auto-center again
+  let userInteracted = false;
+  const markInteracted = () => { userInteracted = true; };
+  track.addEventListener('touchstart', markInteracted, { passive: true });
+  track.addEventListener('pointerdown', markInteracted);
+  track.addEventListener('wheel', markInteracted, { passive: true });
+  track.addEventListener('scroll', markInteracted, { passive: true });
+
+  // iOS fires resize during vertical scroll as the URL bar hides/shows.
+  // Only help before any interaction; otherwise do nothing.
+  function handleResize() {
+    if (userInteracted) return;
+    centerToNearest();
+  }
+
+  window.addEventListener('orientationchange', () => setTimeout(handleResize, 350));
+  window.addEventListener('resize', handleResize);
 });
+
+
 
 </script>
 
@@ -840,6 +894,7 @@
 
 </body>
 </html>
+
 
 
 
