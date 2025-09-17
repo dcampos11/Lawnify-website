@@ -1316,8 +1316,8 @@ width: clamp(260px, 72vw, 560px);
   display: block;
   border-radius: 0;
   filter:
-    drop-shadow(0px 6px 12px rgba(0,0,0,0.30))
-    drop-shadow(0px 4px 8px rgba(0,0,0,0.20));
+    drop-shadow(0px 3px 6px rgba(0,0,0,0.30))
+    drop-shadow(0px 2px 4px rgba(0,0,0,0.20));
   transform: translateY(12px);
   opacity: 0;
   transition: opacity 0.8s ease-out, transform 0.6s ease-out;
