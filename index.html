@@ -871,8 +871,14 @@
 
 
 document.addEventListener('DOMContentLoaded', () => {
+ 
   const track = document.querySelector('.phone-track');
   if (!track) return;
+
+ // Skip all phone-track centering logic on desktop
+const desktopMQ = window.matchMedia('(min-width: 1024px)');
+if (desktopMQ.matches || (track.scrollWidth <= track.clientWidth)) return;
+
 
   const slides = Array.from(track.children);
   let userInteracted = false;
@@ -969,6 +975,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
 
 
 
