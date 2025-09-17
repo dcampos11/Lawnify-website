@@ -867,6 +867,7 @@
 
 
 
+
 document.addEventListener('DOMContentLoaded', () => {
   const track = document.querySelector('.phone-track');
   if (!track) return;
@@ -875,24 +876,35 @@ document.addEventListener('DOMContentLoaded', () => {
   let userInteracted = false;
   let idleTimer = null;
 
-  // Compute the scrollLeft needed to center a given slide
+  // Get computed inline paddings so we center in the true visible area
+  function getPad() {
+    const cs = getComputedStyle(track);
+    return {
+      l: parseFloat(cs.paddingLeft)  || 0,
+      r: parseFloat(cs.paddingRight) || 0
+    };
+  }
+
+  // ScrollLeft needed to center a given slide, accounting for paddings
   function offsetFor(idx) {
     const s = slides[idx];
-    return s.offsetLeft - (track.clientWidth - s.clientWidth) / 2;
+    if (!s) return 0;
+    const { l, r } = getPad();
+    const viewport = track.clientWidth - l - r;           // visible width excluding padding
+    const slideCenter = s.offsetLeft + s.clientWidth / 2; // offsetLeft is from the track's padding edge
+    const ideal = slideCenter - l - viewport / 2;
+    return ideal;
   }
 
   function centerSlide(idx, smooth = false) {
-    if (!slides[idx]) return;
-    const left = Math.max(0, offsetFor(idx));
-    if (smooth) {
-      track.scrollTo({ left, behavior: 'smooth' });
-    } else {
-      track.scrollLeft = left;
-    }
+    const left = offsetFor(idx);
+    if (smooth) track.scrollTo({ left, behavior: 'smooth' });
+    else        track.scrollLeft = left;
   }
 
   function nearestIndex() {
-    const viewCenter = track.scrollLeft + track.clientWidth / 2;
+    const { l, r } = getPad();
+    const viewCenter = track.scrollLeft + l + (track.clientWidth - l - r) / 2;
     let best = 0, bestDist = Infinity;
     slides.forEach((s, i) => {
       const c = s.offsetLeft + s.clientWidth / 2;
@@ -905,33 +917,32 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initial: center the middle slide once
   requestAnimationFrame(() => centerSlide(1, false));
 
-  // Mark interaction so we don't recentre on resize later
+  // Mark interaction so we don't recentre on later resizes
   const markInteracted = () => { userInteracted = true; };
   track.addEventListener('touchstart', markInteracted, { passive: true });
   track.addEventListener('pointerdown', markInteracted);
   track.addEventListener('wheel', markInteracted, { passive: true });
   track.addEventListener('scroll', markInteracted, { passive: true });
 
-  // Debounce "scroll end" and nudge to the exact center of nearest slide
+  // Debounce scroll end and nudge to perfect center of the nearest slide
   const scheduleNudge = () => {
     if (idleTimer) clearTimeout(idleTimer);
     idleTimer = setTimeout(() => {
       const idx = nearestIndex();
-      // Only nudge if we're noticeably off-center to avoid jitter
       const ideal = offsetFor(idx);
-      if (Math.abs(track.scrollLeft - ideal) > 1) {
+      if (Math.abs(track.scrollLeft - ideal) > 0.5) {
         centerSlide(idx, true);
       }
-    }, 120); // idle threshold after user stops swiping
+    }, 120);
   };
 
-  // Trigger nudge on scroll idle & interaction end
+  // Snap to center after swiping stops
   track.addEventListener('scroll', scheduleNudge, { passive: true });
   track.addEventListener('touchend', scheduleNudge, { passive: true });
   track.addEventListener('pointerup', scheduleNudge);
   track.addEventListener('mouseup', scheduleNudge);
 
-  // iOS fires resize while URL bar collapses; only help before interaction
+  // iOS URL bar “resize” — only help before any interaction
   function handleResize() {
     if (userInteracted) return;
     centerSlide(nearestIndex(), false);
@@ -939,6 +950,8 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('orientationchange', () => setTimeout(handleResize, 350));
   window.addEventListener('resize', handleResize);
 });
+
+
 
 
 
@@ -954,6 +967,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
 
 
 
