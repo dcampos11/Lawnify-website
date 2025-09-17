@@ -1275,6 +1275,84 @@ width: clamp(260px, 72vw, 560px);
   }
 
 
+/* --- Phone scroller (replaces single ph-hero-img) --- */
+.phone-scroller {
+  position: relative;
+  width: 100%;
+  overflow: hidden;               /* hides peeking overflow under fades */
+  margin: 0 auto;
+}
+
+/* Horizontal scroll strip with snap */
+.phone-track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 82%;         /* size of each slide relative to viewport */
+  gap: 14px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  padding: 0 9%;                  /* creates the left/right "peek" gutters */
+  scrollbar-width: none;
+}
+.phone-track::-webkit-scrollbar { display: none; }
+
+/* Each card centers on snap */
+.phone-slide {
+  scroll-snap-align: center;
+  display: block;
+  text-decoration: none;
+}
+
+/* Phone image styling */
+.phone-slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0;
+  filter:
+    drop-shadow(0px 12px 24px rgba(0,0,0,0.30))
+    drop-shadow(0px 8px 16px rgba(0,0,0,0.20));
+  transform: translateY(12px);
+  opacity: 0;
+  transition: opacity 0.8s ease-out, transform 0.6s ease-out;
+}
+.post-hero .phone-slide img { opacity: 1; transform: translateY(0); }
+
+/* Edge fades to hint more content */
+.phone-scroller::before,
+.phone-scroller::after {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 12%;
+  pointer-events: none;
+  z-index: 1;
+}
+.phone-scroller::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0));
+}
+.phone-scroller::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(255,255,255,1), rgba(255,255,255,0));
+}
+
+/* Desktop: keep it nice; you can show a larger card without huge gutters */
+@media (min-width: 1024px) {
+  .phone-track {
+    grid-auto-columns: 56%;
+    gap: 18px;
+    padding: 0 6%;
+  }
+}
+
+/* Mobile fine-tune (you liked the size already) */
+@media (max-width: 768px) {
+  .phone-track { grid-auto-columns: 82%; padding: 0 9%; }
+}
+
+     
 
 /* --- FINAL OVERRIDES (place at end of @media) --- */
 
