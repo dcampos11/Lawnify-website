@@ -1315,9 +1315,9 @@ width: clamp(260px, 72vw, 560px);
   height: auto;
   display: block;
   border-radius: 0;
-  filter:
+/*   filter:
     drop-shadow(0px 3px 6px rgba(0,0,0,0.30))
-    drop-shadow(0px 2px 4px rgba(0,0,0,0.20));
+    drop-shadow(0px 2px 4px rgba(0,0,0,0.20)); */
   transform: translateY(12px);
   opacity: 0;
   transition: opacity 0.8s ease-out, transform 0.6s ease-out;
@@ -1345,7 +1345,7 @@ width: clamp(260px, 72vw, 560px);
 
 
      .post-hero .ph-left .btn-cta {
-  margin-top: clamp(28px, 12vw, 120px) !important;
+  margin-top: clamp(24px, 12vw, 120px) !important;
 }
 
 
@@ -1363,6 +1363,13 @@ width: clamp(260px, 72vw, 560px);
   .phone-track { grid-auto-columns: 82%; padding: 0 9%; }
 }
 
+
+
+     /* Make snaps commit to each card cleanly */
+.phone-slide { 
+  scroll-snap-align: center; 
+  scroll-snap-stop: always; 
+}
 
      
 
