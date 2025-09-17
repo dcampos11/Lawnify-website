@@ -193,7 +193,7 @@ body {
 /* New hero subtitle under the logo */
 .hero-subtitle {
   font-family: 'Poppins', sans-serif;
-  font-weight: 600;
+  font-weight: 300;
   color: #fff;
   font-size: clamp(1rem, 2.8vw, 1.25rem);
   line-height: 1.2;
