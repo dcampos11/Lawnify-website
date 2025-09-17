@@ -1353,21 +1353,6 @@ width: clamp(260px, 72vw, 560px);
 }
 
 
-     /* Unclip shadows + remove the fade masks */
-.phone-scroller { 
-  overflow: visible;          /* was hidden */
-}
-.phone-scroller::before,
-.phone-scroller::after { 
-  display: none;              /* kill the left/right gradient box look */
-}
-
-/* Keep the peeking layout & swipe, but don’t clip vertically */
-.phone-track {
-  overflow-x: auto;           /* still swipeable */
-  /* keep your existing grid-auto-columns/padding values */
-}
-
      
 
 /* --- FINAL OVERRIDES (place at end of @media) --- */
