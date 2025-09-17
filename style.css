@@ -1575,3 +1575,50 @@ width: clamp(260px, 72vw, 560px);
     margin-bottom: 0 !important;
   }
 }
+
+/* === Desktop: 3 phones in a row, How it works below, no button === */
+@media (min-width: 1024px) {
+  /* One column: phones first, How it works under */
+  .ph-grid {
+    grid-template-columns: 1fr !important;
+    gap: clamp(24px, 3vw, 40px) !important;
+  }
+
+  /* Phone scroller becomes a static row */
+  .phone-scroller {
+    overflow: visible !important;
+  }
+  .phone-track {
+    /* 3 fixed columns centered across the page */
+    display: grid !important;
+    grid-template-columns: repeat(3, clamp(260px, 24vw, 360px)) !important;
+    justify-content: center !important;
+    gap: clamp(20px, 2vw, 36px) !important;
+
+    /* kill scrolling + snapping on desktop */
+    overflow-x: visible !important;
+    scroll-snap-type: none !important;
+    padding: 0 !important;
+  }
+  .phone-slide {
+    scroll-snap-align: unset !important;
+    scroll-snap-stop: normal !important;
+  }
+
+  /* Keep images nicely sized (no giant phones) */
+  .phone-slide img {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Hide the CTA on desktop */
+  .post-hero .ph-left .btn-cta {
+    display: none !important;
+  }
+
+  /* “How it works” sits under, centered, with comfortable width */
+  .ph-right {
+    margin: clamp(10px, 2vw, 24px) auto 0 !important;
+    max-width: 900px !important;
+  }
+}
