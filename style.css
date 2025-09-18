@@ -1346,7 +1346,7 @@ width: clamp(260px, 72vw, 560px);
 .post-hero .phone-slide img { opacity: 1; transform: translateY(0); }
 
 
-.phone-scroller::before,
+/* .phone-scroller::before,
 .phone-scroller::after {
   content: "";
   position: absolute;
@@ -1362,6 +1362,39 @@ width: clamp(260px, 72vw, 560px);
 .phone-scroller::after {
   right: 0;
   background: linear-gradient(to left, rgba(255,255,255,1), rgba(255,255,255,0));
+} */
+
+     /* Softer edge fade on mobile scroller */
+.phone-scroller::before,
+.phone-scroller::after {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 7%;                      /* was 12% — narrower = less aggressive */
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Left gradient (softer, more transparent start) */
+.phone-scroller::before {
+  left: 0;
+  background: linear-gradient(
+    to right,
+    rgba(255,255,255,0.75) 0%,    /* was 1.0 opacity */
+    rgba(255,255,255,0.35) 35%,
+    rgba(255,255,255,0.00) 100%
+  );
+}
+
+/* Right gradient */
+.phone-scroller::after {
+  right: 0;
+  background: linear-gradient(
+    to left,
+    rgba(255,255,255,0.75) 0%,
+    rgba(255,255,255,0.35) 35%,
+    rgba(255,255,255,0.00) 100%
+  );
 }
 
 
