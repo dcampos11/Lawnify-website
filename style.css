@@ -1701,3 +1701,38 @@ width: clamp(260px, 72vw, 560px);
     max-width: 900px !important;
   }
 }
+
+
+
+/* 1) Fix: do NOT pad the track on mobile; use scroll-padding instead (no layout width change) */
+@media (max-width: 768px) {
+  .phone-track {
+    padding: 0 !important;                 /* kill the 0 9% that widened the content */
+    scroll-padding-inline: 9%;             /* keeps nice snap feel without adding width */
+  }
+}
+
+/* 2) Keep slide as a vertical flex container everywhere (label above image) */
+@media (max-width: 768px) {
+  .phone-slide {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* 3) Use the same full-bleed margins you use for testimonials (avoids tiny overflows) */
+@media (max-width: 768px) {
+  .phone-scroller {
+    width: 100vw;
+    margin-left:  calc((100% - 100vw) / 2) !important;
+    margin-right: calc((100% - 100vw) / 2) !important;
+
+    /* optional: respect iOS safe areas without changing layout width */
+    padding-left:  env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+}
+
+/* (Optional belt-and-suspenders if you still see a 1px page scroll on some devices) */
+html, body { overflow-x: hidden; }
