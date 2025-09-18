@@ -1302,25 +1302,15 @@ width: clamp(260px, 72vw, 560px);
 
 
 /* --- Phone scroller (replaces single ph-hero-img) --- */
-/* .phone-scroller {
+.phone-scroller {
   position: relative;
   width: 100%;
   overflow: hidden;           
   margin: 0 auto;
 }
- */
 
-     /* FULL-BLEED: the scroller spans the entire viewport width */
-.phone-scroller {
-  position: relative;
-  width: 100vw;                       /* was 100% */
-  margin-left:  calc(50% - 50vw);     /* bleed to the left edge */
-  margin-right: calc(50% - 50vw);     /* bleed to the right edge */
-  overflow: hidden;                   /* keep fades clean */
-  
-  /* Edge fade width (tweak to taste) */
-  --edge-fade: clamp(18px, 7vw, 80px);
-}
+
+
 
 .phone-track {
   display: grid;
