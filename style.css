@@ -235,6 +235,40 @@ body {
     font-size: 1.1rem;  /* tweak to taste */
     text-align: center;
   }
+
+     /* Temporary "COMING 2026" badge placed where the mobile-logo reveals */
+.coming-2026 {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #2A9D8F;
+  opacity: 1;
+  transition: opacity 0.35s ease;   /* fade on compact */
+  pointer-events: none;
+  z-index: 1003;                     /* above the logo while visible */
+}
+
+/* Once compact triggers, fade the text out so the logo animates in normally */
+.mobile-nav.compact .coming-2026 {
+  opacity: 0;
+}
+
+/* Ensure the logo is hidden pre-compact (you already have this; just reaffirming) */
+.mobile-logo {
+  width: 0;
+  opacity: 0;
+}
+.mobile-nav.compact .mobile-logo {
+  width: 60px;
+  opacity: 1;
+}
+
 }
 
 
