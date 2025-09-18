@@ -905,7 +905,7 @@ display: block;        /* avoid inline baseline quirks */
 /* The hero phone image */
 .ph-hero-img {
   width: 100%;
-width: clamp(260px, 72vw, 560px);
+width: clamp(260px, 82vw, 560px);
   height: auto;
   border-radius: 0;
   filter:
@@ -931,7 +931,7 @@ width: clamp(260px, 72vw, 560px);
 
 .phone-static .phone-slide {
   width: 100%;
-  max-width: clamp(260px, 72vw, 560px); /* matches your previous single-image sizing */
+  max-width: clamp(260px, 82vw, 560px); /* matches your previous single-image sizing */
   text-decoration: none;
 }
 
