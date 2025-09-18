@@ -48,12 +48,20 @@
 }
 
 .phone-copy h3 {
-  font-family: 'Poppins', sans-serif;
+/*   font-family: 'Poppins', sans-serif; */
+            font-family: 'Poppins', sans-serif;
   font-weight: 600;
-  font-size: clamp(1.1rem, 4.2vw, 1.5rem);
+  font-size: 2.2rem;
   line-height: 1.2;
-  color: #111;
-  margin: 0 0 4px 0;
+  letter-spacing: -0.01em;
+     margin: 0 0 4px 0; 
+/*   
+     font-weight: 600;
+  
+     font-size: clamp(1.1rem, 4.2vw, 1.5rem);
+  line-height: 1.2;
+  color: #2a9d8f;
+  margin: 0 0 4px 0; */
 }
 
 .phone-copy p {
