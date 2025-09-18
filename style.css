@@ -22,14 +22,14 @@
 
 
 /* Phone slide now stacks a label above the image */
-.phone-slide {
+/* .phone-slide {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-decoration: none; /* keep labels looking like headings */
-}
+/* } */
 
-.phone-label {
+/* .phone-label {
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
   font-size: clamp(0.95rem, 1.2vw, 1.1rem);
@@ -37,10 +37,31 @@
   letter-spacing: 0.01em;
   text-align: center;
   margin-bottom: 6px;
+} */
+ 
+
+/* Title + subtitle above the phone */
+.phone-copy {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 8px;           /* space above the image */
 }
 
+.phone-copy h3 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: clamp(1.1rem, 4.2vw, 1.5rem);
+  line-height: 1.2;
+  color: #111;
+  margin: 0 0 4px 0;
+}
 
-
+.phone-copy p {
+  font-size: clamp(0.95rem, 3.6vw, 1.05rem);
+  line-height: 1.4;
+  color: #555;
+  margin: 0;
+}
 
 
 * {
