@@ -1322,7 +1322,7 @@ width: clamp(260px, 72vw, 560px);
   --edge-fade: clamp(18px, 7vw, 80px);
 }
 
-/* .phone-track {
+.phone-track {
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 82%;        
@@ -1334,20 +1334,7 @@ width: clamp(260px, 72vw, 560px);
   scrollbar-width: none;
 }
 .phone-track::-webkit-scrollbar { display: none; }
- */
 
-     .phone-track {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: 82%;           /* keep your current card width */
-  gap: 14px;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scroll-snap-type: x mandatory;
-  padding: 0;                        /* was 0 9% — remove it */
-  scrollbar-width: none;
-}
-.phone-track::-webkit-scrollbar { display: none; }
 
 
 .phone-slide {
@@ -1372,7 +1359,7 @@ width: clamp(260px, 72vw, 560px);
 .post-hero .phone-slide img { opacity: 1; transform: translateY(0); }
 
 
-/* .phone-scroller::before,
+.phone-scroller::before,
 .phone-scroller::after {
   content: "";
   position: absolute;
@@ -1388,38 +1375,9 @@ width: clamp(260px, 72vw, 560px);
 .phone-scroller::after {
   right: 0;
   background: linear-gradient(to left, rgba(255,255,255,1), rgba(255,255,255,0));
-} */
-
-/* edge fades sit exactly on the viewport edges now */
-.phone-scroller::before,
-.phone-scroller::after {
-  content: "";
-  position: absolute;
-  top: 0; bottom: 0;
-  width: var(--edge-fade);
-  pointer-events: none;
-  z-index: 1;
 }
 
-.phone-scroller::before {
-  left: 0;
-  background: linear-gradient(
-    to right,
-    rgba(255,255,255,0.90) 0%,
-    rgba(255,255,255,0.40) 45%,
-    rgba(255,255,255,0.00) 100%
-  );
-}
 
-.phone-scroller::after {
-  right: 0;
-  background: linear-gradient(
-    to left,
-    rgba(255,255,255,0.90) 0%,
-    rgba(255,255,255,0.40) 45%,
-    rgba(255,255,255,0.00) 100%
-  );
-}
 
 
 
