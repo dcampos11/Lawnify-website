@@ -1302,15 +1302,27 @@ width: clamp(260px, 72vw, 560px);
 
 
 /* --- Phone scroller (replaces single ph-hero-img) --- */
-.phone-scroller {
+/* .phone-scroller {
   position: relative;
   width: 100%;
   overflow: hidden;           
   margin: 0 auto;
 }
+ */
 
+     /* FULL-BLEED: the scroller spans the entire viewport width */
+.phone-scroller {
+  position: relative;
+  width: 100vw;                       /* was 100% */
+  margin-left:  calc(50% - 50vw);     /* bleed to the left edge */
+  margin-right: calc(50% - 50vw);     /* bleed to the right edge */
+  overflow: hidden;                   /* keep fades clean */
+  
+  /* Edge fade width (tweak to taste) */
+  --edge-fade: clamp(18px, 7vw, 80px);
+}
 
-.phone-track {
+/* .phone-track {
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 82%;        
@@ -1319,6 +1331,20 @@ width: clamp(260px, 72vw, 560px);
   -webkit-overflow-scrolling: touch;
   scroll-snap-type: x mandatory;
   padding: 0 9%;                  
+  scrollbar-width: none;
+}
+.phone-track::-webkit-scrollbar { display: none; }
+ */
+
+     .phone-track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 82%;           /* keep your current card width */
+  gap: 14px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  padding: 0;                        /* was 0 9% — remove it */
   scrollbar-width: none;
 }
 .phone-track::-webkit-scrollbar { display: none; }
@@ -1364,38 +1390,37 @@ width: clamp(260px, 72vw, 560px);
   background: linear-gradient(to left, rgba(255,255,255,1), rgba(255,255,255,0));
 } */
 
-     /* Softer edge fade on mobile scroller */
+/* edge fades sit exactly on the viewport edges now */
 .phone-scroller::before,
 .phone-scroller::after {
   content: "";
   position: absolute;
   top: 0; bottom: 0;
-  width: 7%;                      /* was 12% — narrower = less aggressive */
+  width: var(--edge-fade);
   pointer-events: none;
   z-index: 1;
 }
 
-/* Left gradient (softer, more transparent start) */
 .phone-scroller::before {
   left: 0;
   background: linear-gradient(
     to right,
-    rgba(255,255,255,0.75) 0%,    /* was 1.0 opacity */
-    rgba(255,255,255,0.35) 35%,
+    rgba(255,255,255,0.90) 0%,
+    rgba(255,255,255,0.40) 45%,
     rgba(255,255,255,0.00) 100%
   );
 }
 
-/* Right gradient */
 .phone-scroller::after {
   right: 0;
   background: linear-gradient(
     to left,
-    rgba(255,255,255,0.75) 0%,
-    rgba(255,255,255,0.35) 35%,
+    rgba(255,255,255,0.90) 0%,
+    rgba(255,255,255,0.40) 45%,
     rgba(255,255,255,0.00) 100%
   );
 }
+
 
 
      .post-hero .ph-left .btn-cta {
