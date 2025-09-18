@@ -922,6 +922,19 @@ width: clamp(260px, 72vw, 560px);
   transform: translateY(0);
 }
 
+/* Single phone (no scroll) */
+.phone-static {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.phone-static .phone-slide {
+  width: 100%;
+  max-width: clamp(260px, 72vw, 560px); /* matches your previous single-image sizing */
+  text-decoration: none;
+}
+
 
 /* 🔁 REPLACE your existing .btn-cta / .btn-glow styles with this */
 
