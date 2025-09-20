@@ -735,45 +735,12 @@ body {
     -webkit-tap-highlight-color: transparent; outline: none; -webkit-appearance: none; appearance: none;
   }
 
-/*   .mobile-toggle {
+  .mobile-toggle {
     order: 1; background: none; border: none; outline: none;
     -webkit-appearance: none; -webkit-tap-highlight-color: transparent;
-    padding: 0; cursor: pointer; flex-shrink: 0; z-index: 1002; opacity: 1; pointer-events: auto;
+    padding: 0; cursor: pointer; flex-shrink: 0; z-index: 1002; opacity: 0; pointer-events: auto;
     margin-left: 6px; transform: translateX(var(--toggle-shift, 0)); transition: transform 220ms ease;
-  } */
-
-     .mobile-toggle {
-  order: 1;
-  background: none;
-  border: none;
-  outline: none;
-  -webkit-appearance: none;
-  -webkit-tap-highlight-color: transparent;
-  padding: 0;
-  cursor: pointer;
-  flex-shrink: 0;
-  z-index: 1002;
-
-  /* hidden by default at page load (no compact) */
-  opacity: 0;
-  pointer-events: none;
-
-  margin-left: 6px;
-
-  /* keep your shift calc pre-compact, add a tiny scale for the “come in” feel */
-  transform: translateX(var(--toggle-shift, 0)) scale(0.98);
-
-  /* animate both opacity and transform */
-  transition: opacity 220ms ease, transform 220ms ease;
-}
-
-     /* when the header compacts (after scrolling), reveal the chevron */
-.mobile-nav.compact .mobile-toggle {
-  opacity: 1;
-  pointer-events: auto;
-  /* shift goes to 0 in your JS when compact; also pop to full scale */
-  transform: translateX(0) scale(1);
-}
+  }
 
 
 
