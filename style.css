@@ -1759,3 +1759,46 @@ width: clamp(260px, 82vw, 560px);
   z-index: 1;
 }
 
+
+/* === Post-hero LEFT: photo bg with top fade + bottom bridge === */
+.post-hero .ph-left {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden; /* keeps rounded corners clean */
+  padding: clamp(16px, 3vw, 28px);
+}
+
+/* Put the background image on ::before so we can mask it without affecting content */
+.post-hero .ph-left::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('/images/IMG_5504.jpg') center / cover no-repeat;
+
+  /* TOP fade to transparency (works in modern browsers + iOS) */
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 14%, rgba(0,0,0,1) 100%);
+          mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 14%, rgba(0,0,0,1) 100%);
+
+  z-index: 0;
+}
+
+/* Add a bottom dark gradient to visually bridge into the black HIW card */
+.post-hero .ph-left::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0; height: 40%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 100%);
+  z-index: 1; /* above the image, below content */
+}
+
+/* Keep your content above both layers */
+.post-hero .ph-left > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Make the small heading/text over the photo readable */
+.post-hero .ph-left .phone-copy h3,
+.post-hero .ph-left .phone-copy p {
+  color: #fff;
+}
