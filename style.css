@@ -706,7 +706,7 @@ body {
    14) MOBILE NAV & TWEAKS (≤768px)
    ========================================================================== */
 
-/* @media (max-width: 768px) {
+@media (max-width: 768px) {
   .about-header h2 { color: #fff; }
   .founder-letter { margin: 2rem 1rem; padding: 2rem 1rem; }
 
@@ -799,127 +799,8 @@ body {
 
   .testimonials h2 { text-align: left; }
 
-  .phone-scroller { /* already defined above; keep here for grouping */ }
-/*   .mobile-nav .feather-phone-call { display: inline-block; transform: scaleX(-1); transform-origin: 50% 50%; transform-box: fill-box; }
-
-  .mobile-page-title:focus,
-  .mobile-page-title:focus-visible,
-  .mobile-page-title:active { outline: none; box-shadow: none; }
-} */
-
-
-
-/* === MOBILE NAV & TWEAKS (≤768px) === */
-@media (max-width: 768px) {
-  .about-header h2 { color: #fff; }
-  .founder-letter { margin: 2rem 1rem; padding: 2rem 1rem; }
-
-  .top-nav { display: none; }
-
-  .mobile-nav {
-    position: fixed; top: 0; left: 0; right: 0; height: 50px;
-    display: flex; align-items: center; justify-content: flex-start;
-    gap: 10px; padding: 0 20px; z-index: 1001;
-    background: rgba(255,255,255,1); backdrop-filter: blur(6px);
-    box-shadow: 0 2px 8px rgba(42,157,143,0.3);
-  }
-
-  .mobile-menu {
-    display: none; position: absolute; top: 100%; left: 0; width: 100%;
-    background: rgba(255,255,255,1); box-shadow: none; z-index: 1000;
-    flex-direction: column;
-  }
-
-  .mobile-toggle:focus, .mobile-toggle:active { background: transparent; outline: none; }
-
-  .mobile-page-title {
-    order: 0; display: inline-block;
-    font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: 500; color: #333;
-    padding-bottom: 4px; border-bottom: 2px solid #4EC2AF; user-select: none;
-    -webkit-tap-highlight-color: transparent; outline: none; -webkit-appearance: none; appearance: none;
-  }
-
-  /* Hide chevron on load; only show in compact state */
-  .mobile-toggle {
-    order: 1; background: none; border: none; outline: none;
-    -webkit-appearance: none; -webkit-tap-highlight-color: transparent;
-    padding: 0; cursor: pointer; flex-shrink: 0; z-index: 1002;
-    opacity: 0; pointer-events: none;            /* <-- hidden initially */
-    transform: translateX(0); transition: opacity 220ms ease;
-  }
-  .mobile-nav.compact .mobile-toggle {
-    opacity: 1; pointer-events: auto;            /* <-- appears when compact */
-  }
-  .toggle-icon { width: 30px; height: 30px; transition: transform 0.3s ease; color: black; }
-  .mobile-toggle.open .toggle-icon { transform: rotate(180deg); }
-
-  /* Keep title + toggle layout stable by absolutely positioning the logo in compact state */
-  .mobile-logo {
-    position: absolute; right: 20px; top: 50%; transform: translateY(-50%);
-    width: 60px; height: 60px; object-fit: contain;
-    opacity: 0; transition: opacity 300ms ease; /* no width/position animation -> no shove */
-    pointer-events: none;
-  }
-  .mobile-nav.compact .mobile-logo { opacity: 1; }
-
-  /* “COMING 2026” badge behavior stays the same */
-  .coming-2026 {
-    position: absolute; right: 20px; top: 50%;
-    transform: translateY(-50%);
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700; font-size: 14px;
-    letter-spacing: 0.14em; text-transform: uppercase;
-    color: #2A9D8F; opacity: 1;
-    transition: opacity 0.35s ease;
-    pointer-events: none; z-index: 1003;
-  }
-  .mobile-nav.compact .coming-2026 { opacity: 0; }
-
-  .mobile-nav.expanded .mobile-menu { display: flex; }
-  .mobile-nav.scrolled.expanded { box-shadow: none; }
-
-  .mobile-menu::after {
-    content: ""; position: absolute; left: 0; bottom: -8px; width: 100%; height: 8px;
-    background: linear-gradient(
-      to bottom,
-      rgba(42,157,143,0.22) 0%,
-      rgba(42,157,143,0.15) 30%,
-      rgba(42,157,143,0.05) 60%,
-      transparent 100%
-    );
-    pointer-events: none;
-  }
-
-  .mobile-menu a {
-    display: block; width: 100%; text-align: left; padding: 12px 20px; text-decoration: none;
-    font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 500; color: #333;
-    transition: background 0.2s ease;
-  }
-
-  .mobile-menu .menu-item {
-    display: flex; justify-content: space-between; align-items: center; padding: 12px 20px;
-  }
-  .mobile-menu .menu-item a {
-    margin: 0; padding: 0; font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 500; color: #333; text-decoration: none;
-    outline: none; -webkit-appearance: none; -webkit-tap-highlight-color: transparent;
-  }
-
-  .menu-extra {
-    font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 500; color: #333; text-decoration: none;
-    white-space: nowrap; display: inline-flex;
-  }
-  .menu-extra.download-btn img { height: 20px; width: auto; display: inline-flex; align-items: center; margin: 0; }
-
-  .mobile-menu .menu-item .download-btn {
-    display: inline-flex; align-items: center; width: auto; margin-left: auto; padding: 0;
-  }
-
-  .meta-group { display: flex; align-items: center; flex-direction: row-reverse; }
-  .meta-group .icon { width: 1.0em; height: 1.0em; margin: 0 0 0 0.5em; stroke: #333; flex-shrink: 0; }
-
-  .testimonials h2 { text-align: left; }
-
-  .mobile-nav .feather-phone-call { display: inline-block; transform: scaleX(-1); transform-origin: 50% 50%; transform-box: fill-box; }
+  .phone-scroller {   }
+   .mobile-nav .feather-phone-call { display: inline-block; transform: scaleX(-1); transform-origin: 50% 50%; transform-box: fill-box; }
 
   .mobile-page-title:focus,
   .mobile-page-title:focus-visible,
