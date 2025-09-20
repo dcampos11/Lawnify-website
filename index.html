@@ -367,40 +367,30 @@
 
 
 
-
    
-function computeToggleShift() {
-  // No shifting needed now that:
-  // 1) the chevron is hidden until .compact, and
-  // 2) the logo is absolutely positioned (no layout shove).
-  if (!mobileNav) return;
-  mobileNav.style.setProperty('--toggle-shift', '0px');
-}
+    function computeToggleShift() {
+      if (!isMobile()) {
+        mobileNav.style.setProperty('--toggle-shift', '0px');
+        return;
+      }
 
-   
-    // function computeToggleShift() {
-    //   if (!isMobile()) {
-    //     mobileNav.style.setProperty('--toggle-shift', '0px');
-    //     return;
-    //   }
+      const wasCompact = mobileNav.classList.contains('compact');
+      if (wasCompact) mobileNav.classList.remove('compact');
 
-    //   const wasCompact = mobileNav.classList.contains('compact');
-    //   if (wasCompact) mobileNav.classList.remove('compact');
+      const navRect    = mobileNav.getBoundingClientRect();
+      const titleRect  = titleEl.getBoundingClientRect();
+      const toggleRect = toggleEl.getBoundingClientRect();
 
-    //   const navRect    = mobileNav.getBoundingClientRect();
-    //   const titleRect  = titleEl.getBoundingClientRect();
-    //   const toggleRect = toggleEl.getBoundingClientRect();
+      const RIGHT_PADDING = 20;
+      const rightInnerEdge = navRect.right - RIGHT_PADDING;
+      const targetLeftPreCompact = rightInnerEdge - toggleRect.width;
+      const compactLeft = titleRect.right + 6;
+      const delta = Math.max(0, Math.round(targetLeftPreCompact - compactLeft));
 
-    //   const RIGHT_PADDING = 20;
-    //   const rightInnerEdge = navRect.right - RIGHT_PADDING;
-    //   const targetLeftPreCompact = rightInnerEdge - toggleRect.width;
-    //   const compactLeft = titleRect.right + 6;
-    //   const delta = Math.max(0, Math.round(targetLeftPreCompact - compactLeft));
+      mobileNav.style.setProperty('--toggle-shift', `${delta}px`);
 
-    //   mobileNav.style.setProperty('--toggle-shift', `${delta}px`);
-
-    //   if (wasCompact) mobileNav.classList.add('compact');
-    // }
+      if (wasCompact) mobileNav.classList.add('compact');
+    }
 
     function applyCompact() {
       if (!isMobile()) {
@@ -937,6 +927,7 @@ if (desktopMQ.matches || (track.scrollWidth <= track.clientWidth)) return;
 
 </body>
 </html>
+
 
 
 
