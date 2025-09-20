@@ -1703,3 +1703,59 @@ width: clamp(260px, 82vw, 560px);
   }
 }
 
+/* === How it works: black card with white type === */
+.ph-right {
+  background: #000 !important;
+  border: none !important;
+  color: #fff !important;
+}
+
+/* Headline & list colors inside the card */
+.hiw-title {
+  color: #fff !important;
+}
+
+.hiw-steps {
+  color: rgba(255,255,255,0.92) !important;
+}
+
+.hiw-steps strong {
+  color: #fff !important;
+}
+
+/* Optional: add a soft inner glow so the black card doesn’t feel flat */
+.ph-right {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18), inset 0 0 0 1px rgba(255,255,255,0.04);
+  border-radius: 12px; /* keep your rounded corners */
+}
+
+
+/* === Post-hero LEFT: add background image behind the phone & button === */
+.post-hero .ph-left {
+  position: relative;
+  background: url('/images/IMG_5504.jpg') center / cover no-repeat; /* make sure the path/filename matches exactly */
+  border-radius: 16px;
+  overflow: hidden;                     /* keep corners clean */
+  padding: clamp(16px, 3vw, 28px);      /* keep inner content comfy on all sizes */
+}
+
+/* Subtle dark overlay so foreground stays readable */
+.post-hero .ph-left::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);         /* adjust 0.35 → darker or lighter to taste */
+}
+
+/* Ensure the actual content sits above the overlay */
+.post-hero .ph-left > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Keep the image and button aligned as before */
+.post-hero .ph-left .phone-static,
+.post-hero .ph-left .btn-cta {
+  z-index: 1;
+}
+
