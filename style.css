@@ -1779,3 +1779,17 @@ mask-image: linear-gradient(
   rgba(0,0,0,1)55%,
   rgba(0,0,0,0) 100%
 );
+
+/* Hide the tiny heading + subtitle above the phone image */
+.post-hero .ph-left .phone-copy {
+  display: none !important;
+}
+/* Reduce the top spacing so the photo block sits right under the header */
+.post-hero {
+  margin: clamp(0px, 1.2vw, 12px) auto 0 !important;
+}
+/* Ensure the background image area has some height */
+.post-hero .ph-left {
+  min-height: clamp(360px, 58vh, 680px);
+  padding-top: clamp(8px, 2vw, 16px);   /* a touch tighter on top */
+}
