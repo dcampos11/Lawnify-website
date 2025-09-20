@@ -788,12 +788,47 @@ body {
   .toggle-icon { width: 30px; height: 30px; transition: transform 0.3s ease; color: black; }
   .mobile-toggle.open .toggle-icon { transform: rotate(180deg); }
 
-  .mobile-logo {
+/*   .mobile-logo {
     order: 2; display: block; width: 0; height: 60px; overflow: hidden; object-fit: contain;
     opacity: 0; transform: translateX(8px); transition: width 220ms ease, opacity 900ms ease, transform 900ms ease;
   }
   .mobile-nav.compact .mobile-logo { width: 60px; margin-left: auto; opacity: 1; transform: translateX(0); }
+ */
 
+
+
+
+     .mobile-logo {
+  order: 2;
+  display: block;
+
+  /* Reserve space so layout doesn’t “snap” left on hide */
+  width: 60px;
+  height: 60px;
+  margin-left: auto;
+
+  object-fit: contain;
+  overflow: hidden;
+
+  /* Hidden state (on load / not compact) */
+  opacity: 0;
+  transform: translateX(6px); /* slight nudge to the right when hiding */
+
+  /* Only animate what we need */
+  transition:
+    opacity 280ms ease,
+    transform 280ms ease;
+}
+
+.mobile-nav.compact .mobile-logo {
+  /* Visible state when nav is compact */
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+
+     
   .mobile-nav.expanded .mobile-menu { display: flex; }
   .mobile-nav.scrolled.expanded { box-shadow: none; }
 
