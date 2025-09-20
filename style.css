@@ -1730,34 +1730,7 @@ width: clamp(260px, 82vw, 560px);
 }
 
 
-/* === Post-hero LEFT: add background image behind the phone & button === */
-.post-hero .ph-left {
-  position: relative;
-  background: url('/images/IMG_5504.jpg') center / cover no-repeat; /* make sure the path/filename matches exactly */
-  border-radius: 16px;
-  overflow: hidden;                     /* keep corners clean */
-  padding: clamp(16px, 3vw, 28px);      /* keep inner content comfy on all sizes */
-}
 
-/* Subtle dark overlay so foreground stays readable */
-.post-hero .ph-left::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.35);         /* adjust 0.35 → darker or lighter to taste */
-}
-
-/* Ensure the actual content sits above the overlay */
-.post-hero .ph-left > * {
-  position: relative;
-  z-index: 1;
-}
-
-/* Keep the image and button aligned as before */
-.post-hero .ph-left .phone-static,
-.post-hero .ph-left .btn-cta {
-  z-index: 1;
-}
 
 
 /* === Post-hero LEFT: photo bg with top fade + bottom bridge === */
