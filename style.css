@@ -1767,7 +1767,7 @@ width: clamp(260px, 82vw, 560px);
 
 /* === Post-hero LEFT: photo bg with top fade + bottom bridge === */
 /*  */
--webkit-mask-image: linear-gradient(
+/* -webkit-mask-image: linear-gradient(
   to top,
   rgba(0,0,0,1) 0%,
   rgba(0,0,0,1) 55%,
@@ -1779,6 +1779,8 @@ mask-image: linear-gradient(
   rgba(0,0,0,1)55%,
   rgba(0,0,0,0) 100%
 );
+ */
+
 
 /* Hide the tiny heading + subtitle above the phone image */
 .post-hero .ph-left .phone-copy {
@@ -1805,3 +1807,35 @@ mask-image: linear-gradient(
 }
 /* content stays above */
 .post-hero .ph-left > * { position: relative; z-index: 1; }
+
+/* --- FIX PACK: remove phone heading/image, pull section up, show bg photo --- */
+
+/* 1) Remove the “Instant Quotes / Upfront pricing” text AND the phone image */
+.post-hero .ph-left .phone-static,
+.post-hero .ph-left .phone-copy,
+.post-hero .ph-left .ph-hero-img {
+  display: none !important;
+}
+
+/* 2) Sit the section flush under the header (go negative if you want overlap) */
+.post-hero {
+  margin: 0 auto !important;        /* was clamp(22px, 4vw, 72px) */
+  /* margin-top: -12px !important;  /* ← uncomment if you want a slight overlap */
+}
+
+/* 3) Ensure the photo area is tall enough to be visible */
+.post-hero .ph-left {
+  min-height: clamp(420px, 60vh, 720px) !important;
+  padding: clamp(12px, 2vw, 20px) !important;
+
+  /* Put the CTA at the bottom-left of the photo block */
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+/* 4) Don’t let the CTA’s old big top margin push things down */
+.post-hero .ph-left .btn-cta {
+  margin-top: 0 !important;
+}
+
