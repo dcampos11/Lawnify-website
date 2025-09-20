@@ -1839,3 +1839,15 @@ mask-image: linear-gradient(
   margin-top: 0 !important;
 }
 
+
+.post-hero .ph-left::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/images/IMG_5504.jpg") center / cover no-repeat;
+  -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+          mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+  z-index: 0;
+}
+.post-hero .ph-left > * { position: relative; z-index: 1; }
+
