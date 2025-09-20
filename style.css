@@ -11,62 +11,23 @@
     10) Footer (new site-footer + legacy .footer)
     11) Animations & Utility
     12) Responsive Tweaks
+    13) Post-Hero (phones + CTA + How it works)
    ========================================================================== */
-
-
 
 
 /* ==========================================================================
    1) RESET & BASE
    ========================================================================== */
 
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
- 
-
-/* Title + subtitle above the phone */
-.phone-copy {
-  width: 100%;
-  text-align: center;
-  margin-bottom: 8px;           /* space above the image */
-}
-
-.phone-copy h3 {
- font-family: 'Poppins', sans-serif;
-  color: #2a9d8f;
-  font-weight: 600;
-  font-size: 2.2rem;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-     margin: 0 0 4px 0; 
-
-}
-
-.phone-copy p {
-  font-size: clamp(0.95rem, 3.6vw, 1.05rem);
-  line-height: 1.4;
-  color: #555;
-  margin: 0;
-}
-
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
+html, body { height: 100%; margin: 0; padding: 0; }
 
 body {
   font-family: 'Segoe UI', sans-serif;
   background-color: #ffffff;
   color: #333;
   line-height: 1.6;
-
   background-image:
     linear-gradient(to right, rgba(0, 122, 255, 0.05) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(0, 122, 255, 0.05) 1px, transparent 1px);
@@ -76,28 +37,44 @@ body {
   z-index: 3;
 }
 
+/* Title + subtitle above the phone (used over photo) */
+.phone-copy {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 8px;
+}
+.phone-copy h3 {
+  font-family: 'Poppins', sans-serif;
+  color: #2a9d8f;
+  font-weight: 600;
+  font-size: 2.2rem;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin: 0 0 4px 0;
+}
+.phone-copy p {
+  font-size: clamp(0.95rem, 3.6vw, 1.05rem);
+  line-height: 1.4;
+  color: #555;
+  margin: 0;
+}
+
 
 /* ==========================================================================
-   2) GLOBAL STRUCTURE & COMMON SECTIONS (used across pages)
+   2) GLOBAL STRUCTURE & COMMON SECTIONS
    ========================================================================== */
 
-/* Common content wrappers used on Home (and shared) */
-.about,
-.preview,
-.footer {
+.about, .preview, .footer {
   max-width: 800px;
   margin: 40px auto;
   padding: 0 20px;
   text-align: center;
 }
 
-/* Home section title style reused elsewhere */
 .about h2 {
   font-family: 'Poppins', sans-serif;
-
-
   font-weight: 600;
-  font-size: var(--about-title-size, 2.2rem); 
+  font-size: var(--about-title-size, 2.2rem);
   line-height: 1.2;
   letter-spacing: -0.01em;
 }
@@ -115,42 +92,24 @@ body {
   justify-content: center;
   margin: 40px 0 20px;
 }
+.app-store-badge { height: 48px; }
 
-.app-store-badge {
-  height: 48px;
-}
-
-
-.footer p,
-.legal {
-  color: #888;
-  font-size: 14px;
-}
-
-.legal {
-  margin-top: 10px;
-}
+.footer p, .legal { color: #888; font-size: 14px; }
+.legal { margin-top: 10px; }
 
 
 /* ==========================================================================
    3) NAVIGATION (shared)
-   - Base stacking context for both desktop and mobile
-   - Desktop-specific styles live in the ≥769px media query
-   - Mobile-specific styles live in the ≤768px media query
    ========================================================================== */
 
-/* Base z-index so nav layers above hero masks */
-.top-nav,
-.mobile-nav {
-  z-index: 2;
-}
+/* Base stacking so nav layers above hero masks */
+.top-nav, .mobile-nav { z-index: 2; }
 
 
 /* ==========================================================================
    4) HOME PAGE – Black Header Hero, Video, Overlay, Capsule & Hero Text
    ========================================================================== */
 
-/* Full-bleed header container used on Home */
 .black-header {
   position: relative;
   padding-top: 0;
@@ -159,153 +118,89 @@ body {
   overflow: hidden;
 }
 
-/* Video layer with bottom fade mask */
 .video-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%;
   z-index: 0;
   -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
-  mask-image:         linear-gradient(to bottom, black 55%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
 }
 
-/* Background videos cycle with opacity fades */
 .background-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%;
   object-fit: cover;
   opacity: 0;
   transition: opacity 1s ease-in-out;
   pointer-events: none;
   z-index: 0;
 }
+.background-video.active { opacity: 1; z-index: 1; }
 
-.background-video.active {
-  opacity: 1;
-  z-index: 1;
-}
-
-/* Dark overlay with same fade mask as video-container */
 .overlay-content {
-  position: relative;
-  z-index: 1;
-  height: 100%;
-  width: 100%;
+  position: relative; z-index: 1;
+  height: 100%; width: 100%;
   background-color: rgba(0, 0, 0, 0.6);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
   text-align: center;
   gap: 12px;
-  padding: 0 20px; 
+  padding: 0 20px;
   -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
-  mask-image:         linear-gradient(to bottom, black 55%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
 }
 
-/* Branding and hero text */
-.logo {
-  max-width: 280px;
-  width: auto;
-  height: auto;
-  display: block;
-}
+.logo { max-width: 280px; width: auto; height: auto; display: block; }
 
-
-/* New hero subtitle under the logo */
 .hero-subtitle {
   font-family: 'Poppins', sans-serif;
   font-weight: 300;
   color: #fff;
   font-size: clamp(1rem, 2.8vw, 1.25rem);
   line-height: 1.2;
-  margin-top: 4px;      /* subtle spacing under the logo */
-  opacity: 0;           /* match your existing fade-in pattern */
+  margin-top: 4px;
+  opacity: 0;
   animation: fadeInUp 1.5s ease-out forwards;
 }
 
-/* If you want it a touch larger on mobile specifically */
 @media (max-width: 768px) {
-  .hero-subtitle {
-    font-size: 1.1rem;  /* tweak to taste */
-    text-align: center;
+  .hero-subtitle { font-size: 1.1rem; text-align: center; }
+
+  /* Temporary "COMING 2026" badge */
+  .coming-2026 {
+    position: absolute; right: 20px; top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700; font-size: 14px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: #2A9D8F; opacity: 1;
+    transition: opacity 0.35s ease;
+    pointer-events: none; z-index: 1003;
   }
+  .mobile-nav.compact .coming-2026 { opacity: 0; }
 
-     /* Temporary "COMING 2026" badge placed where the mobile-logo reveals */
-.coming-2026 {
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  font-size: 14px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #2A9D8F;
-  opacity: 1;
-  transition: opacity 0.35s ease;   /* fade on compact */
-  pointer-events: none;
-  z-index: 1003;                     /* above the logo while visible */
+  /* Mobile logo reveal */
+  .mobile-logo { width: 0; opacity: 0; }
+  .mobile-nav.compact .mobile-logo { width: 60px; opacity: 1; }
 }
-
-/* Once compact triggers, fade the text out so the logo animates in normally */
-.mobile-nav.compact .coming-2026 {
-  opacity: 0;
-}
-
-/* Ensure the logo is hidden pre-compact (you already have this; just reaffirming) */
-.mobile-logo {
-  width: 0;
-  opacity: 0;
-}
-.mobile-nav.compact .mobile-logo {
-  width: 60px;
-  opacity: 1;
-}
-
-}
-
 
 
 /* ==========================================================================
    5) ABOUT PAGE – Hero wrapper + Founder Letter
    ========================================================================== */
 
-/* Hero wrapper used on /about/ (separate from .black-header) */
-.hero {
-  position: relative;
-  padding-top: 4rem; 
-}
+.hero { position: relative; padding-top: 4rem; }
 
-/* About hero background color with vertical fade */
 .hero::before {
-  content: "";
-  position: absolute;
-  top: 0;   
-  left: 0;
-  right: 0;
-  bottom: 0;
+  content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
   background-color: #2a9d8f;
-  -webkit-mask-image: linear-gradient(to bottom, black 00%, transparent 80%);
-  mask-image:         linear-gradient(to bottom, black 00%, transparent 80%);
-  pointer-events: none;
-  z-index: 0;
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 80%);
+  mask-image: linear-gradient(to bottom, black 0%, transparent 80%);
+  pointer-events: none; z-index: 0;
 }
 
-/* Ensure about header and letter sit above the mask */
-.hero .about-header,
-.hero .founder-letter {
-  position: relative;
-  z-index: 1;
-}
+.hero .about-header, .hero .founder-letter { position: relative; z-index: 1; }
 
-/* Founder letter card */
 .founder-letter {
   background: #fff;
   max-width: 800px;
@@ -313,81 +208,43 @@ body {
   padding: 2.5rem 2rem;
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-  text-align: left;          
+  text-align: left;
 }
-
 .fl-title {
-/*   font-family: 'Satoshi', serif; */
-     font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 1.55rem;
   margin-bottom: 1.5rem;
   color: #1a1a1a;
 }
-
-.fl-body p {
-  margin-bottom: 1.25rem;
-  line-height: 1.6;
-  color: #333;
-}
-
-.fl-signature {
-  margin-top: -50px;
-  margin-left: -25px;
-}
-
-.signature-img {
-  display: block;
-  margin-top: 0.5rem;
-  height: auto;
-  max-width: 200px;
-}
+.fl-body p { margin-bottom: 1.25rem; line-height: 1.6; color: #333; }
+.fl-signature { margin-top: -50px; margin-left: -25px; }
+.signature-img { display: block; margin-top: 0.5rem; height: auto; max-width: 200px; }
 
 
 /* ==========================================================================
    6) SERVICES PAGE – Map + Mini Header Variant
    ========================================================================== */
 
-/* Service area map block */
 .service-area-map .map-container {
-  max-width: 1000px;
-  margin: 0 auto;
-  border-radius: 16px;
-  overflow: hidden;
+  max-width: 1000px; margin: 0 auto;
+  border-radius: 16px; overflow: hidden;
   box-shadow: 0 8px 24px rgba(0,0,0,0.1);
 }
+.service-area-map .map-container img { display: block; width: 100%; height: auto; }
 
-.service-area-map .map-container img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-/* Header variant for /services/ (static background image) */
 .mini-header {
-  position: relative;
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
+  position: relative; height: 100vh; width: 100vw; overflow: hidden;
   background-image: url('/images/pexels-hermaion-173552.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-size: cover; background-position: center; background-repeat: no-repeat;
 }
-
-.mini-header .video-container,
-.mini-header .background-video {
-  display: none;
-}
-
-.mini-header .overlay-content,
-.mini-header .scroll-line {
-  display: none;
-}
+.mini-header .video-container, .mini-header .background-video { display: none; }
+.mini-header .overlay-content, .mini-header .scroll-line { display: none; }
 
 
 /* ==========================================================================
-   7) FEATURE BLOCKS – cards, images, text (Home)
+   7) FEATURE BLOCKS
    ========================================================================== */
+
 .features {
   max-width: 1000px;
   margin: 60px auto;
@@ -396,69 +253,52 @@ body {
   padding: 0 20px;
   justify-content: center;
 }
-
 .feature {
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
+  display: flex; flex-direction: column;
+  align-items: center; gap: 16px;
   text-align: center;
 }
-
 .feature .text h3 {
   color: #2a9d8f;
-/*   font-family: 'Satoshi', sans-serif; */
-       font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 600;
   font-size: 2.2rem;
   line-height: 1.2;
   letter-spacing: -0.01em;
 }
-
-.feature .text p {
-  font-size: 18px;
-}
+.feature .text p { font-size: 18px; }
 
 .feature-img {
-  width: 100%;
-  max-width: 400px;
+  width: 100%; max-width: 400px;
   filter:
     drop-shadow(0px 12px 24px rgba(0, 0, 0, 0.3))
-    drop-shadow(0px 8px  16px rgba(0, 0, 0, 0.2));
+    drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.2));
   border-radius: 0;
-  opacity: 0;
-  transform: translateY(15px);
-  transition: opacity 1.5s ease-out,
-              transform 0.6s ease-out;
+  opacity: 0; transform: translateY(15px);
+  transition: opacity 1.5s ease-out, transform 0.6s ease-out;
   will-change: opacity, transform, filter;
 }
-
-.feature-img.in-view {
-  opacity: 1;
-  transform: translateY(0);
-}
+.feature-img.in-view { opacity: 1; transform: translateY(0); }
 
 
 /* ==========================================================================
    8) TESTIMONIALS – Carousel + Cards
    ========================================================================== */
+
 .testimonials {
   max-width: 1000px;
   margin: 60px auto;
   padding: 0 20px;
   text-align: center;
 }
-
 .testimonials h2 {
-/*   font-family: 'Satoshi', sans-serif; */
-       font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 600;
   font-size: 2rem;
   margin-bottom: 0rem;
 }
 
-/* Full-bleed horizontally scrollable row */
 .carousel-container {
   position: relative;
   width: 100vw;
@@ -471,1160 +311,205 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-
-.carousel-container:active {
-  cursor: grabbing;
+.carousel-container:active { cursor: grabbing; }
+.carousel-container, .carousel-container * {
+  user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;
 }
+.carousel-container::-webkit-scrollbar { display: none; }
 
-.carousel-container,
-.carousel-container * {
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-}
+.carousel-content { display: inline-flex; gap: 20px; }
 
-.carousel-container::-webkit-scrollbar {
-  display: none;
-}
-
-/* Inline-flex row of cards */
-.carousel-content {
-  display: inline-flex;
-  gap: 20px;
-}
-
-/* Testimonial card types */
-.testimonial-card.you {
-  flex: 0 0 320px;
-  max-width: 320px;
-  background: rgba(242, 176, 30, 0.05);
-  border: 2px solid #f2b01e;
-  border-radius: 8px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  text-align: left;
-}
-
-.app-store-badge-mini {
-  width: 120px;
-}
-
-.testimonial-card {
-  flex: 0 0 320px;
-  max-width: 320px;
-  background: rgba(42, 157, 143, 0.05);
-  border: 2px solid #2A9D8F;
-  border-radius: 8px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  text-align: left;
-}
-
-.testimonial-text {
-  font-style: normal;
-  margin-bottom: 12px;
-}
-
-.testimonial-name {
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-
-.testimonial-stars {
-  color: #f2b01e;
-  font-size: 1.1rem;
-  letter-spacing: 1px;
-}
-
+.testimonial-card.you,
+.testimonial-card,
 .testimonial-card.review-link {
   flex: 0 0 320px;
   max-width: 320px;
-  background: rgba(42, 157, 143, 0.05);
-  border: 2px solid #2A9D8F;
   border-radius: 8px;
   padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  display: flex; flex-direction: column; justify-content: space-between;
+  text-align: left;
+  background: rgba(42,157,143,0.05);
+  border: 2px solid #2A9D8F;
 }
+.testimonial-card.you {
+  background: rgba(242, 176, 30, 0.05);
+  border-color: #f2b01e;
+}
+.app-store-badge-mini { width: 120px; }
+
+.testimonial-text { margin-bottom: 12px; }
+.testimonial-name { font-weight: 600; margin-bottom: 8px; }
+.testimonial-stars { color: #f2b01e; font-size: 1.1rem; letter-spacing: 1px; }
 
 .review-link-button {
-  display: inline-flex;
-  align-items: center;
-  font-weight: 600;
-  color: #2A9D8F;
-  text-decoration: none;
-  font-size: 1rem;
+  display: inline-flex; align-items: center;
+  font-weight: 600; color: #2A9D8F; text-decoration: none; font-size: 1rem;
   transition: color 0.2s ease;
 }
-
-.review-link-button:hover {
-  color: #1f796f;
-}
-
+.review-link-button:hover { color: #1f796f; }
 .arrow-icon {
-  width: 20px;
-  height: 20px;
-  margin-left: 8px;
-  transition: transform 0.2s ease;
-  color: inherit;
+  width: 20px; height: 20px; margin-left: 8px;
+  transition: transform 0.2s ease; color: inherit;
 }
-
-.review-link-button:hover .arrow-icon {
-  transform: translateX(4px);
-}
+.review-link-button:hover .arrow-icon { transform: translateX(4px); }
 
 
 /* ==========================================================================
    9) FAQ
    ========================================================================== */
+
 .faq {
   max-width: 800px;
   margin: 60px auto;
   padding: 0 20px;
 }
-
 .faq h2 {
-/*   font-family: 'Satoshi', sans-serif; */
-       font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 600;
   font-size: 1.3rem;
   margin-bottom: 1.5rem;
   text-align: left;
 }
-
 .faq-subtitle {
-
-     font-family: 'Poppins', sans-serif;
-
-
+  font-family: 'Poppins', sans-serif;
   font-weight: 600;
   font-size: 2.2rem;
   line-height: 1.2;
   letter-spacing: -0.01em;
-  color: #111;           /* darker for emphasis */
+  color: #111;
 }
 
-.faq-item {
-  border-top: 1px solid #ddd;
-}
-
-.faq-item:last-of-type {
-  border-bottom: 1px solid #ddd;
-}
+.faq-item { border-top: 1px solid #ddd; }
+.faq-item:last-of-type { border-bottom: 1px solid #ddd; }
 
 .faq-question {
-  width: 100%;
-  background: none;
-  border: none;
+  width: 100%; background: none; border: none;
   padding: 1rem 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-/*      font-family: 'Satoshi', sans-serif; */
-       font-family: 'Poppins', sans-serif;
-  font-size: 1.1rem;
-  font-weight: 500;
-  cursor: pointer;
-
-       /* the important part for mobile */
-  color: #000;               /* force black like desktop */
-  -webkit-appearance: none;  /* neutralize iOS Safari button tint */
-  appearance: none;
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem; font-weight: 500; cursor: pointer;
+  color: #000;
+  -webkit-appearance: none; appearance: none;
 }
+.faq-toggle { font-size: 1.5rem; line-height: 1; transition: transform 0.2s ease; }
+.faq-answer { display: none; padding: 0 0 1rem; color: #555; line-height: 1.5; }
+.faq-answer.open { display: block; }
+.faq-toggle.open { transform: rotate(45deg); }
 
-.faq-toggle {
-  font-size: 1.5rem;
-  line-height: 1;
-  transition: transform 0.2s ease;
-}
-
-.faq-answer {
-  display: none;
-  padding: 0 0 1rem;
-  color: #555;
-  line-height: 1.5;
-}
-
-.faq-answer.open {
-  display: block;
-}
-
-.faq-toggle.open {
-  transform: rotate(45deg); 
-}
-
-
-/* Tighten space between "FAQS" and "Common Questions" */
-.faq h2 {
-  margin-bottom: 0.3rem;  /* was 1.5rem */
-}
-
-/* Give the subtitle more breathing room above the first divider */
-.faq-subtitle {
-  margin-top: 0;          /* sit closer to "FAQS" */
-  margin-bottom: 1.1rem;  /* push away from the first question line */
-}
-
-/* Optional: add a tiny buffer before the first question's border line */
-.faq .faq-item:first-of-type {
-  margin-top: 0.25rem;    /* nudges the border down a bit */
-}
+/* Tighten FAQ headings spacing */
+.faq h2 { margin-bottom: 0.3rem; }
+.faq-subtitle { margin-top: 0; margin-bottom: 1.1rem; }
+.faq .faq-item:first-of-type { margin-top: 0.25rem; }
 
 
 /* ==========================================================================
    10) FOOTER
-   - New site footer component (.site-footer)
-   - Legacy .footer (simple legal line) already covered in section 2
    ========================================================================== */
 
-/* ————————————— Site Footer ————————————— */
- .site-footer {
+.site-footer {
   background-color: #FFF;
   padding: 40px 20px;
   font-size: 0.9rem;
   color: #555;
 }
-
- .site-footer .footer-content {
-  max-width: 1000px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-         text-align: left; 
-  gap: 20px;
+.site-footer .footer-content {
+  max-width: 1000px; margin: 0 auto;
+  display: flex; flex-wrap: wrap; justify-content: space-between;
+  text-align: left; gap: 20px;
 }
 
-/* --- Centered footer layout --- */
-.footer-centered {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-}
+.footer-centered { display: flex; flex-direction: column; align-items: flex-start; text-align: left; }
 
-/* Headings */
 .footer-heading {
-/*   font-family: 'Satoshi', sans-serif; */
-       font-family: 'Poppins', sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  color: #333;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px; font-weight: 600; color: #333;
   margin: 0 0 10px 0;
 }
 
-/* Divider between sections */
 .footer-contact {
-  padding-bottom: 20px;
-  margin-bottom: 20px;
-  border-bottom: 1px solid #ddd;
-
-     width: 100%; /* make divider stretch full width */
+  padding-bottom: 20px; margin-bottom: 20px; border-bottom: 1px solid #ddd;
+  width: 100%;
 }
-
-/* Contact */
 .footer-contact p {
   margin: 0.25rem 0;
-  display: flex;
-   align-items: center; 
-  justify-content: flex-start; 
-     text-align: left;
-  gap: 6px;
+  display: flex; align-items: center; justify-content: flex-start; gap: 6px;
 }
-
 .footer-contact a {
-/*   font-family: 'Satoshi', sans-serif; */
-       font-family: 'Poppins', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  color: #333;
-  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px; font-weight: 500; color: #333; text-decoration: none;
 }
+.footer-contact a:hover { text-decoration: underline; }
+.footer-contact .icon { width: 16px; height: 16px; stroke: #333; display: block; flex-shrink: 0; }
 
-.footer-contact a:hover {
-  text-decoration: underline;
-}
+.footer-legal { margin-top: -15px; }
 
-/* Icons */
-.footer-contact .icon {
-  width: 16px;
-  height: 16px;
-  stroke: #333;
-display: block;        /* avoid inline baseline quirks */
-  flex-shrink: 0;
-}
-
-/* Legal */
-.footer-legal {
-  margin-top: -15px;
-}
-
-.legal-links {
-  list-style: none;
-  margin: 0 0 8px 0;
-  padding: 0;
-}
-
-.legal-links li {
-  margin-bottom: 8px;
-
-      display: flex;
-  align-items: center;   /* vertically center icon & text */
-  gap: 6px; 
-}
-
+.legal-links { list-style: none; margin: 0 0 8px 0; padding: 0; }
+.legal-links li { margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
 .legal-links a {
-/*   font-family: 'Satoshi', sans-serif; */
-       font-family: 'Poppins', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  color: #333;
-  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px; font-weight: 500; color: #333; text-decoration: none;
 }
+.legal-links .icon { width: 16px; height: 16px; stroke: #333; flex-shrink: 0; }
+.legal-links a:hover { opacity: 0.7; }
 
-.legal-links .icon {
-  width: 16px;
-  height: 16px;
-  stroke: #333;
-  flex-shrink: 0;
-}
-
-.legal-links a:hover {
-  opacity: 0.7;
-}
-
-/* © line */
-.footer-legal .legal {
-  color: #888;
-  font-size: 14px;
-}
-
+.footer-legal .legal { color: #888; font-size: 14px; }
 
 .footer-quicklinks {
-  padding-bottom: 20px;
-  margin-bottom: 20px;
-  border-bottom: 1px solid #ddd;
+  padding-bottom: 20px; margin-bottom: 20px; border-bottom: 1px solid #ddd;
   width: 100%;
 }
 
-/* Quick Links */
-.quick-links {
-  list-style: none;
-  margin: 0 0 8px 0;
-  padding: 0;
-}
-
-.quick-links li {
-  margin-bottom: 8px;
-}
-
+.quick-links { list-style: none; margin: 0 0 8px 0; padding: 0; }
+.quick-links li { margin-bottom: 8px; }
 .quick-links a {
   font-family: 'Poppins', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  color: #333;
-  text-decoration: none;
+  font-size: 14px; font-weight: 500; color: #333; text-decoration: none;
 }
+.quick-links a:hover { opacity: 0.7; }
 
-.quick-links a:hover {
-  opacity: 0.7;
-}
+.footer-quicklinks, .footer-contact, .footer-legal { padding-top: 0; margin-top: 0; }
+.footer-quicklinks, .footer-contact { padding-bottom: 10px; margin-bottom: 10px; border-bottom: 1px solid #ddd; }
 
-
-
-
-
-
-.footer-quicklinks,
-.footer-contact,
-.footer-legal {
-  padding-top: 0px;
-  margin-top: 0;
-}
-
-.footer-quicklinks,
-.footer-contact {
-  padding-bottom: 10px;
-  margin-bottom: 10px;
-  border-bottom: 1px solid #ddd;
-}
 
 /* ==========================================================================
    11) ANIMATIONS & UTILITY
    ========================================================================== */
 
-/* Fade/slide-up for initial hero + section entrances */
 @keyframes fadeInUp {
   0% { opacity: 0; transform: translateY(15px); }
   100% { opacity: 1; transform: translateY(0); }
 }
 
-/* Capsule outline draw animations */
-@keyframes drawCapsuleLeft {
-  to { stroke-dashoffset: 0; }
-}
-@keyframes drawCapsuleRight {
-  to { stroke-dashoffset: 0; }
-}
+@keyframes drawCapsuleLeft { to { stroke-dashoffset: 0; } }
+@keyframes drawCapsuleRight { to { stroke-dashoffset: 0; } }
 
-/* Type cursor on rotating hero phrase */
 #animated-word {
   display: inline-block;
   border-right: 2px solid white;
   padding-left: 6px;
   animation: blinkCursor 1s infinite;
 }
-
 @keyframes blinkCursor {
   0%, 49% { border-color: white; }
   50%, 100% { border-color: transparent; }
 }
 
-/* Staggered “in-view” entrances for sections */
-.about,
-.store-badge-section,
-.feature .text {
-  opacity: 0;
-  transform: translateY(15px);
-}
-
-.about.in-view,
-.store-badge-section.in-view,
-.feature .text.in-view {
+.about, .store-badge-section, .feature .text { opacity: 0; transform: translateY(15px); }
+.about.in-view, .store-badge-section.in-view, .feature .text.in-view {
   animation: fadeInUp 1.5s ease-out forwards;
 }
 
-/* Initial hero items also fade in */
-.logo,
-.sub-tagline,
-.local-tagline {
-  opacity: 0;
-  animation: fadeInUp 1.5s ease-out forwards;
-}
+.logo, .sub-tagline, .local-tagline { opacity: 0; animation: fadeInUp 1.5s ease-out forwards; }
 
 
 /* ==========================================================================
-   12) RESPONSIVE TWEAKS
-   - Grouped by breakpoint
+   12) RESPONSIVE TWEAKS (shared)
    ========================================================================== */
 
-
-/* ==========================================================================
-   7A) POST-HERO (first content after black header)
-   ========================================================================== */
-
-.post-hero {
-  /* Near edge on desktop, comfy on mobile */
-  width: min(1600px, 100% - 4vw);
-  margin: clamp(22px, 4vw, 72px) auto;
-  padding: 0 0; /* keep it tight */
-}
-
-/* Grid: 1 col on mobile; 2 cols on desktop */
-.ph-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: clamp(18px, 3vw, 40px);
-  align-items: start;
-}
-
-/* Left column */
-.ph-left {
-  display: flex;
-  flex-direction: column;
-  align-items: center;   /* centers image/button on mobile */
-  text-align: center;
-}
-
-/* The hero phone image */
-.ph-hero-img {
-  width: 100%;
-width: clamp(260px, 82vw, 560px);
-  height: auto;
-  border-radius: 0;
-  filter:
-    drop-shadow(0px 12px 24px rgba(0, 0, 0, 0.30))
-    drop-shadow(0px 8px  16px rgba(0, 0, 0, 0.20));
-  opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 0.8s ease-out, transform 0.6s ease-out;
-}
-
-/* Reveal on load */
-.post-hero .ph-hero-img {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Single phone (no scroll) */
-.phone-static {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.phone-static .phone-slide {
-  width: 100%;
-  max-width: clamp(260px, 82vw, 560px); /* matches your previous single-image sizing */
-  text-decoration: none;
-}
-
-
-/* 🔁 REPLACE your existing .btn-cta / .btn-glow styles with this */
-
-/* Base button */
-.btn-cta {
-  position: relative;
-  isolation: isolate;             /* keep glow layers contained */
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 14px 22px;
-  border-radius: 999px;
-  border: 0;
-  text-decoration: none;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  font-size: clamp(15px, 1.6vw, 18px);
-  letter-spacing: 0.2px;
-  color: #fff;
-
-  /* Use a teal/green gradient fill */
-  background: linear-gradient(135deg, #2A9D8F 0%, #4EC2AF 100%);
-
-  /* Breathing outer glow (animates below) */
-  box-shadow:
-    0 6px 22px rgba(42,157,143,0.30),
-    0 0 36px rgba(78,194,175,0.22);
-
-  transition:
-    transform 220ms ease,
-    box-shadow 220ms ease,
-    filter 220ms ease;
-}
-
-/* Ambient halo “shade” that breathes */
-.btn-glow::before {
-  content: "";
-  position: absolute;
-  inset: -8px;                    /* halo thickness */
-  border-radius: inherit;
-  background:
-    radial-gradient(120% 120% at 50% 50%,
-      rgba(78,194,175,0.38) 0%,
-      rgba(78,194,175,0.22) 40%,
-      rgba(78,194,175,0.00) 70%);
-  filter: blur(8px);
-  z-index: -1;
-  animation: haloPulse 2.8s ease-in-out infinite;
-}
-
-/* Subtle inner glow for depth */
-.btn-glow::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  box-shadow:
-    0 0 14px rgba(255,255,255,0.20) inset,
-    0 0 10px rgba(78,194,175,0.20) inset;
-  pointer-events: none;
-}
-
-/* Hover/active: a bit brighter + slight lift */
-.btn-cta:hover {
-  transform: translateY(-1px) scale(1.015);
-  box-shadow:
-    0 10px 28px rgba(42,157,143,0.38),
-    0 0 52px rgba(78,194,175,0.30);
-  filter: saturate(1.05);
-}
-
-.btn-cta:active {
-  transform: translateY(0) scale(0.995);
-}
-
-
-/* Right column (How it works) */
-.ph-right {
-  background: rgba(42,157,143,0.05);
-  border: 2px solid #2A9D8F;
-  border-radius: 12px;
-  padding: clamp(16px, 2.5vw, 24px);
-}
-
-.hiw-title {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  font-size: clamp(1.3rem, 2.6vw, 2rem);
-  line-height: 1.2;
-  color: #111;
-  margin-bottom: 10px;
-}
-
-.hiw-steps {
-  margin: 0;
-  padding-left: 1.1em;
-  color: #333;
-  line-height: 1.55;
-}
-.hiw-steps li + li { margin-top: 0.4rem; }
-
-/* Desktop layout: push wider and closer to edges */
-@media (min-width: 1024px) {
-  .ph-grid {
-    grid-template-columns: 1.15fr 0.85fr; /* image area a bit larger */
-    gap: clamp(28px, 4vw, 72px);
-  }
-  .post-hero {
-    width: min(1700px, 100% - 3vw); /* closer to left/right edges */
-  }
-  .ph-left { align-items: flex-start; text-align: left; }
-  .btn-cta { align-self: flex-start; }  /* button sits under image left-aligned */
-}
-
-/* Ensure mobile shows ONLY image + button first */
-@media (max-width: 768px) {
-  /* If you left the old sections in, hide them on mobile */
-  .about, .store-badge-section { display: none; }
-
-  /* Stack: left (image+cta) first; right (how it works) below */
-  .ph-right { margin-top: 6px; }
-}
-
-/* Respect reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .btn-glow::before { animation: none; }
-  .ph-hero-img { transition: none; }
-}
-
-/* ≤768px: MOBILE NAV + mobile layout tweaks */
-@media (max-width: 768px) {
-
-  /* About page hero heading color on mobile */
-  .about-header h2 {
-    color: #fff;
-  }
-
-  /* Founder letter spacing on mobile */
-  .founder-letter {
-    margin: 2rem 1rem;
-    padding: 2rem 1rem;
-  }
-
-  /* Hide desktop nav on mobile */
-  .top-nav {
-    display: none;
-  }
-
-  /* Mobile nav bar */
-  .mobile-nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start; /* enable auto-margins to push end items */
-    gap: 10px;
-    padding: 0 20px;
-    z-index: 1001;
-    background: rgba(255,255,255,1);
-    backdrop-filter: blur(6px);
-    box-shadow: 0 2px 8px rgba(42,157,143,0.3);
-  }
-
-  /* Mobile dropdown menu */
-  .mobile-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: rgba(255,255,255,1);
-    box-shadow: none;
-    z-index: 1000;
-    flex-direction: column;
-  }
-
-      .mobile-toggle:focus,
-  .mobile-toggle:active {
-    background: transparent;
-    outline: none;
-  }
-
-  /* Mobile page title (left, stays put) */
-  .mobile-page-title {
-    order: 0;
-    display: inline-block;
-    font-family: 'Poppins', sans-serif;
-    font-size: 18px;
-    font-weight: 500;
-    color: #333;
-    padding-bottom: 4px;
-    border-bottom: 2px solid #4EC2AF;
-    user-select: none;
-
-         /* NEW: kill iOS/Android tap highlight & focus ring */
-    -webkit-tap-highlight-color: transparent;
-    outline: none;
-    -webkit-appearance: none;
-    appearance: none;
-  }
-
-
-     /* Mobile toggle (chevron) */
-.mobile-toggle {
-  order: 1;
-  background: none;
-  border: none;
-  outline: none;
-  -webkit-appearance: none;
-  -webkit-tap-highlight-color: transparent;
-  tap-highlight-color: transparent;
-  padding: 0;
-  cursor: pointer;
-  flex-shrink: 0;
-  z-index: 1002;
-  opacity: 1;
-  pointer-events: auto;
-
-  /* Keep a small gap from the title in BOTH states */
-  margin-left: 6px;
-
-  /* Animate position with transform (not margin-left) */
-  transform: translateX(var(--toggle-shift, 0));
-  transition: transform 220ms ease;
-}
-
-.toggle-icon {
-  width: 30px;
-  height: 30px;
-  transition: transform 0.3s ease;
-  color: black;
-}
-
-.mobile-toggle.open .toggle-icon {
-  transform: rotate(180deg);
-}
-
-/* Remove the old margin-left hacks (auto ⇄ 6px) */
-.mobile-nav:not(.compact) .mobile-toggle { /* old rule removed */ }
-.mobile-nav.compact .mobile-toggle { /* old rule removed */ }
-
-/* The logo rules stay the same */
-.mobile-logo {
-  order: 2;
-  display: block;
-  width: 0;
-  height: 60px;
-  overflow: hidden;
-  object-fit: contain;
-  opacity: 0;
-  transform: translateX(8px);
-  transition:
-    width 220ms ease,
-    opacity 900ms ease,
-    transform 900ms ease;
-}
-
-.mobile-nav.compact .mobile-logo {
-  width: 60px;
-  margin-left: auto;
-  opacity: 1;
-  transform: translateX(0);
-}
-
-
-
-     
-     
-
-  /* Show menu when nav has .expanded */
-  .mobile-nav.expanded .mobile-menu {
-    display: flex;
-  }
-
-  /* Remove double shadow on scrolled + expanded */
-  .mobile-nav.scrolled.expanded {
-    box-shadow: none;
-  }
-
-  /* Soft fade under the open menu */
-  .mobile-menu::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -8px;
-    width: 100%;
-    height: 8px;
-    background: linear-gradient(
-      to bottom,
-      rgba(42,157,143,0.22) 0%,
-      rgba(42,157,143,0.15) 30%,
-      rgba(42,157,143,0.05) 60%,
-      transparent 100%
-    );
-    pointer-events: none;
-  }
-
-  /* Mobile menu links */
-  .mobile-menu a {
-    display: block;
-    width: 100%;
-    text-align: left;
-    padding: 12px 20px;
-    text-decoration: none;
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    color: #333;
-    transition: background 0.2s ease;
-  }
-
-  /* Mobile menu row layout with meta on right */
-  .mobile-menu .menu-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 20px;
-  }
-
-  .mobile-menu .menu-item a {
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    color: #333;
-    text-decoration: none;
-    outline: none;
-    -webkit-appearance: none;
-    -webkit-tap-highlight-color: transparent;
-    tap-highlight-color: transparent;
-  }
-
-  .menu-extra {
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    color: #333;
-    text-decoration: none;
-    white-space: nowrap;
-    display: inline-flex;
-  }
-
-  .menu-extra.download-btn img {
-    height: 20px;
-    width: auto;
-    display: inline-flex;
-    align-items: center;
-    margin: 0;
-  }
-
-  .mobile-menu .menu-item .download-btn {
-    display: inline-flex;
-    align-items: center;
-    width: auto;
-    margin-left: auto;
-    padding: 0;
-  }
-
-  .meta-group {
-    display: flex;
-    align-items: center;
-    flex-direction: row-reverse;
-  }
-
-  .meta-group .icon {
-    width: 1.0em;
-    height: 1.0em;
-    margin: 0 0 0 0.5em;
-    stroke: #333;
-    flex-shrink: 0;
-  }
-
-  .testimonials h2 {
-    text-align: left;
-  }
-
-
-/* --- Phone scroller (replaces single ph-hero-img) --- */
-.phone-scroller {
-  position: relative;
-  width: 100%;
-  overflow: hidden;           
-  margin: 0 auto;
-}
-
-
-
-
-.phone-track {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: 82%;        
-  gap: 14px;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scroll-snap-type: x mandatory;
-  padding: 0 9%;                  
-  scrollbar-width: none;
-}
-.phone-track::-webkit-scrollbar { display: none; }
-
-
-
-.phone-slide {
-  scroll-snap-align: center;
-  display: block;
-  text-decoration: none;
-}
-
-
-.phone-slide img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 0;
-/*   filter:
-    drop-shadow(0px 3px 6px rgba(0,0,0,0.30))
-    drop-shadow(0px 2px 4px rgba(0,0,0,0.20)); */
-  transform: translateY(12px);
-  opacity: 0;
-  transition: opacity 0.8s ease-out, transform 0.6s ease-out;
-}
-.post-hero .phone-slide img { opacity: 1; transform: translateY(0); }
-
-
-.phone-scroller::before,
-.phone-scroller::after {
-  content: "";
-  position: absolute;
-  top: 0; bottom: 0;
-  width: 12%;
-  pointer-events: none;
-  z-index: 1;
-}
-.phone-scroller::before {
-  left: 0;
-  background: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0));
-}
-.phone-scroller::after {
-  right: 0;
-  background: linear-gradient(to left, rgba(255,255,255,1), rgba(255,255,255,0));
-}
-
-
-
-
-
-     .post-hero .ph-left .btn-cta {
-  margin-top: clamp(24px, 12vw, 120px) !important;
-}
-
-
-/* Desktop: keep it nice; you can show a larger card without huge gutters */
-@media (min-width: 1024px) {
-  .phone-track {
-    grid-auto-columns: 56%;
-    gap: 18px;
-    padding: 0 6%;
-  }
-}
-
-/* Mobile fine-tune (you liked the size already) */
-@media (max-width: 768px) {
-  .phone-track { grid-auto-columns: 82%; padding: 0 0%; }
-}
-
-
-
-     /* Make snaps commit to each card cleanly */
-.phone-slide { 
-  scroll-snap-align: center; 
-  scroll-snap-stop: always; 
-}
-
-     
-
-/* --- FINAL OVERRIDES (place at end of @media) --- */
-
-/* Pre-compact: chevron at far right */
-.mobile-nav:not(.compact) .mobile-toggle {
-  margin-left: auto !important;
-}
-
-/* Compact: chevron slides next to title */
-.mobile-nav.compact .mobile-toggle {
-  margin-left: 6px !important;  /* tiny space from title */
-}
-
-/* Logo behavior (already mostly correct) */
-.mobile-logo {
-  width: 0;                 /* reserves no space before compact */
-  opacity: 0;
-  transform: translateX(8px);
-  transition:
-    width 220ms ease,
-    opacity 900ms ease,
-    transform 900ms ease;
-}
-
-.mobile-nav.compact .mobile-logo {
-  width: 60px;              /* reveal */
-  margin-left: auto;        /* push to far right */
-  opacity: 1;
-  transform: translateX(0);
-}
-
-     
-  .features {
-    flex-direction: column;
-  }
-
-  .feature {
-    margin-bottom: 5px;
-  }
-
-
-     /* Flip ONLY the phone icon inside the mobile top nav */
-.mobile-nav .feather-phone-call {
-  display: inline-block;          /* ensures transform applies cleanly */
-  transform: scaleX(-1);
-  transform-origin: 50% 50%;
-  transform-box: fill-box;
-}
-
-      /* NEW: ensure no focus ring shows on tap/keyboard */
-  .mobile-page-title:focus,
-  .mobile-page-title:focus-visible,
-  .mobile-page-title:active {
-    outline: none;
-    box-shadow: none;
-  }
-
-}
-
-
-
-
-/* (separate media rule used originally – preserved) */
 @media only screen and (max-width: 768px) {
-  .carousel-content::after {
-    content: "";
-    flex: 0 0 4px;  
-  }
+  .carousel-content::after { content: ""; flex: 0 0 4px; }
 }
 
-/* ≥769px: DESKTOP NAV & About header sizing */
-@media (min-width: 769px) {
-  /* Desktop nav bar is fixed & transparent until scrolled */
-  .top-nav {
-    position: fixed;   
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: transparent;
-    transition: background 0.3s ease, backdrop-filter 0.3s ease;
-    z-index: 1000;
-  }
-
-  .top-nav ul {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 15px 0;
-    display: flex;
-    justify-content: center;
-    gap: 60px;
-    list-style: none;
-  }
-
-  .top-nav.scrolled {
-    background: rgba(255, 255, 255, 1.0);
-    backdrop-filter: blur(5px);
-  }
-
-  .top-nav li a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 500;
-    position: relative;
-    display: inline-block;
-    transition: color 0.3s ease;
-  }
-
-  .top-nav li a::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #2a9d8f;
-    transform: scaleX(0);
-    transform-origin: center;
-    transition: transform 0.3s ease;
-  }
-
-  .top-nav li a:hover::after {
-    transform: scaleX(1);
-  }
-
-  /* Hide mobile nav on desktop */
-  .mobile-nav {
-    display: none;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 11;
-  }
-
-  /* NOTE: original file contained ".mobile-n" (likely a typo). Kept as-is. */
-  .top-nav,
-  .mobile-n {
-    box-shadow: none;
-    transition: 
-      box-shadow 0.3s ease-out, 
-      background 0.3s ease-out, 
-      backdrop-filter 0.3s ease-out;
-  }
-
-  .top-nav.scrolled,
-  .mobile-nav.scrolled {
-    box-shadow: 0 2px 8px rgba(42, 157, 143, 0.3);
-  }
-
-  /* About page large heading layout on desktop */
-  .about-header {
-    max-width: 1600px;    
-    margin: 0 auto;    
-  }
-  
-  .about-header h2 {
-    font-size: 4rem;    
-    line-height: 1.1;   
-    color: #fff;     
-    padding-top: 1.5rem; 
-  }
-
-      .faq {
-    max-width: 1000px;   /* same as .site-footer .footer-content */
-    margin: 60px auto;   /* keep centered container so left edge lines up */
-    padding: 0;     /* same side padding as footer */
-    text-align: left;    /* ensure left-aligned */
-  }
-
-
-}
-
-/* Hover-capable devices: subtle lift on feature images */
 @media (hover: hover) and (pointer: fine) {
   .feature-img.in-view:hover {
     transform: translateY(-5px) scale(1.02);
@@ -1635,151 +520,329 @@ width: clamp(260px, 82vw, 560px);
 }
 
 
-/* === Download button spacing tweaks === */
+/* ==========================================================================
+   13) POST-HERO (phones + CTA + How it works)
+   ========================================================================== */
 
-/* Mobile (stacked): equal space above and below the button,
-   and a touch closer to the images */
-@media (max-width: 768px) {
-  .post-hero { --cta-gap: clamp(16px, 9vw, 56px); } /* was ~12vw; now a bit tighter */
-  .post-hero .ph-left .btn-cta {
-    margin-block: var(--cta-gap) !important; /* equal top & bottom spacing */
-  }
-  /* Use the button's bottom margin as the sole spacer */
-  .post-hero .ph-right { margin-top: 0 !important; }
+.post-hero {
+  width: min(1600px, 100% - 4vw);
+  margin: clamp(22px, 4vw, 72px) auto;
+  padding: 0;
 }
 
-/* Desktop (side-by-side): bring it a tad up, no extra bottom space needed */
-@media (min-width: 769px) {
-  .post-hero .ph-left .btn-cta {
-    margin-top: clamp(12px, 2.4vw, 28px) !important;
-    margin-bottom: 0 !important;
-  }
+/* Grid: 1 col on mobile; desktop overrides later */
+.ph-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(18px, 3vw, 40px);
+  align-items: start;
 }
 
-/* === Desktop: 3 phones in a row, How it works below, no button === */
-@media (min-width: 1024px) {
-  /* One column: phones first, How it works under */
-  .ph-grid {
-    grid-template-columns: 1fr !important;
-    gap: clamp(24px, 3vw, 40px) !important;
-  }
-
-  /* Phone scroller becomes a static row */
-  .phone-scroller {
-    overflow: visible !important;
-  }
-  .phone-track {
-    /* 3 fixed columns centered across the page */
-    display: grid !important;
-    grid-template-columns: repeat(3, clamp(260px, 24vw, 360px)) !important;
-    justify-content: center !important;
-    gap: clamp(20px, 2vw, 36px) !important;
-
-    /* kill scrolling + snapping on desktop */
-    overflow-x: visible !important;
-    scroll-snap-type: none !important;
-    padding: 0 !important;
-  }
-  .phone-slide {
-    scroll-snap-align: unset !important;
-    scroll-snap-stop: normal !important;
-  }
-
-  /* Keep images nicely sized (no giant phones) */
-  .phone-slide img {
-    width: 100% !important;
-    height: auto !important;
-  }
-
-  /* Hide the CTA on desktop */
-  .post-hero .ph-left .btn-cta {
-    display: none !important;
-  }
-
-  /* “How it works” sits under, centered, with comfortable width */
-  .ph-right {
-    margin: clamp(10px, 2vw, 24px) auto 0 !important;
-    max-width: 900px !important;
-  }
+/* Left column */
+.ph-left {
+  display: flex; flex-direction: column;
+  align-items: center; text-align: center;
 }
 
-/* === How it works: black card with white type === */
+/* Single (non-scroller) phone image */
+.ph-hero-img {
+  width: clamp(260px, 82vw, 560px);
+  height: auto; border-radius: 0;
+  filter:
+    drop-shadow(0px 12px 24px rgba(0, 0, 0, 0.30))
+    drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.20));
+  opacity: 0; transform: translateY(12px);
+  transition: opacity 0.8s ease-out, transform 0.6s ease-out;
+}
+.post-hero .ph-hero-img { opacity: 1; transform: translateY(0); }
+
+.phone-static { width: 100%; display: flex; justify-content: center; }
+.phone-static .phone-slide {
+  width: 100%;
+  max-width: clamp(260px, 82vw, 560px);
+  text-decoration: none;
+}
+
+/* CTA button */
+.btn-cta {
+  position: relative; isolation: isolate;
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 14px 22px; border-radius: 999px; border: 0;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif; font-weight: 600;
+  font-size: clamp(15px, 1.6vw, 18px); letter-spacing: 0.2px; color: #fff;
+  background: linear-gradient(135deg, #2A9D8F 0%, #4EC2AF 100%);
+  box-shadow: 0 6px 22px rgba(42,157,143,0.30), 0 0 36px rgba(78,194,175,0.22);
+  transition: transform 220ms ease, box-shadow 220ms ease, filter 220ms ease;
+}
+.btn-glow::before {
+  content: ""; position: absolute; inset: -8px; border-radius: inherit;
+  background: radial-gradient(120% 120% at 50% 50%,
+    rgba(78,194,175,0.38) 0%,
+    rgba(78,194,175,0.22) 40%,
+    rgba(78,194,175,0.00) 70%);
+  filter: blur(8px); z-index: -1;
+  animation: haloPulse 2.8s ease-in-out infinite;
+}
+.btn-glow::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit;
+  box-shadow:
+    0 0 14px rgba(255,255,255,0.20) inset,
+    0 0 10px rgba(78,194,175,0.20) inset;
+  pointer-events: none;
+}
+@keyframes haloPulse {
+  0%, 100% { opacity: 0.75; transform: scale(1); }
+  50%      { opacity: 1;    transform: scale(1.02); }
+}
+.btn-cta:hover {
+  transform: translateY(-1px) scale(1.015);
+  box-shadow: 0 10px 28px rgba(42,157,143,0.38), 0 0 52px rgba(78,194,175,0.30);
+  filter: saturate(1.05);
+}
+.btn-cta:active { transform: translateY(0) scale(0.995); }
+
+/* Right column (How it works) */
 .ph-right {
   background: #000 !important;
   border: none !important;
   color: #fff !important;
-}
-
-/* Headline & list colors inside the card */
-.hiw-title {
-  color: #fff !important;
-}
-
-.hiw-steps {
-  color: rgba(255,255,255,0.92) !important;
-}
-
-.hiw-steps strong {
-  color: #fff !important;
-}
-
-/* Optional: add a soft inner glow so the black card doesn’t feel flat */
-.ph-right {
+  border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.18), inset 0 0 0 1px rgba(255,255,255,0.04);
-  border-radius: 12px; /* keep your rounded corners */
+  padding: clamp(16px, 2.5vw, 24px);
 }
-
-
-
-/* === Post-hero LEFT: full-height fade (bottom opaque → top transparent) === */
-.post-hero .ph-left {
-  position: relative;
-  border-radius: 16px;
-  overflow: hidden;
-  padding: clamp(16px, 3vw, 28px);
+.hiw-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600; font-size: clamp(1.3rem, 2.6vw, 2rem);
+  line-height: 1.2; color: #fff !important; margin-bottom: 10px;
 }
+.hiw-steps { margin: 0; padding-left: 1.1em; color: rgba(255,255,255,0.92) !important; line-height: 1.55; }
+.hiw-steps li + li { margin-top: 0.4rem; }
+.hiw-steps strong { color: #fff !important; }
 
-/* Put the image on ::before and mask it bottom→top */
+/* Photo background + mask behind phone copy */
+.post-hero .ph-left { position: relative; border-radius: 16px; overflow: hidden; padding: clamp(16px, 3vw, 28px); }
 .post-hero .ph-left::before {
-  content: "";
-  position: absolute;
-  inset: 0;
+  content: ""; position: absolute; inset: 0;
   background: url("/images/IMG_5504.jpg") center / cover no-repeat;
-
-  /* Full-height fade:
-     bottom = fully visible (black/opaque),
-     top    = fully transparent. */
   -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
-          mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+  mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
   z-index: 0;
 }
-
-/* Remove any previous ::after bridge if you added one */
-.post-hero .ph-left::after { content: none; }
-
-/* Keep content on top of the masked image */
 .post-hero .ph-left > * { position: relative; z-index: 1; }
-
-/* Make over-photo text readable if needed */
 .post-hero .ph-left .phone-copy h3,
 .post-hero .ph-left .phone-copy p { color: #fff; }
 
+/* Phone scroller (mobile/tablet) */
+.phone-scroller { position: relative; width: 100%; overflow: hidden; margin: 0 auto; }
+.phone-track {
+  display: grid; grid-auto-flow: column; grid-auto-columns: 82%;
+  gap: 14px; overflow-x: auto; -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory; padding: 0 9%;
+  scrollbar-width: none;
+}
+.phone-track::-webkit-scrollbar { display: none; }
+.phone-slide { scroll-snap-align: center; scroll-snap-stop: always; display: block; text-decoration: none; }
+.phone-slide img {
+  width: 100%; height: auto; display: block; border-radius: 0;
+  transform: translateY(12px); opacity: 0;
+  transition: opacity 0.8s ease-out, transform 0.6s ease-out;
+}
+.post-hero .phone-slide img { opacity: 1; transform: translateY(0); }
 
-/* === Post-hero LEFT: photo bg with top fade + bottom bridge === */
-/*  */
-/* -webkit-mask-image: linear-gradient(
-  to top,
-  rgba(0,0,0,1) 0%,
-  rgba(0,0,0,1) 55%,
-  rgba(0,0,0,0) 100%
-);
-mask-image: linear-gradient(
-  to top,
-  rgba(0,0,0,1) 0%,
-  rgba(0,0,0,1)55%,
-  rgba(0,0,0,0) 100%
-);
- */
+.phone-scroller::before, .phone-scroller::after {
+  content: ""; position: absolute; top: 0; bottom: 0; width: 12%;
+  pointer-events: none; z-index: 1;
+}
+.phone-scroller::before {
+  left: 0; background: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0));
+}
+.phone-scroller::after {
+  right: 0; background: linear-gradient(to left, rgba(255,255,255,1), rgba(255,255,255,0));
+}
+
+/* Spacing around CTA on mobile */
+.post-hero .ph-left .btn-cta { margin-top: clamp(24px, 12vw, 120px) !important; }
+
+/* === Download button spacing tweaks === */
+@media (max-width: 768px) {
+  .post-hero { --cta-gap: clamp(16px, 9vw, 56px); }
+  .post-hero .ph-left .btn-cta { margin-block: var(--cta-gap) !important; }
+  .post-hero .ph-right { margin-top: 0 !important; }
+}
+
+/* Desktop (≥1024px): phones in a static row; HIW below; hide CTA */
+@media (min-width: 1024px) {
+  .ph-grid {
+    grid-template-columns: 1fr !important;
+    gap: clamp(24px, 3vw, 40px) !important;
+  }
+  .phone-scroller { overflow: visible !important; }
+  .phone-track {
+    display: grid !important;
+    grid-template-columns: repeat(3, clamp(260px, 24vw, 360px)) !important;
+    justify-content: center !important;
+    gap: clamp(20px, 2vw, 36px) !important;
+    overflow-x: visible !important;
+    scroll-snap-type: none !important;
+    padding: 0 !important;
+  }
+  .phone-slide { scroll-snap-align: unset !important; scroll-snap-stop: normal !important; }
+  .phone-slide img { width: 100% !important; height: auto !important; }
+  .post-hero .ph-left .btn-cta { display: none !important; }
+  .ph-right { margin: clamp(10px, 2vw, 24px) auto 0 !important; max-width: 900px !important; }
+}
+
+/* Make the mobile track width consistent */
+@media (min-width: 1024px) {
+  .phone-track { grid-auto-columns: unset; }
+}
+@media (max-width: 768px) {
+  .phone-track { grid-auto-columns: 82%; padding: 0 0%; }
+}
 
 
-/* Hide the tiny heading + subtitle above the phone image */
+/* ==========================================================================
+   14) MOBILE NAV & TWEAKS (≤768px)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .about-header h2 { color: #fff; }
+  .founder-letter { margin: 2rem 1rem; padding: 2rem 1rem; }
+
+  .top-nav { display: none; }
+
+  .mobile-nav {
+    position: fixed; top: 0; left: 0; right: 0; height: 50px;
+    display: flex; align-items: center; justify-content: flex-start;
+    gap: 10px; padding: 0 20px; z-index: 1001;
+    background: rgba(255,255,255,1); backdrop-filter: blur(6px);
+    box-shadow: 0 2px 8px rgba(42,157,143,0.3);
+  }
+
+  .mobile-menu {
+    display: none; position: absolute; top: 100%; left: 0; width: 100%;
+    background: rgba(255,255,255,1); box-shadow: none; z-index: 1000;
+    flex-direction: column;
+  }
+
+  .mobile-toggle:focus, .mobile-toggle:active { background: transparent; outline: none; }
+
+  .mobile-page-title {
+    order: 0; display: inline-block;
+    font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: 500; color: #333;
+    padding-bottom: 4px; border-bottom: 2px solid #4EC2AF; user-select: none;
+    -webkit-tap-highlight-color: transparent; outline: none; -webkit-appearance: none; appearance: none;
+  }
+
+  .mobile-toggle {
+    order: 1; background: none; border: none; outline: none;
+    -webkit-appearance: none; -webkit-tap-highlight-color: transparent;
+    padding: 0; cursor: pointer; flex-shrink: 0; z-index: 1002; opacity: 1; pointer-events: auto;
+    margin-left: 6px; transform: translateX(var(--toggle-shift, 0)); transition: transform 220ms ease;
+  }
+  .toggle-icon { width: 30px; height: 30px; transition: transform 0.3s ease; color: black; }
+  .mobile-toggle.open .toggle-icon { transform: rotate(180deg); }
+
+  .mobile-logo {
+    order: 2; display: block; width: 0; height: 60px; overflow: hidden; object-fit: contain;
+    opacity: 0; transform: translateX(8px); transition: width 220ms ease, opacity 900ms ease, transform 900ms ease;
+  }
+  .mobile-nav.compact .mobile-logo { width: 60px; margin-left: auto; opacity: 1; transform: translateX(0); }
+
+  .mobile-nav.expanded .mobile-menu { display: flex; }
+  .mobile-nav.scrolled.expanded { box-shadow: none; }
+
+  .mobile-menu::after {
+    content: ""; position: absolute; left: 0; bottom: -8px; width: 100%; height: 8px;
+    background: linear-gradient(
+      to bottom,
+      rgba(42,157,143,0.22) 0%,
+      rgba(42,157,143,0.15) 30%,
+      rgba(42,157,143,0.05) 60%,
+      transparent 100%
+    );
+    pointer-events: none;
+  }
+
+  .mobile-menu a {
+    display: block; width: 100%; text-align: left; padding: 12px 20px; text-decoration: none;
+    font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 500; color: #333;
+    transition: background 0.2s ease;
+  }
+
+  .mobile-menu .menu-item {
+    display: flex; justify-content: space-between; align-items: center; padding: 12px 20px;
+  }
+  .mobile-menu .menu-item a {
+    margin: 0; padding: 0; font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 500; color: #333; text-decoration: none;
+    outline: none; -webkit-appearance: none; -webkit-tap-highlight-color: transparent;
+  }
+
+  .menu-extra {
+    font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 500; color: #333; text-decoration: none;
+    white-space: nowrap; display: inline-flex;
+  }
+  .menu-extra.download-btn img { height: 20px; width: auto; display: inline-flex; align-items: center; margin: 0; }
+
+  .mobile-menu .menu-item .download-btn {
+    display: inline-flex; align-items: center; width: auto; margin-left: auto; padding: 0;
+  }
+
+  .meta-group { display: flex; align-items: center; flex-direction: row-reverse; }
+  .meta-group .icon { width: 1.0em; height: 1.0em; margin: 0 0 0 0.5em; stroke: #333; flex-shrink: 0; }
+
+  .testimonials h2 { text-align: left; }
+
+  .phone-scroller { /* already defined above; keep here for grouping */ }
+  .mobile-nav .feather-phone-call { display: inline-block; transform: scaleX(-1); transform-origin: 50% 50%; transform-box: fill-box; }
+
+  .mobile-page-title:focus,
+  .mobile-page-title:focus-visible,
+  .mobile-page-title:active { outline: none; box-shadow: none; }
+}
+
+
+/* ==========================================================================
+   15) DESKTOP NAV & ABOUT HEADER (≥769px)
+   ========================================================================== */
+
+@media (min-width: 769px) {
+  .top-nav {
+    position: fixed; top: 0; left: 0; width: 100%;
+    background: transparent; transition: background 0.3s ease, backdrop-filter 0.3s ease;
+    z-index: 1000;
+  }
+  .top-nav ul {
+    max-width: 900px; margin: 0 auto; padding: 15px 0;
+    display: flex; justify-content: center; gap: 60px; list-style: none;
+  }
+  .top-nav.scrolled { background: rgba(255, 255, 255, 1.0); backdrop-filter: blur(5px); }
+
+  .top-nav li a {
+    color: white; text-decoration: none; font-size: 16px; font-weight: 500;
+    position: relative; display: inline-block; transition: color 0.3s ease;
+  }
+  .top-nav li a::after {
+    content: ""; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px;
+    background-color: #2a9d8f; transform: scaleX(0); transform-origin: center; transition: transform 0.3s ease;
+  }
+  .top-nav li a:hover::after { transform: scaleX(1); }
+
+  .mobile-nav { display: none; position: absolute; top: 20px; right: 20px; z-index: 11; }
+
+  .top-nav, .mobile-n {
+    box-shadow: none; transition: box-shadow 0.3s ease-out, background 0.3s ease-out, backdrop-filter 0.3s ease-out;
+  }
+  .top-nav.scrolled, .mobile-nav.scrolled { box-shadow: 0 2px 8px rgba(42, 157, 143, 0.3); }
+
+  .about-header { max-width: 1600px; margin: 0 auto; }
+  .about-header h2 { font-size: 4rem; line-height: 1.1; color: #fff; padding-top: 1.5rem; }
+
+  .faq {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 0;
+    text-align: left;
+  }
+}
