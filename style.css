@@ -637,7 +637,7 @@ body {
 .btn-cta:active { transform: translateY(0) scale(0.995); }
 
 /* Right column (How it works) — remove any extra spacing */
-.ph-right {
+/* .ph-right {
   background: #000 !important;
   border: none !important;
   color: #fff !important;
@@ -645,7 +645,27 @@ body {
   box-shadow: 0 8px 24px rgba(0,0,0,0.18), inset 0 0 0 1px rgba(255,255,255,0.04);
   padding: clamp(16px, 2.5vw, 24px);
   margin: 0 !important; /* <-- no gap next to tiki */
+/* }  */
+
+
+.ph-right {
+  background: #000 !important;
+  border: none !important;
+  color: #fff !important;
+
+  /* no rounded corners, no card shadow */
+  border-radius: 0 !important;
+  box-shadow: none !important;
+
+  /* match other sections’ interior spacing */
+  padding: clamp(16px, 2.5vw, 24px) 20px;
+
+  /* same content width feel as Testimonials/Reviews */
+  max-width: 1000px;
+  margin: 0 auto !important; /* center it */
 }
+
+
 .hiw-title {
   font-family: 'Poppins', sans-serif;
   font-weight: 600; font-size: clamp(1.3rem, 2.6vw, 2rem);
@@ -712,7 +732,9 @@ body {
   .phone-slide { scroll-snap-align: unset !important; scroll-snap-stop: normal !important; }
   .phone-slide img { width: 100% !important; height: auto !important; }
   .post-hero .ph-left .btn-cta { display: none !important; }
-  .ph-right { margin: 0 !important; } /* override previous auto margins */
+/*   .ph-right { margin: 0 !important; } /* override previous auto margins */ 
+     .ph-right { margin: 0 auto !important; }
+
 }
 
 /* Make the mobile track width consistent */
