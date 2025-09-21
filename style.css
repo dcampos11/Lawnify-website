@@ -658,8 +658,11 @@ body {
   box-shadow: none !important;
 
   /* match other sections’ interior spacing */
-  padding: clamp(16px, 2.5vw, 24px) 20px;
+/*   padding: clamp(16px, 2.5vw, 24px) 20px; */
+.ph-right { padding: clamp(48px, 7.5vw, 72px) 20px; }
 
+
+     
   /* same content width feel as Testimonials/Reviews */
   max-width: 1000px;
   margin: 0 auto !important; /* center it */
