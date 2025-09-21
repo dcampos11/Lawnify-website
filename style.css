@@ -645,17 +645,6 @@ body {
 }
 .btn-cta:active { transform: translateY(0) scale(0.995); }
 
-/* Right column (How it works) — remove any extra spacing */
-/* .ph-right {
-  background: #000 !important;
-  border: none !important;
-  color: #fff !important;
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.18), inset 0 0 0 1px rgba(255,255,255,0.04);
-  padding: clamp(16px, 2.5vw, 24px);
-  margin: 0 !important; /* <-- no gap next to tiki */
-/* }  */
-
 
 /* Right column (How it works) — base */
 .ph-right {
