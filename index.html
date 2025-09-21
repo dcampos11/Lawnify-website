@@ -158,14 +158,90 @@
    
 
     <!-- Right: How it works (desktop shows as second column, mobile stacks below) -->
-    <div class="ph-right">
+<!--     <div class="ph-right">
       <h2 class="hiw-title">How it works</h2>
       <ol class="hiw-steps">
         <li><strong>Instant quote.</strong> Enter your address and see your price.</li>
         <li><strong>Book.</strong> Choose a time that works for you.</li>
         <li><strong>Relax.</strong> We service your lawn — you pay in-app and earn 3% back.</li>
       </ol>
+    </div> -->
+
+   <div class="ph-right hiw">
+  <div class="hiw-inner">
+
+    <h2 class="hiw-heading">How it works</h2>
+
+    <!-- STEP 1 -->
+    <p class="step-label">STEP 1</p>
+    <h3 class="step-title">Pick your plan</h3>
+
+    <div class="plan-grid">
+      <!-- Regular Plan -->
+      <article class="plan-card">
+        <h4 class="plan-title">Regular plan</h4>
+        <p class="plan-sub">Keep your lawn clean</p>
+
+        <div class="plan-price">
+          <span class="plan-price-currency">$</span>
+          <span class="plan-price-amount">—</span>
+          <span class="plan-price-unit">/month</span>
+        </div>
+
+        <ul class="plan-features">
+          <li>7 months = 7 visits</li>
+          <li>April to October once a month</li>
+          <li>grass</li>
+          <li>hedges</li>
+        </ul>
+
+        <a class="plan-cta" href="/services/">Get started</a>
+      </article>
+
+      <!-- Full Service Plan -->
+      <article class="plan-card">
+        <h4 class="plan-title">Full Service plan</h4>
+        <p class="plan-sub">Grow your lawn</p>
+
+        <div class="plan-price">
+          <span class="plan-price-currency">$</span>
+          <span class="plan-price-amount">—</span>
+          <span class="plan-price-unit">/month</span>
+        </div>
+
+        <ul class="plan-features">
+          <li>12 months = 21 services</li>
+          <li>Twice/month March - November</li>
+          <li>Once/month December - February</li>
+          <li>Grass</li>
+          <li>Hedges</li>
+          <li>Tree prunning</li>
+          <li>Flowerbed refresh</li>
+          <li>Leaf and debris pickup</li>
+        </ul>
+
+        <a class="plan-cta" href="/services/">Get started</a>
+      </article>
     </div>
+
+    <!-- STEP 2 -->
+    <p class="step-label">STEP 2</p>
+    <h3 class="step-title">Receive your same day quote by taking pictures of your lawn</h3>
+
+    <!-- Replace the src with your real photos later -->
+    <div class="photo-stack">
+      <img src="images/placeholder.jpg" alt="Lawn photo 1" />
+      <img src="images/placeholder.jpg" alt="Lawn photo 2" />
+      <img src="images/placeholder.jpg" alt="Lawn photo 3" />
+    </div>
+
+    <!-- STEP 3 -->
+    <p class="step-label">STEP 3</p>
+    <h3 class="step-title">Confirm &amp; Enjoy</h3>
+
+  </div>
+</div>
+
   </div>
 </section>
 
@@ -927,6 +1003,7 @@ if (desktopMQ.matches || (track.scrollWidth <= track.clientWidth)) return;
 
 </body>
 </html>
+
 
 
 
