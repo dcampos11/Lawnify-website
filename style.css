@@ -657,23 +657,24 @@ body {
 /* }  */
 
 
+/* Right column (How it works) — base */
 .ph-right {
   background: #000 !important;
-  border: none !important;
   color: #fff !important;
 
-  /* no rounded corners, no card shadow */
+  /* no card styling */
   border-radius: 0 !important;
   box-shadow: none !important;
 
-  /* match other sections’ interior spacing */
-  padding: clamp(16px, 2.5vw, 24px) 20px;
-     
-  /* same content width feel as Testimonials/Reviews */
-  max-width: 1000px;
-  margin: 0 auto !important; /* center it */
+  /* let the band height be controlled by the CSS var */
+  min-height: var(--hiw-min-height);
 
-      min-height: var(--hiw-min-height); /* extends the black background down */
+  /* IMPORTANT: remove width cap & auto margins that caused the offset */
+  max-width: none;
+  margin: 0;
+
+  /* we’ll pad the band in the .hiw modifier to keep things tidy */
+  padding: 0;
 }
 
 
@@ -929,21 +930,14 @@ body {
   }
 }
 
-/* === HIW v2: full-bleed band, centered content === */
+/* HIW v2: full-bleed band, centered content */
 .ph-right.hiw {
-  /* make the black section full-viewport width on desktop too */
-  width: 100vw;
-  margin-left: 50%;
-  transform: translateX(-50%);
-
-  background: #000 !important;
-  color: #fff !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-
-  /* vertical space for the band; content padding handled in .hiw-inner */
-  padding: clamp(28px, 5vw, 72px) 0;
+  width: 100%;          /* parent (.post-hero) is already full-bleed (100vw) */
+  margin: 0;            /* kill the conflicting auto margin */
+  transform: none;      /* no centering hack needed */
+  padding: clamp(28px, 5vw, 72px) 0;  /* vertical band padding only */
 }
+
 
 /* inner container keeps content centered and aligned with other sections */
 .hiw-inner {
