@@ -157,16 +157,6 @@
     </div>
    
 
-    <!-- Right: How it works (desktop shows as second column, mobile stacks below) -->
-<!--     <div class="ph-right">
-      <h2 class="hiw-title">How it works</h2>
-      <ol class="hiw-steps">
-        <li><strong>Instant quote.</strong> Enter your address and see your price.</li>
-        <li><strong>Book.</strong> Choose a time that works for you.</li>
-        <li><strong>Relax.</strong> We service your lawn — you pay in-app and earn 3% back.</li>
-      </ol>
-    </div> -->
-
    <div class="ph-right hiw">
   <div class="hiw-inner">
 
@@ -195,7 +185,6 @@
           <li>Hedges</li>
         </ul>
 
-<!--         <a class="plan-cta" href="/services/">Get started</a> -->
       </article>
 
       <!-- Full Service Plan -->
@@ -219,8 +208,7 @@
           <li>Flowerbed refresh</li>
           <li>Fall Leaf pickup</li>
         </ul>
-<!-- 
-        <a class="plan-cta" href="/services/">Get started</a> -->
+
       </article>
     </div>
 
@@ -844,60 +832,6 @@
 
 
 
-// document.addEventListener('DOMContentLoaded', () => {
-//   const track = document.querySelector('.phone-track');
-//   if (!track) return;
-
-//   const slides = Array.from(track.children);
-
-//   // Center a specific slide
-//   function centerSlide(idx = 1) {
-//     const slide = slides[idx];
-//     if (!slide) return;
-//     const offset = slide.offsetLeft - (track.clientWidth - slide.clientWidth) / 2;
-//     track.scrollLeft = offset;
-//   }
-
-//   // Center whichever slide is currently closest to center
-//   function centerToNearest() {
-//     const viewCenter = track.scrollLeft + track.clientWidth / 2;
-//     let nearestIdx = 0;
-//     let nearestDist = Infinity;
-
-//     slides.forEach((s, i) => {
-//       const slideCenter = s.offsetLeft + s.clientWidth / 2;
-//       const dist = Math.abs(slideCenter - viewCenter);
-//       if (dist < nearestDist) { nearestDist = dist; nearestIdx = i; }
-//     });
-
-//     centerSlide(nearestIdx);
-//   }
-
-//   // Initial: center the middle slide ONCE
-//   requestAnimationFrame(() => centerSlide(1));
-
-//   // After any user interaction, never auto-center again
-//   let userInteracted = false;
-//   const markInteracted = () => { userInteracted = true; };
-//   track.addEventListener('touchstart', markInteracted, { passive: true });
-//   track.addEventListener('pointerdown', markInteracted);
-//   track.addEventListener('wheel', markInteracted, { passive: true });
-//   track.addEventListener('scroll', markInteracted, { passive: true });
-
-//   // iOS fires resize during vertical scroll as the URL bar hides/shows.
-//   // Only help before any interaction; otherwise do nothing.
-//   function handleResize() {
-//     if (userInteracted) return;
-//     centerToNearest();
-//   }
-
-//   window.addEventListener('orientationchange', () => setTimeout(handleResize, 350));
-//   window.addEventListener('resize', handleResize);
-// });
-
-
-
-
 document.addEventListener('DOMContentLoaded', () => {
  
   const track = document.querySelector('.phone-track');
@@ -1003,29 +937,6 @@ if (desktopMQ.matches || (track.scrollWidth <= track.clientWidth)) return;
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
