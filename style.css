@@ -155,8 +155,7 @@ body {
   text-align: center;
   gap: 12px;
   padding: 0 20px;
-  -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
-  mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+
 }
 
 .logo { max-width: 280px; width: auto; height: auto; display: block; }
