@@ -17,7 +17,16 @@
 
 /* ==========================================================================
    1) RESET & BASE
-   ========================================================================== */
+   ===========
+=============================================================== */
+
+
+/* ==== Globals ==== */
+:root {
+  --hiw-min-height: 45vh; /* tweak me */
+}
+
+
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -663,6 +672,8 @@ body {
   /* same content width feel as Testimonials/Reviews */
   max-width: 1000px;
   margin: 0 auto !important; /* center it */
+
+      min-height: var(--hiw-min-height); /* extends the black background down */
 }
 
 
