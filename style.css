@@ -1067,7 +1067,7 @@ body {
 .photo-stack img{
   position: absolute;
   top: 50%; left: 50%;
-  width: 86%;                 /* a bit inset so rotations stay inside container */
+  width: 84%;                 /* a bit inset so rotations stay inside container */
   height: auto;
   transform-origin: center center;
   border-radius: 16px;
@@ -1078,26 +1078,31 @@ body {
   transform: translate(-50%, -50%);
 }
 
-/* Stagger & rotate without causing page-wide overflow */
+/* Fan the cards a bit more */
 .photo-stack img:nth-child(1){
-  transform: translate(-50%, -50%) rotate(-6deg) translate(-10px, 0);
+  transform: translate(-50%, -50%) rotate(-9deg) translate(-14px, -2px);
   z-index: 1;
 }
 .photo-stack img:nth-child(2){
-  transform: translate(-50%, -50%) rotate(0deg);
-  z-index: 2;
+  transform: translate(-50%, -50%) rotate(-2deg) translate(-2px, 0);
+  z-index: 3; /* keep this near the top for a nice “hero” layer */
 }
 .photo-stack img:nth-child(3){
-  transform: translate(-50%, -50%) rotate(6deg) translate(10px, 0);
+  transform: translate(-50%, -50%) rotate(6deg) translate(12px, 2px);
+  z-index: 2;
+}
+/* New 4th image */
+.photo-stack img:nth-child(4){
+  transform: translate(-50%, -50%) rotate(12deg) translate(20px, 4px);
   z-index: 1;
 }
 
 /* Tight top breathing room after the "Take pictures" title */
 .step-title + .photo-stack{ margin-top: clamp(18px, 4vw, 28px); }
 
-/* Extra guard on very small screens: nudge size so rotated corners never trigger horizontal scroll */
+/* On very small screens, nudge size down slightly to prevent horizontal scroll */
 @media (max-width: 420px){
-  .photo-stack img{ width: 90%; }
+  .photo-stack img{ width: 88%; } /* was 90% */
 }
 
 
