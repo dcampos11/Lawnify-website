@@ -1163,6 +1163,9 @@ body {
 .photo-stack img:nth-child(2){
   opacity: 0 !important; /* hide the actual image; we’ll draw a white card instead */
 }
+.photo-stack img:nth-child(3){
+  opacity: 0 !important; /* hide the actual image; we’ll draw a white card instead */
+}
 .photo-stack::before{
   content: "";
   position: absolute;
