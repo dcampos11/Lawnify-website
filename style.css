@@ -1100,3 +1100,45 @@ body {
   .photo-stack img{ width: 90%; }
 }
 
+
+/* ---------- Overlap the post-hero into the header ---------- */
+:root{
+  /* tune how much the section rises into the header and how far the phone peeks */
+  --hero-overlap: clamp(60px, 10vw, 160px);
+  --phone-peek: clamp(10px, 3vw, 36px);
+}
+
+/* Pull the section up and stack it above the header layer */
+.post-hero{
+  position: relative;
+  z-index: 5;                 /* above .black-header overlay */
+  margin-top: calc(-1 * var(--hero-overlap)) !important; /* raise into header */
+}
+
+/* Make sure the HIW band itself can sit above header */
+.ph-right.hiw{ position: relative; z-index: 5; }
+
+/* Lift the phone so it "peeks" even more, and ensure it stacks on top */
+.phone-static{ position: relative; z-index: 6; }
+.ph-hero-img{
+  position: relative;
+  z-index: 7;                 /* sits above the header/video and HIW band */
+  transform: translateY(calc(-1 * var(--phone-peek)));
+}
+
+/* Optional: soften the header bottom edge with a subtle fade */
+.black-header::after{
+  content:"";
+  position: absolute;
+  left:0; right:0; bottom:0;
+  height: clamp(60px, 12vw, 180px);
+  pointer-events:none;
+  z-index: 2;                 /* stays below .post-hero z=5 */
+  background: linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.45));
+}
+
+/* Preserve layering of the top nav over everything important */
+.top-nav, .mobile-nav{ z-index: 1000; }
+
+
+
