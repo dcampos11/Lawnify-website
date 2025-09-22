@@ -1044,27 +1044,59 @@ body {
 }
 .plan-cta:hover { transform: translateY(-1px); background: #2b2b2b; }
 
-/* === Photo stack (mobile-safe, no horizontal overflow) === */
+
+
+
+
+/* === Photo stack (no clipping, mobile-safe) === */
 .photo-stack{
   position: relative;
   width: min(520px, 100%);
   aspect-ratio: 4 / 3;
   margin: clamp(16px, 4vw, 28px) auto clamp(22px, 5vw, 36px);
-  padding: 14px;              /* keeps rotated corners from touching edges */
-  overflow: hidden;
-  border-radius: 18px;
+  /* Let corners breathe — no clipping */
+  overflow: visible;
+  /* no padding so edges aren’t constrained */
+  padding: 0;
 }
-.photo-stack img{
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;
-  border-radius: 12px;
-  border: none;               /* ⬅️ removed the white border */
-  box-shadow: 0 16px 36px rgba(0,0,0,0.45);
-}
-.photo-stack img:nth-child(1){ transform: rotate(-6deg) translate(-6px, 0); z-index: 1; }
-.photo-stack img:nth-child(2){ transform: rotate(0deg);                      z-index: 2; }
-.photo-stack img:nth-child(3){ transform: rotate(6deg)  translate(6px, 0);   z-index: 1; }
 
-/* extra breathing room specifically after the "Take pictures" title */
+/* Make sure parents don’t clip either */
+.ph-right,
+.hiw-inner { overflow: visible; }
+
+.photo-stack img{
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 86%;                 /* a bit inset so rotations stay inside container */
+  height: auto;
+  transform-origin: center center;
+  border-radius: 16px;
+  object-fit: cover;
+  /* soft depth */
+  box-shadow: 0 16px 36px rgba(0,0,0,0.45);
+  /* center each image before per-image transforms below */
+  transform: translate(-50%, -50%);
+}
+
+/* Stagger & rotate without causing page-wide overflow */
+.photo-stack img:nth-child(1){
+  transform: translate(-50%, -50%) rotate(-6deg) translate(-10px, 0);
+  z-index: 1;
+}
+.photo-stack img:nth-child(2){
+  transform: translate(-50%, -50%) rotate(0deg);
+  z-index: 2;
+}
+.photo-stack img:nth-child(3){
+  transform: translate(-50%, -50%) rotate(6deg) translate(10px, 0);
+  z-index: 1;
+}
+
+/* Tight top breathing room after the "Take pictures" title */
 .step-title + .photo-stack{ margin-top: clamp(18px, 4vw, 28px); }
+
+/* Extra guard on very small screens: nudge size so rotated corners never trigger horizontal scroll */
+@media (max-width: 420px){
+  .photo-stack img{ width: 90%; }
+}
+
