@@ -1147,13 +1147,5 @@ body {
 
 
 /* Tighten the subtitle → price spacing in plan cards */
-.plan-sub{
-  margin: 0 0 2px;          /* was -2px 0 10px */
-  line-height: 1.25;
-}
-
-.plan-price{
-  margin: 0 0 8px;          /* was 6px 0 4px; remove the top gap */
-  gap: 6px;                 /* keep horizontal spacing inside the price row */
-}
-
+.plan-sub{ margin: 0 0 0; }
+.plan-price{ margin: -2px 0 8px; }   /* tiny negative top to snuggle it in */
