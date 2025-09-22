@@ -1149,3 +1149,31 @@ body {
 /* Tighten the subtitle → price spacing in plan cards */
 .plan-sub{ margin: 0 0 0; }
 .plan-price{ margin: -20px 0 8px; }   /* tiny negative top to snuggle it in */
+
+
+
+
+/* === PATCH: TEMP — make first photo in .photo-stack a white card (delete to revert) === */
+.photo-stack img:nth-child(1){
+  opacity: 0 !important; /* hide the actual image; we’ll draw a white card instead */
+}
+
+.photo-stack::before{
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 84%;
+  aspect-ratio: 4 / 3;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 18px 38px rgba(0,0,0,0.60);
+  transform-origin: center center;
+  /* mirror your nth-child(1) transform so the "card" sits exactly where the photo was */
+  transform: translate(-50%, -50%) rotate(-9deg) translate(-14px, -2px);
+  z-index: 1; /* same stacking as the original first image */
+}
+
+/* keep size consistent with your small-screen tweak */
+@media (max-width: 420px){
+  .photo-stack::before{ width: 88%; }
+}
