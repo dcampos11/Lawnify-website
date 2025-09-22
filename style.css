@@ -1185,3 +1185,15 @@ body {
 @media (max-width: 420px){
   .photo-stack::before{ width: 88%; }
 }
+
+/* PATCH: use Feather "check" in service cards (delete to revert) */
+.plan-features li::before { content: none !important; }
+
+.plan-features .pf-check {
+  position: absolute;
+  left: 0;
+  top: 0.05em;
+  width: 18px;
+  height: 18px;
+  stroke: #2A9D8F;
+}
