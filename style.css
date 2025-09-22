@@ -1103,10 +1103,10 @@ body {
 
 /* ---------- Overlap the post-hero into the header ---------- */
 :root{
-  /* tune how much the section rises into the header and how far the phone peeks */
-  --hero-overlap: clamp(60px, 10vw, 160px);
-  --phone-peek: clamp(10px, 3vw, 36px);
+  --hero-overlap: clamp(90px, 14vw, 220px); /* was 60/10vw/160 */
+  --phone-peek:   clamp(24px, 6vw, 72px);   /* was 10/3vw/36  */
 }
+
 
 /* Pull the section up and stack it above the header layer */
 .post-hero{
