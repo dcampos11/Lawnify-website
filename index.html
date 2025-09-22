@@ -929,10 +929,28 @@ if (desktopMQ.matches || (track.scrollWidth <= track.clientWidth)) return;
   document.addEventListener('DOMContentLoaded', () => {
     feather.replace();
   });
+
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.plan-features li').forEach(li => {
+      if (!li.querySelector('.pf-check')) {
+        const i = document.createElement('i');
+        i.setAttribute('data-feather', 'check');
+        i.className = 'pf-check';
+        li.prepend(i);
+      }
+    });
+    if (window.feather && typeof feather.replace === 'function') {
+      feather.replace();
+    }
+  });
+
+ 
 </script>
 
 </body>
 </html>
+
 
 
 
