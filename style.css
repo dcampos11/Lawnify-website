@@ -1177,25 +1177,9 @@ body {
 
 
 
-.photo-stack::before{
-  content: "";
-  position: absolute;
-  top: 50%; left: 50%;
-  width: 84%;
-  aspect-ratio: 4 / 3;
-  border-radius: 16px;
-  background: #fff;
-  box-shadow: 0 18px 38px rgba(0,0,0,0.60);
-  transform-origin: center center;
-  /* mirror your nth-child(1) transform so the "card" sits exactly where the photo was */
-  transform: translate(-50%, -50%) rotate(-9deg) translate(-14px, -2px);
-  z-index: 1; /* same stacking as the original first image */
-}
 
-/* keep size consistent with your small-screen tweak */
-@media (max-width: 420px){
-  .photo-stack::before{ width: 88%; }
-}
+
+
 
 /* PATCH: use Feather "check" in service cards (delete to revert) */
 .plan-features li::before { content: none !important; }
