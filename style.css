@@ -1244,12 +1244,9 @@ body {
   /* Teal glow that fades outward (Lawnify green) */
   background:
     radial-gradient(
-      60% 60% at 20% 20%,      /* center the glow near bottom-left corner */
+      60% 60% at 0 0,      /* center the glow near bottom-left corner */
       rgba(42,157,143,0.22) 0%,
       rgba(42,157,143,0.14) 40%,
       rgba(42,157,143,0.00) 75%
     );
 }
-
-/* Tighten on smaller screens so it doesn't overpower */
-
