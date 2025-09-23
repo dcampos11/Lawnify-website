@@ -1252,13 +1252,4 @@ body {
 }
 
 /* Tighten on smaller screens so it doesn't overpower */
-@media (max-width: 768px) {
-  .plan-card.plan-premium::after {
-    left: -20px;
-    bottom: -20px;
-    width: 170px;
-    height: 170px;
-    filter: blur(18px);
-    opacity: 0.45;
-  }
-}
+
