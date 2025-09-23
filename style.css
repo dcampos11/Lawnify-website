@@ -967,8 +967,13 @@ body {
   margin: 12px 0 28px;
 }
 @media (min-width: 1024px) {
-  .plan-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr)); /* horizontal on desktop */
+  /* .plan-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  } */
+
+     
+     .plan-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)); /* now 3 side-by-side on desktop */
   }
 }
 
@@ -1149,6 +1154,11 @@ body {
 /* Tighten the subtitle → price spacing in plan cards */
 .plan-sub{ margin: 0 0 0; }
 .plan-price{ margin: -20px 0 8px; }   /* tiny negative top to snuggle it in */
+
+
+
+
+
 
 
 
