@@ -1221,30 +1221,34 @@ body {
   stroke: #2A9D8F;
 }
 
-/* Premium card: subtle glow from left-bottom edge */
+/* Premium card: subtle glow anchored to the TOP-LEFT corner */
 .plan-card.plan-premium {
-  position: relative;          /* anchor the pseudo-element */
-  isolation: isolate;          /* keeps glow behind content but above the page */
-  z-index: 0;                  /* establish stacking context */
+  position: relative;
+  isolation: isolate;   /* keep ::after behind content, above page */
+  z-index: 0;
 }
 
-/* Very soft radial glow that bleeds outside the card */
 .plan-card.plan-premium::after {
   content: "";
   position: absolute;
-  left: -28px;                 /* nudge outside the card on the left */
-  bottom: -28px;               /* nudge outside the card on the bottom */
-  width: 220px;
-  height: 220px;
-  pointer-events: none;
-  z-index: -1;                 /* behind the card content */
-  filter: blur(22px);
-  opacity: 0.55;               /* overall subtlety control */
+  top: 0;
+  left: 0;
 
-  /* Teal glow that fades outward (Lawnify green) */
+  /* make the glow live exactly at the corner and bloom outward */
+  width: 240px;
+  height: 240px;
+  transform: translate(-30%, -30%);  /* pushes it out past the corner */
+  pointer-events: none;
+  z-index: -1;
+
+  /* softness + strength */
+  filter: blur(22px);
+  opacity: 0.50;
+
+  /* center the radial at the element’s top-left corner */
   background:
     radial-gradient(
-      60% 60% at 0 0,      /* center the glow near bottom-left corner */
+      60% 60% at 0 0,                /* true top-left */
       rgba(42,157,143,0.22) 0%,
       rgba(42,157,143,0.14) 40%,
       rgba(42,157,143,0.00) 75%
