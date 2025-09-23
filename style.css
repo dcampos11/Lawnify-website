@@ -1220,3 +1220,45 @@ body {
   height: 18px;
   stroke: #2A9D8F;
 }
+
+/* Premium card: subtle glow from left-bottom edge */
+.plan-card.plan-premium {
+  position: relative;          /* anchor the pseudo-element */
+  isolation: isolate;          /* keeps glow behind content but above the page */
+  z-index: 0;                  /* establish stacking context */
+}
+
+/* Very soft radial glow that bleeds outside the card */
+.plan-card.plan-premium::after {
+  content: "";
+  position: absolute;
+  left: -28px;                 /* nudge outside the card on the left */
+  bottom: -28px;               /* nudge outside the card on the bottom */
+  width: 220px;
+  height: 220px;
+  pointer-events: none;
+  z-index: -1;                 /* behind the card content */
+  filter: blur(22px);
+  opacity: 0.55;               /* overall subtlety control */
+
+  /* Teal glow that fades outward (Lawnify green) */
+  background:
+    radial-gradient(
+      60% 60% at 20% 80%,      /* center the glow near bottom-left corner */
+      rgba(42,157,143,0.22) 0%,
+      rgba(42,157,143,0.14) 40%,
+      rgba(42,157,143,0.00) 75%
+    );
+}
+
+/* Tighten on smaller screens so it doesn't overpower */
+@media (max-width: 768px) {
+  .plan-card.plan-premium::after {
+    left: -20px;
+    bottom: -20px;
+    width: 170px;
+    height: 170px;
+    filter: blur(18px);
+    opacity: 0.45;
+  }
+}
