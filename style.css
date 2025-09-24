@@ -1212,7 +1212,7 @@ body {
   pointer-events: none;
   z-index: -1;                 /* behind the card content */
   filter: blur(22px);
-  opacity: 0.60;               /* overall subtlety control */
+  opacity: 0.80;               /* overall subtlety control */
 
   /* Teal glow that fades outward (Lawnify green) */
   background:
