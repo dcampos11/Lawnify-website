@@ -1225,6 +1225,6 @@ body {
 }
 @media (max-width: 768px) {
   .black-header {
-    height: calc(100svh + 64px); /* ← bump this number (e.g., 40–120) */
+    height: calc(100svh + 120px); /* ← bump this number (e.g., 40–120) */
   }
 }
