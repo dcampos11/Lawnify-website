@@ -1207,7 +1207,7 @@ body {
   position: absolute;
   left: -28px;                 /* nudge outside the card on the left */
   bottom: -28px;               /* nudge outside the card on the bottom */
-  width: 600px;
+  width: 420px;
   height: 420px;
   pointer-events: none;
   z-index: -1;                 /* behind the card content */
@@ -1228,5 +1228,3 @@ body {
     height: calc(100svh + 180px); /* ← bump this number (e.g., 40–120) */
   }
 }
-
-html, body { overflow-x: hidden; }
