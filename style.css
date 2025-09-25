@@ -1228,3 +1228,5 @@ body {
     height: calc(100svh + 180px); /* ← bump this number (e.g., 40–120) */
   }
 }
+
+html, body { overflow-x: hidden; }
