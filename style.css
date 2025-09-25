@@ -1223,3 +1223,8 @@ body {
       rgba(42,157,143,0.00) 75%
     );
 }
+@media (max-width: 768px) {
+  .black-header {
+    height: calc(100svh + 64px); /* ← bump this number (e.g., 40–120) */
+  }
+}
