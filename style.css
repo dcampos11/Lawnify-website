@@ -1264,5 +1264,5 @@ body {
   .hero-subtitle{ bottom: calc(var(--phone-peek) + 50px + env(safe-area-inset-bottom)); } /* tweak 8–18px */
 }
 @media (min-width: 769px){
-  .hero-subtitle{ bottom: calc(var(--phone-peek) + 100px); } /* tweak 16–32px */
+  .hero-subtitle{ bottom: calc(var(--phone-peek) + 130px); } /* tweak 16–32px */
 }
