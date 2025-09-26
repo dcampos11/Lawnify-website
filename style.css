@@ -1231,3 +1231,38 @@ body {
     height: calc(100svh + 180px); /* ← bump this number (e.g., 40–120) */
   }
 }
+
+
+
+
+
+/* --- Pin hero subtitle to bottom of header, above the phone --- */
+.black-header { position: relative; }            /* ensure a positioning context */
+
+/* put overlay above the phone (phone is z-index: 7) */
+.overlay-content { z-index: 8; transform: none; } /* stop lifting the whole overlay */
+
+/* lift only the logo a touch and (optionally) make it a bit smaller on mobile */
+.logo { transform: translateY(-32px); }          /* tweak: -24px to -48px */
+@media (max-width: 768px) {
+  .logo { max-width: 200px; transform: translateY(-36px); } /* tweak size: 180–220px, lift: -24 to -48 */
+}
+
+/* pin the subtitle to the bottom of the header */
+.hero-subtitle{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  /* Keep it just above the phone "peek" + a little breathing room (+ safe area) */
+  bottom: calc(var(--phone-peek) + 16px + env(safe-area-inset-bottom));
+  z-index: 9;  /* ensure it's above the phone if they overlap vertically */
+}
+
+/* optional: fine-tune spacing per breakpoint */
+@media (max-width: 768px){
+  .hero-subtitle{ bottom: calc(var(--phone-peek) + 12px + env(safe-area-inset-bottom)); } /* tweak 8–18px */
+}
+@media (min-width: 769px){
+  .hero-subtitle{ bottom: calc(var(--phone-peek) + 24px); } /* tweak 16–32px */
+}
