@@ -1271,8 +1271,8 @@ body {
 
 /* optional: fine-tune spacing per breakpoint */
 @media (max-width: 768px){
-  .hero-subtitle{ bottom: calc(var(--phone-peek) + 50px + env(safe-area-inset-bottom)); } /* tweak 8–18px */
+  .hero-subtitle{ bottom: calc(var(--phone-peek) + 5px + env(safe-area-inset-bottom)); } /* tweak 8–18px */
 }
 @media (min-width: 769px){
-  .hero-subtitle{ bottom: calc(var(--phone-peek) + 130px); } /* tweak 16–32px */
+  .hero-subtitle{ bottom: calc(var(--phone-peek) + 10px); } /* tweak 16–32px */
 }
