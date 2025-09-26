@@ -164,14 +164,24 @@ body {
 .logo { max-width: 220px; width: auto; height: auto; display: block; }
 
 .hero-subtitle {
-  font-family: 'Poppins', sans-serif;
+  /* font-family: 'Poppins', sans-serif;
   font-weight: 300;
   color: #fff;
-  font-size: clamp(1rem, 2.8vw, 1.25rem);
+  font-size: clamp(1rem, 2.8vw, 1.25rem); */
   line-height: 1.2;
   margin-top: 4px;
   opacity: 0;
   animation: fadeInUp 1.5s ease-out forwards;
+
+
+
+
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: clamp(1.25rem, 2.6vw, 1.8rem);
+  /* margin: 0 0 1rem 0; */
+  color: #fff;
+
 }
 
 @media (max-width: 768px) {
