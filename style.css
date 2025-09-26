@@ -1253,9 +1253,9 @@ body {
 .overlay-content { z-index: 8; transform: none; } /* stop lifting the whole overlay */
 
 /* lift only the logo a touch and (optionally) make it a bit smaller on mobile */
-.logo { transform: translateY(+40px); }          /* tweak: -24px to -48px */
+.logo { transform: translateY(80px); }          /* tweak: -24px to -48px */
 @media (max-width: 768px) {
-  .logo { max-width: 200px; transform: translateY(+40px); } /* tweak size: 180–220px, lift: -24 to -48 */
+  .logo { max-width: 200px; transform: translateY(80px); } /* tweak size: 180–220px, lift: -24 to -48 */
 }
 
 /* pin the subtitle to the bottom of the header */
