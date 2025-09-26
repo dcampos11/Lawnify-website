@@ -156,6 +156,9 @@ body {
   gap: 12px;
   padding: 0 20px;
 
+       transform: translateY(-32px); /* lift content up a bit */
+    gap: 8px;                      /* tighten spacing under the logo */
+
 }
 
 .logo { max-width: 220px; width: auto; height: auto; display: block; }
