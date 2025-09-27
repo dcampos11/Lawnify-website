@@ -1276,3 +1276,73 @@ body {
 @media (min-width: 769px){
   .hero-subtitle{ bottom: calc(var(--phone-peek) + 10px); } /* tweak 16–32px */
 }
+
+
+
+
+
+/* ===== Mobile: black chrome + white title ===== */
+@media (max-width: 768px) {
+  /* Make the page background itself black so the notch area blends in */
+  html, body {
+    background-color: #000 !important;
+    /* leave text color alone so existing sections keep their intended colors */
+  }
+
+  /* Mobile top bar/nav: solid black with white text/icons */
+  .mobile-nav {
+    background: #000 !important;
+    box-shadow: none !important; /* remove teal glow so it feels native/dark */
+  }
+  .mobile-logo { filter: none; } /* keep logo as-is; remove if you want it inverted */
+
+  /* The tapped “Home / Services / …” title in the mobile bar */
+  .mobile-page-title {
+    color: #fff !important;
+    border-bottom-color: #4EC2AF; /* keep your accent underline */
+  }
+
+  /* The chevron toggle icon */
+  .mobile-toggle .toggle-icon {
+    color: #fff !important;
+  }
+
+  /* The "LAUNCHING 2026" chip should stay visible on black */
+  .coming-2026 { color: #2A9D8F !important; }
+
+  /* Slide-down mobile menu panel and its links: dark with white text */
+  .mobile-menu {
+    background: #000 !important;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .mobile-menu .menu-item a,
+  .menu-extra,
+  .menu-extra .icon,
+  .meta-group .icon {
+    color: #fff !important;
+    stroke: #fff !important;
+  }
+
+  /* App Store badge stays crisp on dark */
+  .menu-extra.download-btn img { filter: none; }
+
+  /* If the desktop .top-nav ever appears on mobile, force it dark too */
+  .top-nav {
+    background: #000 !important;
+    backdrop-filter: none !important;
+  }
+  .top-nav li a {
+    color: #fff !important;
+  }
+  .top-nav li a::after {
+    background-color: #2A9D8F !important; /* keep your accent underline */
+  }
+}
+
+/* Optional: when the mobile bar becomes "compact" on scroll, keep it black */
+@media (max-width: 768px) {
+  .mobile-nav.compact {
+    background: #000 !important;
+    box-shadow: none !important;
+  }
+}
