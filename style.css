@@ -1255,7 +1255,7 @@ body {
 .black-header::after{
   content:"";
   position:absolute; left:0; right:0; bottom:0;
-  height: clamp(120px, 18vh, 320px); /* taller = more gradual */
+  height: clamp(120px, 50vh, 320px); /* taller = more gradual */
   pointer-events:none;
   background: linear-gradient(
     to bottom,
