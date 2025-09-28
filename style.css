@@ -1548,3 +1548,30 @@ body {
   z-index: 1;            /* only needs to beat siblings inside post-hero */
   pointer-events: none;  /* so it never blocks the nav */
 }
+
+
+/* === NAV ALWAYS ON TOP (final overrides) === */
+
+/* 1) Stop the header from trapping the fixed nav */
+.black-header {
+  position: relative;         /* keep for ::after */
+  z-index: auto !important;   /* remove any earlier z-index on the header */
+  isolation: auto !important; /* ensure no isolated stacking context */
+  /* no transform/filter/opacity on this element either */
+}
+
+/* 2) Keep the phone above header content (overlay/fade) but below nav */
+.post-hero { position: relative; z-index: 1 !important; }
+.ph-hero-img { position: relative; z-index: 1 !important; pointer-events: none; }
+
+/* 3) Navs sit at the very top of the page */
+.top-nav, .mobile-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 9999 !important;
+}
+
+/* (Optional) ensure the header fade stays under the phone */
+.black-header::after { z-index: 0 !important; }
+.overlay-content     { z-index: 0 !important; }
+
