@@ -1522,6 +1522,7 @@ body {
 /* 6) Phone image never blocks nav clicks even if it visually overlaps */
 .ph-hero-img {
   pointer-events: none;
+     z-index: 11;  
 }
 
 /* Put this near the end of your CSS so it wins the cascade */
