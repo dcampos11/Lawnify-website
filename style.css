@@ -1242,7 +1242,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  height: clamp(80px, 45vw, 220px);      /* fade height */
+  height: clamp(80px, 100vw, 220px);      /* fade height */
   pointer-events: none;
   /* transparent -> solid black */
   background: linear-gradient(to bottom,
