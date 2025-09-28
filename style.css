@@ -441,7 +441,7 @@ body {
 
 .carousel-content > img.testimonial-badge {
   flex: 0 0 320px;    /* same width as .testimonial-card */
-  max-width: 320px;
+  max-width: 100px;
   height: auto;
   display: block;
 }
