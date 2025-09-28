@@ -1220,15 +1220,39 @@ body {
 }
 
 /* Optional: soften the header bottom edge with a subtle fade */
-.black-header::after{
+/* .black-header::after{
   content:"";
   position: absolute;
   left:0; right:0; bottom:0;
   height: clamp(60px, 12vw, 180px);
   pointer-events:none;
   z-index: 2;                 /* stays below .post-hero z=5 */
-  background: linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.45));
+  /* background: linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.45));
+} */ 
+
+/* Smooth black fade at the bottom of the header */
+.black-header {
+  position: relative;
+  isolation: isolate; /* creates a clean stacking context */
 }
+
+.black-header::after{
+  content:"";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: clamp(80px, 12vw, 220px);      /* fade height */
+  pointer-events: none;
+  /* transparent -> solid black */
+  background: linear-gradient(to bottom,
+    rgba(0,0,0,0) 0%,
+    rgba(0,0,0,0.6) 45%,
+    #000 100%
+  );
+  z-index: 7; /* above .post-hero (5), below .overlay-content (8) */
+}
+
 
 
 
