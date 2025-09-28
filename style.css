@@ -1263,22 +1263,41 @@ body {
 }
 
 /* pin the subtitle to the bottom of the header */
-.hero-subtitle{
+/* .hero-subtitle{
   position: absolute;
-  /* left: 50%; */
-  /* transform: translateX(-50%); */
+
   margin: 0;
-  /* Keep it just above the phone "peek" + a little breathing room (+ safe area) */
+
   bottom: calc(var(--phone-peek) + 16px + env(safe-area-inset-bottom));
-  z-index: 9;  /* ensure it's above the phone if they overlap vertically */
+  z-index: 9; 
 }
 
-/* optional: fine-tune spacing per breakpoint */
+
 @media (max-width: 768px){
-  .hero-subtitle{ bottom: calc(var(--phone-peek) + 5px + env(safe-area-inset-bottom)); } /* tweak 8–18px */
+  .hero-subtitle{ bottom: calc(var(--phone-peek) + 5px + env(safe-area-inset-bottom)); } 
 }
 @media (min-width: 769px){
-  .hero-subtitle{ bottom: calc(var(--phone-peek) + 10px); } /* tweak 16–32px */
+  .hero-subtitle{ bottom: calc(var(--phone-peek) + 10px); } 
+} */
+/* NEW: pin both lines as a stack at the bottom of the header */
+.hero-lines{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(var(--phone-peek) + 16px + env(safe-area-inset-bottom));
+  z-index: 9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px; /* space between SMARTER… and LANDSCAPING… */
+}
+
+/* same breakpoint offsets you had before */
+@media (max-width: 768px){
+  .hero-lines{ bottom: calc(var(--phone-peek) + 5px + env(safe-area-inset-bottom)); }
+}
+@media (min-width: 769px){
+  .hero-lines{ bottom: calc(var(--phone-peek) + 10px); }
 }
 
 
