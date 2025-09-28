@@ -390,7 +390,7 @@ body {
 .testimonial-card.review-link {
   flex: 0 0 320px;
   max-width: 320px;
-  border-radius: 8px;
+  border-radius: 16px;
   padding: 20px;
   display: flex; flex-direction: column; justify-content: space-between;
   text-align: left;
