@@ -1346,3 +1346,61 @@ body {
     box-shadow: none !important;
   }
 }
+
+
+
+
+
+
+
+
+
+/* === CTA: subtle, bottom-only glow (override) === */
+.btn-cta {
+  /* Toned-down base shadows, push downward */
+  box-shadow:
+    0 10px 18px rgba(0,0,0,0.28),
+    0 14px 26px -14px rgba(78,194,175,0.30);
+}
+
+/* Replace the 360° halo with a soft oval under-glow */
+.btn-glow::before {
+  content: "";
+  position: absolute;
+  /* create a small oval "shadow" below the button */
+  left: 12%;
+  right: 12%;
+  bottom: -10px;            /* sits just under the button */
+  height: 16px;
+  border-radius: 999px;
+  z-index: -1;
+  /* subtle teal-ish glow that fades outward downward */
+  background: radial-gradient(
+    60% 120% at 50% 0%,
+    rgba(78,194,175,0.28) 0%,
+    rgba(78,194,175,0.16) 38%,
+    rgba(78,194,175,0.00) 70%
+  );
+  filter: blur(8px);
+  animation: none;          /* stop pulsing */
+}
+
+/* Soften/neutralize inner halo */
+.btn-glow::after {
+  box-shadow: none;         /* remove inner bright ring */
+  /* If you still want the faint inner polish, use:
+  box-shadow:
+    0 0 6px rgba(255,255,255,0.10) inset,
+    0 0 8px rgba(78,194,175,0.12) inset;
+  */
+}
+
+/* Gentle hover without big lift/saturation */
+.btn-cta:hover {
+  transform: translateY(-1px);
+  filter: none;
+  box-shadow:
+    0 12px 22px rgba(0,0,0,0.30),
+    0 18px 28px -16px rgba(78,194,175,0.28);
+}
+
