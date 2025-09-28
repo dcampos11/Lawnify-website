@@ -1471,3 +1471,40 @@ body {
 }
 
 
+
+
+
+/* 1) Make the whole header sit above post-hero */
+.black-header {
+  position: relative;
+  z-index: 10;          /* header > post-hero */
+  /* remove if you added this earlier; it can trap fixed children */
+  isolation: auto;      /* or just delete 'isolation: isolate' if present */
+}
+
+/* 2) Ensure the section below is lower */
+.post-hero {
+  position: relative;
+  z-index: 0;
+}
+
+/* 3) Keep the fade visible over post-hero but under header content */
+.black-header::after{
+  z-index: 7;           /* under overlay/navs (which are higher), above post-hero */
+}
+
+/* 4) Header content above the fade */
+.overlay-content { z-index: 8; position: relative; }
+
+/* 5) Navs always on top */
+.top-nav, .mobile-nav {
+  position: fixed;
+  z-index: 2000;        /* comfortably above everything */
+}
+
+/* 6) Phone image never blocks nav clicks even if it visually overlaps */
+.ph-hero-img {
+  pointer-events: none;
+}
+
+
