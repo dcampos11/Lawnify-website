@@ -1429,5 +1429,21 @@ body {
 
 
 
+/* Remove any card styling formerly applied to the image */
+.testimonial-card.graphic { display: none !important; }
+
+/* Standalone image styling inside the carousel (no card) */
+.carousel-content .testimonial-graphic {
+  display: block;
+  flex: 0 0 auto;                 /* stay its own item in the row */
+  width: clamp(160px, 28vw, 260px);
+  height: auto;
+  margin: 0;                      /* respects the container's gap */
+  border: 0;
+  background: transparent;
+  filter:
+    drop-shadow(0 6px 14px rgba(0,0,0,0.25))
+    drop-shadow(0 2px 6px rgba(0,0,0,0.18));
+}
 
 
