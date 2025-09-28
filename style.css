@@ -32,7 +32,7 @@
 
 html, body { height: 100%; margin: 0; padding: 0; }
 
-body {
+/* body {
   font-family: 'Segoe UI', sans-serif;
   background-color: #ffffff;
   color: #333;
@@ -44,7 +44,21 @@ body {
   background-repeat: repeat;
   background-position: top left;
   z-index: 3;
+} */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #000;          /* was #ffffff */
+  color: #333;                     /* keep default text color for white sections */
+  line-height: 1.6;
+
+  /* remove the page-wide grid; we’ll apply it only to specific sections */
+  background-image: none;
+  background-size: initial;
+  background-repeat: initial;
+  background-position: initial;
+  z-index: 3;
 }
+
 
 /* Title + subtitle above the phone (used over photo) */
 .phone-copy {
@@ -105,6 +119,24 @@ body {
 
 .footer p, .legal { color: #888; font-size: 14px; }
 .legal { margin-top: 10px; }
+
+
+/* Full-bleed white band with the faint grid lines */
+.section-paper {
+  position: relative;
+  width: 100vw;
+  margin-left: calc((100% - 100vw) / 2);
+  margin-right: calc((100% - 100vw) / 2);
+
+  background-color: #fff;
+  background-image:
+    linear-gradient(to right, rgba(0,122,255,0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0,122,255,0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-repeat: repeat;
+  background-position: top left;
+}
+
 
 
 /* ==========================================================================
@@ -1307,10 +1339,10 @@ body {
 /* ===== Mobile: black chrome + white title ===== */
 @media (max-width: 768px) {
   /* Make the page background itself black so the notch area blends in */
-  html, body {
-    background-color: #000 !important;
+  /* html, body {
+    background-color: #000 !important; */
     /* leave text color alone so existing sections keep their intended colors */
-  }
+  /* } */
 
   /* Mobile top bar/nav: solid black with white text/icons */
   .mobile-nav {
