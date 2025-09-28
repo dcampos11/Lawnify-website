@@ -1524,4 +1524,10 @@ body {
   pointer-events: none;
 }
 
+/* Put this near the end of your CSS so it wins the cascade */
+.mobile-page-title {
+  border-bottom: 0 !important;   /* kill the line */
+  /* optional: if you don’t want the extra spacing */
+  padding-bottom: 0 !important;
+}
 
