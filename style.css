@@ -181,7 +181,7 @@ body {
   position: relative; z-index: 1;
   height: 100%; width: 100%;
      
-  background-color: rgba(0, 0, 0, 0.0);
+  background-color: rgba(0, 0, 0, 1.0);
   display: flex; flex-direction: column;
   justify-content: center; align-items: center;
   text-align: center;
@@ -1532,3 +1532,19 @@ body {
   padding-bottom: 0 !important;
 }
 
+/* Layering order: nav (2000) > post-hero/phone (120) > header content (80) > header fade (70) > video (1) */
+
+.top-nav, .mobile-nav { position: fixed; z-index: 2000; }
+
+/* Header baseline */
+.black-header { position: relative; z-index: 60; }      /* lower than post-hero */
+.black-header::after { z-index: 70; }                   /* fade above video, below phone */
+.overlay-content { position: relative; z-index: 80; }   /* text/logo above fade */
+
+/* Post-hero + phone (now above header) */
+.post-hero { position: relative; z-index: 120; }        /* <-- key change */
+.ph-hero-img {
+  position: relative;
+  z-index: 1;            /* only needs to beat siblings inside post-hero */
+  pointer-events: none;  /* so it never blocks the nav */
+}
