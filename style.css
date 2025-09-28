@@ -1387,12 +1387,12 @@ body {
 
 /* Soften/neutralize inner halo */
 .btn-glow::after {
-  box-shadow: none;         /* remove inner bright ring */
-  /* If you still want the faint inner polish, use:
+       /* remove inner bright ring */
+ 
   box-shadow:
     0 0 6px rgba(255,255,255,0.10) inset,
     0 0 8px rgba(78,194,175,0.12) inset;
-  */
+ 
 }
 
 /* Gentle hover without big lift/saturation */
