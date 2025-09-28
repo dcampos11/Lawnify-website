@@ -1308,7 +1308,7 @@ body {
   }
 
   /* The "LAUNCHING 2026" chip should stay visible on black */
-  .coming-2026 { color: #2A9D8F !important; }
+  .coming-2026 { color: #fff !important; }
 
   /* Slide-down mobile menu panel and its links: dark with white text */
   .mobile-menu {
