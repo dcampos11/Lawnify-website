@@ -10,6 +10,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
  
   <link rel="stylesheet" href="/style.css" />
+
+ <style>
+  /* Services page: remove header/video bottom fade */
+  .black-header::after { display: none !important; }
+</style>
+
 </head>
 <body>
 
@@ -153,6 +159,46 @@
 
    
   </header>
+
+
+
+
+ <!-- SPRING BRANCH hero -->
+<section class="mini-header">
+  <div class="service-hero">
+    <video class="service-hero-video"
+           autoplay
+           muted
+           playsinline
+           loop
+           poster="/images/spring-branch-poster.jpg">
+      <!-- Replace with your real file when ready -->
+      <!-- <source src="/videos/SpringBranch720.mp4" type="video/mp4"> -->
+      <source src="/videos/SpringBranch.MOV" type="video/quicktime">
+    </video>
+
+    <div class="service-hero-title" aria-hidden="true">SPRING BRANCH</div>
+  </div>
+</section>
+
+<!-- TEXAS hero -->
+<section class="mini-header">
+  <div class="service-hero">
+    <video class="service-hero-video"
+           autoplay
+           muted
+           playsinline
+           loop
+           poster="/images/texas-poster.jpg">
+      <!-- Replace with your real file when ready -->
+      <!-- <source src="/videos/Texas720.mp4" type="video/mp4"> -->
+      <source src="/videos/Texas.MOV" type="video/quicktime">
+    </video>
+
+    <div class="service-hero-title" aria-hidden="true">TEXAS</div>
+  </div>
+</section>
+
 
   <main class="page-content">
     <section class="services" id="services">
