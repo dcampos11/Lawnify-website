@@ -1626,7 +1626,7 @@ body {
 
 
 
- <style>
+ 
 /* === Mobile nav cleanup (Services page) === */
 @media (max-width: 768px) {
   /* 1) Kill the bottom shadow/gradient on the extended menu */
@@ -1658,10 +1658,9 @@ body {
     padding-bottom: 0 !important;
   }
 }
-</style>
 
 
- <style>
+
+ 
   /* Services page: remove header/video bottom fade */
   .black-header::after { display: none !important; }
-</style>
