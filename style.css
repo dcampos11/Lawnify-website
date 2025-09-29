@@ -1664,3 +1664,15 @@ body {
  
   /* Services page: remove header/video bottom fade */
   .black-header::after { display: none !important; }
+
+
+/* Center multi-line hero text + use only Poppins */
+.service-hero-title{
+  text-align: center !important;
+  font-family: 'Poppins', system-ui, sans-serif !important; /* remove Satoshi */
+}
+
+/* Show forced line break only on mobile */
+@media (min-width: 769px){
+  .only-mobile{ display: none !important; }
+}
