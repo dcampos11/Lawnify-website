@@ -1038,6 +1038,14 @@ if (desktopMQ.matches || (track.scrollWidth <= track.clientWidth)) return;
 
 
 
+document.addEventListener('DOMContentLoaded', () => {
+  const logo = document.querySelector('.mobile-logo');
+  if (logo && !logo.closest('a')) {
+    logo.style.cursor = 'pointer';
+    logo.addEventListener('click', () => { window.location.href = '/'; });
+  }
+});
+
 
 
 </script>
@@ -1069,6 +1077,7 @@ if (desktopMQ.matches || (track.scrollWidth <= track.clientWidth)) return;
 
 </body>
 </html>
+
 
 
 
