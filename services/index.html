@@ -413,6 +413,20 @@ document.addEventListener('DOMContentLoaded', () => {
     reflow();
   }
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const logo = document.querySelector('.mobile-logo');
+  if (logo && !logo.closest('a')) {
+    logo.style.cursor = 'pointer';
+    logo.addEventListener('click', () => { window.location.href = '/'; });
+  }
+});
+
+
+
+
+ 
 </script>
 
 <!-- Feather Icons -->
