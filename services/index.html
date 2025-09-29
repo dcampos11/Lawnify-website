@@ -12,6 +12,41 @@
   <link rel="stylesheet" href="/style.css" />
 
  <style>
+/* === Mobile nav cleanup (Services page) === */
+@media (max-width: 768px) {
+  /* 1) Kill the bottom shadow/gradient on the extended menu */
+  .mobile-menu::after { 
+    display: none !important;
+  }
+
+  /* Ensure no stray drop shadow on the bar itself */
+  .mobile-nav,
+  .mobile-nav.compact,
+  .mobile-nav.scrolled,
+  .mobile-nav.scrolled.expanded {
+    box-shadow: none !important;
+  }
+
+  /* 2) Add a single divider line under the title bar when the menu is open */
+  .mobile-nav.expanded {
+    border-bottom: 1px solid rgba(255,255,255,0.12); /* good on black */
+  }
+
+  /* Avoid a double line: remove any border on the menu top edge */
+  .mobile-menu {
+    border-top: none !important;
+  }
+
+  /* Keep the page-title text *not* underlined (full-width divider handles it) */
+  .mobile-page-title {
+    border-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+}
+</style>
+
+
+ <style>
   /* Services page: remove header/video bottom fade */
   .black-header::after { display: none !important; }
 </style>
