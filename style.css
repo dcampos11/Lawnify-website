@@ -1678,6 +1678,6 @@ body {
 }
 
 @media (min-width: 769px) {
-  .top-nav.scrolled li a { color: #000 !important; }
+  .top-nav.scrolled li a { color: #fff !important; }
 }
 
