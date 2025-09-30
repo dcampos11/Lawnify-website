@@ -1681,3 +1681,13 @@ body {
   .top-nav.scrolled li a { color: #fff !important; }
 }
 
+/* Force white nav link text on desktop */
+@media (min-width: 769px) {
+  .top-nav li a,
+  .top-nav li a:visited {
+    color: #fff !important;
+  }
+  .top-nav.scrolled li a {
+    color: #fff !important;
+  }
+}
