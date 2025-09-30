@@ -1767,24 +1767,25 @@ body {
 @media (max-width: 768px) {
   /* When the menu is open, let the dropdown do the blurring */
   .mobile-nav.expanded {
-    background: transparent !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
+    /* background: transparent !important; */
+        background: rgba(0,0,0,0.5) !important;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     border-bottom: 1px solid rgba(255,255,255,0.12);
   }
 
   /* Hoist the dropdown out of the nav’s stacking context */
-  .mobile-menu {
-    position: fixed !important;   /* instead of absolute */
-    top: 50px !important;         /* sits right under the 50px bar */
+  /* .mobile-menu {
+    position: fixed !important; 
+    top: 50px !important;        
     left: 0; right: 0;
-    display: flex;                /* keep your layout when visible */
+    display: flex;             
     background: rgba(0,0,0,0.5) !important;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border-top: 1px solid rgba(255,255,255,0.08) !important;
-    z-index: 9998;                /* below the bar (which is 9999) */
-  }
+    z-index: 9998;         
+  } */
 
   /* Keep the bar translucent when closed */
   .mobile-nav:not(.expanded),
