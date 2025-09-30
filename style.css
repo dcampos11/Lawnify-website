@@ -833,11 +833,11 @@ body {
     /* box-shadow: 0 2px 8px rgba(42,157,143,0.3); */
   }
 
-  .mobile-menu {
+  /* .mobile-menu {
     display: none; position: absolute; top: 100%; left: 0; width: 100%;
     background: rgba(255,255,255,0.5); box-shadow: none; z-index: 1000;
     flex-direction: column;
-  }
+  } */
 
   .mobile-toggle:focus, .mobile-toggle:active { background: transparent; outline: none; }
 
@@ -1828,7 +1828,7 @@ body {
     flex-direction: column;
 
     background: rgba(0,0,0,0.5) !important;  /* translucent black */
-    backdrop-filter: blur(6px) !important;
+    backdrop-filter: blur(5px) !important;
     -webkit-backdrop-filter: blur(6px) !important;
 
     border-top: 1px solid rgba(255,255,255,0.08);
