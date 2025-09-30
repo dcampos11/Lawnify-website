@@ -1431,10 +1431,10 @@ body {
   .coming-2026 { color: #fff !important; }
 
   /* Slide-down mobile menu panel and its links: dark with white text */
-  .mobile-menu {
+  /* .mobile-menu {
     background: #000 !important;
     border-top: 1px solid rgba(255,255,255,0.08);
-  }
+  } */
   .mobile-menu .menu-item a,
   .menu-extra,
   .menu-extra .icon,
@@ -1730,3 +1730,34 @@ body {
     stroke: #fff !important;
   }
 }
+
+
+/* --- FINAL: Mobile bar + dropdown = 0.5 black + 5px blur --- */
+@media (max-width: 768px) {
+  /* Top bar */
+  .mobile-nav,
+  .mobile-nav.compact,
+  .mobile-nav.scrolled {
+    background: rgba(0,0,0,.5) !important;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    box-shadow: none !important;
+  }
+
+  /* Dropdown panel (the one when tapping the page title) */
+  .mobile-menu {
+    /* IMPORTANT: make it translucent so the blur has something to show */
+    background: rgba(0,0,0,.5) !important;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+
+    /* Positioning: keep it attached under the bar */
+    position: absolute !important;   /* stays under .mobile-nav */
+    top: 100% !important;            /* directly below the 50px bar */
+    left: 0; right: 0;
+
+    border-top: 1px solid rgba(255,255,255,0.08) !important;
+    z-index: 9998;
+  }
+}
+
