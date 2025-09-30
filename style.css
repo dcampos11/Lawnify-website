@@ -1840,3 +1840,50 @@ body {
     display: flex !important;      /* show when expanded */
   }
 }
+
+
+/* Group the logo + tagline and move them together (replaces logo’s old translate) */
+.brand-mark{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  transform: translateY(-80px);   /* matches your previous logo lift */
+}
+
+/* Cancel the old per-logo translate if it exists */
+.brand-mark .logo{
+  transform:none !important;
+}
+
+/* Tagline styles */
+.logo-tagline{
+  margin-top: 8px;
+  text-align:center;
+  color:#fff;
+  line-height:1.1;
+  font-family:'Poppins', sans-serif;
+}
+
+.logo-tagline .lt-top{
+  display:block;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-weight:600;
+  font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+  opacity: .95;
+}
+
+.logo-tagline .lt-bottom{
+  display:block;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  font-weight:700;
+  font-size: clamp(1.1rem, 3vw, 1.6rem);
+}
+
+/* Optional: slightly smaller on narrow phones */
+@media (max-width: 768px){
+  .brand-mark{ transform: translateY(-80px); } /* keep the same lift on mobile */
+  .logo-tagline{ margin-top: 6px; }
+}
+
