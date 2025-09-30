@@ -855,29 +855,29 @@
   }
 
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const nav       = document.querySelector('.top-nav');
-    const mobileNav = document.querySelector('.mobile-nav');
-    const links     = nav ? nav.querySelectorAll('li a') : [];
-    const maxFade   = 200;
-    const minShade  = 51;
+  // document.addEventListener('DOMContentLoaded', () => {
+  //   const nav       = document.querySelector('.top-nav');
+  //   const mobileNav = document.querySelector('.mobile-nav');
+  //   const links     = nav ? nav.querySelectorAll('li a') : [];
+  //   const maxFade   = 200;
+  //   const minShade  = 51;
 
-    if (!nav) return;
+  //   if (!nav) return;
 
-    window.addEventListener('scroll', () => {
-      const y   = window.scrollY;
-      const pct = Math.min(y / maxFade, 1);
+  //   window.addEventListener('scroll', () => {
+  //     const y   = window.scrollY;
+  //     const pct = Math.min(y / maxFade, 1);
 
-      nav.style.background     = `rgba(0,0,0,${pct})`;
-      nav.style.backdropFilter = `blur(${pct * 5}px)`;
+  //     nav.style.background     = `rgba(0,0,0,${pct})`;
+  //     nav.style.backdropFilter = `blur(${pct * 5}px)`;
 
-      const shade = Math.round(0 - pct * (0 - minShade));
-      const color = `rgb(${shade},${shade},${shade})`;
-      links.forEach(a => a.style.color = color);
+  //     const shade = Math.round(0 - pct * (0 - minShade));
+  //     const color = `rgb(${shade},${shade},${shade})`;
+  //     links.forEach(a => a.style.color = color);
 
-      nav.classList.toggle('scrolled', pct > 0);
-    });
-  });
+  //     nav.classList.toggle('scrolled', pct > 0);
+  //   });
+  // });
 
 
 
@@ -1077,6 +1077,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
 
 
 
