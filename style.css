@@ -42,7 +42,7 @@ html, body { height: 100%; margin: 0; padding: 0; }
     linear-gradient(to bottom, rgba(0, 122, 255, 0.05) 1px, transparent 1px);
   background-size: 40px 40px;
   background-repeat: repeat;
-  background-position: top left;
+  background-position:  left;
   z-index: 3;
 } */
 body {
@@ -118,7 +118,7 @@ body {
 .app-store-badge { height: 48px; }
 
 .footer p, .legal { color: #888; font-size: 14px; }
-.legal { margin-top: 10px; }
+.legal { margin-: 10px; }
 
 
 /* Full-bleed white band with the faint grid lines */
@@ -134,7 +134,7 @@ body {
     linear-gradient(to bottom, rgba(0,122,255,0.05) 1px, transparent 1px);
   background-size: 40px 40px;
   background-repeat: repeat;
-  background-position: top left;
+  background-position:  left;
 }
 
 
@@ -144,7 +144,7 @@ body {
    ========================================================================== */
 
 /* Base stacking so nav layers above hero masks */
-.top-nav, .mobile-nav { z-index: 2; }
+.-nav, .mobile-nav { z-index: 2; }
 
 
 /* ==========================================================================
@@ -153,21 +153,21 @@ body {
 
 .black-header {
   position: relative;
-  padding-top: 0;
+  padding-: 0;
   height: 100vh;
   width: 100vw;
   overflow: hidden;
 }
 
 .video-container {
-  position: absolute; top: 0; left: 0;
+  position: absolute; : 0; left: 0;
   width: 100%; height: 100%;
   z-index: 0;
  
 }
 
 .background-video {
-  position: absolute; top: 0; left: 0;
+  position: absolute; : 0; left: 0;
   width: 100%; height: 100%;
   object-fit: cover;
   opacity: 0;
@@ -201,7 +201,7 @@ body {
   color: #fff;
   font-size: clamp(1rem, 2.8vw, 1.25rem); */
   line-height: 1.2;
-  margin-top: 4px;
+  margin-: 4px;
   opacity: 0;
   animation: fadeInUp 1.5s ease-out forwards;
 
@@ -221,7 +221,7 @@ body {
 
   /* Temporary "COMING 2026" badge */
   .coming-2026 {
-    position: absolute; right: 20px; top: 50%;
+    position: absolute; right: 20px; : 50%;
     transform: translateY(-50%);
     font-family: 'Poppins', sans-serif;
     font-weight: 700; font-size: 14px;
@@ -941,7 +941,7 @@ body {
     max-width: 900px; margin: 0 auto; padding: 15px 0;
     display: flex; justify-content: center; gap: 60px; list-style: none;
   }
-  .top-nav.scrolled { background: rgba(0, 0, 0, 1.0); backdrop-filter: blur(5px); }
+  .top-nav.scrolled { background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(5px); }
 
   .top-nav li a {
        color: #000 !important;  text-decoration: none; font-size: 16px; font-weight: 500;
