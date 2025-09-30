@@ -222,6 +222,7 @@ body {
   /* Temporary "COMING 2026" badge */
   .coming-2026 {
     position: absolute; right: 20px; : 50%;
+          top: 50%;  
     transform: translateY(-50%);
     font-family: 'Poppins', sans-serif;
     font-weight: 700; font-size: 14px;
