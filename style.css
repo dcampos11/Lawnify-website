@@ -1700,3 +1700,34 @@ body {
     box-shadow: none !important;
   }
 }
+
+
+/* Mobile: make top bar + slide-down menu 50% opacity (like desktop) */
+@media (max-width: 768px) {
+  .mobile-nav,
+  .mobile-nav.compact,
+  .mobile-nav.scrolled,
+  .mobile-nav.scrolled.expanded {
+    background: rgba(0, 0, 0, 0.5) !important;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    box-shadow: none !important; /* keep it clean */
+  }
+
+  .mobile-menu {
+    background: rgba(0, 0, 0, 0.5) !important;
+    /* border-top: 1px solid rgba(255,255,255,0.08) !important; /* subtle divider */ */
+  }
+
+  /* keep text/icons legible on the semi-transparent background */
+  .mobile-menu .menu-item a,
+  .menu-extra,
+  .menu-extra .icon,
+  .meta-group .icon,
+  .mobile-page-title,
+  .mobile-toggle .toggle-icon {
+    color: #fff !important;
+    stroke: #fff !important;
+  }
+}
+
