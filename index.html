@@ -938,6 +938,7 @@ if (span) {
     const mobileMenu = document.getElementById('mobileMenu');
     const toggleBtn  = document.getElementById('mobileToggle');
     const titleBtn   = document.getElementById('mobilePageTitle');
+   const overlay    = document.getElementById('menuOverlay'); // ✅ new
 
     if (!mobileNav || !mobileMenu || !toggleBtn || !titleBtn) return;
 
@@ -946,6 +947,7 @@ if (span) {
       toggleBtn.classList.toggle('open', open);
       toggleBtn.setAttribute('aria-expanded', String(open));
       titleBtn.setAttribute('aria-expanded', String(open));
+         if (overlay) overlay.hidden = !open;    
     };
 
     const toggleMenu = (e) => {
@@ -965,7 +967,8 @@ if (span) {
         toggleMenu(e);
       }
     });
-
+  // ✅ Close when tapping overlay (now a real “outside click”)
+  if (overlay) overlay.addEventListener('click', () => setExpanded(false));
 
     document.addEventListener('click', (e) => {
       if (!mobileNav.contains(e.target)) setExpanded(false);
@@ -1137,6 +1140,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
 
 
 
