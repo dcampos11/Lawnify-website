@@ -1888,3 +1888,22 @@ body {
   .logo-tagline{ margin-top: 6px; }
 }
 
+/* Make the header overlay a single-cell grid so the logo stays perfectly centered */
+.overlay-content{
+  display: grid !important;
+  place-items: center;            /* centers both horizontally and vertically */
+  text-align: center;
+}
+
+/* Keep the "SMARTER LAWN CARE" stack pinned where you set it without affecting centering */
+.hero-lines{
+  position: absolute;
+  left: 0; right: 0;
+  /* you already set bottom in your CSS; keep that */
+}
+
+/* Make sure the logo itself can't “self-offset” */
+.logo{
+  display: block;
+  margin: 0 auto;                /* centers even if layout falls back */
+}
