@@ -1798,3 +1798,13 @@ body {
   }
 }
 
+@media (max-width: 768px) {
+  .menu-overlay {
+    position: fixed;
+    top: 50px;               /* below the 50px bar */
+    left: 0; right: 0; bottom: 0;
+    background: transparent; /* purely a click target, no visual change */
+    z-index: 9997;           /* under the dropdown (9998), above page */
+  }
+  .mobile-nav.expanded #menuOverlay { display: block; }
+}
