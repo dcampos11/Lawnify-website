@@ -1848,6 +1848,7 @@ body {
   flex-direction:column;
   align-items:center;
   transform: translateY(0px);   /* matches your previous logo lift */
+      gap: clamp(10px, 2.2vw, 28px);
 }
 
 /* Cancel the old per-logo translate if it exists */
