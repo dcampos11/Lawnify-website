@@ -1874,7 +1874,7 @@ body {
 
 
 
-  font-size: clamp(36px, 10vw, 128px);
+  font-size: clamp(30px, 5vw, 100px);
 }
 
 .logo-tagline .lt-bottom{
@@ -1883,7 +1883,7 @@ body {
   letter-spacing:.1em;
   font-weight:700;
   /* font-size: clamp(1.1rem, 3vw, 1.6rem); */
-       font-size: clamp(36px, 10vw, 128px);
+       font-size: clamp(30px, 5vw, 100px);
 }
 
 /* Optional: slightly smaller on narrow phones */
