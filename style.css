@@ -1816,3 +1816,27 @@ body {
   }
 }
 
+
+/* === FINAL FIX: Mobile dropdown blur === */
+@media (max-width: 768px) {
+  .mobile-menu {
+    position: fixed !important;   /* detach from .mobile-nav */
+    top: 50px !important;          /* exactly below the nav bar */
+    left: 0; right: 0;
+
+    display: none;                 /* hidden by default */
+    flex-direction: column;
+
+    background: rgba(0,0,0,0.5) !important;  /* translucent black */
+    backdrop-filter: blur(6px) !important;
+    -webkit-backdrop-filter: blur(6px) !important;
+
+    border-top: 1px solid rgba(255,255,255,0.08);
+    z-index: 1999;                 /* just under the nav (z=2000) */
+  }
+
+  .mobile-nav.expanded .mobile-menu {
+    display: flex !important;      /* show when expanded */
+  }
+}
+
