@@ -1868,18 +1868,22 @@ body {
 .logo-tagline .lt-top{
   display:block;
   text-transform:uppercase;
-  letter-spacing:.06em;
+  letter-spacing:.1em;
   font-weight:700;
-  font-size: clamp(1.1rem, 3vw, 1.6rem);
-  
+  /* font-size: clamp(1.1rem, 3vw, 1.6rem); */
+
+
+
+  font-size: clamp(36px, 10vw, 128px);
 }
 
 .logo-tagline .lt-bottom{
   display:block;
   text-transform:uppercase;
-  letter-spacing:.06em;
+  letter-spacing:.1em;
   font-weight:700;
-  font-size: clamp(1.1rem, 3vw, 1.6rem);
+  /* font-size: clamp(1.1rem, 3vw, 1.6rem); */
+       font-size: clamp(36px, 10vw, 128px);
 }
 
 /* Optional: slightly smaller on narrow phones */
