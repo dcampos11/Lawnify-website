@@ -1046,31 +1046,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-/* ===============================
-   2) Desktop top-nav fade on scroll
-   =============================== */
-const nav = document.querySelector('.top-nav');
-if (nav) {
-  const links   = nav.querySelectorAll('li a');
-  const maxFade = 200; // distance to fully opaque
-
-  // Ensure links are white initially
-  links.forEach(a => a.style.color = '#fff');
-
-  window.addEventListener('scroll', () => {
-    const y   = window.scrollY;
-    const pct = Math.min(y / maxFade, 1);
-
-    // Fade the nav background to BLACK as you scroll
-    nav.style.background     = `rgba(0,0,0,${pct})`;
-    nav.style.backdropFilter = `blur(${pct * 5}px)`;
-
-    // Keep links white throughout (remove any dynamic color logic)
-    // links.forEach(a => a.style.color = '#fff'); // already set above
-
-    nav.classList.toggle('scrolled', pct > 0);
-  }, { passive: true });
-}
 
 
 </script>
@@ -1102,6 +1077,7 @@ if (nav) {
 
 </body>
 </html>
+
 
 
 
