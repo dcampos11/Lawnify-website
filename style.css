@@ -1691,3 +1691,12 @@ body {
     color: #fff !important;
   }
 }
+
+
+/* Remove Lawnify green shadow under desktop top nav */
+@media (min-width: 769px) {
+  .top-nav,
+  .top-nav.scrolled {
+    box-shadow: none !important;
+  }
+}
