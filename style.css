@@ -1741,3 +1741,38 @@ body {
     will-change: backdrop-filter;                /* smoother on mobile GPUs */
   }
 }
+
+/* --- MOBILE FROSTED NAV + MENU (final override) --- */
+@media (max-width: 768px) {
+  /* Top bar: translucent + blur */
+  .mobile-nav,
+  .mobile-nav.compact,
+  .mobile-nav.scrolled {
+    background: rgba(0,0,0,.5) !important;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    box-shadow: none !important;
+  }
+
+  /* Dropdown panel: move out of the solid parent, make it blur, keep 0.5 opacity */
+  .mobile-menu {
+    position: fixed !important;     /* instead of absolute inside .mobile-nav */
+    top: 50px !important;           /* same height as your mobile bar */
+    left: 0; right: 0;
+    background: rgba(0,0,0,.5) !important;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-top: 1px solid rgba(255,255,255,0.08) !important;
+    z-index: 9998;                  /* beneath the bar (bar is 9999) */
+  }
+
+  /* Ensure links/icons stay white on the frosted background */
+  .mobile-menu .menu-item a,
+  .menu-extra,
+  .menu-extra .icon,
+  .meta-group .icon {
+    color: #fff !important;
+    stroke: #fff !important;
+  }
+}
+
