@@ -1435,6 +1435,7 @@ body {
     background: #000 !important;
     border-top: 1px solid rgba(255,255,255,0.08);
   } */
+     
   .mobile-menu .menu-item a,
   .menu-extra,
   .menu-extra .icon,
@@ -1716,7 +1717,7 @@ body {
 
   .mobile-menu {
     background: rgba(0, 0, 0, 0.5) !important;
-    /* border-top: 1px solid rgba(255,255,255,0.08) !important; /* subtle divider */ */
+    
   }
 
   /* keep text/icons legible on the semi-transparent background */
@@ -1758,6 +1759,41 @@ body {
 
     border-top: 1px solid rgba(255,255,255,0.08) !important;
     z-index: 9998;
+  }
+}
+
+
+/* --- Mobile: make the title-tap menu actually blur the page --- */
+@media (max-width: 768px) {
+  /* When the menu is open, let the dropdown do the blurring */
+  .mobile-nav.expanded {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+  }
+
+  /* Hoist the dropdown out of the nav’s stacking context */
+  .mobile-menu {
+    position: fixed !important;   /* instead of absolute */
+    top: 50px !important;         /* sits right under the 50px bar */
+    left: 0; right: 0;
+    display: flex;                /* keep your layout when visible */
+    background: rgba(0,0,0,0.5) !important;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-top: 1px solid rgba(255,255,255,0.08) !important;
+    z-index: 9998;                /* below the bar (which is 9999) */
+  }
+
+  /* Keep the bar translucent when closed */
+  .mobile-nav:not(.expanded),
+  .mobile-nav:not(.expanded).compact,
+  .mobile-nav:not(.expanded).scrolled {
+    background: rgba(0,0,0,0.5) !important;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    box-shadow: none !important;
   }
 }
 
