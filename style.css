@@ -270,7 +270,7 @@ body {
   max-width: 800px;
   margin: 3rem auto;
   padding: 2.5rem 2rem;
-  border-radius: 12px;
+  -radius: 12px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.08);
   text-align: left;
 }
@@ -291,7 +291,7 @@ body {
 
 .service-area-map .map-container {
   max-width: 1000px; margin: 0 auto;
-  border-radius: 16px; overflow: hidden;
+  -radius: 16px; overflow: hidden;
   box-shadow: 0 8px 24px rgba(0,0,0,0.1);
 }
 .service-area-map .map-container img { display: block; width: 100%; height: auto; }
@@ -338,7 +338,7 @@ body {
   filter:
     drop-shadow(0px 12px 24px rgba(0, 0, 0, 0.3))
     drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.2));
-  border-radius: 0;
+  -radius: 0;
   opacity: 0; transform: translateY(15px);
   transition: opacity 1.5s ease-out, transform 0.6s ease-out;
   will-change: opacity, transform, filter;
@@ -390,16 +390,16 @@ body {
 .testimonial-card.review-link {
   flex: 0 0 320px;
   max-width: 320px;
-  border-radius: 16px;
+  -radius: 16px;
   padding: 20px;
   display: flex; flex-direction: column; justify-content: space-between;
   text-align: left;
   background: rgba(42,157,143,0.05);
-  border: 2px solid #2A9D8F;
+  : 2px solid #2A9D8F;
 }
 .testimonial-card.you {
   background: rgba(242, 176, 30, 0.05);
-  border-color: #f2b01e;
+  -color: #f2b01e;
 }
 .app-store-badge-mini { width: 120px; }
 
@@ -426,7 +426,7 @@ body {
   justify-content: center;
   padding: 16px;                 /* a bit tighter than text cards */
   background: rgba(42,157,143,0.05);
-  border: 2px solid #2A9D8F;
+  : 2px solid #2A9D8F;
 }
 
 .testimonial-graphic {
@@ -467,11 +467,11 @@ body {
   color: #111;
 }
 
-.faq-item { border-top: 1px solid #ddd; }
-.faq-item:last-of-type { border-bottom: 1px solid #ddd; }
+.faq-item { -top: 1px solid #ddd; }
+.faq-item:last-of-type { -bottom: 1px solid #ddd; }
 
 .faq-question {
-  width: 100%; background: none; border: none;
+  width: 100%; background: none; : none;
   padding: 1rem 0;
   display: flex; justify-content: space-between; align-items: center;
   font-family: 'Poppins', sans-serif;
@@ -515,7 +515,7 @@ body {
 }
 
 .footer-contact {
-  padding-bottom: 20px; margin-bottom: 20px; border-bottom: 1px solid #ddd;
+  padding-bottom: 20px; margin-bottom: 20px; -bottom: 1px solid #ddd;
   width: 100%;
 }
 .footer-contact p {
@@ -543,7 +543,7 @@ body {
 .footer-legal .legal { color: #888; font-size: 14px; }
 
 .footer-quicklinks {
-  padding-bottom: 20px; margin-bottom: 20px; border-bottom: 1px solid #ddd;
+  padding-bottom: 20px; margin-bottom: 20px; -bottom: 1px solid #ddd;
   width: 100%;
 }
 
@@ -556,7 +556,7 @@ body {
 .quick-links a:hover { opacity: 0.7; }
 
 .footer-quicklinks, .footer-contact, .footer-legal { padding-top: 0; margin-top: 0; }
-.footer-quicklinks, .footer-contact { padding-bottom: 10px; margin-bottom: 10px; border-bottom: 1px solid #ddd; }
+.footer-quicklinks, .footer-contact { padding-bottom: 10px; margin-bottom: 10px; -bottom: 1px solid #ddd; }
 
 
 /* ==========================================================================
@@ -573,13 +573,13 @@ body {
 
 #animated-word {
   display: inline-block;
-  border-right: 2px solid white;
+  -right: 2px solid white;
   padding-left: 6px;
   animation: blinkCursor 1s infinite;
 }
 @keyframes blinkCursor {
-  0%, 49% { border-color: white; }
-  50%, 100% { border-color: transparent; }
+  0%, 49% { -color: white; }
+  50%, 100% { -color: transparent; }
 }
 
 .about, .store-badge-section, .feature .text { opacity: 0; transform: translateY(15px); }
@@ -634,7 +634,7 @@ body {
 .ph-left {
   position: relative;
   /* remove rounding/clip so the background can truly bleed */
-  border-radius: 0;
+  -radius: 0;
   overflow: visible;
   padding: 0; /* no inner padding so the image fills edge-to-edge */
 }
@@ -658,7 +658,7 @@ body {
 /* Single (non-scroller) phone image */
 .ph-hero-img {
   width: clamp(260px, 82vw, 560px);
-  height: auto; border-radius: 0;
+  height: auto; -radius: 0;
   filter:
     drop-shadow(0px 12px 24px rgba(0, 0, 0, 0.30))
     drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.20));
@@ -678,7 +678,7 @@ body {
 .btn-cta {
   position: relative; isolation: isolate;
   display: inline-flex; align-items: center; justify-content: center;
-  padding: 14px 22px; border-radius: 999px; border: 0;
+  padding: 14px 22px; -radius: 999px; : 0;
   text-decoration: none;
   font-family: 'Poppins', sans-serif; font-weight: 600;
   font-size: clamp(15px, 1.6vw, 18px); letter-spacing: 0.2px; color: #fff;
@@ -687,7 +687,7 @@ body {
   transition: transform 220ms ease, box-shadow 220ms ease, filter 220ms ease;
 }
 .btn-glow::before {
-  content: ""; position: absolute; inset: -8px; border-radius: inherit;
+  content: ""; position: absolute; inset: -8px; -radius: inherit;
   background: radial-gradient(120% 120% at 50% 50%,
     rgba(78,194,175,0.38) 0%,
     rgba(78,194,175,0.22) 40%,
@@ -696,7 +696,7 @@ body {
   animation: haloPulse 2.8s ease-in-out infinite;
 }
 .btn-glow::after {
-  content: ""; position: absolute; inset: 0; border-radius: inherit;
+  content: ""; position: absolute; inset: 0; -radius: inherit;
   box-shadow:
     0 0 14px rgba(255,255,255,0.20) inset,
     0 0 10px rgba(78,194,175,0.20) inset;
@@ -720,7 +720,7 @@ body {
   color: #fff !important;
 
   /* no card styling */
-  border-radius: 0 !important;
+  -radius: 0 !important;
   box-shadow: none !important;
 
   /* let the band height be controlled by the CSS var */
@@ -755,7 +755,7 @@ body {
 .phone-track::-webkit-scrollbar { display: none; }
 .phone-slide { scroll-snap-align: center; scroll-snap-stop: always; display: block; text-decoration: none; }
 .phone-slide img {
-  width: 100%; height: auto; display: block; border-radius: 0;
+  width: 100%; height: auto; display: block; -radius: 0;
   transform: translateY(12px); opacity: 0;
   transition: opacity 0.8s ease-out, transform 0.6s ease-out;
 }
@@ -844,7 +844,7 @@ body {
   .mobile-page-title {
     order: 0; display: inline-block;
     font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: 500; color: #333;
-    padding-bottom: 4px; border-bottom: 2px solid #4EC2AF; user-select: none;
+    padding-bottom: 4px; -bottom: 2px solid #4EC2AF; user-select: none;
     -webkit-tap-highlight-color: transparent; outline: none; -webkit-appearance: none; appearance: none;
   }
 
@@ -1644,9 +1644,9 @@ body {
   }
 
   /* 2) Add a single divider line under the title bar when the menu is open */
-  .mobile-nav.expanded {
-    border-bottom: 1px solid rgba(255,255,255,0.12); /* good on black */
-  }
+  /* .mobile-nav.expanded {
+    border-bottom: 1px solid rgba(255,255,255,0.12); 
+  } */
 
   /* Avoid a double line: remove any border on the menu top edge */
   .mobile-menu {
@@ -1771,7 +1771,7 @@ body {
         background: rgba(0,0,0,1) !important;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-    border-bottom: 1px solid rgba(255,255,255,0.12);
+    /* border-bottom: 1px solid rgba(255,255,255,0.12); */
   }
 
   /* Hoist the dropdown out of the nav’s stacking context */
@@ -1831,7 +1831,7 @@ body {
     backdrop-filter: blur(5px) !important;
     -webkit-backdrop-filter: blur(6px) !important;
 
-    border-top: 1px solid rgba(255,255,255,0.08);
+    /* border-top: 1px solid rgba(255,255,255,0.08); */
     z-index: 1999;                 /* just under the nav (z=2000) */
   }
 
