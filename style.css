@@ -942,7 +942,7 @@ body {
     max-width: 900px; margin: 0 auto; padding: 15px 0;
     display: flex; justify-content: center; gap: 60px; list-style: none;
   }
-  .top-nav.scrolled { background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(5px); }
+  .top-nav.scrolled { background: rgba(0, 0, 0, 1); backdrop-filter: blur(5px); }
 
   .top-nav li a {
        color: #000 !important;  text-decoration: none; font-size: 16px; font-weight: ;
