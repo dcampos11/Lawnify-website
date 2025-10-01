@@ -1890,6 +1890,20 @@ body {
 @media (max-width: 768px){
   .brand-mark{ transform: translateY(0px); } /* keep the same lift on mobile */
   .logo-tagline{ margin-top: 6px; }
+
+
+
+     .logo-tagline .lt-top{
+  display:block;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  font-weight:700;
+  font-size: clamp(1.5rem, 5vw, 2rem);
+
+
+
+  /* font-size: clamp(30px, 5vw, 100px); */
+}
 }
 
 /* Make the header overlay a single-cell grid so the logo stays perfectly centered */
