@@ -242,11 +242,11 @@ body {
     margin-left: auto;
     object-fit: contain;
     overflow: hidden;
-    opacity: 0;
-    transform: translateX(6px);
-    transition: opacity 280ms ease, transform 280ms ease;
+    /* opacity: 0;
+    transform: translateX(6px); */
+    /* transition: opacity 280ms ease, transform 280ms ease; */
   }
-  .mobile-nav.compact .mobile-logo { opacity: 1; transform: translateX(0); }
+  /* .mobile-nav.compact .mobile-logo { opacity: 1; transform: translateX(0); } */
 }
 
 
@@ -861,17 +861,17 @@ body {
     cursor: pointer;
     flex-shrink: 0;
     z-index: 1002;
-    transform: translateX(var(--toggle-shift, 0)) translateY(-6px);
+    /* transform: translateX(var(--toggle-shift, 0)) translateY(-6px);
     opacity: 0;
     pointer-events: none;
-    transition: transform 220ms ease, opacity 220ms ease;
+    transition: transform 220ms ease, opacity 220ms ease; */
     margin-left: 6px;
   }
-  .mobile-nav.compact .mobile-toggle {
+  /* .mobile-nav.compact .mobile-toggle {
     opacity: 1;
     pointer-events: auto;
     transform: translateX(var(--toggle-shift, 0)) translateY(0);
-  }
+  } */
 
   .toggle-icon { width: 30px; height: 30px; transition: transform 0.3s ease; color: black; }
   .mobile-toggle.open .toggle-icon { transform: rotate(180deg); }
