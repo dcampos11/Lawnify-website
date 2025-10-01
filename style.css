@@ -2071,5 +2071,85 @@ body {
 /* Currency hugs the number; keep space before '/month' */
 .plan-price { gap: 0; }                 /* was 6px */
 .plan-price-unit { margin-left: 6px; }  /* keep the breathing room */
+/* === Subtle glow for the plan slider thumb === */
+
+/* shared knobs */
+:root {
+  --thumb-size: 18px;                 /* matches your existing size */
+  --thumb-glow: rgba(42,157,143,0.35);/* Lawnify teal glow */
+  --thumb-ring: rgba(42,157,143,0.18);/* faint outer ring */
+}
+
+/* WebKit (Chrome/Safari/iOS) */
+.plan-slider input[type="range"]::-webkit-slider-thumb{
+  box-shadow:
+    0 0 0 6px var(--thumb-ring),       /* soft ring around the thumb */
+    0 6px 14px var(--thumb-glow);      /* drop glow */
+  transition: box-shadow 180ms ease, transform 180ms ease, filter 180ms ease;
+}
+
+.plan-slider input[type="range"]:hover::-webkit-slider-thumb,
+.plan-slider input[type="range"]:focus-visible::-webkit-slider-thumb,
+.plan-slider input[type="range"]:active::-webkit-slider-thumb{
+  box-shadow:
+    0 0 0 8px var(--thumb-ring),       /* slightly larger ring */
+    0 8px 20px var(--thumb-glow);
+  transform: translateY(-0.5px);       /* tiny lift on interaction */
+}
+
+/* Firefox */
+.plan-slider input[type="range"]::-moz-range-thumb{
+  box-shadow:
+    0 0 0 6px var(--thumb-ring),
+    0 6px 14px var(--thumb-glow);
+  transition: box-shadow 180ms ease, transform 180ms ease, filter 180ms ease;
+}
+.plan-slider input[type="range"]:hover::-moz-range-thumb,
+.plan-slider input[type="range"]:focus-visible::-moz-range-thumb,
+.plan-slider input[type="range"]:active::-moz-range-thumb{
+  box-shadow:
+    0 0 0 8px var(--thumb-ring),
+    0 8px 20px var(--thumb-glow);
+  transform: translateY(-0.5px);
+}
+
+/* Legacy Edge/IE fallback */
+.plan-slider input[type="range"]::-ms-thumb{
+  box-shadow:
+    0 0 0 6px var(--thumb-ring),
+    0 6px 14px var(--thumb-glow);
+}
+
+/* gentle breathing effect while focused (reduced motion respected) */
+@media (prefers-reduced-motion: no-preference){
+  @keyframes thumbPulse {
+    0%, 100% { box-shadow:
+      0 0 0 6px var(--thumb-ring),
+      0 6px 14px var(--thumb-glow);
+    }
+    50% { box-shadow:
+      0 0 0 7px var(--thumb-ring),
+      0 8px 20px var(--thumb-glow);
+    }
+  }
+  .plan-slider input[type="range"]:focus-visible::-webkit-slider-thumb{
+    animation: thumbPulse 2.2s ease-in-out infinite;
+  }
+  .plan-slider input[type="range"]:focus-visible::-moz-range-thumb{
+    animation: thumbPulse 2.2s ease-in-out infinite;
+  }
+}
+
+/* optional: ensure the thumb is perfectly centered on the 4px track
+   if you tweak --thumb-size later */
+.plan-slider input[type="range"]::-webkit-slider-thumb{
+  margin-top: calc(-(var(--thumb-size) - 4px) / 2);
+  width: var(--thumb-size);
+  height: var(--thumb-size);
+}
+.plan-slider input[type="range"]::-moz-range-thumb{
+  width: var(--thumb-size);
+  height: var(--thumb-size);
+}
 
 
