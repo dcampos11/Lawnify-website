@@ -2074,31 +2074,3 @@ body {
 .plan-price-unit { margin-left: 6px; }  /* keep the breathing room */
 
 
-
-/* === FIX: make white grid bands truly full-bleed and contiguous === */
-
-/* keep the full-bleed margins even if later classes set margin: 0 auto; */
-.section-paper {
-  width: 100vw;
-  margin-left: calc((100% - 100vw) / 2) !important;
-  margin-right: calc((100% - 100vw) / 2) !important;
-
-  /* prevent margin-collapsing from exposing the body's black background */
-  display: flow-root; /* establishes a new formatting context */
-  background-color: #fff; /* reinforce the white band */
-}
-
-/* never show black between two white bands */
-.section-paper { margin-block: 0 !important; }
-
-/* give the bands their spacing via padding (not outer margins) */
-.testimonials.section-paper { padding: 60px 20px !important; }
-.faq.section-paper         { padding: 60px 20px !important; }
-
-/* desktop rule currently reintroduces a top/bottom margin on FAQ – kill it */
-@media (min-width: 769px) {
-  .faq.section-paper { margin: 0 !important; }
-}
-
-/* optional: if any other .section-paper gets margin later, neutralize it */
-.section-paper + .section-paper { margin-top: 0 !important; }
