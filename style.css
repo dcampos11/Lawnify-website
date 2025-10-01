@@ -1094,7 +1094,7 @@ body {
   gap: 6px;
   margin: 6px 0 4px;
   color: #2A9D8F;             /* Lawnify green */
-  font-weight: 600;
+  font-weight: 500;
 }
 .plan-price-currency { font-size: clamp(1.2rem, 3vw, 1.8rem); }
 .plan-price-amount   { font-size: clamp(1.2rem, 3vw, 1.8rem); }
