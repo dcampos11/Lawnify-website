@@ -2031,3 +2031,20 @@ body {
   cursor: pointer;
   margin-top: 0; /* not used by -ms- */
 }
+
+/* Ensure label and slider stack (not side-by-side) inside .plan-grid on desktop */
+.plan-grid .plan-price-note,
+.plan-grid .plan-slider{
+  grid-column: 1 / -1;   /* take the full row */
+}
+
+/* (optional) center the label and tighten spacing */
+.plan-grid .plan-price-note{
+  text-align: center;
+  margin-top: 6px;
+}
+
+.plan-grid .plan-slider{
+  margin-top: 2px;
+}
+
