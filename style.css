@@ -2068,5 +2068,8 @@ body {
 }
 
 }
+/* Currency hugs the number; keep space before '/month' */
+.plan-price { gap: 0; }                 /* was 6px */
+.plan-price-unit { margin-left: 6px; }  /* keep the breathing room */
 
 
