@@ -2055,11 +2055,11 @@ body {
 /* (optional) center the label and tighten spacing */
 .plan-grid .plan-price-note{
   text-align: center;
-  margin-top: 6px;
+  /* margin-top: 6px; */
 }
-
+/* 
 .plan-grid .plan-slider{
   margin-top: 2px;
-}
+} */
 
 
