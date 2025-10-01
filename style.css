@@ -2048,3 +2048,27 @@ body {
   margin-top: 2px;
 }
 
+/* Consistent vertical rhythm for the per-visit slider block */
+:root{
+  --plan-slider-gap: 14px;  /* tweak to taste */
+}
+
+/* Label just under the last card */
+.plan-grid .plan-price-note{
+  margin-top: 8px;                 /* where it currently sits */
+  margin-bottom: var(--plan-slider-gap);
+}
+
+/* Slider stack: input then readout, same breathing room */
+.plan-grid .plan-slider{
+  display: grid;
+  gap: var(--plan-slider-gap);
+}
+
+/* Ensure no extra margins collapse the spacing */
+.plan-grid .plan-slider-readout{
+  margin: 0;
+  line-height: 1.25;
+}
+
+
