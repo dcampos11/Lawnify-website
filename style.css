@@ -1062,6 +1062,7 @@ body {
 }
 
 .plan-card {
+     font-family: 'Poppins', sans-serif;   /* ← add this line */
   background: linear-gradient(180deg, #161616 0%, #0f0f0f 100%);
   border: 1px solid rgba(255,255,255,0.06);
   border-radius: 22px;
