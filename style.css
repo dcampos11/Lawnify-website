@@ -151,7 +151,7 @@ body {
    4) HOME PAGE – Black Header Hero, Video, Overlay, Capsule & Hero Text
    ========================================================================== */
 
-.black-header {
+
   position: relative;
   padding-: 0;
   height: 0vh;
@@ -1232,7 +1232,7 @@ body {
 } */ 
 
 /* Smooth black fade at the bottom of the header */
-.black-header {
+
   position: relative;
   isolation: isolate; /* creates a clean stacking context */
 }
@@ -1340,7 +1340,7 @@ body {
 }
 @media (max-width: 768px) {
   .black-header {
-    height: calc(0svh); /* ← bump this number (e.g., 40–120) */
+    height: calc(50svh); /* ← bump this number (e.g., 40–120) */
   }
 }
 
