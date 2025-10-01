@@ -2046,6 +2046,11 @@ body {
   margin-top: 0; /* not used by -ms- */
 }
 
+
+
+
+@media (min-width: 769px) {
+
 /* Ensure label and slider stack (not side-by-side) inside .plan-grid on desktop */
 .plan-grid .plan-price-note,
 .plan-grid .plan-slider{
@@ -2055,11 +2060,13 @@ body {
 /* (optional) center the label and tighten spacing */
 .plan-grid .plan-price-note{
   text-align: center;
-  /* margin-top: 6px; */
+  margin-top: 6px;
 }
-/* 
+
 .plan-grid .plan-slider{
   margin-top: 2px;
-} */
+}
+
+}
 
 
