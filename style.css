@@ -1340,7 +1340,7 @@ body {
 }
 @media (max-width: 768px) {
   .black-header {
-    height: calc(100svh + 180px); /* ← bump this number (e.g., 40–120) */
+    height: calc(0svh); /* ← bump this number (e.g., 40–120) */
   }
 }
 
