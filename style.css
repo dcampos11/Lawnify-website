@@ -1096,8 +1096,8 @@ body {
   color: #2A9D8F;             /* Lawnify green */
   font-weight: 600;
 }
-.plan-price-currency { font-size: clamp(1.4rem, 3vw, 1.8rem); }
-.plan-price-amount   { font-size: clamp(1.4rem, 3vw, 1.8rem); }
+.plan-price-currency { font-size: clamp(1.0rem, 3vw, 1.8rem); }
+.plan-price-amount   { font-size: clamp(1.0rem, 3vw, 1.8rem); }
 .plan-price-unit     { color: #31b29c; font-size: clamp(1rem, 2.2vw, 1.2rem); }
 
 .plan-features {
