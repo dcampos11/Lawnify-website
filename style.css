@@ -2047,3 +2047,7 @@ body {
 .plan-grid .plan-slider{
   margin-top: 2px;
 }
+
+.plan-grid .plan-slider-readout{
+     margin-top: 12px;
+}
