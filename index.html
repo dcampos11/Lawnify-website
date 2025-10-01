@@ -1146,6 +1146,27 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+ 
+document.addEventListener('DOMContentLoaded', () => {
+  const range = document.getElementById('visitPriceRange');
+  const out   = document.getElementById('visitPriceValue');
+
+  if (!range || !out) return;
+
+  const update = () => {
+    const val = Number(range.value);
+    out.textContent = `$${val}`;
+
+    // Optional: set a CSS var so WebKit track can show a filled gradient
+    const pct = ((val - Number(range.min)) / (Number(range.max) - Number(range.min))) * 100;
+    range.style.setProperty('--_pct', `${pct}%`);
+  };
+
+  range.addEventListener('input', update);
+  update(); // set initial readout
+});
+
+
 
 </script>
 
@@ -1176,6 +1197,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
 
 
 
