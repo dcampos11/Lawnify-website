@@ -951,24 +951,68 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
  
+// document.addEventListener('DOMContentLoaded', () => {
+//   const range = document.getElementById('visitPriceRange');
+//   const out   = document.getElementById('visitPriceValue');
+
+//   if (!range || !out) return;
+
+//   const update = () => {
+//     const val = Number(range.value);
+//     out.textContent = `$${val}`;
+
+//     // Optional: set a CSS var so WebKit track can show a filled gradient
+//     const pct = ((val - Number(range.min)) / (Number(range.max) - Number(range.min))) * 100;
+//     range.style.setProperty('--_pct', `${pct}%`);
+//   };
+
+//   range.addEventListener('input', update);
+//   update(); // set initial readout
+// });
+
+
+  <script>
 document.addEventListener('DOMContentLoaded', () => {
   const range = document.getElementById('visitPriceRange');
   const out   = document.getElementById('visitPriceValue');
 
   if (!range || !out) return;
 
-  const update = () => {
-    const val = Number(range.value);
-    out.textContent = `$${val}`;
-
-    // Optional: set a CSS var so WebKit track can show a filled gradient
-    const pct = ((val - Number(range.min)) / (Number(range.max) - Number(range.min))) * 100;
-    range.style.setProperty('--_pct', `${pct}%`);
+  // Find all three plan cards and determine visits/year by their titles
+  const planCards = Array.from(document.querySelectorAll('.plan-grid .plan-card'));
+  const visitsFor = (card) => {
+    const title = (card.querySelector('.plan-title')?.textContent || '').trim().toLowerCase();
+    if (title.startsWith('regular'))  return 12;
+    if (title.startsWith('complete')) return 21;
+    if (title.startsWith('premium'))  return 39;
+    return 0;
   };
 
+  function updatePrices(perVisit) {
+    planCards.forEach((card) => {
+      const visits = visitsFor(card);
+      const perMonth = Math.round((perVisit * visits) / 12);
+      const amtEl = card.querySelector('.plan-price-amount');
+      if (amtEl) amtEl.textContent = Number.isFinite(perMonth) ? perMonth.toLocaleString() : '—';
+    });
+  }
+
+  function update() {
+    const val = Number(range.value);
+    out.textContent = `$${val}`; // "$75 per visit" readout already in your markup
+
+    // Fill percentage for the custom track
+    const pct = ((val - Number(range.min)) / (Number(range.max) - Number(range.min))) * 100;
+    range.style.setProperty('--_pct', `${pct}%`);
+
+    // Update all plan cards
+    updatePrices(val);
+  }
+
   range.addEventListener('input', update);
-  update(); // set initial readout
+  update(); // initial sync so cards aren’t "—" on load
 });
+</script>
 
 
 
@@ -1001,6 +1045,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
 
 
 
