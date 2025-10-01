@@ -154,7 +154,7 @@ body {
 .black-header {
   position: relative;
   padding-: 0;
-  height: 50vh;
+  height: 40vh;
   width: 100vw;
   overflow: hidden;
 }
@@ -1340,7 +1340,7 @@ body {
 }
 @media (max-width: 768px) {
   .black-header {
-    height: calc(50svh); /* ← bump this number (e.g., 40–120) */
+    height: calc(40svh); /* ← bump this number (e.g., 40–120) */
   }
 }
 
