@@ -1912,18 +1912,37 @@ body {
   margin: 0 auto;                /* centers even if layout falls back */
 }
 
-/* --- Per-visit slider inside Premium card --- */
+
+/* --- Slider: unified look desktop & mobile, perfectly centered thumb --- */
 .plan-price-note{
-  margin-top: 6px;
+  /* match STEP label styling */
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.7);
+  margin-top: 10px;
   margin-bottom: 8px;
-  font-size: 0.95rem;
-  color: rgba(255,255,255,0.8);
 }
 
+/* Constrain slider width a bit (esp. on mobile) and center it */
 .plan-slider{
   display: grid;
   gap: 10px;
   align-items: center;
+  width: 100%;
+  max-width: 560px;          /* keeps it narrower on larger screens */
+  margin-inline: auto;       /* centers under the grid */
+  padding-inline: 10px;      /* small visual breathing room */
+}
+
+/* Phone: reduce width more so it doesn't run edge-to-edge */
+@media (max-width: 768px){
+  .plan-slider{
+    max-width: 86vw;         /* inset on small screens */
+    padding-inline: 6px;
+  }
 }
 
 .plan-slider-readout{
@@ -1933,7 +1952,7 @@ body {
   font-size: 1rem;
 }
 
-/* Range input styling (dark card-friendly) */
+/* Base track */
 .plan-slider input[type="range"]{
   -webkit-appearance: none;
   appearance: none;
@@ -1944,28 +1963,71 @@ body {
   outline: none;
 }
 
+/* ---- WebKit (Chrome, Safari, iOS) ---- */
+.plan-slider input[type="range"]::-webkit-slider-runnable-track{
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(to right, #2A9D8F 0 var(--_pct, 0%), rgba(255,255,255,0.15) 0);
+}
+
+/* Center the thumb: margin-top = -(thumb - track)/2 = -(18-4)/2 = -7px */
 .plan-slider input[type="range"]::-webkit-slider-thumb{
   -webkit-appearance: none;
   appearance: none;
-  width: 18px; height: 18px; border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
   background: #2A9D8F;
   border: 2px solid rgba(255,255,255,0.2);
   box-shadow: 0 2px 6px rgba(0,0,0,0.35);
   cursor: pointer;
-}
-.plan-slider input[type="range"]::-moz-range-thumb{
-  width: 18px; height: 18px; border-radius: 50%;
-  background: #2A9D8F;
-  border: 2px solid rgba(255,255,255,0.2);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.35);
-  cursor: pointer;
-}
-.plan-slider input[type="range"]::-moz-range-track{
-  height: 4px; background: rgba(255,255,255,0.15); border-radius: 999px;
+  margin-top: -7px; /* <-- keeps the circle perfectly centered on the 4px track */
 }
 
-/* Optional: make the filled portion ahead of the thumb subtly teal on WebKit */
-.plan-slider input[type="range"]::-webkit-slider-runnable-track{
-  height: 4px; border-radius: 999px;
-  background: linear-gradient(to right, #2A9D8F 0 var(--_pct, 0%), rgba(255,255,255,0.15) 0);
+/* ---- Firefox ---- */
+/* Track (unfilled portion) */
+.plan-slider input[type="range"]::-moz-range-track{
+  height: 4px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 999px;
+}
+/* Filled portion (left of the thumb) */
+.plan-slider input[type="range"]::-moz-range-progress{
+  height: 4px;
+  background: #2A9D8F;
+  border-radius: 999px;
+}
+/* Thumb */
+.plan-slider input[type="range"]::-moz-range-thumb{
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #2A9D8F;
+  border: 2px solid rgba(255,255,255,0.2);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+  cursor: pointer;
+}
+
+/* Optional (Windows High-Contrast / old Edge fallback) */
+.plan-slider input[type="range"]::-ms-track{
+  height: 4px;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+.plan-slider input[type="range"]::-ms-fill-lower{
+  background: #2A9D8F;
+  border-radius: 999px;
+}
+.plan-slider input[type="range"]::-ms-fill-upper{
+  background: rgba(255,255,255,0.15);
+  border-radius: 999px;
+}
+.plan-slider input[type="range"]::-ms-thumb{
+  width: 18px; height: 18px; border-radius: 50%;
+  background: #2A9D8F;
+  border: 2px solid rgba(255,255,255,0.2);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+  cursor: pointer;
+  margin-top: 0; /* not used by -ms- */
 }
