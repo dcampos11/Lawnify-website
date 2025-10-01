@@ -1321,7 +1321,7 @@ body {
   content: "";
   position: absolute;
   left: -28px;                 /* nudge outside the card on the left */
-  bottom: -28px;               /* nudge outside the card on the bottom */
+  bottom: -35px;               /* nudge outside the card on the bottom */
   width: 420px;
   height: 420px;
   pointer-events: none;
