@@ -1844,26 +1844,50 @@ body {
 
 
 /* Group the logo + tagline and move them together (replaces logo’s old translate) */
-.brand-mark{
+/* .brand-mark{
   display:flex;
   flex-direction:column;
   align-items:center;
-  transform: translateY(0px);   /* matches your previous logo lift */
+  transform: translateY(0px);  
       gap: clamp(10px, 2.2vw, 28px);
+} */
+
+
+.brand-mark{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;     /* ⟵ left edge, not centered */
+  gap: clamp(10px, 2.2vw, 28px);
+  transform: translateY(0);
 }
 
+
 /* Cancel the old per-logo translate if it exists */
-.brand-mark .logo{
+/* .brand-mark .logo{
   transform:none !important;
+} */
+
+/* Ensure any previous centering on the logo itself doesn’t fight us */
+.brand-mark .logo{
+  transform: none !important;
+  margin: 0;                   /* no auto-centering */
 }
 
 /* Tagline styles */
-.logo-tagline{
+/* .logo-tagline{
   margin-top: 8px;
   text-align:center;
   color:#fff;
   line-height:1.1;
   font-family:'Poppins', sans-serif;
+} */
+
+.logo-tagline{
+  margin-top: 8px;
+  text-align: left;            /* ⟵ key change */
+  color: #fff;
+  line-height: 1.1;
+  font-family: 'Poppins', sans-serif;
 }
 
 .logo-tagline .lt-top{
@@ -1889,7 +1913,7 @@ body {
 
 /* Optional: slightly smaller on narrow phones */
 @media (max-width: 768px){
-  .brand-mark{ transform: translateY(0px); } /* keep the same lift on mobile */
+  .brand-mark{ transform: translateY(0px); } 
   .logo-tagline{ margin-top: 6px; }
 
 
@@ -1908,11 +1932,23 @@ body {
 }
 
 /* Make the header overlay a single-cell grid so the logo stays perfectly centered */
-.overlay-content{
+/* .overlay-content{
   display: grid !important;
-  place-items: center;            /* centers both horizontally and vertically */
+  place-items: center;      
   text-align: center;
+} */
+
+.overlay-content{
+  /* previously: place-items:center; text-align:center; */
+  display: grid !important;
+  align-items: center;         /* vertical center */
+  justify-items: start;        /* ⟵ left align children */
+  text-align: left;            /* ⟵ left-align text inside */
+  padding-left: clamp(16px, 6vw, 72px); /* nice left inset on all screens */
+  z-index: 8;
+  background-color: rgba(0,0,0,1.0);
 }
+
 
 /* Keep the "SMARTER LAWN CARE" stack pinned where you set it without affecting centering */
 .hero-lines{
